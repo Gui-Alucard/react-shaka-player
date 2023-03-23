@@ -1,19 +1,31 @@
 name: sbt-videos-web-player
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: 🏗 Setup repo
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v2
         with:
           node-version: 16
-      - run: npm ci
-      - run: npm test
+          cache: yarn
+
+      - name: 📦 Install dependencies
+        run: yarn install
+
+      - name: 🧪 Execute tests
+        run: yarn test
+
+      - name: 💚 Build pkg
+        run: yarn build
 
   publish-gpr:
     needs: build
