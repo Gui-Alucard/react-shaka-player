@@ -43,6 +43,7 @@ jobs:
           scope: '@sbt-lab'
       - run: yarn install --frozen-lockfile
       - run: yarn build
-      - run: yarn publish --access restricted
+      - run: |
+          yarn publish --access restricted
         env:
           NODE_AUTH_TOKEN: ${{secrets.MARTE_GITHUB_TOKEN}}
