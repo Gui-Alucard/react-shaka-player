@@ -25,11 +25,11 @@ Nos esforçamos para manter a biblioteca leve, simples e livre de outras depende
 Use the package manager [yarn](https://classic.yarnpkg.com/en/) or [npm](https://www.npmjs.com/) to install `sbt-videos-web-player`.
 
 ```bash
-yarn add sbt-videos-web-player
+yarn add @sbt-lab/sbt-videos-web-player
 
 or
 
-npm install sbt-videos-web-player
+npm install @sbt-lab/sbt-videos-web-player
 ```
 
 ## Usage
@@ -37,8 +37,8 @@ npm install sbt-videos-web-player
 ```javascript
 // import the css. Now we have custom ui.css
 // NextJs has this css import at the _app
-import 'sbt-videos-web-player/dist/ui.css';
-import { ReactPlayer } from 'sbt-videos-web-player';
+import '@sbt-lab/sbt-videos-web-player/dist/ui.css';
+import { ReactPlayer } from '@sbt-lab/sbt-videos-web-player';
 
 function App() {
   return <ReactPlayer autoPlay={true} srcManifest={'https://yourvideohere.mpd'} />;
@@ -48,8 +48,8 @@ function App() {
 ## Manual Handle Usage
 
 ```javascript
-import 'sbt-videos-web-player/dist/ui.css';
-import { ReactPlayer } from 'sbt-videos-web-player';
+import '@sbt-lab/sbt-videos-web-player/dist/ui.css';
+import { ReactPlayer } from '@sbt-lab/sbt-videos-web-player';
 
 function App() {
   let [mainPlayer, setMainPlayer] = useState({});
@@ -77,6 +77,7 @@ function App() {
 ```
 
 ---
+
 ## Library support matrix
 
 |   Library    | DASH  |  HLS  | WORKING |
@@ -88,6 +89,7 @@ function App() {
 |    Svelt     |   -   |   -   |    -    |
 
 ---
+
 ## Props
 
 This is main props for the components:
