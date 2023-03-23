@@ -18,7 +18,7 @@
   },
   "publishConfig": {
     "access": "restricted",
-    "registry": "https://npm.pkg.github.com/@sbt-lab",
+    "@sbt-lab:registry": "https://npm.pkg.github.com/@sbt-lab",
     "name": "@sbt-lab/sbt-videos-web-player"
   },
   "author": "g-silva-oliveira <g.silva.oliveira@accenture.com> <guilhermeanv7822@gmail.com>",
