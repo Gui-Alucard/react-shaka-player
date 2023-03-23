@@ -17,11 +17,12 @@
     "test": "jest"
   },
   "publishConfig": {
+    "access": "restricted",
     "@g-silva-oliveira:registry": "https://npm.pkg.github.com"
   },
   "author": "g-silva-oliveira <g.silva.oliveira@accenture.com> <guilhermeanv7822@gmail.com>",
   "license": "SBT",
-  "private": true,
+  "private": false,
   "repository": "https://github.com/sbt-lab/sbt-videos-web-player",
   "homepage": "https://www.sbt.com.br/",
   "bugs": "https://github.com/sbt-lab/sbt-videos-web-player/issues",
