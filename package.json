@@ -1,9 +1,9 @@
 {
   "name": "@sbt-lab/sbt-videos-web-player",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A component library to customize media player for Brazilian Television System (SBT).",
   "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/"
@@ -22,7 +22,7 @@
     "name": "@sbt-lab/sbt-videos-web-player"
   },
   "author": "g-silva-oliveira <g.silva.oliveira@accenture.com> <guilhermeanv7822@gmail.com>",
-  "license": "SBT",
+  "license": "SEE LICENSE IN <LICENSE>",
   "private": false,
   "repository": "https://github.com/sbt-lab/sbt-videos-web-player",
   "homepage": "https://www.sbt.com.br/",

@@ -44,9 +44,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@sbt-lab'
       - run: yarn install --frozen-lockfile
-      - run: |
-          yarn build
-      - run: |
-          yarn publish
+      - run: yarn build
+      - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.MARTE_GITHUB_TOKEN }}

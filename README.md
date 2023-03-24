@@ -1,7 +1,7 @@
 <h2 align="center">
   <a href="https://www.sbt.com.br/" title="SBT Sistema Brasileiro de Televisão">
     <img
-      src="public/assets/sbt-logo.png"
+      src="https://raw.githubusercontent.com/sbt-lab/sbt-videos-web-player/main/public/assets/sbt-logo.png?token=GHSAT0AAAAAACAQFC7OLRD5B2TWETKEKADGZA5VEVA"
       style="display: block; margin-left: auto; margin-right: auto; width: 100px"
     />
   </a>
@@ -22,14 +22,18 @@ Nos esforçamos para manter a biblioteca leve, simples e livre de outras depende
 
 ## Installation
 
-Use the package manager [yarn](https://classic.yarnpkg.com/en/) or [npm](https://www.npmjs.com/) to install `sbt-videos-web-player`.
+Use the package manager [npm](https://www.npmjs.com/) or via package.json to install `sbt-videos-web-player`.
+
+🖥️ Install from the command line:
 
 ```bash
-yarn add @sbt-lab/sbt-videos-web-player
+npm install @sbt-lab/sbt-videos-web-player@1.0.0
+```
 
-or
+📝 Install via package.json
 
-npm install @sbt-lab/sbt-videos-web-player
+```json
+"@sbt-lab/sbt-videos-web-player": "1.0.0"
 ```
 
 ## Usage
@@ -140,4 +144,4 @@ Please make sure to update tests as appropriate.
 
 ## License
 
-[SBT](LICENSE)
+[SBT](https://raw.githubusercontent.com/sbt-lab/sbt-videos-web-player/main/LICENSE?token=GHSAT0AAAAAACAQFC7PLM566LM44VBXB7BOZA5VFEQ)
