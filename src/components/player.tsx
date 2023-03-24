@@ -41,6 +41,7 @@ const ReactPlayer = (props: IPlayerProps) => {
         ref={videoRef}
         className={props.playerClassName}
         style={style}
+        autoPlay={newProps.autoPlay}
         {...newProps}
       />
     </div>
