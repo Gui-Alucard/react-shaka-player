@@ -1,8 +1,8 @@
 <h2 align="center">
   <a href="https://www.sbt.com.br/" title="SBT Sistema Brasileiro de Televisão">
     <img
-      src="https://raw.githubusercontent.com/sbt-lab/sbt-videos-web-player/main/public/assets/sbt-logo.png?token=GHSAT0AAAAAACAQFC7OLRD5B2TWETKEKADGZA5VEVA"
-      style="display: block; margin-left: auto; margin-right: auto; width: 100px"
+      src="https://www.sbt.com.br/assets/images/logo-sbt.webp"
+      style="display: block; margin-left: auto; margin-right: auto; width: 80px"
     />
   </a>
   <b>Sbt Videos Web Player</b>
@@ -45,7 +45,7 @@ import '@sbt-lab/sbt-videos-web-player/dist/ui.css';
 import { ReactPlayer } from '@sbt-lab/sbt-videos-web-player';
 
 function App() {
-  return <ReactPlayer autoPlay={true} srcManifest={'https://yourvideohere.mpd'} />;
+  return <ReactPlayer autoPlay={true} src={'https://yourvideohere.mpd'} />;
 }
 ```
 
