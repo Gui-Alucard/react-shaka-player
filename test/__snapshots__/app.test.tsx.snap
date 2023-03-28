@@ -6,9 +6,10 @@ exports[`Player Should render container className and playerClassName container 
 
 exports[`Player Should render correctly 1`] = `
 <div
-  className="mk-theme"
+  className="sbt-default"
   style={
     {
+      "height": "100%",
       "maxWidth": "100%",
       "width": "100%",
     }
@@ -17,6 +18,7 @@ exports[`Player Should render correctly 1`] = `
   <video
     style={
       {
+        "height": "100%",
         "maxWidth": "100%",
         "width": "100%",
       }

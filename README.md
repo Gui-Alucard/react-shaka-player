@@ -20,23 +20,27 @@ Nos esforçamos para manter a biblioteca leve, simples e livre de outras depende
 [dash]: https://dashif.org/
 [hls]: https://developer.apple.com/streaming/
 
-## Installation
+## Instalação
 
-Use the package manager [npm](https://www.npmjs.com/) or via package.json to install `sbt-videos-web-player`.
+Use o gerenciador de pacotes [npm](https://www.npmjs.com/) / [yarn](https://yarnpkg.com/) ou via package.json para instalar o `sbt-videos-web-player`.
 
-🖥️ Install from the command line:
+🖥️ Instalação a partir de linha de comando:
 
 ```bash
-npm install @sbt-lab/sbt-videos-web-player@1.0.0
+yarn add @sbt-lab/sbt-videos-web-player@x.x.x
+
+or
+
+npm install @sbt-lab/sbt-videos-web-player@x.x.x
 ```
 
-📝 Install via package.json
+📝 Instalação via package.json
 
 ```json
-"@sbt-lab/sbt-videos-web-player": "1.0.0"
+"@sbt-lab/sbt-videos-web-player": "x.x.x"
 ```
 
-## Usage
+## Modo de uso
 
 ```javascript
 // import the css. Now we have custom ui.css
@@ -49,7 +53,7 @@ function App() {
 }
 ```
 
-## Manual Handle Usage
+## Uso manual do .load
 
 ```javascript
 import '@sbt-lab/sbt-videos-web-player/dist/ui.css';
@@ -82,7 +86,7 @@ function App() {
 
 ---
 
-## Library support matrix
+## Suporte matrix do pacote
 
 |   Library    | DASH  |  HLS  | WORKING |
 | :----------: | :---: | :---: | :-----: |
@@ -96,7 +100,7 @@ function App() {
 
 ## Props
 
-This is main props for the components:
+Essas são as props principais do componente:
 
 | Props          | Optional | Description                                                                                                                                                                                                                       | Type                         |
 | -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
@@ -124,24 +128,25 @@ This is main props for the components:
 
 ---
 
-## Documentation & Important Links
+## Documentação e Links importantes
 
-- [GitHub Repository](https://github.com/sbt-lab/sbt-videos-web-player)
+- [Shaka Repository](https://github.com/shaka-project/shaka-player)
 - [Shaka Demo](https://shaka-player-demo.appspot.com)
 - [Shaka API documentation](https://shaka-player-demo.appspot.com/docs/api/index.html)
 - [Shaka Tutorials](https://shaka-player-demo.appspot.com/docs/api/tutorial-welcome.html)
+- [Shaka CSS - ClassNames](https://github.com/shaka-project/shaka-player/tree/main/ui/less)
 - Problemas e Bugs [Issues](https://github.com/sbt-lab/sbt-videos-web-player/issues)
 
 ---
 
-## Contributing
+## Contribuição
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests são bem vindos. Para mudanças mais complexas, por gentileza abra uma issue primeiro para discutirmos a melhor forma de realizar a alteração.
 
-Please make sure to update tests as appropriate.
+Por favor, garanta que as mudanças seja acompanhadas de testes apropriadamente.
 
 ---
 
-## License
+## Licença
 
 [SBT](https://raw.githubusercontent.com/sbt-lab/sbt-videos-web-player/main/LICENSE?token=GHSAT0AAAAAACAQFC7PLM566LM44VBXB7BOZA5VFEQ)

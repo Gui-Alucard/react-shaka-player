@@ -13,6 +13,7 @@ const ReactPlayer = (props: IPlayerProps) => {
   Hooks.useStats(player, props);
 
   const {
+    autoPlay,
     className,
     config,
     onBuffering,
@@ -31,9 +32,10 @@ const ReactPlayer = (props: IPlayerProps) => {
   const style = {
     maxWidth: "100%",
     width: "100%",
+    height: "100%",
   };
 
-  const overlayClassName = className === undefined ? "mk-theme" : "mk-theme " + props.className;
+  const overlayClassName = className === undefined ? "sbt-default" : "sbt-default " + props.className;
 
   return (
     <div style={style} ref={uiContainerRef} className={overlayClassName}>
@@ -41,7 +43,7 @@ const ReactPlayer = (props: IPlayerProps) => {
         ref={videoRef}
         className={props.playerClassName}
         style={style}
-        autoPlay={newProps.autoPlay}
+        autoPlay={autoPlay}
         {...newProps}
       />
     </div>
