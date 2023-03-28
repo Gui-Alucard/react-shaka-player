@@ -6,7 +6,7 @@
 
 /*  GENERAL  */
 /* General utility mixins and classes with broad applicability. */
-.sbt-default .shaka-hidden {
+.shaka-hidden {
   /* Make this override equally specific classes.
    * If it's hidden, always hide it!
   */
@@ -21,7 +21,7 @@ the control buttons panel. */
 /* This is a spacer element used to separate elements within the control
  * buttons panel. It's just an empty div of certain width.
 */
-.sbt-default .shaka-spacer {
+.shaka-spacer {
   /* This should not have a pointer-style cursor like the other controls. */
   cursor: default;
 
@@ -38,7 +38,7 @@ the control buttons panel. */
 }
 
 /*  AD_CONTROLS  */
-.sbt-default .shaka-controls-container[ad-active='true'] {
+.shaka-controls-container[ad-active='true'] {
   /* While showing an ad, pass pointer events through to the ad container. */
   pointer-events: none;
 
@@ -48,8 +48,8 @@ the control buttons panel. */
   }
 }
 
-.sbt-default .shaka-client-side-ad-container,
-.sbt-default .shaka-server-side-ad-container {
+.shaka-client-side-ad-container,
+.shaka-server-side-ad-container {
   /* When setting "position: absolute" it uses the left,right,top,bottom
    * properties to determine the positioning.  We should set all these
    * properties to ensure it is positioned properly on all platforms. */
@@ -71,7 +71,7 @@ the control buttons panel. */
   }
 }
 
-.sbt-default .shaka-server-side-ad-container {
+.shaka-server-side-ad-container {
   /* fill-container */
   width: 100%;
   height: 100%;
@@ -84,7 +84,7 @@ the control buttons panel. */
   }
 }
 
-.sbt-default .shaka-ad-controls {
+.shaka-ad-controls {
   /* hide-when-shaka-controls-disabled */
   .shaka-video-container:not([shaka-controls='true']) & {
     display: none;
@@ -110,8 +110,8 @@ the control buttons panel. */
   }
 }
 
-.sbt-default .shaka-ad-counter,
-.sbt-default .shaka-ad-position {
+.shaka-ad-counter,
+.shaka-ad-position {
   /* bottom-align-children */
   display: flex;
   justify-content: flex-end;
@@ -122,11 +122,11 @@ the control buttons panel. */
   text-shadow: 1px 1px 4px black;
 }
 
-.sbt-default .shaka-ad-controls .shaka-ad-position:not(.shaka-hidden) + .shaka-ad-counter {
+.shaka-ad-controls .shaka-ad-position:not(.shaka-hidden) + .shaka-ad-counter {
   margin-left: 0.75em;
 }
 
-.sbt-default .shaka-skip-ad-container {
+.shaka-skip-ad-container {
   /* Skip button is positioned at the very right edge of the
    * video container unlike the rest of the bottom controls.
   */
@@ -144,7 +144,7 @@ the control buttons panel. */
   margin: 0;
 }
 
-.sbt-default .shaka-skip-ad-button {
+.shaka-skip-ad-button {
   padding: 5px 15px;
   background: rgba(0, 0, 0, 0.7);
   border: none;
@@ -156,7 +156,7 @@ the control buttons panel. */
   cursor: pointer;
 }
 
-.sbt-default .shaka-skip-ad-counter {
+.shaka-skip-ad-counter {
   padding: 5px;
   background: rgba(0, 0, 0, 0.7);
   margin: 0;
@@ -180,7 +180,7 @@ the control buttons panel. */
 
 @play-button-size-percentage: 15%;
 /* The giant play button, which sits inside .shaka-player-button-container. */
-.sbt-default .shaka-play-button {
+.shaka-play-button {
   /* Set width & height in a round-about way.  By using padding, we can keep
    * a 1:1 aspect ratio and size the button relative to the container width.
    *
@@ -225,8 +225,8 @@ the control buttons panel. */
 
   /* Show controls when the container's "shown" or "casting" attributes are
    * set. */
-  .sbt-default .shaka-controls-container[shown='true'] &,
-  .sbt-default .shaka-controls-container[casting='true'] & {
+  .shaka-controls-container[shown='true'] &,
+  .shaka-controls-container[casting='true'] & {
     opacity: 1;
   }
 
@@ -247,7 +247,7 @@ the control buttons panel. */
  * It's only clickable when the content is live, and current time is behind live
  * edge. Otherwise, the button is disabled.
  */
-.sbt-default .shaka-current-time {
+.shaka-current-time {
   font-size: 14px;
   color: white;
   cursor: pointer;
@@ -262,7 +262,7 @@ the control buttons panel. */
 }
 
 /* Use a consistent outline focus style across browsers. */
-.sbt-default .shaka-controls-container {
+.shaka-controls-container {
   button:focus,
   input:focus {
     /* Most browsers will fall back to "Highlight" (system setting) color for
@@ -282,7 +282,7 @@ the control buttons panel. */
 /* Outline on focus is important for accessibility, but
  * it doesn't look great. This removes the outline for
  * mouse users while leaving it for keyboard users. */
-.sbt-default .shaka-controls-container:not(.shaka-keyboard-navigation) {
+.shaka-controls-container:not(.shaka-keyboard-navigation) {
   button:focus,
   input:focus {
     outline: none;
@@ -308,7 +308,7 @@ the control buttons panel. */
 
 /* A container for the entire video + controls combo.  This is the auto-setup
  * div which we populate. */
-.sbt-default .shaka-video-container {
+.shaka-video-container {
   /* overlay-parent */
   /* For a detailed explanation of how this achieves an overlay, please refer
   * to https://developer.mozilla.org/en-US/docs/Web/CSS/position .
@@ -349,7 +349,7 @@ the control buttons panel. */
  * single delcaration.  Browsers ignore the rest of the list once they hit one
  * pseudo-class they don't support. */
 
-.sbt-default .shaka-video-container:fullscreen {
+.shaka-video-container:fullscreen {
   /* fill-container */
   width: 100%;
   height: 100%;
@@ -363,7 +363,7 @@ the control buttons panel. */
     font-size: 4.4vmin;
   }
 }
-.sbt-default .shaka-video-container:-webkit-full-screen {
+.shaka-video-container:-webkit-full-screen {
   /* fill-container */
   width: 100%;
   height: 100%;
@@ -377,7 +377,7 @@ the control buttons panel. */
     font-size: 4.4vmin;
   }
 }
-.sbt-default .shaka-video-container:-moz-full-screen {
+.shaka-video-container:-moz-full-screen {
   /* fill-container */
   width: 100%;
   height: 100%;
@@ -391,7 +391,7 @@ the control buttons panel. */
     font-size: 4.4vmin;
   }
 }
-.sbt-default .shaka-video-container:-ms-fullscreen {
+.shaka-video-container:-ms-fullscreen {
   /* fill-container */
   width: 100%;
   height: 100%;
@@ -409,7 +409,7 @@ the control buttons panel. */
 /* The actual video element.  Sits inside .shaka-video-container and gives it a
  * size in non-fullscreen mode.  In fullscreen mode, the sizing relationship
  * flips.  CSS is just great like that.  :-( */
-.sbt-default .shaka-video {
+.shaka-video {
   /* At the moment, nothing special is required here.
    * Note that this should NOT be an overlay-child, as its size could dictate
    * the size of the container for some applications. */
@@ -418,7 +418,7 @@ the control buttons panel. */
 /* A container for all controls, including the giant play button, seek bar, etc.
  * Sits inside .shaka-video-container, on top of (Z axis) .shaka-video, and
  * below (Y axis) .shaka-play-button-container. */
-.sbt-default .shaka-controls-container {
+.shaka-controls-container {
   /* overlay-child */
   /* For a detailed explanation of how this achieves an overlay, please refer
    * to https://developer.mozilla.org/en-US/docs/Web/CSS/position .
@@ -482,7 +482,7 @@ the control buttons panel. */
 /* A container for all canvas for LCEVC decoding
  * Sits inside .shaka-video-container, on top of (Z axis) .shaka-video, and
  * below (Y axis) .shaka-play-button-container. */
-.sbt-default .shaka-canvas-container {
+.shaka-canvas-container {
   /* overlay-child */
   /* For a detailed explanation of how this achieves an overlay, please refer
    * to https://developer.mozilla.org/en-US/docs/Web/CSS/position .
@@ -512,7 +512,7 @@ the control buttons panel. */
 
 /* Container for controls positioned at the bottom of the video container:
  * controls button panel and the seek bar. */
-.sbt-default .shaka-bottom-controls {
+.shaka-bottom-controls {
   width: @bottom-controls-width;
   padding: 0;
   padding-bottom: 2.5%;
@@ -528,7 +528,7 @@ the control buttons panel. */
 /* This is the container for the horizontal row of controls above the seek bar.
  * It sits above (Y axis) the seek bar, and below (Y axis) the giant play button
  * in the middle. */
-.sbt-default .shaka-controls-button-panel {
+.shaka-controls-button-panel {
   /* Fill the space horizontally, with no extra padding or margin. */
   padding: 0;
   margin: 0;
@@ -568,8 +568,8 @@ the control buttons panel. */
 
   /* Show controls when the container's "shown" or "casting" attributes are
    * set. */
-  .sbt-default .shaka-controls-container[shown='true'] &,
-  .sbt-default .shaka-controls-container[casting='true'] & {
+  .shaka-controls-container[shown='true'] &,
+  .shaka-controls-container[casting='true'] & {
     opacity: 1;
   }
 
@@ -599,14 +599,14 @@ the control buttons panel. */
 }
 
 /* Buttons hide certain items if they are found inside the control panel */
-.sbt-default .shaka-controls-button-panel .shaka-overflow-menu-only {
+.shaka-controls-button-panel .shaka-overflow-menu-only {
   display: none;
 }
 
 /* The container for the giant play button.  Sits above (Y axis) the
  * other video controls and seek bar, in the middle of the video frame, on top
  * of (Z axis) the video. */
-.sbt-default .shaka-play-button-container {
+.shaka-play-button-container {
   /* Take up as much space as possible, but shrink (vertically) to accomodate
    * the controls at the bottom. */
   margin: 0;
@@ -631,7 +631,7 @@ the control buttons panel. */
   align-items: center;
 }
 
-.sbt-default .shaka-statistics-container {
+.shaka-statistics-container {
   overflow-x: hidden;
   overflow-y: auto;
 
@@ -660,8 +660,8 @@ the control buttons panel. */
 
   /* Show controls when the container's "shown" or "casting" attributes are
    * set. */
-  .sbt-default .shaka-controls-container[shown='true'] &,
-  .sbt-default .shaka-controls-container[casting='true'] & {
+  .shaka-controls-container[shown='true'] &,
+  .shaka-controls-container[casting='true'] & {
     opacity: 1;
   }
 
@@ -675,7 +675,7 @@ the control buttons panel. */
   }
 }
 
-.sbt-default .shaka-context-menu {
+.shaka-context-menu {
   background-color: rgba(35 35 35 / 90%);
 
   border-radius: 2px;
@@ -717,7 +717,7 @@ the control buttons panel. */
   }
 }
 
-.sbt-default .shaka-scrim-container {
+.shaka-scrim-container {
   margin: 0;
   /* fill-container */
   width: 100%;
@@ -742,8 +742,8 @@ the control buttons panel. */
 
   /* Show controls when the container's "shown" or "casting" attributes are
    * set. */
-  .sbt-default .shaka-controls-container[shown='true'] &,
-  .sbt-default .shaka-controls-container[casting='true'] & {
+  .shaka-controls-container[shown='true'] &,
+  .shaka-controls-container[casting='true'] & {
     opacity: 1;
   }
 
@@ -751,7 +751,7 @@ the control buttons panel. */
   background: linear-gradient(to top, black 0, transparent 15%);
 }
 
-.sbt-default .shaka-text-container {
+.shaka-text-container {
   /* absolute-position */
   /* When setting "position: absolute" it uses the left,right,top,bottom
    * properties to determine the positioning.  We should set all these
@@ -793,7 +793,7 @@ the control buttons panel. */
   }
 }
 
-.sbt-default .shaka-controls-container[shown='true'] ~ .shaka-text-container {
+.shaka-controls-container[shown='true'] ~ .shaka-text-container {
   /* While the controls are shown, the text container should avoid the 15%
    * at the bottom of the video, to avoid overlapping with controls. */
   bottom: 15%;
@@ -804,7 +804,7 @@ the control buttons panel. */
 }
 
 /* The buffering spinner. */
-.sbt-default .shaka-spinner-container {
+.shaka-spinner-container {
   /* absolute-position */
   /* When setting "position: absolute" it uses the left,right,top,bottom
    * properties to determine the positioning.  We should set all these
@@ -830,7 +830,7 @@ the control buttons panel. */
 
 @spinner-size-percentage: 15.6%;
 
-.sbt-default .shaka-spinner {
+.shaka-spinner {
   /* This uses the same trickery as the big play button define
   the spinner's width and height. See .shaka-play-button
   for the detailed explanation. */
@@ -881,8 +881,8 @@ the control buttons panel. */
 /*  OVERFLOW_MENU  */
 /* The overflow menu and all settings submenus.  These appear on top of all
  * other controls (Z axis) when the overflow button is clicked. */
-.sbt-default .shaka-overflow-menu,
-.sbt-default .shaka-settings-menu {
+.shaka-overflow-menu,
+.shaka-settings-menu {
   /* It's okay to add a vertical scroll if there are too many items, but
    * horizontal scrolling is not allowed. */
   overflow-x: hidden;
@@ -908,8 +908,8 @@ the control buttons panel. */
 
   /* Show controls when the container's "shown" or "casting" attributes are
    * set. */
-  .sbt-default .shaka-controls-container[shown='true'] &,
-  .sbt-default .shaka-controls-container[casting='true'] & {
+  .shaka-controls-container[shown='true'] &,
+  .shaka-controls-container[casting='true'] & {
     opacity: 1;
   }
 
@@ -950,7 +950,7 @@ the control buttons panel. */
       cursor: pointer;
     }
 
-    .sbt-default .shaka-keyboard-navigation &:focus {
+    .shaka-keyboard-navigation &:focus {
       background: rgb(224 224 224);
     }
   }
@@ -977,13 +977,13 @@ the control buttons panel. */
  * "Farsi" in another (the current selection).
  * These are displayed inside a .shaka-overflow-button-label grouping, to the
  * right of MD icons. */
-.sbt-default .shaka-overflow-menu span {
+.shaka-overflow-menu span {
   text-align: left;
 }
 
 /* This contains span elements with single lines of text, and appears to the
  * right of MD icons. */
-.sbt-default .shaka-overflow-button-label {
+.shaka-overflow-button-label {
   position: relative;
 
   /* This is a flex container, whose children flow vertically. */
@@ -994,13 +994,13 @@ the control buttons panel. */
 /* This is the specific span element which shows the current selection from some
  * submenu.  For example, it would contain the currently-selected subtitle
  * language, the currently-selected resolution, etc. */
-.sbt-default .shaka-current-selection-span {
+.shaka-current-selection-span {
   /* This is dimmer than the other span, which is the name of the submenu. */
   color: rgba(0 0 0 / 54%);
 }
 
 /* The submenus have somewhat different margins inside them. */
-.sbt-default .shaka-settings-menu {
+.shaka-settings-menu {
   span {
     /* TODO(b/116651454): eliminate hard-coded offsets */
     margin-left: 54px;
@@ -1009,7 +1009,7 @@ the control buttons panel. */
 
 /* This is a button within each submenu that takes you back to the main overflow
  * menu. */
-.sbt-default .shaka-back-to-overflow-button {
+.shaka-back-to-overflow-button {
   /* The label inside the button, which says something like "back". */
   span {
     /* TODO(b/116651454): eliminate hard-coded offsets */
@@ -1024,7 +1024,7 @@ the control buttons panel. */
 }
 
 /* The menu item for resolutions which contains "auto". */
-.sbt-default .shaka-auto-span {
+.shaka-auto-span {
   /* TODO(b/116651454): eliminate hard-coded offsets */
   left: 17px;
 }
@@ -1070,7 +1070,7 @@ the control buttons panel. */
 @thumb-size: 12px;
 @track-height: 4px;
 
-.sbt-default .shaka-range-container {
+.shaka-range-container {
   /* This contains an input element which overlays it. */
   /* For a detailed explanation of how this achieves an overlay, please refer
   * to https://developer.mozilla.org/en-US/docs/Web/CSS/position .
@@ -1101,12 +1101,12 @@ the control buttons panel. */
   background: @track-default-color;
 }
 
-.sbt-default .shaka-volume-bar-container {
+.shaka-volume-bar-container {
   width: 100px;
   padding: 0;
 }
 
-.sbt-default .shaka-range-element {
+.shaka-range-element {
   /* Remove any browser styling of the range element. */
   -webkit-appearance: none;
   background: transparent;
@@ -1226,7 +1226,7 @@ the control buttons panel. */
   }
 }
 
-.sbt-default .shaka-seek-bar-container {
+.shaka-seek-bar-container {
   /* show-when-controls-shown */
   /* Transparent unless explicitly made opaque through container attributes. */
   opacity: 0;
@@ -1236,13 +1236,13 @@ the control buttons panel. */
 
   /* Show controls when the container's "shown" or "casting" attributes are
    * set. */
-  .sbt-default .shaka-controls-container[shown='true'] &,
-  .sbt-default .shaka-controls-container[casting='true'] & {
+  .shaka-controls-container[shown='true'] &,
+  .shaka-controls-container[casting='true'] & {
     opacity: 1;
   }
 }
 
-.sbt-default .shaka-ad-markers {
+.shaka-ad-markers {
   /* overlay-child */
   /* For a detailed explanation of how this achieves an overlay, please refer
    * to https://developer.mozilla.org/en-US/docs/Web/CSS/position .
@@ -1309,7 +1309,7 @@ the control buttons panel. */
 
 /* This is the spinner SVG itself, which contains a circular path element.
  * It sits inside the play button and fills it. */
-.sbt-default .shaka-spinner-svg {
+.shaka-spinner-svg {
   /* Because of some sizing hacks in the play button (see comments there), this
    * spinner needs to be an overlay child to be properly sized and positioned
    * within the button. */
@@ -1347,7 +1347,7 @@ the control buttons panel. */
 }
 
 /* This is the path element, which draws a circle. */
-.sbt-default .shaka-spinner-path {
+.shaka-spinner-path {
   stroke: #202124;
   stroke-dasharray: 20, 200;
   stroke-dashoffset: 0;
@@ -1415,7 +1415,7 @@ the control buttons panel. */
 
 /* .shaka-tooltips-on enables the tooltips and is only added to the
  * control panel when the 'enableTooltips' option is set to true */
-.sbt-default .shaka-tooltips-on {
+.shaka-tooltips-on {
   overflow: visible;
 
   & > [class*='shaka-tooltip'] {
@@ -1492,5 +1492,252 @@ the control buttons panel. */
       -o-transform: translateX(percentage(-1));
       transform: translateX(percentage(-1));
     }
+  }
+}
+
+/* ______________________________SBT______________________________ */
+/*!
+  @license
+  SBT License
+  Copyright (c) 2023 SBT - Sistema Brasileiro de Televisão
+
+  We do not want anyone to see our source code, but if for any reason our code is stolen or otherwise obtained, we want to have a license that does not allow disclosure of any kind, subject to the
+  following conditions:
+
+  The copyright notice and this permission notice shall be included in all copies or substantial portions of the Software (sbt-videos-web-player). Any profit generated by using the Software
+  (sbt-videos-web-player) must necessarily be handed over to the copyright owners.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITH ALL RESERVED COPYRIGHT. DAMAGE OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING OUT OF, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+  OR USE IN OTHER BUSINESSES, AUTHORS AND/OR COPYRIGHT HOLDERS SHALL NOT BE LIABLE FOR ANY CLAIM.
+*/
+
+/* VARIABLES */
+@bottom-controls-width: 96%;
+@play-button-size-percentage: 15%;
+@spinner-size-percentage: 15.6%;
+@thumb-color: white;
+@track-default-color: white;
+@thumb-size: 12px;
+@track-height: 4px;
+@material-icons-width: 32px;
+
+/*  GENERAL  */
+.sbt-default .shaka-hidden {
+  display: none !important;
+}
+
+/*  OTHER_ELEMENTS  */
+.sbt-default .shaka-spacer {
+}
+
+/*  AD_CONTROLS  */
+.sbt-default .shaka-controls-container[ad-active='true'] {
+}
+
+.sbt-default .shaka-client-side-ad-container,
+.sbt-default .shaka-server-side-ad-container {
+}
+
+.sbt-default .shaka-server-side-ad-container {
+}
+
+.sbt-default .shaka-ad-controls {
+}
+
+.sbt-default .shaka-ad-counter,
+.sbt-default .shaka-ad-position {
+}
+
+.sbt-default .shaka-ad-controls .shaka-ad-position:not(.shaka-hidden) + .shaka-ad-counter {
+}
+
+.sbt-default .shaka-skip-ad-container {
+}
+
+.sbt-default .shaka-skip-ad-button {
+}
+
+.sbt-default .shaka-skip-ad-counter {
+}
+
+/*  BUTTONS  */
+.sbt-default .shaka-play-button {
+}
+
+.sbt-default .shaka-current-time {
+}
+
+.sbt-default .shaka-controls-container {
+}
+
+.sbt-default .shaka-controls-container:not(.shaka-keyboard-navigation) {
+}
+
+/*  CONTAINERS  */
+.sbt-default .shaka-video-container {
+}
+
+.sbt-default .shaka-video-container:fullscreen,
+.sbt-default .shaka-video-container:-webkit-full-screen,
+.sbt-default .shaka-video-container:-moz-full-screen,
+.sbt-default .shaka-video-container:-ms-fullscreen {
+}
+
+.sbt-default .shaka-video {
+}
+
+.sbt-default .shaka-controls-container {
+}
+
+.sbt-default .shaka-canvas-container {
+}
+
+.sbt-default .shaka-bottom-controls {
+}
+
+.sbt-default .shaka-controls-button-panel {
+}
+
+.sbt-default .shaka-controls-button-panel .shaka-overflow-menu-only {
+}
+
+.sbt-default .shaka-play-button-container {
+}
+
+.sbt-default .shaka-statistics-container {
+}
+
+.sbt-default .shaka-context-menu {
+}
+
+.sbt-default .shaka-scrim-container {
+}
+
+.sbt-default .shaka-text-container {
+}
+
+.sbt-default .shaka-controls-container[shown='true'] ~ .shaka-text-container {
+}
+
+.sbt-default .shaka-spinner-container {
+}
+
+.sbt-default .shaka-spinner {
+}
+
+/*  OVERFLOW_MENU  */
+.sbt-default .shaka-overflow-menu,
+.sbt-default .shaka-settings-menu {
+}
+
+.sbt-default .shaka-overflow-menu span {
+}
+
+.sbt-default .shaka-overflow-button-label {
+}
+
+.sbt-default .shaka-current-selection-span {
+}
+
+.sbt-default .shaka-settings-menu {
+}
+
+.sbt-default .shaka-back-to-overflow-button {
+}
+
+.sbt-default .shaka-auto-span {
+}
+
+/*  RANGE_ELEMENTS  */
+.sbt-default .shaka-range-container {
+}
+
+.sbt-default .shaka-volume-bar-container {
+}
+
+.sbt-default .shaka-range-element {
+}
+
+.sbt-default .shaka-seek-bar-container {
+}
+
+.sbt-default .shaka-ad-markers {
+}
+
+/*  SPINNER  */
+.sbt-default .shaka-spinner-svg {
+}
+
+.sbt-default .shaka-spinner-path {
+}
+
+/*  TOOLTIP  */
+.sbt-default .shaka-tooltips-on {
+}
+
+.sbt-default .shaka-seek-bar-container input[type='range']::-ms-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 26px;
+  width: 26px;
+  margin-top: -8px;
+  border-radius: 50px;
+  background: #e93035;
+  cursor: pointer;
+}
+
+.sbt-default .shaka-seek-bar-container input[type='range']::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 26px;
+  width: 26px;
+  margin-top: -8px;
+  border-radius: 50px;
+  background: #e93035;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.sbt-default .shaka-seek-bar-container input[type='range']::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 26px;
+  width: 26px;
+  margin-top: -8px;
+  border-radius: 50px;
+  background: #e93035;
+  cursor: pointer;
+}
+
+.sbt-default .shaka-current-time {
+  padding: 0 10px;
+  font-size: 12px;
+  height: 0px;
+}
+
+.sbt-default .shaka-play-button {
+  box-sizing: border-box;
+  padding: calc(@play-button-size-percentage / 2);
+  width: 10px;
+  height: 0;
+  margin: 0;
+  border-radius: 50%;
+  box-shadow: rgba(0 0 0 / 10%) 0 0 20px 0;
+  border: none;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: rgba(255 255 255 / 90%);
+  opacity: 0;
+  transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 600ms;
+  .shaka-controls-container[shown='true'] &,
+  .shaka-controls-container[casting='true'] & {
+    opacity: 1;
+  }
+  &[icon='play'] {
+    background-image: data-uri('public/assets/images/play.svg');
+  }
+  &[icon='pause'] {
+    background-image: data-uri('public/assets/images/pause.svg');
   }
 }
