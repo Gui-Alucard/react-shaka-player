@@ -4,6 +4,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+/* VARIABLES */
+/* The width of the bottom-section controls: seek bar, ad controls, and
+the control buttons panel. */
+@bottom-controls-width: 96%;
+
+@play-button-size-percentage: 15%;
+@spinner-size-percentage: 15.6%;
+
+/* These control the color and size of the various pieces. */
+@thumb-color: white;
+@track-default-color: white;
+@thumb-size: 12px;
+@track-height: 4px;
+
+@material-icons-width: 32px;
+
 /*  GENERAL  */
 /* General utility mixins and classes with broad applicability. */
 .shaka-hidden {
@@ -12,9 +28,6 @@
   */
   display: none !important;
 }
-/* The width of the bottom-section controls: seek bar, ad controls, and
-the control buttons panel. */
-@bottom-controls-width: 96%;
 
 /*  OTHER_ELEMENTS  */
 /* UI elements that did not fit into the buttons/range elements category. */
@@ -41,11 +54,11 @@ the control buttons panel. */
 .shaka-controls-container[ad-active='true'] {
   /* While showing an ad, pass pointer events through to the ad container. */
   pointer-events: none;
+}
 
-  /* Except in the bottom controls, which should still be clickable. */
-  .shaka-bottom-controls {
-    pointer-events: auto;
-  }
+/* Except in the bottom controls, which should still be clickable. */
+.shaka-controls-container[ad-active='true'] .shaka-bottom-controls {
+  pointer-events: auto;
 }
 
 .shaka-client-side-ad-container,
@@ -58,38 +71,29 @@ the control buttons panel. */
   right: 0;
   top: 0;
   bottom: 0;
+}
 
-  /* IMA SDK adds their own ad UI into an iframe element.
-   * Adjust its position to fit in with our UI, when
-   * Shaka UI is enabled. */
-  iframe {
-    .shaka-video-container[shaka-controls='true'] & {
-      /* This moves the iframe up a little bit, so it
-       * doesn't operlap with our controls. */
-      height: 90%;
-    }
-  }
+/* IMA SDK adds their own ad UI into an iframe element.
+ * Adjust its position to fit in with our UI, when
+ * Shaka UI is enabled. */
+.shaka-video-container[shaka-controls='true'] .shaka-client-side-ad-container iframe,
+.shaka-video-container[shaka-controls='true'] .shaka-server-side-ad-container iframe {
+  /* This moves the iframe up a little bit, so it
+     * doesn't operlap with our controls. */
+  height: 90%;
 }
 
 .shaka-server-side-ad-container {
-  /* fill-container */
   width: 100%;
   height: 100%;
-
-  /* shrinkable */
   flex-shrink: 1;
+}
 
-  &:not([ad-active='true']) {
-    pointer-events: none;
-  }
+.shaka-server-side-ad-container:not([ad-active='true']) {
+  pointer-events: none;
 }
 
 .shaka-ad-controls {
-  /* hide-when-shaka-controls-disabled */
-  .shaka-video-container:not([shaka-controls='true']) & {
-    display: none;
-  }
-
   display: flex;
   flex-direction: row;
   z-index: 1;
@@ -97,17 +101,22 @@ the control buttons panel. */
   /* Add some room between the ad controls and the controls
   button panel. */
   padding-bottom: 1%;
+}
 
-  button,
-  div {
-    color: white;
-    font-size: initial;
-  }
+/* hide-when-shaka-controls-disabled */
+.shaka-video-container:not([shaka-controls='true']) .shaka-ad-controls {
+  display: none;
+}
 
-  div:not(.shaka-skip-ad-counter) {
-    /* bottom-panels-elements-margin */
-    margin: 1px;
-  }
+.shaka-ad-controls button,
+.shaka-ad-controls div {
+  color: #fff;
+  font-size: initial;
+}
+
+.shaka-ad-controls div:not(.shaka-skip-ad-counter) {
+  /* bottom-panels-elements-margin */
+  margin: 1px 6px;
 }
 
 .shaka-ad-counter,
@@ -119,7 +128,7 @@ the control buttons panel. */
 
   /* Give white text a black shadow, so it's visible against a
    * white background. */
-  text-shadow: 1px 1px 4px black;
+  text-shadow: 1px 1px 4px #000;
 }
 
 .shaka-ad-controls .shaka-ad-position:not(.shaka-hidden) + .shaka-ad-counter {
@@ -148,12 +157,11 @@ the control buttons panel. */
   padding: 5px 15px;
   background: rgba(0, 0, 0, 0.7);
   border: none;
-
-  &:disabled {
-    background: rgba(0, 0, 0, 0.3);
-  }
-
   cursor: pointer;
+}
+
+.shaka-skip-ad-button:disabled {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .shaka-skip-ad-counter {
@@ -177,8 +185,6 @@ the control buttons panel. */
 
 /*  BUTTONS  */
 /* The main buttons in the UI controls. */
-
-@play-button-size-percentage: 15%;
 /* The giant play button, which sits inside .shaka-player-button-container. */
 .shaka-play-button {
   /* Set width & height in a round-about way.  By using padding, we can keep
@@ -201,7 +207,7 @@ the control buttons panel. */
   border-radius: 50%;
 
   /* A small drop shadow below the button. */
-  box-shadow: rgba(0 0 0 / 10%) 0 0 20px 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 20px 0;
 
   /* No border. */
   border: none;
@@ -214,7 +220,7 @@ the control buttons panel. */
   background-position: center center;
 
   /* A background color behind the play arrow. */
-  background-color: rgba(255 255 255 / 90%);
+  background-color: rgba(255, 255, 255, 0.9);
 
   /* show-when-controls-shown */
   /* Transparent unless explicitly made opaque through container attributes. */
@@ -222,25 +228,25 @@ the control buttons panel. */
 
   /* When we show/hide this, do it gradually using cubic-bezier timing. */
   transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 600ms;
+}
 
-  /* Show controls when the container's "shown" or "casting" attributes are
+/* Show controls when the container's "shown" or "casting" attributes are
    * set. */
-  .shaka-controls-container[shown='true'] &,
-  .shaka-controls-container[casting='true'] & {
-    opacity: 1;
-  }
+.shaka-controls-container[shown='true'] &,
+.shaka-controls-container[casting='true'] & {
+  opacity: 1;
+}
 
-  /* Actual icon images for the two states this could be in.
+/* Actual icon images for the two states this could be in.
    * These will be inlined as data URIs when compiled, and so do not need to be
    * deployed separately from the compiled CSS.
    * Note that these URIs should relative to ui/controls.less, not this file. */
-  &[icon='play'] {
-    background-image: data-uri('public/assets/play.svg');
-  }
+.shaka-play-button[icon='play'] {
+  background-image: data-uri('../images/play.svg');
+}
 
-  &[icon='pause'] {
-    background-image: data-uri('images/pause.svg');
-  }
+.shaka-play-button[icon='pause'] {
+  background-image: data-uri('../images/pause.svg');
 }
 
 /* This button contains the current time and duration of the video.
@@ -249,44 +255,41 @@ the control buttons panel. */
  */
 .shaka-current-time {
   font-size: 14px;
-  color: white;
+  color: #fff;
   cursor: pointer;
+  height: auto;
+}
 
-  &[disabled] {
-    /* disabled-button */
-    /* Set the background and the color, otherwise it might be overwritten by the css styles in demo. */
-    background-color: transparent;
-    color: white;
-    cursor: default;
-  }
+.shaka-current-time[disabled] {
+  /* disabled-button */
+  /* Set the background and the color, otherwise it might be overwritten by the css styles in demo. */
+  background-color: transparent;
+  color: #fff;
+  cursor: default;
 }
 
 /* Use a consistent outline focus style across browsers. */
-.shaka-controls-container {
-  button:focus,
-  input:focus {
-    /* Most browsers will fall back to "Highlight" (system setting) color for
-     * the focus outline. */
-    outline: 1px solid Highlight;
-  }
+.shaka-controls-container button:focus,
+.shaka-controls-container input:focus {
+  /* Most browsers will fall back to "Highlight" (system setting) color for
+   * the focus outline. */
+  outline: 1px solid Highlight;
+}
 
-  /* Disable this Mozilla-specific focus ring, since we have an outline defined
+/* Disable this Mozilla-specific focus ring, since we have an outline defined
    * for focus. */
-  button:-moz-focus-inner,
-  input:-moz-focus-outer {
-    outline: none;
-    border: 0;
-  }
+.shaka-controls-container button:-moz-focus-inner,
+.shaka-controls-container input:-moz-focus-outer {
+  outline: 0;
+  border: 0;
 }
 
 /* Outline on focus is important for accessibility, but
  * it doesn't look great. This removes the outline for
  * mouse users while leaving it for keyboard users. */
-.shaka-controls-container:not(.shaka-keyboard-navigation) {
-  button:focus,
-  input:focus {
-    outline: none;
-  }
+.shaka-controls-container:not(.shaka-keyboard-navigation) button:focus,
+.shaka-controls-container:not(.shaka-keyboard-navigation) input:focus {
+  outline: 0;
 }
 
 /* SEPARAÇÃO
@@ -329,17 +332,17 @@ the control buttons panel. */
   /* Without this, the container somehow winds up being a tad taller than it
    * should be (484px vs 480px). */
   display: flex;
+}
 
-  /* Set a special font for material design icons. */
-  .material-icons-round {
-    font-family: 'Material Icons Round';
-    font-size: 24px;
-  }
+/* Set a special font for material design icons. */
+.shaka-video-container .material-icons-round {
+  font-family: 'Material Icons Outlined';
+  font-size: 24px;
+}
 
-  /* Set the fonts for all other content. */
-  * {
-    font-family: Roboto-Regular, Roboto, sans-serif, TengwarTelcontar;
-  }
+/* Set the fonts for all other content. */
+.shaka-video-container * {
+  font-family: Roboto-Regular, Roboto, sans-serif;
 }
 
 /* Each browser has a different prefixed pseudo-class for fullscreened elements.
@@ -350,60 +353,55 @@ the control buttons panel. */
  * pseudo-class they don't support. */
 
 .shaka-video-container:fullscreen {
-  /* fill-container */
   width: 100%;
   height: 100%;
-
-  background-color: black;
-
-  .shaka-text-container {
-    /* In fullscreen mode, the text displayer's font size should be relative to
-     * the either window height or width (whichever is smaller), instead of a
-     * fixed size. */
-    font-size: 4.4vmin;
-  }
+  background-color: #000;
 }
+
+/* In fullscreen mode, the text displayer's font size should be relative to
+  * the either window height or width (whichever is smaller), instead of a
+  * fixed size. */
+.shaka-video-container:fullscreen .shaka-text-container {
+  font-size: 4.4vmin;
+}
+
 .shaka-video-container:-webkit-full-screen {
-  /* fill-container */
   width: 100%;
   height: 100%;
-
-  background-color: black;
-
-  .shaka-text-container {
-    /* In fullscreen mode, the text displayer's font size should be relative to
-     * the either window height or width (whichever is smaller), instead of a
-     * fixed size. */
-    font-size: 4.4vmin;
-  }
+  background-color: #000;
 }
+
+.shaka-video-container:-webkit-full-screen .shaka-text-container {
+  /* In fullscreen mode, the text displayer's font size should be relative to
+   * the either window height or width (whichever is smaller), instead of a
+   * fixed size. */
+  font-size: 4.4vmin;
+}
+
 .shaka-video-container:-moz-full-screen {
-  /* fill-container */
   width: 100%;
   height: 100%;
-
-  background-color: black;
-
-  .shaka-text-container {
-    /* In fullscreen mode, the text displayer's font size should be relative to
-     * the either window height or width (whichever is smaller), instead of a
-     * fixed size. */
-    font-size: 4.4vmin;
-  }
+  background-color: #000;
 }
+
+.shaka-video-container:-moz-full-screen .shaka-text-container {
+  /* In fullscreen mode, the text displayer's font size should be relative to
+   * the either window height or width (whichever is smaller), instead of a
+   * fixed size. */
+  font-size: 4.4vmin;
+}
+
 .shaka-video-container:-ms-fullscreen {
-  /* fill-container */
   width: 100%;
   height: 100%;
+  background-color: #000;
+}
 
-  background-color: black;
-
-  .shaka-text-container {
-    /* In fullscreen mode, the text displayer's font size should be relative to
+.shaka-video-container:-ms-fullscreen .shaka-text-container {
+  /* In fullscreen mode, the text displayer's font size should be relative to
      * the either window height or width (whichever is smaller), instead of a
      * fixed size. */
-    font-size: 4.4vmin;
-  }
+  font-size: 4.4vmin;
 }
 
 /* The actual video element.  Sits inside .shaka-video-container and gives it a
@@ -437,14 +435,8 @@ the control buttons panel. */
   bottom: 0;
   margin: 0;
   padding: 0;
-
   width: 100%;
   height: 100%;
-
-  /* hide-when-shaka-controls-disabled */
-  .shaka-video-container:not([shaka-controls='true']) & {
-    display: none;
-  }
 
   /* Without this, the controls container overflows the video container. */
   box-sizing: border-box;
@@ -461,30 +453,33 @@ the control buttons panel. */
   /* Centers children horizontally. */
   align-items: center;
 
-  /* By default, do not allow any of our controls to shrink.
-   * Specific controls can use .shrinkable() to override. */
-  * {
-    flex-shrink: 0;
-  }
-
   /* Position the controls container in front of the text container, so that
    * the text container doesn't interfere with the control buttons. */
   z-index: 1;
+}
 
-  &[casting='true'] {
-    /* Hide fullscreen button while casting. */
-    .shaka-fullscreen-button {
-      display: none;
-    }
-  }
+/* By default, do not allow any of our controls to shrink.
+* Specific controls can use .shrinkable() to override. */
+.shaka-controls-container * {
+  flex-shrink: 0;
+}
+
+/* hide-when-shaka-controls-disabled */
+.shaka-video-container:not([shaka-controls='true']) .shaka-controls-container {
+  display: none;
+}
+
+/* Hide fullscreen button while casting. */
+.shaka-controls-container[casting='true'] .shaka-fullscreen-button {
+  display: none;
 }
 
 /* A container for all canvas for LCEVC decoding
  * Sits inside .shaka-video-container, on top of (Z axis) .shaka-video, and
  * below (Y axis) .shaka-play-button-container. */
-.shaka-canvas-container {
-  /* overlay-child */
-  /* For a detailed explanation of how this achieves an overlay, please refer
+/* .shaka-canvas-container { */
+/* overlay-child */
+/* For a detailed explanation of how this achieves an overlay, please refer
    * to https://developer.mozilla.org/en-US/docs/Web/CSS/position .
    *
    * But you don't have to, because we've encapsulated these high level
@@ -492,23 +487,22 @@ the control buttons panel. */
    *
    * This makes it possible for this child to overlay the other children of a
    * .overlay-parent() object. */
-  position: absolute;
+/* position: absolute; */
 
-  /* Fill the container by default. */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0;
-  padding: 0;
+/* Fill the container by default. */
+/* top: 0; */
+/* left: 0; */
+/* right: 0; */
+/* bottom: 0; */
+/* margin: 0; */
+/* padding: 0; */
+/* width: 100%; */
+/* height: 100%; */
 
-  width: 100%;
-  height: 100%;
-
-  /* Make sure pointer events can reach the video element in the case of native
+/* Make sure pointer events can reach the video element in the case of native
    * controls. */
-  pointer-events: none;
-}
+/* pointer-events: none; */
+/* } */
 
 /* Container for controls positioned at the bottom of the video container:
  * controls button panel and the seek bar. */
@@ -565,37 +559,37 @@ the control buttons panel. */
 
   /* When we show/hide this, do it gradually using cubic-bezier timing. */
   transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 600ms;
+}
 
-  /* Show controls when the container's "shown" or "casting" attributes are
+/* Show controls when the container's "shown" or "casting" attributes are
    * set. */
-  .shaka-controls-container[shown='true'] &,
-  .shaka-controls-container[casting='true'] & {
-    opacity: 1;
-  }
+.shaka-controls-container[casting='true'] .shaka-controls-button-panel,
+.shaka-controls-container[shown='true'] .shaka-controls-button-panel {
+  opacity: 1;
+}
 
-  /* All buttons, divs, and other controls directly inside this panel should
+/* All buttons, divs, and other controls directly inside this panel should
    * have these characteristics by default. */
-  & > * {
-    /* White text or button icons. */
-    color: white;
+.shaka-controls-button-panel > * {
+  /* White text or button icons. */
+  color: white;
 
-    /* 32px tall controls. */
-    height: 32px;
+  /* 32px tall controls. */
+  height: 32px;
 
-    /* Consistent alignment of buttons. */
-    line-height: 0.5;
+  /* Consistent alignment of buttons. */
+  line-height: 0.5;
 
-    /* Consistent margins (external) and padding (internal) between controls. */
-    margin: 1px;
+  /* Consistent margins (external) and padding (internal) between controls. */
+  margin: 1px;
 
-    padding: 0 5px;
+  padding: 0 5px;
 
-    /* Transparent backgrounds, no borders, and a pointer when you mouse over
+  /* Transparent backgrounds, no borders, and a pointer when you mouse over
      * them. */
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-  }
+  background: transparent;
+  border: 0;
+  cursor: pointer;
 }
 
 /* Buttons hide certain items if they are found inside the control panel */
@@ -631,100 +625,11 @@ the control buttons panel. */
   align-items: center;
 }
 
-.shaka-statistics-container {
-  overflow-x: hidden;
-  overflow-y: auto;
-
-  min-width: 300px;
-
-  color: white;
-  background-color: rgba(35 35 35 / 90%);
-
-  font-size: 14px;
-
-  padding: 5px 10px;
-  border-radius: 2px;
-
-  position: absolute;
-  z-index: 2;
-  left: 15px;
-  top: 15px;
-
-  /* Fades out with the other controls. */
-  /* .show-when-controls-shown(); */
-  /* Transparent unless explicitly made opaque through container attributes. */
-  opacity: 0;
-
-  /* When we show/hide this, do it gradually using cubic-bezier timing. */
-  transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 600ms;
-
-  /* Show controls when the container's "shown" or "casting" attributes are
-   * set. */
-  .shaka-controls-container[shown='true'] &,
-  .shaka-controls-container[casting='true'] & {
-    opacity: 1;
-  }
-
-  div {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  span {
-    color: rgb(150 150 150);
-  }
-}
-
-.shaka-context-menu {
-  background-color: rgba(35 35 35 / 90%);
-
-  border-radius: 2px;
-
-  position: absolute;
-  z-index: 3;
-
-  button {
-    padding: 5px 10px;
-
-    width: 100%;
-    display: flex;
-    align-items: center;
-
-    color: white;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-
-    &:hover {
-      background-color: rgba(50 50 50 / 90%);
-    }
-  }
-
-  label {
-    padding: 0 20px;
-
-    align-items: flex-start;
-
-    color: white;
-    cursor: pointer;
-  }
-
-  .shaka-current-selection-span {
-    align-items: flex-start;
-
-    color: white;
-    cursor: pointer;
-  }
-}
-
 .shaka-scrim-container {
   margin: 0;
-  /* fill-container */
   width: 100%;
   height: 100%;
-  /* shrinkable */
   flex-shrink: 1;
-  /* absolute-position */
   /* When setting "position: absolute" it uses the left,right,top,bottom
    * properties to determine the positioning.  We should set all these
    * properties to ensure it is positioned properly on all platforms. */
@@ -740,15 +645,15 @@ the control buttons panel. */
   /* When we show/hide this, do it gradually using cubic-bezier timing. */
   transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 600ms;
 
-  /* Show controls when the container's "shown" or "casting" attributes are
-   * set. */
-  .shaka-controls-container[shown='true'] &,
-  .shaka-controls-container[casting='true'] & {
-    opacity: 1;
-  }
-
   /* A black gradient at the bottom, behind the controls, but only so high. */
-  background: linear-gradient(to top, black 0, transparent 15%);
+  background: linear-gradient(to top, #000 0, rgba(0, 0, 0, 0) 15%);
+}
+
+/* Show controls when the container's "shown" or "casting" attributes are
+   * set. */
+.shaka-controls-container[casting='true'] .shaka-scrim-container,
+.shaka-controls-container[shown='true'] .shaka-scrim-container {
+  opacity: 1;
 }
 
 .shaka-text-container {
@@ -786,11 +691,19 @@ the control buttons panel. */
   /* relative to font size */
   line-height: 1.4;
   color: white;
+}
 
-  span.shaka-text-wrapper {
-    display: inline;
-    background: none;
-  }
+.shaka-text-container span:not(.shaka-text-wrapper) {
+  display: inline;
+  font-size: 20px;
+  line-height: 1.4;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+}
+
+.shaka-text-container span.shaka-text-wrapper {
+  display: inline;
+  background: 0 0;
 }
 
 .shaka-controls-container[shown='true'] ~ .shaka-text-container {
@@ -814,21 +727,18 @@ the control buttons panel. */
   right: 0;
   top: 0;
   bottom: 0;
-  /* fill-container */
   width: 100%;
   height: 100%;
-  /* hide-when-shaka-controls-disabled */
-  .shaka-video-container:not([shaka-controls='true']) & {
-    display: none;
-  }
-
   flex-shrink: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@spinner-size-percentage: 15.6%;
+/* hide-when-shaka-controls-disabled */
+.shaka-video-container:not([shaka-controls='true']) .shaka-spinner-container {
+  display: none;
+}
 
 .shaka-spinner {
   /* This uses the same trickery as the big play button define
@@ -853,7 +763,6 @@ the control buttons panel. */
    * This is a defensive move that came out of intensive debugging on IE 11. */
   top: 0;
   left: 0;
-
   margin: 0;
   box-sizing: border-box;
   padding: calc(@spinner-size-percentage / 2);
@@ -862,7 +771,7 @@ the control buttons panel. */
 
   /* Add a bit of a white shadow to keep our black spinner visible
   on a black background. */
-  filter: drop-shadow(0 0 2px rgba(255 255 255 / 50%));
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
 }
 
 /* SEPARAÇÃO
@@ -906,13 +815,6 @@ the control buttons panel. */
   /* When we show/hide this, do it gradually using cubic-bezier timing. */
   transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 600ms;
 
-  /* Show controls when the container's "shown" or "casting" attributes are
-   * set. */
-  .shaka-controls-container[shown='true'] &,
-  .shaka-controls-container[casting='true'] & {
-    opacity: 1;
-  }
-
   /* When displayed as a flex container, elements inside will flow in a
    * vertical column. */
   display: flex;
@@ -923,52 +825,62 @@ the control buttons panel. */
   z-index: 2;
   right: 15px;
   bottom: 30px;
+}
 
-  /* The buttons inside the menu. */
-  button {
-    font-size: 14px;
-    background: transparent;
-    color: black;
-    border: none;
-    min-height: 30px;
-    padding: 3.5px 6px;
+/* Show controls when the container's "shown" or "casting" attributes are
+   * set. */
+.shaka-controls-container[casting='true'] .shaka-overflow-menu,
+.shaka-controls-container[casting='true'] .shaka-settings-menu,
+.shaka-controls-container[shown='true'] .shaka-overflow-menu,
+.shaka-controls-container[shown='true'] .shaka-settings-menu {
+  opacity: 1;
+}
 
-    /* The button itself is a flex container, with children center-aligned. */
-    display: flex;
-    align-items: center;
+.shaka-overflow-menu button,
+.shaka-settings-menu button {
+  font-size: 14px;
+  background: 0 0;
+  color: #000;
+  border: none;
+  min-height: 30px;
+  padding: 3.5px 6px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
 
-    /* When hovered, the button's background is highlighted. */
-    &:hover {
-      background: rgb(224 224 224);
-    }
+/* When hovered, the button's background is highlighted. */
+.shaka-overflow-menu button:hover,
+.shaka-settings-menu button:hover {
+  background: rgb(224 224 224);
+}
 
-    /* The button is clickable, showing cursor pointer */
-    cursor: pointer;
+/* The label inside button is also showing cursor pointer  */
+.shaka-overflow-menu button label,
+.shaka-settings-menu button label {
+  cursor: pointer;
+}
 
-    /* The label inside button is also showing cursor pointer  */
-    label {
-      cursor: pointer;
-    }
+.shaka-keyboard-navigation .shaka-overflow-menu button:focus,
+.shaka-keyboard-navigation .shaka-settings-menu button:focus {
+  background: rgb(224 224 224);
+}
 
-    .shaka-keyboard-navigation &:focus {
-      background: rgb(224 224 224);
-    }
-  }
+/* These are the elements which contain the material design icons.
+ * TODO: Pull MD icon details out of JS. */
+.shaka-overflow-menu i,
+.shaka-settings-menu i {
+  /* TODO(b/116651454): eliminate hard-coded offsets */
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
-  /* These are the elements which contain the material design icons.
-   * TODO: Pull MD icon details out of JS. */
-  i {
-    /* TODO(b/116651454): eliminate hard-coded offsets */
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  /* If the seekbar is missing, this is positioned lower.
-   * TODO: Solve with flex layout instead? */
-  &.shaka-low-position {
-    /* TODO(b/116651454): eliminate hard-coded offsets */
-    bottom: 15px;
-  }
+/* If the seekbar is missing, this is positioned lower.
+ * TODO: Solve with flex layout instead? */
+.shaka-overflow-menu.shaka-low-position,
+.shaka-settings-menu.shaka-low-position {
+  /* TODO(b/116651454): eliminate hard-coded offsets */
+  bottom: 15px;
 }
 
 /* The span elements inside the top-level overflow menu contain single lines
@@ -996,31 +908,27 @@ the control buttons panel. */
  * language, the currently-selected resolution, etc. */
 .shaka-current-selection-span {
   /* This is dimmer than the other span, which is the name of the submenu. */
-  color: rgba(0 0 0 / 54%);
+  color: rgba(0, 0, 0, 0.54);
 }
 
 /* The submenus have somewhat different margins inside them. */
-.shaka-settings-menu {
-  span {
-    /* TODO(b/116651454): eliminate hard-coded offsets */
-    margin-left: 54px;
-  }
+.shaka-settings-menu span {
+  /* TODO(b/116651454): eliminate hard-coded offsets */
+  margin-left: 54px;
 }
 
 /* This is a button within each submenu that takes you back to the main overflow
  * menu. */
-.shaka-back-to-overflow-button {
+.shaka-back-to-overflow-button span {
   /* The label inside the button, which says something like "back". */
-  span {
-    /* TODO(b/116651454): eliminate hard-coded offsets */
-    margin-left: 0;
-  }
+  /* TODO(b/116651454): eliminate hard-coded offsets */
+  margin-left: 0;
+}
 
-  /* The MD icon for the "back" arrow. */
-  i {
-    /* TODO(b/116651454): eliminate hard-coded offsets */
-    padding-right: 20px;
-  }
+/* The MD icon for the "back" arrow. */
+.shaka-back-to-overflow-button i {
+  /* TODO(b/116651454): eliminate hard-coded offsets */
+  padding-right: 20px;
 }
 
 /* The menu item for resolutions which contains "auto". */
@@ -1063,12 +971,6 @@ the control buttons panel. */
  * than the actual track (for IE 11's sake), but can be larger than the virtual
  * track.  And since we are still using a semantically correct input element,
  * the element is inherently accessible. */
-
-/* These control the color and size of the various pieces. */
-@thumb-color: white;
-@track-default-color: white;
-@thumb-size: 12px;
-@track-height: 4px;
 
 .shaka-range-container {
   /* This contains an input element which overlays it. */
@@ -1130,7 +1032,6 @@ the control buttons panel. */
   bottom: 0;
   margin: 0;
   padding: 0;
-
   width: 100%;
   height: 100%;
 
@@ -1146,84 +1047,84 @@ the control buttons panel. */
   /* Make sure clicking at the very top of the bar still takes effect and is not
     * confused with clicking the video to play/pause it. */
   z-index: 1;
+}
 
-  /* Pseudo-elements for Blink-based or WebKit-based browsers. */
-  &::-webkit-slider-runnable-track {
-    /* The track should fill the range element. */
-    width: 100%;
+/* Pseudo-elements for Blink-based or WebKit-based browsers. */
+.shaka-range-element::-webkit-slider-runnable-track {
+  /* The track should fill the range element. */
+  width: 100%;
 
-    /* Since range elements are special input elements, they must reflect user
+  /* Since range elements are special input elements, they must reflect user
     * interaction, so when the user hovers over the range element, the cursor
     * must be a pointer. */
-    cursor: pointer;
+  cursor: pointer;
 
-    /* The track should be tall enough to contain the thumb without clipping it.
+  /* The track should be tall enough to contain the thumb without clipping it.
     * It is very tricky to make the thumb show outside the track on IE 11, and
     * it is incompatible with our background gradients. */
-    height: @thumb-size;
+  height: @thumb-size;
 
-    /* Some browsers have default backgrounds, colors, or borders for this.
+  /* Some browsers have default backgrounds, colors, or borders for this.
     * Hide them all. */
-    background: transparent;
-    color: transparent;
-    border: none;
-  }
+  background: transparent;
+  color: transparent;
+  border: none;
+}
 
-  &::-webkit-slider-thumb {
-    /* Remove default styles on WebKit-based and Blink-based browsers. */
-    -webkit-appearance: none;
+.shaka-range-element::-webkit-slider-thumb {
+  /* Remove default styles on WebKit-based and Blink-based browsers. */
+  -webkit-appearance: none;
 
-    /* On some browsers (IE 11), the thumb has a border, which affects the size.
+  /* On some browsers (IE 11), the thumb has a border, which affects the size.
     * Disable it. */
-    border: none;
+  border: none;
 
-    /* Make the thumb a circle and set its diameter. */
-    border-radius: @thumb-size;
-    height: @thumb-size;
-    width: @thumb-size;
+  /* Make the thumb a circle and set its diameter. */
+  border-radius: @thumb-size;
+  height: @thumb-size;
+  width: @thumb-size;
 
-    /* Give it the desired color. */
-    background: @thumb-color;
-  }
+  /* Give it the desired color. */
+  background: @thumb-color;
+}
 
-  /* Pseudo-elements for Gecko-based browsers. */
-  &::-moz-range-track {
-    /* The track should fill the range element. */
-    width: 100%;
+/* Pseudo-elements for Gecko-based browsers. */
+.shaka-range-element::-moz-range-track {
+  /* The track should fill the range element. */
+  width: 100%;
 
-    /* Since range elements are special input elements, they must reflect user
+  /* Since range elements are special input elements, they must reflect user
     * interaction, so when the user hovers over the range element, the cursor
     * must be a pointer. */
-    cursor: pointer;
+  cursor: pointer;
 
-    /* The track should be tall enough to contain the thumb without clipping it.
+  /* The track should be tall enough to contain the thumb without clipping it.
     * It is very tricky to make the thumb show outside the track on IE 11, and
     * it is incompatible with our background gradients. */
-    height: @thumb-size;
+  height: @thumb-size;
 
-    /* Some browsers have default backgrounds, colors, or borders for this.
+  /* Some browsers have default backgrounds, colors, or borders for this.
     * Hide them all. */
-    background: transparent;
-    color: transparent;
-    border: none;
-  }
+  background: transparent;
+  color: transparent;
+  border: none;
+}
 
-  &::-moz-range-thumb {
-    /* Remove default styles on WebKit-based and Blink-based browsers. */
-    -webkit-appearance: none;
+.shaka-range-element::-moz-range-thumb {
+  /* Remove default styles on WebKit-based and Blink-based browsers. */
+  -webkit-appearance: none;
 
-    /* On some browsers (IE 11), the thumb has a border, which affects the size.
+  /* On some browsers (IE 11), the thumb has a border, which affects the size.
     * Disable it. */
-    border: none;
+  border: none;
 
-    /* Make the thumb a circle and set its diameter. */
-    border-radius: @thumb-size;
-    height: @thumb-size;
-    width: @thumb-size;
+  /* Make the thumb a circle and set its diameter. */
+  border-radius: @thumb-size;
+  height: @thumb-size;
+  width: @thumb-size;
 
-    /* Give it the desired color. */
-    background: @thumb-color;
-  }
+  /* Give it the desired color. */
+  background: @thumb-color;
 }
 
 .shaka-seek-bar-container {
@@ -1233,13 +1134,13 @@ the control buttons panel. */
 
   /* When we show/hide this, do it gradually using cubic-bezier timing. */
   transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 600ms;
+}
 
-  /* Show controls when the container's "shown" or "casting" attributes are
-   * set. */
-  .shaka-controls-container[shown='true'] &,
-  .shaka-controls-container[casting='true'] & {
-    opacity: 1;
-  }
+/* Show controls when the container's "shown" or "casting" attributes are
+ * set. */
+.shaka-controls-container[casting='true'] .shaka-seek-bar-container,
+.shaka-controls-container[shown='true'] .shaka-seek-bar-container {
+  opacity: 1;
 }
 
 .shaka-ad-markers {
@@ -1261,7 +1162,6 @@ the control buttons panel. */
   bottom: 0;
   margin: 0;
   padding: 0;
-
   width: 100%;
   height: 100%;
 }
@@ -1411,8 +1311,6 @@ the control buttons panel. */
  * SOFTWARE.
  */
 
-@material-icons-width: 32px;
-
 /* .shaka-tooltips-on enables the tooltips and is only added to the
  * control panel when the 'enableTooltips' option is set to true */
 .shaka-tooltips-on {
@@ -1493,4 +1391,448 @@ the control buttons panel. */
       transform: translateX(percentage(-1));
     }
   }
+}
+
+/* ______________________________SBT______________________________ */
+/*!
+  @license
+  SBT License
+  Copyright (c) 2023 SBT - Sistema Brasileiro de Televisão
+
+  We do not want anyone to see our source code, but if for any reason our code is stolen or otherwise obtained, we want to have a license that does not allow disclosure of any kind, subject to the
+  following conditions:
+
+  The copyright notice and this permission notice shall be included in all copies or substantial portions of the Software (sbt-videos-web-player). Any profit generated by using the Software
+  (sbt-videos-web-player) must necessarily be handed over to the copyright owners.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITH ALL RESERVED COPYRIGHT. DAMAGE OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING OUT OF, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+  OR USE IN OTHER BUSINESSES, AUTHORS AND/OR COPYRIGHT HOLDERS SHALL NOT BE LIABLE FOR ANY CLAIM.
+*/
+
+.sbt-default {
+  font-family: Roboto, sans-serif;
+}
+
+.sbt-default .shaka-bottom-controls {
+  width: @bottom-controls-width;
+  padding: 0;
+  padding-bottom: 0;
+  z-index: 1;
+}
+
+.sbt-default .shaka-bottom-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.sbt-default .shaka-ad-controls {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+}
+
+.sbt-default .shaka-controls-button-panel {
+  -webkit-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2;
+  height: 30px;
+  padding: 0 10px;
+}
+
+.sbt-default .shaka-range-container {
+  margin: 4px 6px;
+  top: 0;
+}
+
+.sbt-default .shaka-small-play-button {
+  -webkit-box-ordinal-group: -2;
+  -ms-flex-order: -3;
+  order: -3;
+}
+
+.sbt-default .shaka-small-play-button[aria-label='Pause'] {
+  background-image: data-uri('../images/pause.svg');
+}
+
+.sbt-default .shaka-mute-button {
+  -webkit-box-ordinal-group: -1;
+  -ms-flex-order: -2;
+  order: -2;
+}
+
+.sbt-default .shaka-controls-button-panel > * {
+  margin: 0;
+  padding: 3px 8px;
+  color: #eee;
+  height: 32px;
+}
+
+.sbt-default .shaka-controls-button-panel > :focus {
+  outline: 0;
+  color: #fff;
+}
+
+.sbt-default .shaka-controls-button-panel > :hover {
+  color: #fff;
+}
+
+.sbt-default .shaka-volume-bar-container {
+  width: 100px;
+}
+
+.sbt-default .shaka-controls-button-panel .shaka-volume-bar-container {
+  position: relative;
+  z-index: 10;
+  left: -1px;
+  -webkit-box-ordinal-group: 0;
+  -ms-flex-order: -1;
+  order: -1;
+  opacity: 0;
+  width: 0;
+  -webkit-transition: width 0.2s cubic-bezier(0.4, 0, 1, 1);
+  height: 3px;
+  transition: width 0.2s cubic-bezier(0.4, 0, 1, 1);
+  padding: 0;
+}
+
+.sbt-default .shaka-controls-button-panel .shaka-volume-bar-container:focus,
+.sbt-default .shaka-controls-button-panel .shaka-volume-bar-container:hover {
+  display: block;
+  width: 50px;
+  opacity: 1;
+  padding: 0 6px;
+}
+
+.sbt-default .shaka-mute-button:hover + div {
+  opacity: 1;
+  width: 50px;
+  padding: 0 6px;
+}
+
+.sbt-default .shaka-current-time {
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.sbt-default .shaka-seek-bar-container {
+  height: 8px;
+  position: relative;
+  top: 0px;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.sbt-default .shaka-seek-bar-container .shaka-range-element {
+  opacity: 0;
+}
+
+.sbt-default .shaka-seek-bar-container:hover .shaka-range-element {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.sbt-default .shaka-seek-bar-container input[type='range'] {
+  height: 5px;
+  -webkit-appearance: none;
+  margin: 1px 0;
+  opacity: 1;
+  width: 100%;
+}
+
+.sbt-default .shaka-seek-bar-container input[type='range']:focus {
+  outline: none;
+}
+
+.sbt-default .shaka-seek-bar-container input[type='range']::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 26px;
+  width: 26px;
+  margin-top: -8px;
+  border-radius: 50px;
+  background: #e93035;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.sbt-default .shaka-seek-bar-container input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 16px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #50555c;
+  background: #50555c;
+  border: 0px solid #000000;
+}
+
+.sbt-default .shaka-seek-bar-container input[type='range']::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 26px;
+  width: 26px;
+  margin-top: -8px;
+  border-radius: 50px;
+  background: #e93035;
+  cursor: pointer;
+}
+
+.sbt-default .shaka-seek-bar-container input[type='range']::-ms-track {
+  width: 100%;
+  height: 14px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.sbt-default .shaka-seek-bar-container input[type='range']::-ms-fill-lower {
+  background: #50555c;
+  border: 0px solid #000000;
+  border-radius: 28px;
+  box-shadow: 1px 1px 1px #50555c;
+}
+
+.sbt-default .shaka-seek-bar-container input[type='range']::-ms-fill-upper {
+  background: #50555c;
+  border: 0px solid #000000;
+  border-radius: 28px;
+  box-shadow: 1px 1px 1px #50555c;
+}
+
+.sbt-default .shaka-seek-bar-container input[type='range']::-ms-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 26px;
+  width: 26px;
+  margin-top: -8px;
+  border-radius: 50px;
+  background: #e93035;
+  cursor: pointer;
+}
+
+.sbt-default .shaka-video-container * {
+  font-family: Roboto, sans-serif;
+}
+
+.sbt-default .shaka-video-container .material-icons-round {
+  font-family: 'Material Icons Outlined';
+}
+
+.sbt-default .shaka-overflow-menu,
+.sbt-default .shaka-settings-menu {
+  border-radius: 2px;
+  background: rgba(28, 28, 28, 0.9);
+  text-shadow: 0 0 2px rgb(0 0 0%);
+  -webkit-transition: opacity 0.1s cubic-bezier(0, 0, 0.2, 1);
+  transition: opacity 0.1s cubic-bezier(0, 0, 0.2, 1);
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  right: 10px;
+  bottom: 50px;
+  padding: 8px 0;
+  min-width: 200px;
+}
+
+.sbt-default .shaka-settings-menu {
+  padding: 0 0 8px 0;
+}
+
+.sbt-default .shaka-settings-menu button {
+  font-size: 12px;
+}
+
+.sbt-default .shaka-settings-menu button span {
+  margin-left: 33px;
+  font-size: 13px;
+}
+
+.sbt-default .shaka-settings-menu button[aria-selected='true'] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sbt-default .shaka-settings-menu button[aria-selected='true'] span {
+  -webkit-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2;
+  margin-left: 0;
+}
+
+.sbt-default .shaka-settings-menu button[aria-selected='true'] i {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  font-size: 18px;
+  padding-left: 5px;
+}
+
+.sbt-default .shaka-overflow-menu button {
+  padding: 0;
+}
+
+.sbt-default .shaka-overflow-menu button i {
+  display: none;
+}
+
+.sbt-default .shaka-overflow-menu button .shaka-overflow-button-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: default;
+  outline: 0;
+  height: 40px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+}
+
+.sbt-default .shaka-overflow-menu button .shaka-overflow-button-label span {
+  -ms-flex-negative: initial;
+  flex-shrink: initial;
+  padding-left: 15px;
+  font-size: 13px;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.sbt-default .shaka-overflow-menu span + span {
+  color: #fff;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  padding-right: 8px;
+  padding-left: 0 !important;
+}
+
+.sbt-default .shaka-overflow-menu span + span:after {
+  content: 'navigate_next';
+  font-family: 'Material Icons Outlined';
+  font-size: 20px;
+}
+
+.sbt-default .shaka-overflow-menu .shaka-pip-button span + span {
+  padding-right: 15px !important;
+}
+
+.sbt-default .shaka-overflow-menu .shaka-pip-button span + span:after {
+  content: '';
+}
+
+.sbt-default .shaka-back-to-overflow-button {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 12px;
+  color: #eee;
+  height: 40px;
+}
+
+.sbt-default .shaka-back-to-overflow-button .material-icons-round {
+  font-family: 'Material Icons Outlined';
+  font-size: 15px;
+  padding-right: 10px;
+}
+
+.sbt-default .shaka-back-to-overflow-button span {
+  margin-left: 3px !important;
+}
+
+.sbt-default .shaka-overflow-menu button:hover,
+.sbt-default .shaka-settings-menu button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.sbt-default .shaka-overflow-menu button:hover label,
+.sbt-default .shaka-settings-menu button:hover label {
+  cursor: pointer;
+}
+
+.sbt-default .shaka-overflow-menu button:focus,
+.sbt-default .shaka-settings-menu button:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  outline: 0;
+}
+
+.sbt-default .shaka-overflow-menu button,
+.sbt-default .shaka-settings-menu button {
+  color: #eee;
+}
+
+.sbt-default .shaka-captions-off {
+  color: #bfbfbf;
+}
+
+.sbt-default .shaka-overflow-menu-button {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.sbt-default .shaka-fullscreen-button:hover {
+  font-size: 25px;
+  -webkit-transition: font-size 0.1s cubic-bezier(0, 0, 0.2, 1);
+  transition: font-size 0.1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.sbt-default .shaka-current-time {
+  font-size: 14px;
+  color: #fff;
+  height: auto;
+  cursor: pointer;
+}
+
+.sbt-default .shaka-current-time[disabled] {
+  background-color: transparent;
+  color: #fff;
+  cursor: default;
+}
+
+.sbt-default .shaka-play-button {
+  box-sizing: border-box;
+  padding: 6%;
+  width: 0;
+  height: 0;
+  margin: 0;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 0 20px 0;
+  border: none;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0;
+  transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 0.6s;
+}
+
+.sbt-default .shaka-controls-container[casting='true'] .shaka-play-button,
+.sbt-default .shaka-controls-container[shown='true'] .shaka-play-button {
+  opacity: 1;
+}
+
+.sbt-default .shaka-play-button[icon='play'] {
+  background-image: data-uri('../images/play.svg');
+}
+
+.sbt-default .shaka-play-button[icon='pause'] {
+  background-image: data-uri('../images/pause.svg');
 }
