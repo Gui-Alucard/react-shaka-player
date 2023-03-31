@@ -7,7 +7,7 @@
 /coverage
 __snapshots__
 /__snapshots__
-/test/__snapshots__
+/test/snapshots
 
 # production
 /dist
