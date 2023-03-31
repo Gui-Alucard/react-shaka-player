@@ -67,6 +67,20 @@
 
 .sbt-theme .shaka-fullscreen-button[aria-label='Sair do modo tela cheia'] {}
 
+.sbt-theme .shaka-resolution-button .material-icons-round {}
+
+.sbt-theme .shaka-resolution-button {}
+
+.sbt-theme .shaka-resolution-button[aria-label='Resolução'] {}
+
+.sbt-theme .shaka-pip-button .material-icons-round {}
+
+.sbt-theme .shaka-pip-button {}
+
+.sbt-theme .shaka-pip-button[aria-label='Entrar no modo picture-in-picture'] {}
+
+.sbt-theme .shaka-pip-button[aria-label='Sair de picture-in-picture'] {}
+
 .sbt-theme .shaka-bottom-controls {}
 
 .sbt-theme .shaka-controls-button-panel {}
