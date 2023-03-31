@@ -26,16 +26,18 @@ const ReactPlayer = (props: IPlayerProps) => {
     playerClassName,
     superConfig,
     uiConfig,
+    youtube,
     ...newProps
   } = props;
 
   const style = {
     maxWidth: "100%",
     width: "100%",
-    height: "100%",
+    maxHeight: "100vh",
+    overflow: "auto"
   };
 
-  const overlayClassName = className === undefined ? "sbt-default" : "sbt-default " + props.className;
+  const overlayClassName = className === undefined ? "sbt-theme" : "sbt-theme " + props.className;
 
   return (
     <div style={style} ref={uiContainerRef} className={overlayClassName}>
@@ -47,7 +49,7 @@ const ReactPlayer = (props: IPlayerProps) => {
         {...newProps}
       />
     </div>
-  );
+  )
 };
 
 export { ReactPlayer };

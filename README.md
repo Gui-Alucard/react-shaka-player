@@ -147,6 +147,13 @@ Por favor, garanta que as mudanças seja acompanhadas de testes apropriadamente.
 
 ---
 
+## Styling
+
+Se for necessária a mudança direta de uma estilização, pode-se conferir todas as classes modificadas de forma resumida no arquivo
+[CSS-Classes](https://github.com/sbt-lab/sbt-videos-web-player/blob/main/CSS-Classes)
+
+---
+
 ## Licença
 
-[SBT](https://raw.githubusercontent.com/sbt-lab/sbt-videos-web-player/main/LICENSE?token=GHSAT0AAAAAACAQFC7PLM566LM44VBXB7BOZA5VFEQ)
+[SBT](https://github.com/sbt-lab/sbt-videos-web-player/blob/ef38c40458e7f84856236c2384b3ec1431e47f00/LICENSE)

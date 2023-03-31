@@ -31,4 +31,5 @@ export interface IPlayerProps {
   src?: string;
   superConfig?: SuperConfig | undefined;
   uiConfig?: ShakaExtern.UIConfiguration | any;
+  youtube?: boolean | undefined;
 };

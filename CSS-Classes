@@ -1,0 +1,283 @@
+.sbt-theme .material-icons-round {}
+
+.sbt-theme .material-icons-outlined {}
+
+.sbt-theme .shaka-hidden {}
+
+.sbt-theme .shaka-spacer {}
+
+.sbt-theme .shaka-play-button {}
+
+.sbt-theme .shaka-controls-container[shown='true'],
+.sbt-theme .shaka-controls-container[casting='true'] {}
+
+.sbt-theme .shaka-current-time {}
+
+.sbt-theme .shaka-current-time[disabled] {}
+
+.sbt-theme .shaka-controls-container .shaka-current-time,
+.sbt-theme .shaka-controls-container .shaka-current-time[disabled] {}
+
+.sbt-theme .shaka-controls-container button:focus,
+.sbt-theme .shaka-controls-container input:focus {}
+
+.sbt-theme .shaka-controls-container button:-moz-focus-inner,
+.sbt-theme .shaka-controls-container input:-moz-focus-outer {}
+
+.sbt-theme .shaka-controls-container:not(.shaka-keyboard-navigation) button:focus,
+.sbt-theme .shaka-controls-container:not(.shaka-keyboard-navigation) input:focus {}
+
+.sbt-theme .shaka-video-container {}
+
+.sbt-theme .shaka-video-container .material-icons-round {}
+
+.sbt-theme .shaka-video-container * {}
+
+.sbt-theme .shaka-video-container:fullscreen {}
+
+.sbt-theme .shaka-video-container:fullscreen .shaka-text-container {}
+
+.sbt-theme .shaka-video-container:-webkit-full-screen {}
+
+.sbt-theme .shaka-video-container:-webkit-full-screen .shaka-text-container {}
+
+.sbt-theme .shaka-video-container:-moz-full-screen {}
+
+.sbt-theme .shaka-video-container:-moz-full-screen .shaka-text-container {}
+
+.sbt-theme .shaka-video-container:-ms-fullscreen {}
+
+.sbt-theme .shaka-video-container:-ms-fullscreen .shaka-text-container {}
+
+.sbt-theme .shaka-video {}
+
+.sbt-theme .shaka-video video {}
+
+.sbt-theme .shaka-controls-container {}
+
+.sbt-theme .shaka-controls-container * {}
+
+.sbt-theme .shaka-video-container:not([shaka-controls='true']) .shaka-controls-container {}
+
+.sbt-theme .shaka-controls-container[casting='true'] .shaka-fullscreen-button {}
+
+.sbt-theme .shaka-fullscreen-button {}
+
+.sbt-theme .shaka-fullscreen-button[aria-label='Tela cheia'] {}
+
+.sbt-theme .shaka-fullscreen-button[aria-label='Sair do modo tela cheia'] {}
+
+.sbt-theme .shaka-bottom-controls {}
+
+.sbt-theme .shaka-controls-button-panel {}
+
+.sbt-theme .shaka-controls-container[casting='true'] .shaka-controls-button-panel,
+.sbt-theme .shaka-controls-container[shown='true'] .shaka-controls-button-panel {}
+
+.sbt-theme .shaka-controls-button-panel > * {}
+
+.sbt-theme .shaka-controls-container .shaka-small-play-button {}
+
+.sbt-theme .shaka-controls-container .shaka-small-play-button[aria-label='Reproduzir'] {}
+
+.sbt-theme .shaka-controls-container .shaka-small-play-button[aria-label='Pausar'] {}
+
+.sbt-theme .shaka-controls-button-panel .shaka-overflow-menu-only {}
+
+.sbt-theme .shaka-play-button-container {}
+
+.sbt-theme .shaka-scrim-container {}
+
+.sbt-theme .shaka-controls-container[casting='true'] .shaka-scrim-container,
+.sbt-theme .shaka-controls-container[shown='true'] .shaka-scrim-container {}
+
+.sbt-theme .shaka-text-container {}
+
+.sbt-theme .shaka-text-container span:not(.shaka-text-wrapper) {}
+
+.sbt-theme .shaka-text-container span.shaka-text-wrapper {}
+
+.sbt-theme .shaka-controls-container[shown='true'] ~ .shaka-text-container {}
+
+.sbt-theme .shaka-spinner-container {}
+
+.sbt-theme .shaka-video-container:not([shaka-controls='true']) .shaka-spinner-container {}
+
+.sbt-theme .shaka-spinner {}
+
+.sbt-theme .shaka-overflow-menu,
+.sbt-theme .shaka-settings-menu {}
+
+.sbt-theme .shaka-controls-container[casting='true'] .shaka-overflow-menu,
+.sbt-theme .shaka-controls-container[casting='true'] .shaka-settings-menu,
+.sbt-theme .shaka-controls-container[shown='true'] .shaka-overflow-menu,
+.sbt-theme .shaka-controls-container[shown='true'] .shaka-settings-menu {}
+
+.sbt-theme .shaka-overflow-menu button,
+.sbt-theme .shaka-settings-menu button {}
+
+.sbt-theme .shaka-settings-menu button span {}
+
+.sbt-theme .shaka-overflow-menu button i {}
+
+.sbt-theme .shaka-overflow-menu button:hover,
+.sbt-theme .shaka-settings-menu button:hover {}
+
+.sbt-theme .shaka-overflow-menu button label,
+.sbt-theme .shaka-settings-menu button label {}
+
+.sbt-theme .shaka-keyboard-navigation .shaka-overflow-menu button:focus,
+.sbt-theme .shaka-keyboard-navigation .shaka-settings-menu button:focus {}
+
+.sbt-theme .shaka-overflow-menu i,
+.sbt-theme .shaka-settings-menu i {}
+
+.sbt-theme .shaka-overflow-menu.shaka-low-position,
+.sbt-theme .shaka-settings-menu.shaka-low-position {}
+
+.sbt-theme .shaka-overflow-menu span {}
+
+.sbt-theme .shaka-overflow-button-label {}
+
+.sbt-theme .shaka-overflow-menu button .shaka-overflow-button-label {}
+
+.sbt-theme .shaka-overflow-menu button .shaka-overflow-button-label span {}
+
+.sbt-theme .shaka-overflow-menu button .shaka-overflow-button-label span + span {}
+
+.sbt-theme .shaka-overflow-menu span + span {}
+
+.sbt-theme .shaka-overflow-menu span + span:after {}
+
+.sbt-theme .shaka-overflow-menu .shaka-pip-button span + span {}
+
+.sbt-theme .shaka-overflow-menu .shaka-pip-button span + span:after {}
+
+.sbt-theme .shaka-current-selection-span {}
+
+.sbt-theme .shaka-settings-menu span {}
+
+.sbt-theme .shaka-settings-menu button[aria-selected='true'] {}
+
+.sbt-theme .shaka-settings-menu button[aria-selected='true'] span {}
+
+.sbt-theme .shaka-settings-menu button[aria-selected='true'] i {}
+
+.sbt-theme .shaka-back-to-overflow-button {}
+
+.sbt-theme .shaka-back-to-overflow-button .material-icons-round {}
+
+.sbt-theme .shaka-back-to-overflow-button span {}
+
+.sbt-theme .shaka-back-to-overflow-button span {}
+
+.sbt-theme .shaka-back-to-overflow-button i {}
+
+.sbt-theme .shaka-auto-span {}
+
+.sbt-theme .shaka-overflow-menu-button[aria-label='Mais definições'] {}
+
+.sbt-theme .shaka-overflow-menu-button[aria-label='Mais definições'] {}
+
+.sbt-theme .shaka-language-button[aria-label='Idioma'] {}
+
+.sbt-theme .shaka-playbackrate-button[aria-label='Velocidade da reprodução'] {}
+
+.sbt-theme .shaka-range-container {}
+
+.sbt-theme .shaka-volume-bar-container {}
+
+.sbt-theme .shaka-controls-button-panel .shaka-volume-bar-container {}
+
+.sbt-theme .shaka-mute-button {}
+
+.sbt-theme .shaka-mute-button[aria-label='Desativar som'] {}
+
+.sbt-theme .shaka-mute-button[aria-label='Ativar som'] {}
+
+.sbt-theme .shaka-range-element {}
+
+.sbt-theme .shaka-range-element::-webkit-slider-runnable-track {}
+
+.sbt-theme .shaka-range-element::-moz-range-track {}
+
+.sbt-theme .shaka-range-element::-webkit-slider-thumb {}
+
+.sbt-theme .shaka-range-element::-moz-range-thumb {}
+
+.sbt-theme .shaka-seek-bar-container {}
+
+.sbt-theme .shaka-controls-container[casting='true'] .shaka-seek-bar-container,
+.sbt-theme .shaka-controls-container[shown='true'] .shaka-seek-bar-container {}
+
+.sbt-theme .shaka-ad-markers {}
+
+.sbt-theme .shaka-range-element[aria-label='Volume']::-webkit-slider-thumb {}
+
+.sbt-theme .shaka-range-element[aria-label='Volume']::-moz-range-thumb {}
+
+.sbt-theme .shaka-range-element[aria-label='Procurar']::-webkit-slider-thumb {}
+
+.sbt-theme .shaka-range-element[aria-label='Procurar']::-moz-range-thumb {}
+
+.sbt-theme .shaka-seek-bar-container {}
+
+.sbt-theme .shaka-spinner-svg {}
+
+.sbt-theme .shaka-spinner-path {}
+
+.sbt-theme .shaka-controls-container[ad-active='true'] {}
+
+.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-bottom-controls {}
+
+.sbt-theme .shaka-client-side-ad-container,
+.sbt-theme .shaka-server-side-ad-container {}
+
+.sbt-theme .shaka-video-container[shaka-controls='true'] .shaka-client-side-ad-container iframe,
+.sbt-theme .shaka-video-container[shaka-controls='true'] .shaka-server-side-ad-container iframe {}
+
+.sbt-theme .shaka-server-side-ad-container {}
+
+.sbt-theme .shaka-server-side-ad-container:not([ad-active='true']) {}
+
+.sbt-theme .shaka-ad-controls {}
+
+.sbt-theme .shaka-video-container:not([shaka-controls='true']) .shaka-ad-controls {}
+
+.sbt-theme .shaka-ad-controls button,
+.sbt-theme .shaka-ad-controls div {}
+
+.sbt-theme .shaka-ad-controls div:not(.shaka-skip-ad-counter) {}
+
+.sbt-theme .shaka-ad-counter,
+.sbt-theme .shaka-ad-position {}
+
+.sbt-theme .shaka-ad-controls .shaka-ad-position:not(.shaka-hidden) + .shaka-ad-counter {}
+
+.sbt-theme .shaka-skip-ad-container {}
+
+.sbt-theme .shaka-skip-ad-button {}
+
+.sbt-theme .shaka-skip-ad-button:disabled {}
+
+.sbt-theme .shaka-skip-ad-counter {}
+
+.sbt-theme .shaka-tooltips-on {}
+
+.sbt-theme .shaka-tooltips-on > [class*='shaka-tooltip'] {}
+
+.sbt-theme .shaka-tooltips-on > [class*='shaka-tooltip']:hover:after,
+.sbt-theme .shaka-tooltips-on > [class*='shaka-tooltip']:focus-visible:after,
+.sbt-theme .shaka-tooltips-on > [class*='shaka-tooltip']:active:after {}
+
+.sbt-theme .shaka-tooltips-on > .shaka-tooltip-status:hover:after,
+.sbt-theme .shaka-tooltips-on > .shaka-tooltip-status:focus-visible:after,
+.sbt-theme .shaka-tooltips-on > .shaka-tooltip-status:active:after {}
+
+.sbt-theme .shaka-tooltips-on button:first-child:hover:after,
+.sbt-theme .shaka-tooltips-on button:first-child:focus-visible:after,
+.sbt-theme .shaka-tooltips-on button:first-child:active:after {}
+
+.sbt-theme .shaka-tooltips-on button:last-child:hover:after,
+.sbt-theme .shaka-tooltips-on button:last-child:focus-visible:after,
+.sbt-theme .shaka-tooltips-on button:last-child:active:after {}
