@@ -11,7 +11,7 @@ exports[`Player Should render correctly 1`] = `
     {
       "maxHeight": "100vh",
       "maxWidth": "100%",
-      "overflow": "auto",
+      "overflow": "hidden",
       "width": "100%",
     }
   }
@@ -21,7 +21,7 @@ exports[`Player Should render correctly 1`] = `
       {
         "maxHeight": "100vh",
         "maxWidth": "100%",
-        "overflow": "auto",
+        "overflow": "hidden",
         "width": "100%",
       }
     }

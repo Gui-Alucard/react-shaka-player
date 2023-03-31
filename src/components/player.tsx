@@ -34,7 +34,7 @@ const ReactPlayer = (props: IPlayerProps) => {
     maxWidth: "100%",
     width: "100%",
     maxHeight: "100vh",
-    overflow: "auto"
+    overflow: "hidden"
   };
 
   const overlayClassName = className === undefined ? "sbt-theme" : "sbt-theme " + props.className;
