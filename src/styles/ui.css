@@ -243,31 +243,13 @@ the control buttons panel. */
 /* A container for the entire video + controls combo.  This is the auto-setup
  * div which we populate. */
 .sbt-theme .shaka-video-container {
-  /* overlay-parent */
-  /* For a detailed explanation of how this achieves an overlay, please refer
-  * to https://developer.mozilla.org/en-US/docs/Web/CSS/position .
-  *
-  * But you don't have to, because we've encapsulated these high level
-  * concepts into classes.
-  *
-  * This makes it possible for some children of this container to overlay the
-  * others using .overlay-child(). */
   position: relative;
-
-  /* Make sure any top or left styles applied from outside don't move this from
-   * it's original position, now that it's relative to that original position.
-   * This is a defensive move that came out of intensive debugging on IE 11. */
   top: 0;
   left: 0;
 
   /* Without this, the container somehow winds up being a tad taller than it
    * should be (484px vs 480px). */
   display: flex;
-
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
 }
 
 .sbt-theme .shaka-video-container .material-icons-round {
