@@ -2,21 +2,20 @@ const vodConfig = {
   ui: {
     controlPanelElements: [
       'play_pause',
-      'rewind',
-      'fast_forward',
       'mute',
       'volume',
       'time_and_duration',
       'spacer',
-      'overflow_menu',
       'fullscreen',
+      'quality',
+      'picture_in_picture'
     ]
   },
 };
 
 const streamingConfig = {
   player: {
-    manifes: {
+    manifest: {
       dash: {
         ignoreMinBufferTime: true,
       },
@@ -32,7 +31,7 @@ const streamingConfig = {
   },
   ui: {
     addSeekBar: false,
-    controlPanelElements: ["time_and_duration", "mute", "fullscreen"],
+    controlPanelElements: ['play_pause', 'mute', 'volume', 'spacer', 'fullscreen', 'quality'],
   },
 };
 
