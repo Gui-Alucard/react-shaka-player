@@ -1,5 +1,14 @@
 const vodConfig = {
   ui: {
+    addSeekBar: true,
+    doubleClickForFullscreen: true,
+    singleClickForPlayAndPause: true,
+    enableKeyboardPlaybackControls: true,
+    enableFullscreenOnRotation: true,
+    forceLandscapeOnFullscreen: true,
+    clearBufferOnQualityChange: true,
+    addBigPlayButton: false,
+    customContextMenu: false,
     controlPanelElements: [
       'play_pause',
       'mute',
@@ -9,7 +18,17 @@ const vodConfig = {
       'fullscreen',
       'quality',
       'picture_in_picture'
-    ]
+    ],
+    seekBarColors: {
+      base: '#ffffff4c',
+      buffered: '#ffffff4c',
+      played: '#e93035',
+      adBreaks: '#ffcc00',
+    },
+    volumeBarColors: {
+      base: '#ffffff4c',
+      level: '#0060ad'
+    }
   },
 };
 
@@ -30,8 +49,26 @@ const streamingConfig = {
     },
   },
   ui: {
-    addSeekBar: false,
+    addSeekBar: true,
+    doubleClickForFullscreen: true,
+    singleClickForPlayAndPause: true,
+    enableKeyboardPlaybackControls: true,
+    enableFullscreenOnRotation: true,
+    forceLandscapeOnFullscreen: true,
+    clearBufferOnQualityChange: false,
+    addBigPlayButton: false,
+    customContextMenu: false,
     controlPanelElements: ['play_pause', 'mute', 'volume', 'spacer', 'fullscreen', 'quality'],
+    seekBarColors: {
+      base: '#ffffff4c',
+      buffered: '#ffffff4c',
+      played: '#e93035',
+      adBreaks: '#ffcc00',
+    },
+    volumeBarColors: {
+      base: '#ffffff4c',
+      level: '#0060ad'
+    }
   },
 };
 
