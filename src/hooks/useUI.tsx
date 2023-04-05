@@ -27,7 +27,7 @@ const useUI = (
   }, [player]);
 
   useEffect(() => {
-    if (ui && props.uiConfig) {
+    if (ui && props.uiConfig !== undefined) {
       ui.configure(props.uiConfig);
     } else if (ui && props.superConfig) {
       switch (props.superConfig) {
