@@ -100,6 +100,7 @@ the control buttons panel. */
   --thumb-color: #e93035;
   --track-default-color: white;
   --thumb-size: 12px;
+  --thumb-volume-size: 16px;
   --track-height: 4px;
 }
 
@@ -1322,13 +1323,13 @@ the control buttons panel. */
 }
 
 .sbt-theme .shaka-range-element[aria-label='Volume']::-webkit-slider-thumb {
-  width: var(--thumb-size);
-  height: var(--thumb-size);
+  width: var(--thumb-volume-size);
+  height: var(--thumb-volume-size);
   background-color: #0060ad;
 }
 .sbt-theme .shaka-range-element[aria-label='Volume']::-moz-range-thumb {
-  height: var(--thumb-size);
-  height: var(--thumb-size);
+  height: var(--thumb-volume-size);
+  height: var(--thumb-volume-size);
   background-color: #0060ad;
 }
 
