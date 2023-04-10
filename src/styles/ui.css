@@ -1333,6 +1333,10 @@ the control buttons panel. */
   background-color: #0060ad;
 }
 
+.sbt-theme .shaka-range-container .shaka-volume-bar-container {
+  background-color: #0060ad;
+}
+
 .sbt-theme .shaka-range-element[aria-label='Procurar']::-webkit-slider-thumb {
   width: 24px;
   height: 24px;

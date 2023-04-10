@@ -41,10 +41,7 @@ const usePlayer = (
     } else if (player && props.superConfig) {
       switch (props.superConfig) {
         case SuperConfig.STREAMING:
-          player.configure(Configs.streamingConfig);
-          break;
-        case SuperConfig.VOD:
-          player.configure(Configs.vodConfig);
+          player.configure(Configs.streamingConfig.player);
           break;
         default:
           player.configure({});
