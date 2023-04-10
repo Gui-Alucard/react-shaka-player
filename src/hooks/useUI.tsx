@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import * as Configs from "../configs";
 
 import { IPlayerProps } from "../types";
-import { SuperConfig } from "../types/enum";
 
 const useUI = (
   player: ShakaPlayer,
@@ -31,10 +30,10 @@ const useUI = (
       ui.configure(props.uiConfig);
     } else if (ui && props.superConfig) {
       switch (props.superConfig) {
-        case props.superConfig = SuperConfig.STREAMING:
+        case 'STREAMING':
           ui.configure(Configs.streamingConfig);
           break;
-        case props.superConfig = SuperConfig.VOD:
+        case 'VOD':
           ui.configure(Configs.vodConfig);
           break;
         default:
