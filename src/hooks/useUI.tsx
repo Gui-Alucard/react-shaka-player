@@ -27,14 +27,14 @@ const useUI = (
   }, [player]);
 
   useEffect(() => {
-    if (ui && props.uiConfig !== undefined) {
+    if (ui && props.uiConfig) {
       ui.configure(props.uiConfig);
     } else if (ui && props.superConfig) {
       switch (props.superConfig) {
-        case SuperConfig.STREAMING:
+        case props.superConfig = SuperConfig.STREAMING:
           ui.configure(Configs.streamingConfig);
           break;
-        case SuperConfig.VOD:
+        case props.superConfig = SuperConfig.VOD:
           ui.configure(Configs.vodConfig);
           break;
         default:
