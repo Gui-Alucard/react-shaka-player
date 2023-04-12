@@ -25,24 +25,19 @@ const usePlayerListener = (player: ShakaPlayer, props?: IPlayerProps) => {
     if (player) {
       player.addEventListener("error", _onPlayerErrorEvent);
       player.addEventListener("buffering", _onBufferingEvent);
-      player.addEventListener("mouseover", _onMouseOver);
-      const videoElement = player.getMediaElement();
-      eventManager.listenOnce(videoElement, `timeupdate`, (event: any) => {
+      player.addEventListener("mouseover", (event) => _onMouseOver(event));
+      eventManager.listen(player, `timeupdate`, (event: any) => {
         console.log('[CONSOLE DO TIME UPDATE! + EVENT =>', event);
+      });
+      eventManager.listen(player, `play`, (event: any) => {
+        console.log('[CONSOLE DO PLAY! + EVENT =>', event);
+        _onPlay()
       });
       eventManager.listen(player, `buffering`, (event: any) => {
         if (event.buffering == false) {
           console.log('[CONSOLE DO BUFFERING! + EVENT =>', event);
           eventManager.unlisten(player, 'buffering');
         }
-      });
-      eventManager.listenOnce(videoElement, `mouseover`, (event: any) => {
-        console.log('[CONSOLE DO MOUSE OVER! + EVENT =>', event);
-        _onMouseOver(event)
-      });
-      eventManager.listenOnce(videoElement, `play`, (event: any) => {
-        console.log('[CONSOLE DO PLAY! + EVENT =>', event);
-        _onPlay()
       });
     }
   }, [player]);
