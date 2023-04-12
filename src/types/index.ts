@@ -29,18 +29,7 @@ export interface IPlayerProps {
   onStatsChange?(stats: IStats): void | undefined;
   playerClassName?: string;
   playsInline?: boolean | undefined;
+  src?: string;
   superConfig?: SuperConfig | undefined;
   uiConfig?: ShakaExtern.UIConfiguration | any;
-  src?: ISrcProps;
-  type?: ITypeProps;
-};
-
-export interface ISrcProps {
-  dash?: string;
-  hls?: string;
-};
-
-export interface ITypeProps {
-  dashType?: string;
-  hlsType?: string;
 };

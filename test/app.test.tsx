@@ -12,14 +12,8 @@ describe("Player", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("Should renders DASH source[manifest] string correctly", () => {
-    const props = { src: { dash: "this is sample DASH" }, type: { dashType: "mpd" } };
-    const tree = Enzyme.shallow(<Player {...props} />);
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("Should renders HLS source[manifest] string correctly", () => {
-    const props = { src: { hls: "this is sample HLS" }, type: { hlsType: "m3u8" } };
+  it("Should renders source[manifest] string correctly", () => {
+    const props = { src: "this is sample source" };
     const tree = Enzyme.shallow(<Player {...props} />);
     expect(tree).toMatchSnapshot();
   });
