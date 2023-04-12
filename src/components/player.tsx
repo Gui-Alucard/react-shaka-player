@@ -22,6 +22,7 @@ const ReactPlayer = (props: IPlayerProps) => {
     onMouseOver,
     onPause,
     onPlay,
+    onPlaying,
     onPlayerError,
     onStatsChange,
     onTouchStart,
@@ -48,6 +49,9 @@ const ReactPlayer = (props: IPlayerProps) => {
         style={style}
         autoPlay={autoPlay}
         onPlay={onPlay}
+        onPlaying={onPlaying}
+        onPause={onPause}
+        onEnded={onEnded}
         {...newProps}
       />
     </div>

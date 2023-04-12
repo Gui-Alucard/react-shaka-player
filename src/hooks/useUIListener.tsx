@@ -1,7 +1,7 @@
 import { Player as ShakaPlayer, ui as ShakaUI, util as ShakaUtil } from "shaka-player/dist/shaka-player.ui";
 import { useEffect } from "react";
 
-import { IMouseEvent, IPlayEvent, IPlayerProps, ITouchEvent } from "../types";
+import { IClickEvent, IMouseEvent, IPlayerProps, ITouchEvent } from "../types";
 
 const useUILIstener = (
   ui: ShakaUI.Overlay,
@@ -13,14 +13,17 @@ const useUILIstener = (
       const eventManager = new ShakaUtil.EventManager();
       const mediaElement = player.getMediaElement();
 
-      const _onPlay = (event: IPlayEvent) => {
+      const _onPlay = (event: IClickEvent) => {
         props.onPlay && props.onPlay(event);
       };
-      const _onPause = () => {
-        props.onPause && props.onPause();
+      const _onPlaying = (event: IClickEvent) => {
+        props.onPlaying && props.onPlaying(event);
       };
-      const _onEnded = () => {
-        props.onEnded && props.onEnded();
+      const _onPause = (event: IClickEvent) => {
+        props.onPause && props.onPause(event);
+      };
+      const _onEnded = (event: IClickEvent) => {
+        props.onEnded && props.onEnded(event);
       };
       const _onMouseOver = (event: IMouseEvent) => {
         props.onMouseOver && props.onMouseOver(event);
@@ -30,6 +33,7 @@ const useUILIstener = (
       };
 
       mediaElement.addEventListener("play", _onPlay);
+      mediaElement.addEventListener("playing", _onPlaying);
       mediaElement.addEventListener("pause", _onPause);
       mediaElement.addEventListener("ended", _onEnded);
       mediaElement.addEventListener("mouseover", _onMouseOver);
@@ -44,9 +48,6 @@ const useUILIstener = (
         });
         eventManager.listenOnce(mediaElement, `timeupdate`, (event: any) => {
           console.log('[CONSOLE TIMEUPDATE', event);
-        });
-        eventManager.listenOnce(mediaElement, `mouseover`, (event: any) => {
-          console.log('[CONSOLE MOUSE OVER', event);
         });
       }
     }
