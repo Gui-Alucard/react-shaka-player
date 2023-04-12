@@ -19,14 +19,16 @@ const ReactPlayer = (props: IPlayerProps) => {
     onBuffering,
     onEnded,
     onLoad,
+    onMouseOver,
     onPause,
     onPlay,
     onPlayerError,
     onStatsChange,
     playerClassName,
+    src,
     superConfig,
+    type,
     uiConfig,
-    youtube,
     ...newProps
   } = props;
 
@@ -47,7 +49,10 @@ const ReactPlayer = (props: IPlayerProps) => {
         style={style}
         autoPlay={autoPlay}
         {...newProps}
-      />
+      >
+        {src && <source src={src.dash ? src.dash : src.hls} type={`video/${type.dashType ? type.dashType : type.hlsType}`} />}
+        Your browser does not support HTML video.
+      </video>
     </div>
   )
 };

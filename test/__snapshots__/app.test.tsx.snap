@@ -25,10 +25,14 @@ exports[`Player Should render correctly 1`] = `
         "width": "100%",
       }
     }
-  />
+  >
+    Your browser does not support HTML video.
+  </video>
 </div>
 `;
 
 exports[`Player Should render playerClassName container correctly 1`] = `ShallowWrapper {}`;
 
-exports[`Player Should renders source[manifest] string correctly 1`] = `ShallowWrapper {}`;
+exports[`Player Should renders DASH source[manifest] string correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Player Should renders HLS source[manifest] string correctly 1`] = `ShallowWrapper {}`;

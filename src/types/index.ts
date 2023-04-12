@@ -22,14 +22,25 @@ export interface IPlayerProps {
   onBuffering?(event: boolean): void | undefined;
   onEnded?(): void | undefined;
   onLoad?(data: IPlayerRefs): void | undefined;
+  onMouseOver?(): void | undefined;
   onPause?(): void | undefined;
   onPlay?(): void | undefined;
   onPlayerError?(event: ShakaExtern.Error): void | undefined;
   onStatsChange?(stats: IStats): void | undefined;
   playerClassName?: string;
   playsInline?: boolean | undefined;
-  src?: string;
   superConfig?: SuperConfig | undefined;
   uiConfig?: ShakaExtern.UIConfiguration | any;
-  youtube?: boolean | undefined;
+  src?: ISrcProps;
+  type?: ITypeProps;
+};
+
+export interface ISrcProps {
+  dash?: string;
+  hls?: string;
+};
+
+export interface ITypeProps {
+  dashType?: string;
+  hlsType?: string;
 };
