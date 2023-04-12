@@ -54,7 +54,8 @@ const usePlayer = (
     if (player && props.src && ShakaPlayer.isBrowserSupported()) {
       const initLoad = async () => {
         try {
-          await (props.src.dash ? player.load(props.src.dash) : player.load(props.src.hls))
+          props.src.dash && await player.load(props.src.dash)
+          props.src.hls && await player.load(props.src.hls)
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }

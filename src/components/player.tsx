@@ -50,7 +50,8 @@ const ReactPlayer = (props: IPlayerProps) => {
         autoPlay={autoPlay}
         {...newProps}
       >
-        {src && <source src={src.dash ? src.dash : src.hls} type={`video/${type.dashType ? type.dashType : type.hlsType}`} />}
+        {src && src.dash && <source src={src.dash} type={`video/${type.dashType}`} />}
+        {src && src.hls && <source src={src.hls} type={`video/${type.hlsType}`} />}
         Your browser does not support HTML video.
       </video>
     </div>
