@@ -16,12 +16,15 @@ const usePlayerListener = (player: ShakaPlayer, props?: IPlayerProps) => {
     const _onMouseMove = (event: IMouseEvent) => {
       props.onMouseMove && props.onMouseMove(event);
     };
+    const _onMouseOver = (event: IMouseEvent) => {
+      props.onMouseOver && props.onMouseOver(event);
+    };
 
     if (player) {
       player.addEventListener("error", _onPlayerErrorEvent);
       player.addEventListener("buffering", _onBufferingEvent);
       player.addEventListener("onmousemove", (event) => _onMouseMove(event));
-      player.addEventListener("message", (event) => _onMouseMove(event));
+      player.addEventListener("onmouseover", (event) => _onMouseOver(event));
     }
   }, [player]);
 };
