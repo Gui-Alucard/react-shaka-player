@@ -13,7 +13,8 @@ export interface IPlayerRefs {
 };
 
 type IStats = IMediaStatsTime & ShakaExtern.Stats;
-export type IMouseEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | Event
+export type IMouseEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | Event;
+export type ITouchEvent = React.TouchEvent<HTMLDivElement> | Event;
 
 export interface IPlayerProps {
   autoPlay?: boolean | undefined;
@@ -28,6 +29,7 @@ export interface IPlayerProps {
   onPlay?(): void | undefined;
   onPlayerError?(event: ShakaExtern.Error): void | undefined;
   onStatsChange?(stats: IStats): void | undefined;
+  onTouchStart?(event?: ITouchEvent): void | undefined;
   playerClassName?: string;
   playsInline?: boolean | undefined;
   src?: string;

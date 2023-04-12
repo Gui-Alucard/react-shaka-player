@@ -1,7 +1,7 @@
-import { Player as ShakaPlayer, ui as ShakaUI } from "shaka-player/dist/shaka-player.ui";
+import { Player as ShakaPlayer, ui as ShakaUI, util as ShakaUtil } from "shaka-player/dist/shaka-player.ui";
 import { useEffect } from "react";
 
-import { IPlayerProps } from "../types";
+import { IMouseEvent, IPlayerProps, ITouchEvent } from "../types";
 
 const useUILIstener = (
   ui: ShakaUI.Overlay,
@@ -10,6 +10,7 @@ const useUILIstener = (
 ) => {
   useEffect(() => {
     if (player && ui) {
+      const eventManager = new ShakaUtil.EventManager();
       const mediaElement = player.getMediaElement();
 
       const _onPlay = () => {
@@ -21,11 +22,30 @@ const useUILIstener = (
       const _onEnded = () => {
         props.onEnded && props.onEnded();
       };
+      const _onMouseOver = (event: IMouseEvent) => {
+        props.onMouseOver && props.onMouseOver(event);
+      };
+      const _onTouchStart = (event: ITouchEvent) => {
+        props.onTouchStart && props.onTouchStart(event);
+      };
 
-      console.log('[UI LISTENER mediaElement', mediaElement)
       mediaElement.addEventListener("play", _onPlay);
       mediaElement.addEventListener("pause", _onPause);
       mediaElement.addEventListener("ended", _onEnded);
+      mediaElement.addEventListener("mouseover", _onMouseOver);
+      mediaElement.addEventListener("touchstart", _onTouchStart);
+
+      if (player) {
+        eventManager.listen(player, `buffering`, (event: any) => {
+          if (event.buffering == false) {
+            console.log('[CONSOLE DO BUFFERING! + EVENT =>', event);
+            eventManager.unlisten(player, 'buffering');
+          }
+        });
+        eventManager.listenOnce(mediaElement, `timeupdate`, (event: any) => {
+          console.log('[CONSOLE TIMEUPDATE', event);
+        });
+      }
     }
   }, [player, ui])
 };
