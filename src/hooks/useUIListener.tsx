@@ -1,7 +1,7 @@
 import { Player as ShakaPlayer, ui as ShakaUI, util as ShakaUtil } from "shaka-player/dist/shaka-player.ui";
 import { useEffect } from "react";
 
-import { IMouseEvent, IPlayerProps, ITouchEvent } from "../types";
+import { IMouseEvent, IPlayEvent, IPlayerProps, ITouchEvent } from "../types";
 
 const useUILIstener = (
   ui: ShakaUI.Overlay,
@@ -13,8 +13,8 @@ const useUILIstener = (
       const eventManager = new ShakaUtil.EventManager();
       const mediaElement = player.getMediaElement();
 
-      const _onPlay = () => {
-        props.onPlay && props.onPlay();
+      const _onPlay = (event: IPlayEvent) => {
+        props.onPlay && props.onPlay(event);
       };
       const _onPause = () => {
         props.onPause && props.onPause();
@@ -44,6 +44,9 @@ const useUILIstener = (
         });
         eventManager.listenOnce(mediaElement, `timeupdate`, (event: any) => {
           console.log('[CONSOLE TIMEUPDATE', event);
+        });
+        eventManager.listenOnce(mediaElement, `mouseover`, (event: any) => {
+          console.log('[CONSOLE MOUSE OVER', event);
         });
       }
     }
