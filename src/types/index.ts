@@ -13,6 +13,7 @@ export interface IPlayerRefs {
 };
 
 type IStats = IMediaStatsTime & ShakaExtern.Stats;
+export type IMouseEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | Event
 
 export interface IPlayerProps {
   autoPlay?: boolean | undefined;
@@ -22,7 +23,7 @@ export interface IPlayerProps {
   onBuffering?(event: boolean): void | undefined;
   onEnded?(): void | undefined;
   onLoad?(data: IPlayerRefs): void | undefined;
-  onMouseOver?(): void | undefined;
+  onMouseMove?(event?: IMouseEvent): void | undefined;
   onPause?(): void | undefined;
   onPlay?(): void | undefined;
   onPlayerError?(event: ShakaExtern.Error): void | undefined;

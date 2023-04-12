@@ -11,6 +11,7 @@ const useUILIstener = (
   useEffect(() => {
     if (player && ui) {
       const mediaElement = player.getMediaElement();
+
       const _onPlay = () => {
         props.onPlay && props.onPlay();
       };
@@ -20,14 +21,10 @@ const useUILIstener = (
       const _onEnded = () => {
         props.onEnded && props.onEnded();
       };
-      const _onMouseOver = () => {
-        props.onMouseOver && props.onMouseOver();
-      };
 
       mediaElement.addEventListener("play", _onPlay);
       mediaElement.addEventListener("pause", _onPause);
       mediaElement.addEventListener("ended", _onEnded);
-      mediaElement.addEventListener("onmouseover", _onMouseOver);
     }
   }, [player, ui])
 };
