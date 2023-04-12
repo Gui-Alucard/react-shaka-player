@@ -65,8 +65,15 @@ const usePlayer = (
 
   useEffect(() => {
     const eventManager = new ShakaUtil.EventManager();
-    eventManager.listenOnce(player, `timeupdate`, (e) => {
+    const videoElement = player.getMediaElement()
+    eventManager.listenOnce(videoElement, `timeupdate`, (e) => {
       console.log('[SHAKA! + EVENT =>', e);
+    });
+    eventManager.listen(player, `buffering`, (event: any) => {
+      if (event.buffering == false) {
+        console.log('[We are playing!', event);
+        eventManager.unlisten(player, 'buffering');
+      }
     });
   }, [player]);
 
