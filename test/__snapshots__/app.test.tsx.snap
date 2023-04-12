@@ -7,8 +7,6 @@ exports[`Player Should render container className and playerClassName container 
 exports[`Player Should render correctly 1`] = `
 <div
   className="sbt-theme"
-  onMouseMove={[Function]}
-  onMouseOver={[Function]}
   style={
     {
       "maxHeight": "100vh",

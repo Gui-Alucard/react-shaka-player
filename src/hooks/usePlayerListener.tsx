@@ -1,7 +1,7 @@
 import { Player as ShakaPlayer, extern as ShakaExtern } from "shaka-player/dist/shaka-player.ui";
 import { useEffect } from "react";
 
-import { IMouseEvent, IPlayerProps } from "../types";
+import { IPlayerProps } from "../types";
 
 const usePlayerListener = (player: ShakaPlayer, props?: IPlayerProps) => {
 
@@ -13,18 +13,14 @@ const usePlayerListener = (player: ShakaPlayer, props?: IPlayerProps) => {
       const boolOfBuffering: boolean = bufferStatus.buffering
       props.onBuffering && props.onBuffering(boolOfBuffering);
     };
-    const _onMouseMove = (event: IMouseEvent) => {
-      props.onMouseMove && props.onMouseMove(event);
-    };
-    const _onMouseOver = (event: IMouseEvent) => {
-      props.onMouseOver && props.onMouseOver(event);
+    const _onMouseOver = () => {
+      props.onMouseOver && props.onMouseOver(player);
     };
 
     if (player) {
       player.addEventListener("error", _onPlayerErrorEvent);
       player.addEventListener("buffering", _onBufferingEvent);
-      player.addEventListener("onmousemove", (event) => _onMouseMove(event));
-      player.addEventListener("onmouseover", (event) => _onMouseOver(event));
+      player.addEventListener("mouseover", _onMouseOver);
     }
   }, [player]);
 };
