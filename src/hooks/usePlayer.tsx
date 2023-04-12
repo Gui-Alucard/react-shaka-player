@@ -1,4 +1,4 @@
-import { Player as ShakaPlayer, polyfill as ShakaPolyfill } from 'shaka-player/dist/shaka-player.ui';
+import { Player as ShakaPlayer, polyfill as ShakaPolyfill, util as ShakaUtil } from 'shaka-player/dist/shaka-player.ui';
 import React, { useEffect, useState } from 'react';
 import * as Configs from '../configs';
 import UIHooks from './useUI';
@@ -64,7 +64,7 @@ const usePlayer = (
   }, [player, props.src]);
 
   useEffect(() => {
-    const eventManager = new shaka.util.EventManager();
+    const eventManager = new ShakaUtil.EventManager();
     eventManager.listenOnce(player, `timeupdate`, (e) => {
       console.log('Stuff is happening! + EVENT =>', e);
     });
