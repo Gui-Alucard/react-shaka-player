@@ -1,4 +1,4 @@
-import { Player as ShakaPlayer, polyfill as ShakaPolyfill, util as ShakaUtil } from 'shaka-player/dist/shaka-player.ui';
+import { Player as ShakaPlayer, polyfill as ShakaPolyfill } from 'shaka-player/dist/shaka-player.ui';
 import React, { useEffect, useState } from 'react';
 import * as Configs from '../configs';
 import UIHooks from './useUI';
@@ -62,17 +62,6 @@ const usePlayer = (
       initLoad();
     }
   }, [player, props.src]);
-
-  useEffect(() => {
-    console.log('[TEM PLAYER?', player)
-    const eventManager = new ShakaUtil.EventManager();
-    eventManager.listen(player, `buffering`, (event: any) => {
-      if (event.buffering == false) {
-        console.log('[SHAKA!', event);
-        eventManager.unlisten(player, 'buffering');
-      }
-    });
-  }, [player]);
 
   return { player, ui };
 };
