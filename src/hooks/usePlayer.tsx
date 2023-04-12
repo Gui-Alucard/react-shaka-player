@@ -66,7 +66,7 @@ const usePlayer = (
   useEffect(() => {
     const eventManager = new ShakaUtil.EventManager();
     eventManager.listenOnce(player, `timeupdate`, (e) => {
-      console.log('Stuff is happening! + EVENT =>', e);
+      console.log('[SHAKA! + EVENT =>', e);
     });
   }, [player]);
 

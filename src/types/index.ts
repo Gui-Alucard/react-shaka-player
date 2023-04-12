@@ -23,7 +23,7 @@ export interface IPlayerProps {
   onBuffering?(event: boolean): void | undefined;
   onEnded?(): void | undefined;
   onLoad?(data: IPlayerRefs): void | undefined;
-  onMouseOver?(player?: ShakaPlayer): void | undefined;
+  onMouseOver?(): void | undefined;
   onPause?(): void | undefined;
   onPlay?(): void | undefined;
   onPlayerError?(event: ShakaExtern.Error): void | undefined;

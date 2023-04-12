@@ -14,7 +14,7 @@ const usePlayerListener = (player: ShakaPlayer, props?: IPlayerProps) => {
       props.onBuffering && props.onBuffering(boolOfBuffering);
     };
     const _onMouseOver = () => {
-      props.onMouseOver && props.onMouseOver(player);
+      props.onMouseOver && props.onMouseOver();
     };
 
     if (player) {
