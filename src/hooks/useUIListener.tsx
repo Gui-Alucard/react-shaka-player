@@ -22,6 +22,7 @@ const useUILIstener = (
         props.onEnded && props.onEnded();
       };
 
+      console.log('[UI LISTENER', player)
       mediaElement.addEventListener("play", _onPlay);
       mediaElement.addEventListener("pause", _onPause);
       mediaElement.addEventListener("ended", _onEnded);

@@ -1,7 +1,7 @@
 import { Player as ShakaPlayer, extern as ShakaExtern, util as ShakaUtil } from "shaka-player/dist/shaka-player.ui";
 import { useEffect } from "react";
 
-import { IPlayerProps } from "../types";
+import { IMouseEvent, IPlayerProps } from "../types";
 
 const usePlayerListener = (player: ShakaPlayer, props?: IPlayerProps) => {
 
@@ -13,22 +13,35 @@ const usePlayerListener = (player: ShakaPlayer, props?: IPlayerProps) => {
       const boolOfBuffering: boolean = bufferStatus.buffering
       props.onBuffering && props.onBuffering(boolOfBuffering);
     };
-    const _onMouseOver = () => {
-      props.onMouseOver && props.onMouseOver();
+    const _onMouseOver = (event: IMouseEvent) => {
+      props.onMouseOver && props.onMouseOver(event);
+    };
+    const _onPlay = () => {
+      props.onPlay && props.onPlay();
     };
 
-    console.log('[ANTES', player)
     if (player) {
       player.addEventListener("error", _onPlayerErrorEvent);
       player.addEventListener("buffering", _onBufferingEvent);
       player.addEventListener("mouseover", _onMouseOver);
-      console.log('[TEM PLAYER', player)
+      console.log('[PLAYER', player)
       const eventManager = new ShakaUtil.EventManager();
       eventManager.listen(player, `buffering`, (event: any) => {
         if (event.buffering == false) {
           console.log('[CONSOLE DO BUFFERING! + EVENT =>', event);
           eventManager.unlisten(player, 'buffering');
         }
+      });
+      eventManager.listen(player, `timeupdate`, (event: any) => {
+        console.log('[CONSOLE DO TIME UPDATE! + EVENT =>', event);
+      });
+      eventManager.listen(player, `mouseover`, (event: any) => {
+        console.log('[CONSOLE DO MOUSE OVER! + EVENT =>', event);
+        _onMouseOver(event)
+      });
+      eventManager.listen(player, `play`, (event: any) => {
+        console.log('[CONSOLE DO PLAY! + EVENT =>', event);
+        _onPlay()
       });
     }
   }, [player]);
