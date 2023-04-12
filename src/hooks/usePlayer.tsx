@@ -64,14 +64,11 @@ const usePlayer = (
   }, [player, props.src]);
 
   useEffect(() => {
+    console.log('[TEM PLAYER?', player)
     const eventManager = new ShakaUtil.EventManager();
-    const videoElement = player.getMediaElement()
-    eventManager.listenOnce(videoElement, `timeupdate`, (e) => {
-      console.log('[SHAKA! + EVENT =>', e);
-    });
     eventManager.listen(player, `buffering`, (event: any) => {
       if (event.buffering == false) {
-        console.log('[We are playing!', event);
+        console.log('[SHAKA!', event);
         eventManager.unlisten(player, 'buffering');
       }
     });
