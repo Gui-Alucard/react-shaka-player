@@ -17,7 +17,6 @@ const useUILIstener = (
         props.onPlay && props.onPlay(event);
       };
       const _onPlaying = (event: IClickEvent) => {
-        console.log('[CONSOLE PLAYING SHAKA', event);
         props.onPlaying && props.onPlaying(event);
       };
       const _onPause = (event: IClickEvent) => {
