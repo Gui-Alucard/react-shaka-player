@@ -13,8 +13,8 @@ export interface IPlayerRefs {
 };
 
 type IStats = IMediaStatsTime & ShakaExtern.Stats;
-export type IMouseEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | Event;
-export type ITouchEvent = React.TouchEvent<HTMLDivElement> | Event;
+export type IMouseEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | React.MouseEvent<HTMLVideoElement, MouseEvent> | Event;
+export type ITouchEvent = React.TouchEvent<HTMLDivElement> | React.TouchEvent<HTMLVideoElement> | Event;
 export type IClickEvent = React.SyntheticEvent<HTMLDivElement, Event> | React.SyntheticEvent<HTMLVideoElement, Event> | Event;
 
 export interface IPlayerProps {
