@@ -2,8 +2,6 @@ import React, { useRef } from 'react';
 import * as Hooks from '../hooks';
 
 import { IPlayerProps } from '../types';
-import { Parental } from './parental';
-import SkipButton from './SkipButton';
 
 const ReactPlayer = (props: IPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -18,8 +16,6 @@ const ReactPlayer = (props: IPlayerProps) => {
     autoPlay,
     className,
     config,
-    content,
-    label,
     onBuffering,
     onEnded,
     onLoad,
@@ -28,9 +24,15 @@ const ReactPlayer = (props: IPlayerProps) => {
     onPlay,
     onPlaying,
     onPlayerError,
-    onSkipClick,
     onStatsChange,
     onTouchStart,
+    onMouseEnter,
+    onMouseLeave,
+    onFocus,
+    onBlur,
+    onAnimationInteration,
+    onAnimationEnd,
+    onTimeUpdate,
     playerClassName,
     superConfig,
     uiConfig,
@@ -48,9 +50,6 @@ const ReactPlayer = (props: IPlayerProps) => {
 
   return (
     <div style={style} ref={uiContainerRef} className={overlayClassName}>
-      <Parental content={content} />
-      <SkipButton label='less' content={content} onSkipClick={onSkipClick} player={player} />
-      <SkipButton label='plus' content={content} onSkipClick={onSkipClick} player={player} />
       <video
         ref={videoRef}
         className={props.playerClassName}

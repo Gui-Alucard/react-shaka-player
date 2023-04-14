@@ -15,19 +15,13 @@ export interface IPlayerRefs {
 type IStats = IMediaStatsTime & ShakaExtern.Stats;
 export type IMouseEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | Event;
 export type ITouchEvent = React.TouchEvent<HTMLDivElement> | Event;
-export type IClickEvent = React.MouseEvent<HTMLButtonElement, MouseEvent> | React.SyntheticEvent<HTMLVideoElement, Event> | Event;
+export type IClickEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | React.SyntheticEvent<HTMLVideoElement, Event> | Event;
 
 export interface IPlayerProps {
   autoPlay?: boolean | undefined;
   children?: any;
   className?: string;
   config?: ShakaExtern.PlayerConfiguration | any;
-  /**
-   * Content should be an object which all informations
-   * about the content that will be load in the player
-  */
-  content?: any;
-  label?: string;
   /**
    * Fires when the video start buffering.
    * @param event The boolean event.
@@ -72,7 +66,6 @@ export interface IPlayerProps {
   */
   onPlaying?(event?: IClickEvent): void | undefined;
   onPlayerError?(event: ShakaExtern.Error): void | undefined;
-  onSkipClick?(event?: React.MouseEvent<HTMLButtonElement, MouseEvent>): void | undefined;
   onStatsChange?(stats: IStats): void | undefined;
   /**
   * To provide quality support for touch-based user
@@ -84,6 +77,13 @@ export interface IPlayerProps {
   * [React Reference](https://react.dev/reference/react-dom/components/common#touchevent-handler)
   */
   onTouchStart?(event?: ITouchEvent): void | undefined;
+  onMouseEnter?(event?: IMouseEvent): void | undefined;
+  onMouseLeave?(event?: IMouseEvent): void | undefined;
+  onFocus?(event?: FocusEvent): void | undefined;
+  onBlur?(event?: FocusEvent): void | undefined;
+  onAnimationInteration?(event?: AnimationEvent): void | undefined;
+  onAnimationEnd?(event?: AnimationEvent): void | undefined;
+  onTimeUpdate?(event?: Event): void | undefined;
   playerClassName?: string;
   playsInline?: boolean | undefined;
   src?: string;

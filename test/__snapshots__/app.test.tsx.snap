@@ -16,21 +16,6 @@ exports[`Player Should render correctly 1`] = `
     }
   }
 >
-  <div
-    className="shaka-controls-container"
-  />
-  <button
-    className="shaka-controls-button-panel shaka-show-controls-on-mouse-over shaka-skip-button material-icons-round shaka-tooltip"
-    type="button"
-  >
-    less
-  </button>
-  <button
-    className="shaka-controls-button-panel shaka-show-controls-on-mouse-over shaka-skip-button material-icons-round shaka-tooltip"
-    type="button"
-  >
-    plus
-  </button>
   <video
     style={
       {
