@@ -18,19 +18,14 @@ const ReactPlayer = (props: IPlayerProps) => {
     config,
     onBuffering,
     onEnded,
+    onError,
     onLoad,
-    onMouseOver,
     onPause,
     onPlay,
-    onPlaying,
     onPlayerError,
     onStatsChange,
-    onTouchStart,
-    onMouseEnter,
-    onMouseLeave,
-    onFocus,
-    onBlur,
     onTimeUpdate,
+    onVolumeChange,
     playerClassName,
     superConfig,
     uiConfig,
@@ -47,17 +42,7 @@ const ReactPlayer = (props: IPlayerProps) => {
   const overlayClassName = className === undefined ? "sbt-theme" : "sbt-theme " + props.className;
 
   return (
-    <div
-      style={style}
-      ref={uiContainerRef}
-      className={overlayClassName}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      onFocus={onFocus}
-      onBlur={onBlur}
-      onMouseOver={onMouseOver}
-      onTouchStart={onTouchStart}
-    >
+    <div style={style} ref={uiContainerRef} className={overlayClassName}>
       <video
         ref={videoRef}
         className={props.playerClassName}

@@ -37,14 +37,8 @@ export interface IPlayerProps {
   * [React Reference](https://react.dev/reference/react-dom/components/common#react-event-object)
   */
   onEnded?(event?: IClickEvent): void | undefined;
+  onError?(event?: ErrorEvent): void | undefined;
   onLoad?(data: IPlayerRefs): void | undefined;
-  /**
-  * Fires when the mouse move over the object.
-  * @param event The mouse event.
-  *
-  * [React Reference](https://react.dev/reference/react-dom/components/common#mouseevent-handler)
-  */
-  onMouseOver?(event?: IMouseEvent): void | undefined;
   /**
   * Fires when the video is paused.
   * @param event The synthetic event.
@@ -59,30 +53,10 @@ export interface IPlayerProps {
   * [React Reference](https://react.dev/reference/react-dom/components/common#react-event-object)
   */
   onPlay?(event?: IClickEvent): void | undefined;
-  /**
-  * Fires when the video is playing.
-  * @param event The synthetic event.
-  *
-  * [React Reference](https://react.dev/reference/react-dom/components/common#react-event-object)
-  */
-  onPlaying?(event?: IClickEvent): void | undefined;
   onPlayerError?(event: ShakaExtern.Error): void | undefined;
   onStatsChange?(stats: IStats): void | undefined;
-  /**
-  * To provide quality support for touch-based user
-  * interfaces touch events offer the ability to
-  * interpret finger (or stylus) activity on touch
-  * screens or trackpads.
-  * @param event The touch event.
-  *
-  * [React Reference](https://react.dev/reference/react-dom/components/common#touchevent-handler)
-  */
-  onTouchStart?(event?: ITouchEvent): void | undefined;
-  onMouseEnter?(event?: IMouseEvent): void | undefined;
-  onMouseLeave?(event?: IMouseEvent): void | undefined;
-  onFocus?(event?: IFocus): void | undefined;
-  onBlur?(event?: IFocus): void | undefined;
   onTimeUpdate?(event?: Event): void | undefined;
+  onVolumeChange?(event?: Event): void | undefined;
   playerClassName?: string;
   playsInline?: boolean | undefined;
   src?: string;

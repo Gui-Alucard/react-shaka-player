@@ -1,7 +1,7 @@
 import { Player as ShakaPlayer, ui as ShakaUI } from "shaka-player/dist/shaka-player.ui";
 import { useEffect } from "react";
 
-import { IClickEvent, IFocus, IMouseEvent, IPlayerProps, ITouchEvent } from "../types";
+import { IClickEvent, IPlayerProps } from "../types";
 
 const useUILIstener = (
   ui: ShakaUI.Overlay,
@@ -15,48 +15,28 @@ const useUILIstener = (
       const _onPlay = (event: IClickEvent) => {
         props.onPlay && props.onPlay(event);
       };
-      const _onPlaying = (event: IClickEvent) => {
-        props.onPlaying && props.onPlaying(event);
-      };
       const _onPause = (event: IClickEvent) => {
         props.onPause && props.onPause(event);
       };
       const _onEnded = (event: IClickEvent) => {
         props.onEnded && props.onEnded(event);
       };
-      const _onTouchStart = (event: ITouchEvent) => {
-        props.onTouchStart && props.onTouchStart(event);
+      const _onError = (event: ErrorEvent) => {
+        props.onError && props.onError(event);
       };
-      const _onMouseOver = (event: IMouseEvent) => {
-        props.onMouseOver && props.onMouseOver(event);
-      };
-      const _onMouseEnter = (event: IMouseEvent) => {
-        props.onMouseEnter && props.onMouseEnter(event);
-      };
-      const _onMouseLeave = (event: IMouseEvent) => {
-        props.onMouseLeave && props.onMouseLeave(event);
-      };
-      const _onFocus = (event: IFocus) => {
-        props.onFocus && props.onFocus(event);
-      };
-      const _onBlur = (event: IFocus) => {
-        props.onBlur && props.onBlur(event);
+      const _onVolumeChange = (event: Event) => {
+        props.onVolumeChange && props.onVolumeChange(event);
       };
       const _onTimeUpdate = (event: Event) => {
         props.onTimeUpdate && props.onTimeUpdate(event);
       };
 
       mediaElement.addEventListener("play", _onPlay);
-      mediaElement.addEventListener("playing", _onPlaying);
       mediaElement.addEventListener("pause", _onPause);
       mediaElement.addEventListener("ended", _onEnded);
-      mediaElement.addEventListener("touchstart", _onTouchStart);
-      mediaElement.addEventListener("mouseover", _onMouseOver);
-      mediaElement.addEventListener("mouseenter", _onMouseEnter);
-      mediaElement.addEventListener("mouseleave", _onMouseLeave);
-      mediaElement.addEventListener("focus", _onFocus);
-      mediaElement.addEventListener("blur", _onBlur);
-      mediaElement.addEventListener("timeupdate", _onTimeUpdate);
+      mediaElement.addEventListener("error", _onTimeUpdate);
+      mediaElement.addEventListener("volumechange", _onVolumeChange);
+      mediaElement.addEventListener("timeupdate", _onError);
     }
   }, [player, ui])
 };
