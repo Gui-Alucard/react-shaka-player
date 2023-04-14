@@ -16,6 +16,10 @@ exports[`Player Should render correctly 1`] = `
     }
   }
 >
+  <div />
+  <button
+    type="button"
+  />
   <video
     style={
       {

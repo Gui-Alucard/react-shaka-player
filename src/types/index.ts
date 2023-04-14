@@ -15,22 +15,74 @@ export interface IPlayerRefs {
 type IStats = IMediaStatsTime & ShakaExtern.Stats;
 export type IMouseEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | Event;
 export type ITouchEvent = React.TouchEvent<HTMLDivElement> | Event;
-export type IClickEvent = React.SyntheticEvent<HTMLDivElement, Event> | React.SyntheticEvent<HTMLVideoElement, Event> | Event;
+export type IClickEvent = React.MouseEvent<HTMLButtonElement, MouseEvent> | React.SyntheticEvent<HTMLVideoElement, Event> | Event;
 
 export interface IPlayerProps {
   autoPlay?: boolean | undefined;
   children?: any;
   className?: string;
   config?: ShakaExtern.PlayerConfiguration | any;
+  /**
+   * Content should be an object which all informations
+   * about the content that will be load in the player
+  */
+  content?: any;
+  label?: string;
+  /**
+   * Fires when the video start buffering.
+   * @param event The boolean event.
+   * 
+   * [SHAKA Reference](https://shaka-player-demo.appspot.com/docs/api/tutorial-network-and-buffering-config.html)
+  */
   onBuffering?(event: boolean): void | undefined;
+  /**
+  * Fires when the video ends.
+  * @param event The synthetic event.
+  *
+  * [React Reference](https://react.dev/reference/react-dom/components/common#react-event-object)
+  */
   onEnded?(event?: IClickEvent): void | undefined;
   onLoad?(data: IPlayerRefs): void | undefined;
+  /**
+  * Fires when the mouse move over the object.
+  * @param event The mouse event.
+  *
+  * [React Reference](https://react.dev/reference/react-dom/components/common#mouseevent-handler)
+  */
   onMouseOver?(event?: IMouseEvent): void | undefined;
+  /**
+  * Fires when the video is paused.
+  * @param event The synthetic event.
+  *
+  * [React Reference](https://react.dev/reference/react-dom/components/common#react-event-object)
+  */
   onPause?(event?: IClickEvent): void | undefined;
+  /**
+  * Fires when the video start.
+  * @param event The synthetic event.
+  *
+  * [React Reference](https://react.dev/reference/react-dom/components/common#react-event-object)
+  */
   onPlay?(event?: IClickEvent): void | undefined;
+  /**
+  * Fires when the video is playing.
+  * @param event The synthetic event.
+  *
+  * [React Reference](https://react.dev/reference/react-dom/components/common#react-event-object)
+  */
   onPlaying?(event?: IClickEvent): void | undefined;
   onPlayerError?(event: ShakaExtern.Error): void | undefined;
+  onSkipClick?(event?: React.MouseEvent<HTMLButtonElement, MouseEvent>): void | undefined;
   onStatsChange?(stats: IStats): void | undefined;
+  /**
+  * To provide quality support for touch-based user
+  * interfaces touch events offer the ability to
+  * interpret finger (or stylus) activity on touch
+  * screens or trackpads.
+  * @param event The touch event.
+  *
+  * [React Reference](https://react.dev/reference/react-dom/components/common#touchevent-handler)
+  */
   onTouchStart?(event?: ITouchEvent): void | undefined;
   playerClassName?: string;
   playsInline?: boolean | undefined;

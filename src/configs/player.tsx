@@ -51,14 +51,14 @@ const streamingConfig = {
   ui: {
     addSeekBar: true,
     doubleClickForFullscreen: true,
-    singleClickForPlayAndPause: true,
-    enableKeyboardPlaybackControls: true,
+    singleClickForPlayAndPause: false,
+    enableKeyboardPlaybackControls: false,
     enableFullscreenOnRotation: true,
     forceLandscapeOnFullscreen: true,
     clearBufferOnQualityChange: false,
     addBigPlayButton: false,
     customContextMenu: false,
-    controlPanelElements: ['play_pause', 'mute', 'volume', 'spacer', 'fullscreen', 'quality'],
+    controlPanelElements: ['mute', 'volume', 'spacer', 'fullscreen', 'quality'],
     volumeBarColors: {
       base: '#ffffff4c',
       level: '#0060ad'
