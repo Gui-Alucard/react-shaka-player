@@ -49,7 +49,8 @@ const ReactPlayer = (props: IPlayerProps) => {
   return (
     <div style={style} ref={uiContainerRef} className={overlayClassName}>
       <Parental content={content} />
-      <SkipButton label={label} content={content} onSkipClick={onSkipClick} player={player} />
+      <SkipButton label='less' content={content} onSkipClick={onSkipClick} player={player} />
+      <SkipButton label='plus' content={content} onSkipClick={onSkipClick} player={player} />
       <video
         ref={videoRef}
         className={props.playerClassName}

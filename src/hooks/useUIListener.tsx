@@ -30,6 +30,11 @@ const useUILIstener = (
       const _onTouchStart = (event: ITouchEvent) => {
         props.onTouchStart && props.onTouchStart(event);
       };
+      const _onClick = () => {
+        props.onSkipClick && props.onSkipClick();
+        if (props.label === 'less') return player.updateStartTime(props.content.currentTime - 0.10)
+        if (props.label === 'plus') return player.updateStartTime(props.content.currentTime + 0.10)
+      };
 
       mediaElement.addEventListener("play", _onPlay);
       mediaElement.addEventListener("playing", _onPlaying);
@@ -37,6 +42,7 @@ const useUILIstener = (
       mediaElement.addEventListener("ended", _onEnded);
       mediaElement.addEventListener("mouseover", _onMouseOver);
       mediaElement.addEventListener("touchstart", _onTouchStart);
+      mediaElement.addEventListener("onclick", _onClick);
     }
   }, [player, ui])
 };

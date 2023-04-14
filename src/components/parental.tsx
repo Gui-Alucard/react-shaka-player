@@ -9,7 +9,7 @@ const Parental = (props: IPlayerProps) => {
   const { content } = props
 
   return (
-    <div>
+    <div className='shaka-controls-container'>
       {content && !content.isLive && content?.episode?.parental_rating && (
         <Column
           position='fixed'

@@ -1,5 +1,5 @@
 import { Player as ShakaPlayer } from "shaka-player/dist/shaka-player.ui";
-import React, { useEffect } from 'react'
+import React from 'react'
 import { IPlayerProps } from '../types';
 
 interface ISkipButton extends IPlayerProps {
@@ -7,22 +7,8 @@ interface ISkipButton extends IPlayerProps {
 }
 
 export default function SkipButton(props: ISkipButton) {
-  const { player, label, content, onSkipClick } = props;
-
-  useEffect(() => {
-    if (player && content.currentTime) {
-      const mediaElement = player.getMediaElement();
-      const _onClick = () => {
-        onSkipClick && onSkipClick();
-        if (label === 'less') return player.updateStartTime(content.currentTime - 0.10)
-        if (label === 'plus') return player.updateStartTime(content.currentTime + 0.10)
-      };
-
-      mediaElement.addEventListener("onclick", _onClick);
-    }
-  }, [label, content])
-
+  const { label, onSkipClick } = props;
   return (
-    <button onClick={onSkipClick} type='button'>{label}</button>
+    <button className="shaka-controls-button-panel shaka-show-controls-on-mouse-over shaka-skip-button material-icons-round shaka-tooltip" onClick={onSkipClick} type='button'>{label}</button>
   )
 }
