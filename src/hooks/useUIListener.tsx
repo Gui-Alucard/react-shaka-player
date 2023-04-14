@@ -1,7 +1,7 @@
 import { Player as ShakaPlayer, ui as ShakaUI } from "shaka-player/dist/shaka-player.ui";
 import { useEffect } from "react";
 
-import { IClickEvent, IMouseEvent, IPlayerProps, ITouchEvent } from "../types";
+import { IClickEvent, IFocus, IMouseEvent, IPlayerProps, ITouchEvent } from "../types";
 
 const useUILIstener = (
   ui: ShakaUI.Overlay,
@@ -36,17 +36,11 @@ const useUILIstener = (
       const _onMouseLeave = (event: IMouseEvent) => {
         props.onMouseLeave && props.onMouseLeave(event);
       };
-      const _onFocus = (event: FocusEvent) => {
+      const _onFocus = (event: IFocus) => {
         props.onFocus && props.onFocus(event);
       };
-      const _onBlur = (event: FocusEvent) => {
+      const _onBlur = (event: IFocus) => {
         props.onBlur && props.onBlur(event);
-      };
-      const _onAnimationInteration = (event: AnimationEvent) => {
-        props.onAnimationInteration && props.onAnimationInteration(event);
-      };
-      const _onAnimationEnd = (event: AnimationEvent) => {
-        props.onAnimationEnd && props.onAnimationEnd(event);
       };
       const _onTimeUpdate = (event: Event) => {
         props.onTimeUpdate && props.onTimeUpdate(event);
@@ -62,8 +56,6 @@ const useUILIstener = (
       mediaElement.addEventListener("mouseleave", _onMouseLeave);
       mediaElement.addEventListener("focus", _onFocus);
       mediaElement.addEventListener("blur", _onBlur);
-      mediaElement.addEventListener("animationiteration", _onAnimationInteration);
-      mediaElement.addEventListener("animationend", _onAnimationEnd);
       mediaElement.addEventListener("timeupdate", _onTimeUpdate);
     }
   }, [player, ui])

@@ -16,6 +16,7 @@ type IStats = IMediaStatsTime & ShakaExtern.Stats;
 export type IMouseEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | Event;
 export type ITouchEvent = React.TouchEvent<HTMLDivElement> | Event;
 export type IClickEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | React.SyntheticEvent<HTMLVideoElement, Event> | Event;
+export type IFocus = React.FocusEvent<HTMLDivElement, Element> | Event;
 
 export interface IPlayerProps {
   autoPlay?: boolean | undefined;
@@ -79,10 +80,8 @@ export interface IPlayerProps {
   onTouchStart?(event?: ITouchEvent): void | undefined;
   onMouseEnter?(event?: IMouseEvent): void | undefined;
   onMouseLeave?(event?: IMouseEvent): void | undefined;
-  onFocus?(event?: FocusEvent): void | undefined;
-  onBlur?(event?: FocusEvent): void | undefined;
-  onAnimationInteration?(event?: AnimationEvent): void | undefined;
-  onAnimationEnd?(event?: AnimationEvent): void | undefined;
+  onFocus?(event?: IFocus): void | undefined;
+  onBlur?(event?: IFocus): void | undefined;
   onTimeUpdate?(event?: Event): void | undefined;
   playerClassName?: string;
   playsInline?: boolean | undefined;
