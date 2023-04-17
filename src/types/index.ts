@@ -57,6 +57,8 @@ export interface IPlayerProps {
   onStatsChange?(stats: IStats): void | undefined;
   onTimeUpdate?(event?: Event): void | undefined;
   onVolumeChange?(event?: Event): void | undefined;
+  onLoading?(event?: any): void | undefined;
+  onSeekRange?(event: any): void | undefined;
   playerClassName?: string;
   playsInline?: boolean | undefined;
   src?: string;

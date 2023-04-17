@@ -37,7 +37,6 @@ const useUILIstener = (
       mediaElement.addEventListener("error", _onTimeUpdate);
       mediaElement.addEventListener("volumechange", _onVolumeChange);
       mediaElement.addEventListener("timeupdate", _onError);
-      player.addEventListener('loading', (e) => console.log('[VEIO DO SHAKA', e));
     }
   }, [player, ui])
 };

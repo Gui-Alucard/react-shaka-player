@@ -13,10 +13,15 @@ const usePlayerListener = (player: ShakaPlayer, props?: IPlayerProps) => {
       const boolOfBuffering: boolean = bufferStatus.buffering
       props.onBuffering && props.onBuffering(boolOfBuffering);
     };
+    const _onLoadingEvent = (event: any) => {
+      console.log('[VEIO DO SHAKA', event)
+      props.onLoading && props.onLoading(event);
+    };
 
     if (player) {
       player.addEventListener("error", _onPlayerErrorEvent);
       player.addEventListener("buffering", _onBufferingEvent);
+      player.addEventListener('loading', _onLoadingEvent);
     }
   }, [player]);
 };
