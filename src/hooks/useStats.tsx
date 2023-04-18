@@ -8,8 +8,8 @@ const useStats = (player: ShakaPlayer, props?: IPlayerProps) => {
 
   useEffect(() => {
     if (player) {
-      const ads_ = player.getAdManager();
-      const _sendStats = () => {
+      // const ads_ = player.getAdManager(); WORKS
+      const _sendStats = (event?: Event) => {
         const stats_ = player.getStats();
         // const newStartTime_ = player.updateStartTime(props.wacthTime)
 
@@ -17,12 +17,10 @@ const useStats = (player: ShakaPlayer, props?: IPlayerProps) => {
         const mediaEndTime = Math.floor(player.seekRange().end);
         const additionalStats = { mediaCurrentTime, mediaEndTime };
 
-        props.onStatsChange && props.onStatsChange({ ...stats_, ...additionalStats });
+        props.onStatsChange && props.onStatsChange({ ...stats_, ...additionalStats }, event);
       };
       const _timer = new ShakaUtil.Timer(() => {
         _sendStats();
-        player.addEventListener("timeupdate", _sendStats);
-        console.log('[CONSOLE do STATS ===>', ads_)
       });
       _timer.tickEvery(1);
       timer.current = _timer;
