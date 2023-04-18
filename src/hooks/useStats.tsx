@@ -8,10 +8,9 @@ const useStats = (player: ShakaPlayer, props?: IPlayerProps) => {
 
   useEffect(() => {
     if (player) {
-      // const ads_ = player.getAdManager(); WORKS
+      // const ads_ = player.getAdManager(); WORKS Esperando ADs
       const _sendStats = (event?: Event) => {
         const stats_ = player.getStats();
-        // const newStartTime_ = player.updateStartTime(props.wacthTime)
 
         const mediaCurrentTime = player.getMediaElement() && Math.floor(player.getMediaElement().currentTime);
         const mediaEndTime = Math.floor(player.seekRange().end);
