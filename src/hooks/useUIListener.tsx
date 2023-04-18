@@ -1,7 +1,7 @@
 import { Player as ShakaPlayer, ui as ShakaUI } from "shaka-player/dist/shaka-player.ui";
 import { useEffect } from "react";
 
-import { IClickEvent, IPlayerProps, IStats } from "../types";
+import { IClickEvent, IPlayerProps } from "../types";
 
 const useUILIstener = (
   ui: ShakaUI.Overlay,
@@ -12,32 +12,32 @@ const useUILIstener = (
     if (player && ui) {
       const mediaElement = player.getMediaElement();
 
-      const _onPlay = (event: IClickEvent, stats?: IStats) => {
-        props.onPlay && props.onPlay(event, stats);
+      const _onPlay = (event: IClickEvent) => {
+        props.onPlay && props.onPlay(event);
       };
-      const _onPlaying = (event: Event, stats?: IStats) => {
-        props.onPlaying && props.onPlaying(event, stats);
+      const _onPlaying = (event: Event) => {
+        props.onPlaying && props.onPlaying(event);
       };
-      const _onPause = (event: IClickEvent, stats?: IStats) => {
-        props.onPause && props.onPause(event, stats);
+      const _onPause = (event: IClickEvent) => {
+        props.onPause && props.onPause(event);
       };
-      const _onEnded = (event: Event, stats?: IStats) => {
-        props.onEnded && props.onEnded(event, stats);
+      const _onEnded = (event: Event) => {
+        props.onEnded && props.onEnded(event);
       };
-      const _onClose = (event: Event, stats?: IStats) => {
-        props.onClose && props.onClose(event, stats);
+      const _onClose = (event: Event) => {
+        props.onClose && props.onClose(event);
       };
-      const _onError = (event: ErrorEvent, stats?: IStats) => {
-        props.onError && props.onError(event, stats);
+      const _onError = (event: ErrorEvent) => {
+        props.onError && props.onError(event);
       };
-      const _onVolumeChange = (event: Event, stats?: IStats) => {
-        props.onVolumeChange && props.onVolumeChange(event, stats);
+      const _onVolumeChange = (event: Event) => {
+        props.onVolumeChange && props.onVolumeChange(event);
       };
-      const _onTimeUpdate = (event: Event, stats?: IStats) => {
-        props.onTimeUpdate && props.onTimeUpdate(event, stats);
+      const _onTimeUpdate = (event: Event) => {
+        props.onTimeUpdate && props.onTimeUpdate(event);
       };
-      const _onSeeked = (event: Event, stats?: IStats) => {
-        props.onSeeked && props.onSeeked(event, stats);
+      const _onSeeked = (event: Event) => {
+        props.onSeeked && props.onSeeked(event);
       };
 
       mediaElement.addEventListener("play", _onPlay);
@@ -49,6 +49,7 @@ const useUILIstener = (
       mediaElement.addEventListener("volumechange", _onVolumeChange);
       mediaElement.addEventListener("timeupdate", _onTimeUpdate);
       mediaElement.addEventListener("seeked", _onSeeked);
+      mediaElement.defaultMuted = true
     }
   }, [player, ui])
 };

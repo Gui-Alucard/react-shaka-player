@@ -8,14 +8,14 @@ const useStats = (player: ShakaPlayer, props?: IPlayerProps) => {
 
   useEffect(() => {
     if (player) {
-      const _sendStats = (event?: Event) => {
+      const _sendStats = () => {
         const stats_ = player.getStats();
 
         const mediaCurrentTime = player.getMediaElement() && Math.floor(player.getMediaElement().currentTime);
         const mediaEndTime = Math.floor(player.seekRange().end);
         const additionalStats = { mediaCurrentTime, mediaEndTime };
 
-        props.onStatsChange && props.onStatsChange({ ...stats_, ...additionalStats }, event);
+        props.onStatsChange && props.onStatsChange({ ...stats_, ...additionalStats });
       };
       const _timer = new ShakaUtil.Timer(() => {
         _sendStats();

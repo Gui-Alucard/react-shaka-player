@@ -26,7 +26,6 @@ const ReactPlayer = (props: IPlayerProps) => {
     onStatsChange,
     onTimeUpdate,
     onVolumeChange,
-    onClose,
     onPlaying,
     onSeeked,
     playerClassName,

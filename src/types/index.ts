@@ -36,9 +36,9 @@ export interface IPlayerProps {
   *
   * [React Reference](https://react.dev/reference/react-dom/components/common#react-event-object)
   */
-  onEnded?(event?: Event, stats?: IStats): void | undefined;
-  onClose?(event?: Event, stats?: IStats): void | undefined;
-  onError?(event?: ErrorEvent, stats?: IStats): void | undefined;
+  onEnded?(event?: Event): void | undefined;
+  onClose?(event?: Event): void | undefined;
+  onError?(event?: ErrorEvent): void | undefined;
   onLoad?(data: IPlayerRefs): void | undefined;
   /**
   * Fires when the video is paused.
@@ -46,20 +46,20 @@ export interface IPlayerProps {
   *
   * [React Reference](https://react.dev/reference/react-dom/components/common#react-event-object)
   */
-  onPause?(event?: IClickEvent, stats?: IStats): void | undefined;
+  onPause?(event?: IClickEvent): void | undefined;
   /**
   * Fires when the video start.
   * @param event The synthetic event.
   *
   * [React Reference](https://react.dev/reference/react-dom/components/common#react-event-object)
   */
-  onPlay?(event?: IClickEvent, stats?: IStats): void | undefined;
-  onPlaying?(event?: Event, stats?: IStats): void | undefined;
+  onPlay?(event?: IClickEvent): void | undefined;
+  onPlaying?(event?: Event): void | undefined;
   onPlayerError?(event: ShakaExtern.Error): void | undefined;
-  onStatsChange?(stats: IStats, event?: any): void | undefined;
-  onTimeUpdate?(event?: Event, stats?: IStats): void | undefined;
-  onVolumeChange?(event?: Event, stats?: IStats): void | undefined;
-  onSeeked?(event?: Event, stats?: IStats): void | undefined;
+  onStatsChange?(stats: IStats): void | undefined;
+  onTimeUpdate?(event?: Event): void | undefined;
+  onVolumeChange?(event?: Event): void | undefined;
+  onSeeked?(event?: Event): void | undefined;
   playerClassName?: string;
   playsInline?: boolean | undefined;
   src?: string;
