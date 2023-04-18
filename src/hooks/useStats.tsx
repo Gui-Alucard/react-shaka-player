@@ -8,7 +8,6 @@ const useStats = (player: ShakaPlayer, props?: IPlayerProps) => {
 
   useEffect(() => {
     if (player) {
-      // const ads_ = player.getAdManager(); WORKS Esperando ADs
       const _sendStats = (event?: Event) => {
         const stats_ = player.getStats();
 
