@@ -27,12 +27,10 @@ const usePlayer = (
 
   useEffect(() => {
     if (player && props.onLoad) {
-      const stats_ = player.getStats();
       props.onLoad({
         player: player,
         ui: ui,
         videoElement: videoRef.current,
-        stats: stats_,
       });
     }
   }, [player]);

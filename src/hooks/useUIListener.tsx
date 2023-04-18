@@ -15,11 +15,17 @@ const useUILIstener = (
       const _onPlay = (event: IClickEvent) => {
         props.onPlay && props.onPlay(event);
       };
+      const _onPlaying = (event: Event) => {
+        props.onPlaying && props.onPlaying(event);
+      };
       const _onPause = (event: IClickEvent) => {
         props.onPause && props.onPause(event);
       };
-      const _onEnded = (event: IClickEvent) => {
+      const _onEnded = (event: Event) => {
         props.onEnded && props.onEnded(event);
+      };
+      const _onClose = (event: Event) => {
+        props.onClose && props.onClose(event);
       };
       const _onError = (event: ErrorEvent) => {
         props.onError && props.onError(event);
@@ -30,13 +36,23 @@ const useUILIstener = (
       const _onTimeUpdate = (event: Event) => {
         props.onTimeUpdate && props.onTimeUpdate(event);
       };
+      const _onSeeked = (event: Event) => {
+        props.onSeeked && props.onSeeked(event);
+      };
+      const _onPlayerLoad = (event: Event) => {
+        props.onPlayerLoad && props.onPlayerLoad(event);
+      };
 
       mediaElement.addEventListener("play", _onPlay);
+      mediaElement.addEventListener("playing", _onPlaying);
       mediaElement.addEventListener("pause", _onPause);
       mediaElement.addEventListener("ended", _onEnded);
-      mediaElement.addEventListener("error", _onTimeUpdate);
+      mediaElement.addEventListener("close", _onClose);
+      mediaElement.addEventListener("error", _onError);
       mediaElement.addEventListener("volumechange", _onVolumeChange);
-      mediaElement.addEventListener("timeupdate", _onError);
+      mediaElement.addEventListener("timeupdate", _onTimeUpdate);
+      mediaElement.addEventListener("seeked", _onSeeked);
+      mediaElement.addEventListener("load", _onPlayerLoad);
     }
   }, [player, ui])
 };

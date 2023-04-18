@@ -10,7 +10,6 @@ export interface IPlayerRefs {
   player: ShakaPlayer;
   ui: ShakaUI.Overlay;
   videoElement: HTMLVideoElement;
-  stats: ShakaExtern.Stats;
 };
 
 type IStats = IMediaStatsTime & ShakaExtern.Stats;
@@ -37,9 +36,11 @@ export interface IPlayerProps {
   *
   * [React Reference](https://react.dev/reference/react-dom/components/common#react-event-object)
   */
-  onEnded?(event?: IClickEvent): void | undefined;
+  onEnded?(event?: Event): void | undefined;
+  onClose?(event?: Event): void | undefined;
   onError?(event?: ErrorEvent): void | undefined;
   onLoad?(data: IPlayerRefs): void | undefined;
+  onPlayerLoad?(event?: Event): void | undefined;
   /**
   * Fires when the video is paused.
   * @param event The synthetic event.
@@ -54,11 +55,12 @@ export interface IPlayerProps {
   * [React Reference](https://react.dev/reference/react-dom/components/common#react-event-object)
   */
   onPlay?(event?: IClickEvent): void | undefined;
+  onPlaying?(event?: Event): void | undefined;
   onPlayerError?(event: ShakaExtern.Error): void | undefined;
   onStatsChange?(stats: IStats): void | undefined;
   onTimeUpdate?(event?: Event): void | undefined;
   onVolumeChange?(event?: Event): void | undefined;
-  onSeekRange?(event: any): void | undefined;
+  onSeeked?(event?: Event): void | undefined;
   playerClassName?: string;
   playsInline?: boolean | undefined;
   src?: string;
