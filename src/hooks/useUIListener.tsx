@@ -18,9 +18,9 @@ const useUILIstener = (
       const _onPlaying = (event: Event) => {
         props.onPlaying && props.onPlaying(event);
       };
-      const _onPause = (event: IClickEvent) => {
-        props.onPause && props.onPause(event);
-      };
+      // const _onPause = (event: IClickEvent) => {
+      //   props.onPause && props.onPause(event);
+      // };
       const _onEnded = (event: Event) => {
         props.onEnded && props.onEnded(event);
       };
@@ -42,14 +42,13 @@ const useUILIstener = (
 
       mediaElement.addEventListener("play", _onPlay);
       mediaElement.addEventListener("playing", _onPlaying);
-      mediaElement.addEventListener("pause", _onPause);
+      // mediaElement.addEventListener("pause", _onPause);
       mediaElement.addEventListener("ended", _onEnded);
       mediaElement.addEventListener("close", _onClose);
       mediaElement.addEventListener("error", _onError);
       mediaElement.addEventListener("volumechange", _onVolumeChange);
       mediaElement.addEventListener("timeupdate", _onTimeUpdate);
       mediaElement.addEventListener("seeked", _onSeeked);
-      mediaElement.defaultMuted = true
     }
   }, [player, ui])
 };

@@ -51,6 +51,7 @@ const ReactPlayer = (props: IPlayerProps) => {
         style={style}
         autoPlay={autoPlay}
         {...newProps}
+        muted
       />
     </div>
   )
