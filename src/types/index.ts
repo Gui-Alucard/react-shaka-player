@@ -56,7 +56,7 @@ export interface IPlayerProps {
   onPlay?(event?: IClickEvent): void | undefined;
   onPlaying?(event?: Event): void | undefined;
   onPlayerError?(event: ShakaExtern.Error): void | undefined;
-  onStatsChange?(stats: IStats, event?: any): void | undefined;
+  onStatsChange?(stats: IStats): void | undefined;
   onTimeUpdate?(event?: Event): void | undefined;
   onVolumeChange?(event?: Event): void | undefined;
   onSeeked?(event?: Event): void | undefined;
