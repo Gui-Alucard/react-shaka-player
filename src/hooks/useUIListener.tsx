@@ -39,6 +39,9 @@ const useUILIstener = (
       const _onSeeked = (event: Event) => {
         props.onSeeked && props.onSeeked(event);
       };
+      const _onSeeking = (event: Event) => {
+        props.onSeeking && props.onSeeking(event);
+      };
 
       mediaElement.addEventListener("play", _onPlay);
       mediaElement.addEventListener("playing", _onPlaying);
@@ -49,6 +52,7 @@ const useUILIstener = (
       mediaElement.addEventListener("volumechange", _onVolumeChange);
       mediaElement.addEventListener("timeupdate", _onTimeUpdate);
       mediaElement.addEventListener("seeked", _onSeeked);
+      mediaElement.addEventListener("seeking", _onSeeking);
     }
   }, [player, ui])
 };

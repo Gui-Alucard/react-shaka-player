@@ -60,6 +60,7 @@ export interface IPlayerProps {
   onTimeUpdate?(event?: Event): void | undefined;
   onVolumeChange?(event?: Event): void | undefined;
   onSeeked?(event?: Event): void | undefined;
+  onSeeking?(event?: Event): void | undefined;
   playerClassName?: string;
   playsInline?: boolean | undefined;
   src?: string;
