@@ -49,7 +49,7 @@ const streamingConfig = {
     },
   },
   ui: {
-    addSeekBar: true,
+    addSeekBar: false,
     doubleClickForFullscreen: true,
     singleClickForPlayAndPause: false,
     enableKeyboardPlaybackControls: false,
