@@ -17,7 +17,6 @@ exports[`Player Should render correctly 1`] = `
   }
 >
   <video
-    muted={true}
     style={
       {
         "maxHeight": "100vh",
