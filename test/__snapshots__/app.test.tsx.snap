@@ -6,7 +6,7 @@ exports[`Player Should render container className and playerClassName container 
 
 exports[`Player Should render correctly 1`] = `
 <div
-  className="sbt-theme"
+  className=""
   style={
     {
       "maxHeight": "100vh",
@@ -17,6 +17,7 @@ exports[`Player Should render correctly 1`] = `
   }
 >
   <video
+    muted={true}
     style={
       {
         "maxHeight": "100vh",
