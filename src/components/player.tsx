@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import * as Hooks from '../hooks';
 
 import { IPlayerProps } from '../types';
@@ -6,7 +6,6 @@ import { IPlayerProps } from '../types';
 const ReactPlayer = (props: IPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const uiContainerRef = useRef<HTMLDivElement | null>(null);
-  const [overlayClassName, setOverlayClassName] = useState<string>('')
 
   const { player, ui } = Hooks.usePlayer(videoRef, uiContainerRef, props);
   Hooks.usePlayerListener(player, props);
@@ -43,12 +42,9 @@ const ReactPlayer = (props: IPlayerProps) => {
   };
 
   // const overlayClassName = className === undefined ? "sbt-theme" : "sbt-theme " + props.className;
-  useEffect(() => {
-    ui.isMobile() ? setOverlayClassName("") : setOverlayClassName("sbt-theme " + props.className);
-  }, [ui])
 
   return (
-    <div style={style} ref={uiContainerRef} className={overlayClassName}>
+    <div style={style} ref={uiContainerRef}>
       <video
         ref={videoRef}
         className={props.playerClassName}
