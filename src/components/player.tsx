@@ -41,10 +41,10 @@ const ReactPlayer = (props: IPlayerProps) => {
     overflow: "hidden"
   };
 
-  // const overlayClassName = className === undefined ? "sbt-theme" : "sbt-theme " + props.className;
+  const overlayClassName = className === undefined ? "sbt-theme" : "sbt-theme " + props.className;
 
   return (
-    <div style={style} ref={uiContainerRef}>
+    <div style={style} ref={uiContainerRef} className={overlayClassName}>
       <video
         ref={videoRef}
         className={props.playerClassName}
