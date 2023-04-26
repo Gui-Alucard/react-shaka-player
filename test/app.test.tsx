@@ -19,7 +19,7 @@ describe("Player", () => {
   });
 
   it("Should render className container correctly", () => {
-    const props = { className: "container-class-name" };
+    const props = { className: "sbt-theme" };
     const tree = Enzyme.shallow(<Player {...props} />);
     expect(tree).toMatchSnapshot();
   });
@@ -32,7 +32,7 @@ describe("Player", () => {
 
   it("Should render container className and playerClassName container correctly", () => {
     const props = {
-      className: "container-class-name",
+      className: "sbt-theme",
       playerClassName: "player-class-name",
     };
     const tree = Enzyme.shallow(<Player {...props} />);
