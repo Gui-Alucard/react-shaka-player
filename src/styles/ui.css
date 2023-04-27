@@ -1,3 +1,74 @@
+/* fallback from: https://fonts.googleapis.com/css?family=Material+Icons+Outlined */
+@font-face {
+  font-family: 'Material Icons Outlined';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialiconsoutlined/v76/gok-H7zzDkdnRel8-DQ6KAXJ69wP1tGnf4ZGhUce.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Material Icons Round';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialiconsround/v65/LDItaoyNOAY6Uewc665JcIzCKsKc_M9flwmM.otf) format('opentype');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Me5Q.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/roboto/v27/KFOlCnqEu92Fr1MmEU9vAw.ttf) format('truetype');
+}
+
+.material-icons-round {
+  font-family: 'Material Icons Outlined';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  color: #eee;
+}
+
+.material-icons-outlined {
+  font-family: 'Material Icons Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  color: #eee;
+}
+
 /** @license
  * Shaka Player
  * Copyright 2016 Google LLC
@@ -290,7 +361,7 @@ the control buttons panel. */
   order: 2;
   font-size: 0%;
   /* Centers the image inside the box */
-  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 28C1.06667 28 0.708333 27.8583 0.425 27.575C0.141667 27.2917 0 26.9333 0 26.5V19.85C0 19.4167 0.141667 19.0583 0.425 18.775C0.708333 18.4917 1.06667 18.35 1.5 18.35C1.93333 18.35 2.29167 18.4917 2.575 18.775C2.85833 19.0583 3 19.4167 3 19.85V25H8.15C8.58333 25 8.94167 25.1417 9.225 25.425C9.50833 25.7083 9.65 26.0667 9.65 26.5C9.65 26.9333 9.50833 27.2917 9.225 27.575C8.94167 27.8583 8.58333 28 8.15 28H1.5ZM1.5 9.65C1.06667 9.65 0.708333 9.50833 0.425 9.225C0.141667 8.94167 0 8.58333 0 8.15V1.5C0 1.06667 0.141667 0.708333 0.425 0.425C0.708333 0.141667 1.06667 0 1.5 0H8.15C8.58333 0 8.94167 0.141667 9.225 0.425C9.50833 0.708333 9.65 1.06667 9.65 1.5C9.65 1.93333 9.50833 2.29167 9.225 2.575C8.94167 2.85833 8.58333 3 8.15 3H3V8.15C3 8.58333 2.85833 8.94167 2.575 9.225C2.29167 9.50833 1.93333 9.65 1.5 9.65ZM19.85 28C19.4167 28 19.0583 27.8583 18.775 27.575C18.4917 27.2917 18.35 26.9333 18.35 26.5C18.35 26.0667 18.4917 25.7083 18.775 25.425C19.0583 25.1417 19.4167 25 19.85 25H25V19.85C25 19.4167 25.1417 19.0583 25.425 18.775C25.7083 18.4917 26.0667 18.35 26.5 18.35C26.9333 18.35 27.2917 18.4917 27.575 18.775C27.8583 19.0583 28 19.4167 28 19.85V26.5C28 26.9333 27.8583 27.2917 27.575 27.575C27.2917 27.8583 26.9333 28 26.5 28H19.85ZM26.5 9.65C26.0667 9.65 25.7083 9.50833 25.425 9.225C25.1417 8.94167 25 8.58333 25 8.15V3H19.85C19.4167 3 19.0583 2.85833 18.775 2.575C18.4917 2.29167 18.35 1.93333 18.35 1.5C18.35 1.06667 18.4917 0.708333 18.775 0.425C19.0583 0.141667 19.4167 0 19.85 0H26.5C26.9333 0 27.2917 0.141667 27.575 0.425C27.8583 0.708333 28 1.06667 28 1.5V8.15C28 8.58333 27.8583 8.94167 27.575 9.225C27.2917 9.50833 26.9333 9.65 26.5 9.65Z' fill='%23ffffff' /%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.15 28C7.71667 28 7.35833 27.8583 7.075 27.575C6.79167 27.2917 6.65 26.9333 6.65 26.5V21.35H1.5C1.06667 21.35 0.708333 21.2083 0.425 20.925C0.141667 20.6417 0 20.2833 0 19.85C0 19.4167 0.141667 19.0583 0.425 18.775C0.708333 18.4917 1.06667 18.35 1.5 18.35H8.15C8.58333 18.35 8.94167 18.4917 9.225 18.775C9.50833 19.0583 9.65 19.4167 9.65 19.85V26.5C9.65 26.9333 9.50833 27.2917 9.225 27.575C8.94167 27.8583 8.58333 28 8.15 28ZM1.5 9.65C1.06667 9.65 0.708333 9.50833 0.425 9.225C0.141667 8.94167 0 8.58333 0 8.15C0 7.71667 0.141667 7.35833 0.425 7.075C0.708333 6.79167 1.06667 6.65 1.5 6.65H6.65V1.5C6.65 1.06667 6.79167 0.708333 7.075 0.425C7.35833 0.141667 7.71667 0 8.15 0C8.58333 0 8.94167 0.141667 9.225 0.425C9.50833 0.708333 9.65 1.06667 9.65 1.5V8.15C9.65 8.58333 9.50833 8.94167 9.225 9.225C8.94167 9.50833 8.58333 9.65 8.15 9.65H1.5ZM19.85 28C19.4167 28 19.0583 27.8583 18.775 27.575C18.4917 27.2917 18.35 26.9333 18.35 26.5V19.85C18.35 19.4167 18.4917 19.0583 18.775 18.775C19.0583 18.4917 19.4167 18.35 19.85 18.35H26.5C26.9333 18.35 27.2917 18.4917 27.575 18.775C27.8583 19.0583 28 19.4167 28 19.85C28 20.2833 27.8583 20.6417 27.575 20.925C27.2917 21.2083 26.9333 21.35 26.5 21.35H21.35V26.5C21.35 26.9333 21.2083 27.2917 20.925 27.575C20.6417 27.8583 20.2833 28 19.85 28ZM19.85 9.65C19.4167 9.65 19.0583 9.50833 18.775 9.225C18.4917 8.94167 18.35 8.58333 18.35 8.15V1.5C18.35 1.06667 18.4917 0.708333 18.775 0.425C19.0583 0.141667 19.4167 0 19.85 0C20.2833 0 20.6417 0.141667 20.925 0.425C21.2083 0.708333 21.35 1.06667 21.35 1.5V6.65H26.5C26.9333 6.65 27.2917 6.79167 27.575 7.075C27.8583 7.35833 28 7.71667 28 8.15C28 8.58333 27.8583 8.94167 27.575 9.225C27.2917 9.50833 26.9333 9.65 26.5 9.65H19.85Z' fill='%23ffffff' /%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: contain;
   background-origin: content-box;
@@ -780,7 +851,7 @@ the control buttons panel. */
   -ms-flex-order: -2;
   order: -2;
   /* Centers the image inside the box */
-  background-image: url("data:image/svg+xml,%3Csvg width='36.11' height='28.16' viewBox='0 0 36 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24.1 34.8499C23.5667 35.0166 23.0833 34.9333 22.65 34.5999C22.2167 34.2666 22 33.8166 22 33.25C22 32.9833 22.075 32.7416 22.225 32.525C22.375 32.3083 22.5833 32.1666 22.85 32.1C25.8833 31.0333 28.3333 29.2166 30.2 26.65C32.0667 24.0833 33 21.1833 33 17.95C33 14.7166 32.0667 11.8083 30.2 9.22495C28.3333 6.64162 25.8833 4.83329 22.85 3.79995C22.5833 3.73329 22.375 3.58329 22.225 3.34995C22.075 3.11662 22 2.86662 22 2.59995C22 2.03329 22.225 1.59162 22.675 1.27495C23.125 0.958285 23.6 0.883285 24.1 1.04995C27.6667 2.31662 30.5417 4.49162 32.725 7.57495C34.9083 10.6583 36 14.1166 36 17.95C36 21.7833 34.9083 25.2416 32.725 28.325C30.5417 31.4083 27.6667 33.5833 24.1 34.8499ZM1.5 24C1.06667 24 0.708333 23.8583 0.425 23.575C0.141667 23.2916 0 22.9333 0 22.5V13.5C0 13.0666 0.141667 12.7083 0.425 12.425C0.708333 12.1416 1.06667 12 1.5 12H8L15.45 4.54995C15.9167 4.08329 16.4583 3.97495 17.075 4.22495C17.6917 4.47495 18 4.93329 18 5.59995V30.4C18 31.0666 17.6917 31.525 17.075 31.775C16.4583 32.025 15.9167 31.9166 15.45 31.45L8 24H1.5ZM21 26.4V9.54995C22.8 10.1166 24.25 11.1833 25.35 12.75C26.45 14.3166 27 16.0666 27 18C27 19.9666 26.45 21.7166 25.35 23.25C24.25 24.7833 22.8 25.8333 21 26.4Z' fill='white'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='36.11' height='28.16' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M36.55 39.0999L31.05 33.5999C30.3834 34.0666 29.6917 34.4916 28.975 34.875C28.2584 35.2583 27.5167 35.5833 26.75 35.8499C26.2167 36.0166 25.7334 35.9333 25.3 35.5999C24.8667 35.2666 24.65 34.8166 24.65 34.25C24.65 33.9833 24.725 33.7416 24.875 33.525C25.025 33.3083 25.2334 33.1666 25.5 33.0999C26.1 32.8999 26.6917 32.6666 27.275 32.4C27.8584 32.1333 28.4 31.8166 28.9 31.45L20.65 23.15V31.4C20.65 32.0666 20.3417 32.525 19.725 32.775C19.1084 33.025 18.5667 32.9166 18.1 32.45L10.65 25H4.15005C3.71671 25 3.35838 24.8583 3.07505 24.575C2.79171 24.2916 2.65005 23.9333 2.65005 23.5V14.5C2.65005 14.0666 2.79171 13.7083 3.07505 13.425C3.35838 13.1416 3.71671 13 4.15005 13H10.45L0.500046 3.04995C0.200046 2.74995 0.0583796 2.39162 0.0750463 1.97495C0.0917129 1.55828 0.250046 1.19995 0.550046 0.899951C0.850046 0.599951 1.20005 0.449951 1.60005 0.449951C2.00005 0.449951 2.35005 0.599951 2.65005 0.899951L38.75 36.95C39.05 37.25 39.2 37.6083 39.2 38.025C39.2 38.4416 39.05 38.7999 38.75 39.0999C38.45 39.3999 38.0834 39.5499 37.65 39.5499C37.2167 39.5499 36.85 39.3999 36.55 39.0999ZM26.75 2.04995C30.3167 3.31662 33.1917 5.49162 35.375 8.57495C37.5584 11.6583 38.65 15.1166 38.65 18.95C38.65 20.65 38.4167 22.3166 37.95 23.95C37.4834 25.5833 36.7834 27.1333 35.85 28.5999L33.7 26.45C34.3667 25.3166 34.8584 24.1166 35.175 22.85C35.4917 21.5833 35.65 20.2833 35.65 18.95C35.65 15.65 34.725 12.6833 32.875 10.05C31.025 7.41662 28.5667 5.64995 25.5 4.74995C25.2334 4.68328 25.025 4.54162 24.875 4.32495C24.725 4.10828 24.65 3.86662 24.65 3.59995C24.65 3.03329 24.875 2.59162 25.325 2.27495C25.775 1.95828 26.25 1.88328 26.75 2.04995ZM29.15 21.9L24.65 17.4V10.9C26.2167 11.6333 27.4417 12.7333 28.325 14.2C29.2084 15.6666 29.65 17.2666 29.65 19C29.65 19.5 29.6084 19.9916 29.525 20.475C29.4417 20.9583 29.3167 21.4333 29.15 21.9ZM20.65 13.4L15.45 8.19995L18.1 5.54995C18.5667 5.08328 19.1084 4.97495 19.725 5.22495C20.3417 5.47495 20.65 5.93329 20.65 6.59995V13.4Z' fill='white'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
   background-origin: content-box;
@@ -846,6 +917,17 @@ the control buttons panel. */
   background-color: transparent;
   color: white;
   cursor: default;
+
+  /* Move timer to right side of seek bar */
+  position: absolute;
+  margin: auto;
+  margin-bottom: 4.8rem;
+}
+@media screen and (max-width: 660px) {
+  .sbt-theme .shaka-current-time[disabled] {
+    position: initial;
+    margin: auto;
+  }
 }
 /* Use a consistent outline focus style across browsers. */
 .sbt-theme .shaka-controls-container {
@@ -1181,12 +1263,27 @@ the control buttons panel. */
   /* Vertical margins to occupy the same space as the thumb. */
   margin: calc((12px - 4px) / 2) 6px;
   /* Smaller height to contain the background for the virtual track. */
-  height: 4px;
+  height: 5px;
   /* Rounded ends on the virtual track. */
   border-radius: 4px;
   /* Until we set a gradient background in JS, this will be the track color. */
   background: white;
 }
+
+.sbt-theme .shaka-range-container::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 32px;
+  margin: auto;
+}
+
+@media screen and (max-width: 420px) {
+  .sbt-theme .shaka-range-container {
+    width: initial;
+  }
+}
+
 .sbt-theme .shaka-volume-bar-container {
   width: 100px;
   padding: 0;
@@ -1315,11 +1412,30 @@ the control buttons panel. */
   transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 600ms;
   /* Show controls when the container's "shown" or "casting" attributes are
    * set. */
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: calc(100% - 126px);
 }
+.sbt-theme .shaka-seek-bar-container::after {
+  position: absolute;
+  right: -126px;
+}
+@media screen and (max-width: 660px) {
+  .sbt-theme .shaka-seek-bar-container {
+    display: initial;
+    width: initial;
+  }
+}
+
 .sbt-theme .shaka-controls-container[shown='true'] .shaka-seek-bar-container,
 .sbt-theme .shaka-controls-container[casting='true'] .shaka-seek-bar-container {
   opacity: 1;
+  margin-bottom: 1.3rem;
 }
+
 .sbt-theme .shaka-ad-markers {
   /* For a detailed explanation of how this achieves an overlay, please refer
    * to https://developer.mozilla.org/en-US/docs/Web/CSS/position .
@@ -1340,6 +1456,16 @@ the control buttons panel. */
   width: 100%;
   height: 100%;
 }
+
+/* Lets change the font family to get proper icons to overflow menus */
+.sbt-theme .shaka-video-container * {
+  font-family: Roboto, sans-serif;
+}
+
+.sbt-theme .shaka-video-container .material-icons-round {
+  font-family: 'Material Icons Outlined';
+}
+
 /** @license
  * Shaka Player
  * Copyright 2016 Google LLC
@@ -1356,16 +1482,19 @@ the control buttons panel. */
   /* Don't wrap text to the next line. */
   white-space: nowrap;
   /* Styles for the menu itself. */
-  background: white;
+  background: rgba(28, 28, 28, 0.9);
+  text-shadow: 0 0 2px rgb(0 0 0%);
   box-shadow: 0 1px 9px 0 rgba(0 0 0 / 40%);
-  border-radius: 2px;
+  border-radius: 4px;
   max-height: 250px;
-  min-width: 180px;
+  min-width: 220px;
+  padding: 8px 0;
   /* The menus fade out with the other controls. */
   /* Transparent unless explicitly made opaque through container attributes. */
   opacity: 0;
   /* When we show/hide this, do it gradually using cubic-bezier timing. */
   transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 600ms;
+  -webkit-transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 600ms;
   /* Show controls when the container's "shown" or "casting" attributes are
    * set. */
   /* When displayed as a flex container, elements inside will flow in a
@@ -1375,13 +1504,17 @@ the control buttons panel. */
   /* Where the menu appears. */
   position: absolute;
   z-index: 2;
-  right: 15px;
-  bottom: 30px;
+  right: 12px;
+  bottom: 40px;
   /* The buttons inside the menu. */
   /* These are the elements which contain the material design icons.
    * TODO: Pull MD icon details out of JS. */
   /* If the seekbar is missing, this is positioned lower.
    * TODO: Solve with flex layout instead? */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .sbt-theme .shaka-controls-container[shown='true'] .shaka-overflow-menu,
 .sbt-theme .shaka-controls-container[shown='true'] .shaka-settings-menu,
@@ -1393,7 +1526,7 @@ the control buttons panel. */
 .sbt-theme .shaka-settings-menu button {
   font-size: 14px;
   background: transparent;
-  color: black;
+  color: #eee;
   border: none;
   min-height: 30px;
   padding: 3.5px 6px;
@@ -1405,9 +1538,20 @@ the control buttons panel. */
   cursor: pointer;
   /* The label inside button is also showing cursor pointer  */
 }
+.sbt-theme .shaka-overflow-menu button span,
+.sbt-theme .shaka-settings-menu button span {
+  margin-left: 33px;
+  font-size: 13px;
+}
 .sbt-theme .shaka-overflow-menu button:hover,
 .sbt-theme .shaka-settings-menu button:hover {
-  background: #e0e0e0;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #111;
+  cursor: pointer;
+}
+.sbt-theme .shaka-overflow-menu button:hover i,
+.sbt-theme .shaka-settings-menu button:hover i {
+  color: #111;
 }
 .sbt-theme .shaka-overflow-menu button label,
 .sbt-theme .shaka-settings-menu button label {
@@ -1416,6 +1560,13 @@ the control buttons panel. */
 .sbt-theme .shaka-keyboard-navigation .shaka-overflow-menu button:focus,
 .sbt-theme .shaka-keyboard-navigation .shaka-settings-menu button:focus {
   background: #e0e0e0;
+}
+.sbt-theme .shaka-overflow-menu button:focus,
+.sbt-theme .shaka-settings-menu button:focus {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #111;
+  border: none;
+  outline: 0;
 }
 .sbt-theme .shaka-overflow-menu i,
 .sbt-theme .shaka-settings-menu i {
@@ -1463,6 +1614,27 @@ the control buttons panel. */
   margin-left: 2%;
 }
 
+.sbt-theme .shaka-settings-menu button[aria-selected='true'] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sbt-theme .shaka-settings-menu button[aria-selected='true'] span {
+  -webkit-box-ordinal-group: 3;
+  -ms-flex-order: 2;
+  order: 2;
+  margin-left: 0;
+}
+
+.sbt-theme .shaka-settings-menu button[aria-selected='true'] i {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  font-size: 18px;
+  padding-left: 5px;
+}
+
 /* This is the specific span element which shows the current selection from some
  * submenu.  For example, it would contain the currently-selected subtitle
  * language, the currently-selected resolution, etc. */
@@ -1480,15 +1652,77 @@ the control buttons panel. */
 .sbt-theme .shaka-back-to-overflow-button {
   /* The label inside the button, which says something like "back". */
   /* The MD icon for the "back" arrow. */
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 12px;
+  color: #eee;
+  height: 40px;
 }
 .sbt-theme .shaka-back-to-overflow-button span {
-  /* TODO(b/116651454): eliminate hard-coded offsets */
-  margin-left: 0;
+  margin-left: 3px !important;
 }
 .sbt-theme .shaka-back-to-overflow-button i {
-  /* TODO(b/116651454): eliminate hard-coded offsets */
   padding-right: 20px;
 }
+.sbt-theme .shaka-overflow-menu button i {
+  display: none;
+}
+.sbt-theme .shaka-overflow-menu button .shaka-overflow-button-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: default;
+  outline: 0;
+  height: 40px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100%;
+  flex: 0 0 100%;
+}
+.sbt-theme .shaka-overflow-menu button .shaka-overflow-button-label span {
+  -ms-flex-negative: initial;
+  flex-shrink: initial;
+  padding-left: 15px;
+  font-size: 13px;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.sbt-theme .shaka-overflow-menu span + span {
+  color: #fff;
+  font-weight: 400 !important;
+  font-size: 12px !important;
+  padding-right: 8px;
+  padding-left: 0 !important;
+}
+.sbt-theme .shaka-overflow-menu span + span:after {
+  content: 'navigate_next';
+  font-family: 'Material Icons Outlined';
+  font-size: 20px;
+}
+.sbt-theme .shaka-back-to-overflow-button .material-icons-round {
+  font-family: 'Material Icons Outlined';
+  font-size: 15px;
+  padding-right: 10px;
+}
+.sbt-theme .shaka-overflow-menu-button {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
 /* The menu item for resolutions which contains "auto". */
 .sbt-theme .shaka-auto-span {
   /* TODO(b/116651454): eliminate hard-coded offsets */
