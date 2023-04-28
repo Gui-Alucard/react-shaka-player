@@ -6,11 +6,15 @@ import { IPlayerProps } from '../types';
 const ReactPlayer = (props: IPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const uiContainerRef = useRef<HTMLDivElement | null>(null);
+  const adContainerRef = useRef<HTMLDivElement | null>(null);
+
+  const adHTMLElement = document.getElementById('ad-container');
 
   const { player, ui } = Hooks.usePlayer(videoRef, uiContainerRef, props);
   Hooks.usePlayerListener(player, props);
   Hooks.useUIListener(ui, player, props);
   Hooks.useStats(player, props);
+  Hooks.useAds(player, adHTMLElement, props)
 
   const {
     autoPlay,
@@ -31,6 +35,7 @@ const ReactPlayer = (props: IPlayerProps) => {
     playerClassName,
     superConfig,
     uiConfig,
+    adsRequest,
     ...newProps
   } = props;
 
@@ -44,15 +49,17 @@ const ReactPlayer = (props: IPlayerProps) => {
   const overlayClassName = className === undefined ? "sbt-theme" : "sbt-theme " + props.className;
 
   return (
-    <div style={style} ref={uiContainerRef} className={overlayClassName}>
-      <video
-        ref={videoRef}
-        className={props.playerClassName}
-        style={style}
-        autoPlay={autoPlay}
-        {...newProps}
-        muted
-      />
+    <div id="ad-container" style={{ position: 'absolute', top: 0, left: 0, ...style }} ref={adContainerRef}>
+      <div style={style} ref={uiContainerRef} className={overlayClassName}>
+        <video
+          ref={videoRef}
+          className={props.playerClassName}
+          style={style}
+          autoPlay={autoPlay}
+          {...newProps}
+          muted
+        />
+      </div>
     </div>
   )
 };

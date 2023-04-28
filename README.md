@@ -22,7 +22,16 @@ Nos esforçamos para manter a biblioteca leve, simples e livre de outras depende
 
 ## Instalação
 
-Use o gerenciador de pacotes [npm](https://www.npmjs.com/) / [yarn](https://yarnpkg.com/) ou via package.json para instalar o `sbt-videos-web-player`.
+Para a instalação ser permitida, crie um arquivo `.npmrc` na raiz do projeto.
+
+📝 Arquivo .npmrc:
+
+```properties
+//npm.pkg.github.com/:_authToken=SEU_TOKEN_PESSOAL
+@sbt-lab:registry=https://npm.pkg.github.com
+```
+
+Em seguida, use o gerenciador de pacotes [npm](https://www.npmjs.com/) / [yarn](https://yarnpkg.com/) ou via package.json para instalar o `sbt-videos-web-player`.
 
 🖥️ Instalação a partir de linha de comando:
 
@@ -49,7 +58,7 @@ import '@sbt-lab/sbt-videos-web-player/dist/ui.css';
 import { ReactPlayer } from '@sbt-lab/sbt-videos-web-player';
 
 function App() {
-  return <ReactPlayer autoPlay={true} src={'https://yourvideohere.mpd'} />;
+  return <ReactPlayer superConfig="STREAMING" src={'https://yourvideohere.mpd'} />;
 }
 ```
 
@@ -66,18 +75,23 @@ function App() {
     const { player, videoElement } = mainPlayer;
 
     if (player) {
-      async function play() {
+      async function loadPlayer() {
         await player.load('https://yourvideomaster.mpd');
+        // in this case it will need to handle the initial stats since the load starts from here
+        const stats_ = player.getStats();
+        const mediaCurrentTime = player.getMediaElement() && Math.floor(player.getMediaElement().currentTime);
+        const mediaEndTime = Math.floor(player.seekRange().end);
+        // than it can play()
         videoElement.play();
       }
-      play();
+      loadPlayer();
     }
   }, [mainPlayer]);
 
   return (
     <div className="App">
       <div className="App-main">
-        <ReactPlayer playerClassName="player-class-name" onLoad={(player) => setMainPlayer(player)} />
+        <ReactPlayer autoPlay={true} superConfig="VOD" onLoad={(player) => setMainPlayer(player)} />
       </div>
     </div>
   );
@@ -104,7 +118,7 @@ Essas são as props principais do componente:
 
 | Props          | Optional | Description                                                                                                                                                                                                                       | Type                         |
 | -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| src            | No       | MPD or HLS to play                                                                                                                                                                                                                | string                       |
+| src            | Yes      | MPD or HLS to play                                                                                                                                                                                                                | string                       |
 | className      | Yes      | string of ui overlay classname                                                                                                                                                                                                    | string                       |
 | autoPlay       | Yes      | as it described                                                                                                                                                                                                                   | boolean                      |
 | superConfig    | Yes      | The special configs for Streaming or VOD. Will add more `superConfig` soon.                                                                                                                                                       | string ("STREAMING" / "VOD") |

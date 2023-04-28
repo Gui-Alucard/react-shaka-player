@@ -39,6 +39,7 @@ export interface IPlayerProps {
   playerClassName?: string;
   playsInline?: boolean | undefined;
   src?: string;
+  adsRequest?: google.ima.AdsRequest | undefined;
   superConfig?: SuperConfig | undefined;
   uiConfig?: ShakaExtern.UIConfiguration | any;
 };
