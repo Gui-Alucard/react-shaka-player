@@ -6,21 +6,18 @@ exports[`Player Should render container className and playerClassName container 
 
 exports[`Player Should render correctly 1`] = `
 <div
-  id="ad-container"
+  className="sbt-theme"
   style={
     {
-      "left": 0,
       "maxHeight": "100vh",
       "maxWidth": "100%",
       "overflow": "hidden",
-      "position": "absolute",
-      "top": 0,
       "width": "100%",
     }
   }
 >
-  <div
-    className="sbt-theme"
+  <video
+    muted={true}
     style={
       {
         "maxHeight": "100vh",
@@ -29,19 +26,7 @@ exports[`Player Should render correctly 1`] = `
         "width": "100%",
       }
     }
-  >
-    <video
-      muted={true}
-      style={
-        {
-          "maxHeight": "100vh",
-          "maxWidth": "100%",
-          "overflow": "hidden",
-          "width": "100%",
-        }
-      }
-    />
-  </div>
+  />
 </div>
 `;
 
