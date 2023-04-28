@@ -13,13 +13,16 @@ const useStats = (player: ShakaPlayer, ui: shaka.ui.Overlay, props?: IPlayerProp
         try {
           console.log('[__SHAKA__ adManager', adManager)
           const video = player.getMediaElement();
+          console.log('[__SHAKA__ video', video)
           const container = ui.getControls().getClientSideAdContainer();
+          console.log('[__SHAKA__ container', container)
 
           await adManager.initClientSide(container, video);
+          console.log('[__SHAKA__ INICIOU', await adManager.initClientSide(container, video))
 
           const GoogleAdsLoader = new google.ima.AdsLoader(container)
           console.log('[__SHAKA__ GoogleAdsLoader', GoogleAdsLoader)
-          const adsRequest = GoogleAdsLoader.requestAds(props.adsRequest)
+          const adsRequest = await GoogleAdsLoader.requestAds(props.adsRequest)
           console.log('[__SHAKA__ adsRequest', adsRequest)
 
           const uri = await adManager.requestClientSideAds(adsRequest)
