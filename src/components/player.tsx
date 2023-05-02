@@ -11,7 +11,7 @@ const ReactPlayer = (props: IPlayerProps) => {
   Hooks.usePlayerListener(player, props);
   Hooks.useUIListener(ui, player, props);
   Hooks.useStats(player, props);
-  Hooks.useAds(player, ui, props)
+  Hooks.useAds(player, ui, props);
 
   const {
     autoPlay,

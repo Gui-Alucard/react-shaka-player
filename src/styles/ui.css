@@ -1412,6 +1412,7 @@ the control buttons panel. */
   transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 600ms;
   /* Show controls when the container's "shown" or "casting" attributes are
    * set. */
+  margin-bottom: 1.3rem;
 
   display: flex;
   flex-direction: row;
