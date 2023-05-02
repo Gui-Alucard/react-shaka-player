@@ -1,15 +1,15 @@
-import { Player as ShakaPlayer } from "shaka-player/dist/shaka-player.ui";
+import { Player as ShakaPlayer, ui as ShakaUI } from "shaka-player/dist/shaka-player.ui";
 import { useEffect } from "react";
 
 import { IPlayerProps } from "../types";
 
-const useStats = (player: ShakaPlayer, ui: shaka.ui.Overlay, props?: IPlayerProps) => {
+const useStats = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) => {
 
   useEffect(() => {
-    if (player && props.adsRequest) {
+    if (player && props.adsRequest && ui) {
       const adManager = player.getAdManager();
       const video = player.getMediaElement();
-      const container = ui.getControls().getClientSideAdContainer();
+      const container = ui.getControls().getClientSideAdContainer()
       adManager.initClientSide(container, video);
 
       const _streamRequest = async () => {
@@ -26,7 +26,7 @@ const useStats = (player: ShakaPlayer, ui: shaka.ui.Overlay, props?: IPlayerProp
       console.log('[__SHAKA__ STATS', adManager.getStats())
     }
 
-  }, [player, props.adsRequest]);
+  }, [player, props.adsRequest, ui]);
 };
 
 export default useStats;
