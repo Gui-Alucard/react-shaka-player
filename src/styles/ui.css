@@ -957,113 +957,6 @@ the control buttons panel. */
  * Copyright 2016 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-/* Ad controls. */
-.sbt-theme .ad-text-shadow {
-  /* Give white text a black shadow, so it's visible against a
-   * white background. */
-  text-shadow: 1px 1px 4px black;
-}
-.sbt-theme .shaka-controls-container[ad-active='true'] {
-  /* While showing an ad, pass pointer events through to the ad container. */
-  pointer-events: none;
-  /* Except in the bottom controls, which should still be clickable. */
-}
-.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-bottom-controls {
-  pointer-events: auto;
-}
-.sbt-theme .shaka-client-side-ad-container,
-.sbt-theme .shaka-server-side-ad-container {
-  /* When setting "position: absolute" it uses the left,right,top,bottom
-   * properties to determine the positioning.  We should set all these
-   * properties to ensure it is positioned properly on all platforms. */
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  /* IMA SDK adds their own ad UI into an iframe element.
-   * Adjust its position to fit in with our UI, when
-   * Shaka UI is enabled. */
-}
-.sbt-theme .shaka-video-container[shaka-controls='true'] .shaka-client-side-ad-container iframe,
-.sbt-theme .shaka-video-container[shaka-controls='true'] .shaka-server-side-ad-container iframe {
-  /* This moves the iframe up a little bit, so it
-       * doesn't operlap with our controls. */
-  height: 90%;
-}
-.sbt-theme .shaka-server-side-ad-container {
-  width: 100%;
-  height: 100%;
-  flex-shrink: 1;
-}
-.sbt-theme .shaka-server-side-ad-container:not([ad-active='true']) {
-  pointer-events: none;
-}
-.sbt-theme .shaka-ad-controls {
-  display: flex;
-  flex-direction: row;
-  z-index: 1;
-  /* Add some room between the ad controls and the controls
-  button panel. */
-  padding-bottom: 1%;
-}
-.sbt-theme .shaka-video-container:not([shaka-controls='true']) .shaka-ad-controls {
-  display: none;
-}
-.sbt-theme .shaka-ad-controls button,
-.sbt-theme .shaka-ad-controls div {
-  color: white;
-  font-size: initial;
-}
-.sbt-theme .shaka-ad-controls div:not(.shaka-skip-ad-counter) {
-  margin: 1px;
-}
-.sbt-theme .shaka-ad-counter,
-.sbt-theme .shaka-ad-position {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  /* Give white text a black shadow, so it's visible against a
-   * white background. */
-  text-shadow: 1px 1px 4px black;
-}
-.sbt-theme .shaka-ad-controls .shaka-ad-position:not(.shaka-hidden) + .shaka-ad-counter {
-  margin-left: 0.75em;
-}
-.sbt-theme .shaka-skip-ad-container {
-  /* Skip button is positioned at the very right edge of the
-   * video container unlike the rest of the bottom controls. */
-  position: relative;
-  /* This math is determining how far the button is from the right edge.
-   * Ad panel's parent is centered and @bottom-controls-width wide, so
-   * 100% - @bottom-controls-width = margins from both sides of the container.
-   * That divided by 2 is margin on one side, so we take that, and move the
-   * button from its normal position to the right by that percentage.
-   */
-  right: calc((100% - 96%) / 2 * -1);
-  display: flex;
-  flex-direction: row;
-  margin: 0;
-}
-.sbt-theme .shaka-skip-ad-button {
-  padding: 5px 15px;
-  background: rgba(0 0 0 / 70%);
-  border: none;
-  cursor: pointer;
-}
-.sbt-theme .shaka-skip-ad-button:disabled {
-  background: rgba(0 0 0 / 30%);
-}
-.sbt-theme .shaka-skip-ad-counter {
-  padding: 5px;
-  background: rgba(0 0 0 / 70%);
-  margin: 0;
-}
-/** @license
- * Shaka Player
- * Copyright 2016 Google LLC
- * SPDX-License-Identifier: Apache-2.0
- */
 /* Special styles for input elements with type "range".
  *
  * These elements are composed of two main parts: a "track", which is the
@@ -1746,6 +1639,130 @@ the control buttons panel. */
   flex-grow: 1;
   /* Margins don't shrink. Remove margins in order to be more flexible when
    * shrinking. */
+  margin: 0;
+}
+/** @license
+ * Shaka Player
+ * Copyright 2016 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+/* Ad controls. */
+.sbt-theme .ad-text-shadow {
+  /* Give white text a black shadow, so it's visible against a
+   * white background. */
+  text-shadow: 1px 1px 4px black;
+}
+.sbt-theme .shaka-controls-container[ad-active='true'] {
+  /* While showing an ad, pass pointer events through to the ad container. */
+  pointer-events: none;
+  /* Except in the bottom controls, which should still be clickable. */
+}
+.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-bottom-controls {
+  pointer-events: auto;
+}
+.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-current-time,
+.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-pip-button,
+.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-overflow-button.shaka-resolution-button,
+.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-fullscreen-button {
+  /* Hidden all unnecessary buttons */
+  opacity: 0;
+}
+.sbt-theme .shaka-client-side-ad-container,
+.sbt-theme .shaka-server-side-ad-container {
+  /* When setting "position: absolute" it uses the left,right,top,bottom
+   * properties to determine the positioning.  We should set all these
+   * properties to ensure it is positioned properly on all platforms. */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.sbt-theme .shaka-client-side-ad-container[ad-active='true'] div {
+  max-width: 100%;
+  width: 100% !important;
+  max-height: 100vh;
+  overflow: hidden;
+  cursor: none;
+  display: contents;
+}
+.sbt-theme .shaka-video-container[shaka-controls='true'] .shaka-client-side-ad-container iframe,
+.sbt-theme .shaka-video-container[shaka-controls='true'] .shaka-server-side-ad-container iframe {
+  /* IMA SDK adds their own ad UI into an iframe element.
+   * Adjust its position to fit in with our UI, when
+   * Shaka UI is enabled.
+   * This moves the iframe up a little bit, so it
+  * doesn't operlap with our controls.
+  */
+  height: 92%;
+  z-index: 1;
+}
+.sbt-theme .shaka-server-side-ad-container {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 1;
+}
+.sbt-theme .shaka-server-side-ad-container:not([ad-active='true']) {
+  pointer-events: none;
+}
+.sbt-theme .shaka-ad-controls {
+  display: flex;
+  flex-direction: row;
+  z-index: 1;
+  /* Add some room between the ad controls and the controls
+  button panel. */
+  padding-bottom: 1%;
+}
+.sbt-theme .shaka-video-container:not([shaka-controls='true']) .shaka-ad-controls {
+  display: none;
+}
+.sbt-theme .shaka-ad-controls button,
+.sbt-theme .shaka-ad-controls div {
+  color: white;
+  font-size: initial;
+}
+.sbt-theme .shaka-ad-controls div:not(.shaka-skip-ad-counter) {
+  margin: 1px;
+}
+.sbt-theme .shaka-ad-counter,
+.sbt-theme .shaka-ad-position {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  /* Give white text a black shadow, so it's visible against a
+   * white background. */
+  text-shadow: 1px 1px 4px black;
+}
+.sbt-theme .shaka-ad-controls .shaka-ad-position:not(.shaka-hidden) + .shaka-ad-counter {
+  margin-left: 0.75em;
+}
+.sbt-theme .shaka-skip-ad-container {
+  /* Skip button is positioned at the very right edge of the
+   * video container unlike the rest of the bottom controls. */
+  position: relative;
+  /* This math is determining how far the button is from the right edge.
+   * Ad panel's parent is centered and @bottom-controls-width wide, so
+   * 100% - @bottom-controls-width = margins from both sides of the container.
+   * That divided by 2 is margin on one side, so we take that, and move the
+   * button from its normal position to the right by that percentage.
+   */
+  right: calc((100% - 96%) / 2 * -1);
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+.sbt-theme .shaka-skip-ad-button {
+  padding: 5px 15px;
+  background: rgba(0 0 0 / 70%);
+  border: none;
+  cursor: pointer;
+}
+.sbt-theme .shaka-skip-ad-button:disabled {
+  background: rgba(0 0 0 / 30%);
+}
+.sbt-theme .shaka-skip-ad-counter {
+  padding: 5px;
+  background: rgba(0 0 0 / 70%);
   margin: 0;
 }
 /*!
