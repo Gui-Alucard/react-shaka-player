@@ -54,7 +54,24 @@ const usePlayer = (
     if (player && props.src && ShakaPlayer.isBrowserSupported()) {
       const initLoad = async () => {
         try {
-          await player.load(props.src)
+          await player.load(props.src, props.startTime ? props.startTime : 0)
+          const stats_ = player.getStats()
+          const mediaCurrentTime =
+            (player.getMediaElement()) && Math.floor(player.getMediaElement().currentTime)
+          const mediaEndTime = Math.floor(player.seekRange().end)
+          const stringParam = {
+            event: 'player_started',
+            data: {
+              currentTime: mediaCurrentTime,
+              stopped_at: mediaCurrentTime,
+              duration: mediaEndTime,
+              videoTotalTime: mediaEndTime,
+              liveIncrement: mediaCurrentTime,
+              ...stats_
+            }
+          }
+          // @ts-ignore
+          window.postMessage(JSON.stringify(stringParam))
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }
