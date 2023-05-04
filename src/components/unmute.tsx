@@ -6,7 +6,7 @@ const ButtonUnmute = (props: IUnmuteProps) => {
   const { onClick, label } = props;
 
   return (
-    <div className='container_unmute'>
+    <div className='sbt-theme container_unmute'>
       <button onClick={onClick}>
         <UnMuteIcon width={20} height={18.87} style={{ marginRight: '5px' }} /> <p>{label}</p>
       </button>

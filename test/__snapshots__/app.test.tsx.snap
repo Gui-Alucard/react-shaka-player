@@ -36,7 +36,7 @@ exports[`Player Should renders source[manifest] string correctly 1`] = `ShallowW
 
 exports[`Unmute Button Should render correctly 1`] = `
 <div
-  className="container_unmute"
+  className="sbt-theme container_unmute"
 >
   <button>
     <svg
