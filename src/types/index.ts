@@ -44,3 +44,9 @@ export interface IPlayerProps {
   superConfig?: SuperConfig | undefined;
   uiConfig?: ShakaExtern.UIConfiguration | any;
 };
+
+export interface IUnmuteProps {
+  children?: any;
+  label?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+};

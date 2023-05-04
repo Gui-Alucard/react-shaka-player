@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16';
 import { ReactPlayer as Player } from '../src/components/player';
+import { ButtonUnmute as Unmute } from '../src/components/unmute';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -36,6 +37,25 @@ describe("Player", () => {
       playerClassName: "player-class-name",
     };
     const tree = Enzyme.shallow(<Player {...props} />);
+    expect(tree).toMatchSnapshot();
+  });
+});
+
+describe("Unmute Button", () => {
+  it("Should render correctly", () => {
+    const tree = renderer.create(<Unmute />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("Should renders label string correctly", () => {
+    const props = { label: "Ativar som" };
+    const tree = Enzyme.shallow(<Unmute {...props} />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("Should render the onclick function correctly", () => {
+    const props = { onClick: () => true };
+    const tree = Enzyme.shallow(<Unmute {...props} />);
     expect(tree).toMatchSnapshot();
   });
 });
