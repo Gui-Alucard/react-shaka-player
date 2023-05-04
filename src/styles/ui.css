@@ -2002,11 +2002,3 @@ the control buttons panel. */
   font-weight: bold;
   font-family: Urbanist;
 }
-
-.sbt-theme .sbt-container-foward {
-  border: 1px solid red;
-}
-
-.sbt-theme .sbt-container-rewind {
-  border: 1px solid green;
-}

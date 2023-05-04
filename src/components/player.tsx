@@ -2,8 +2,6 @@ import React, { useRef } from 'react';
 import * as Hooks from '../hooks';
 
 import { IPlayerProps } from '../types';
-import { ButtonFoward } from './foward';
-import { ButtonRewind } from './rewind';
 
 const ReactPlayer = (props: IPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -55,8 +53,6 @@ const ReactPlayer = (props: IPlayerProps) => {
 
   return (
     <div style={style} ref={uiContainerRef} className={overlayClassName}>
-      <ButtonFoward player={player} ui={ui} props={props} />
-      <ButtonRewind player={player} ui={ui} props={props} />
       <video
         ref={videoRef}
         className={props.playerClassName}

@@ -25,7 +25,7 @@ const useStats = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps
   }, [player, props.adsRequest, ui]);
 
   useEffect(() => {
-    if (player && ui) {
+    if (player && props.adsRequest && ui) {
       const adManager = player.getAdManager();
 
       adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, (e) => {
@@ -118,7 +118,7 @@ const useStats = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps
         console.log('IMA_STREAM_MANAGER_LOADED + Event', ShakaAds.AdManager.IMA_STREAM_MANAGER_LOADED, e)
       })
     }
-  }, [player, ui])
+  }, [player, props.adsRequest, ui])
 };
 
 export default useStats;
