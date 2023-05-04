@@ -282,6 +282,7 @@ the control buttons panel. */
   /* At the moment, nothing special is required here.
    * Note that this should NOT be an overlay-child, as its size could dictate
    * the size of the container for some applications. */
+  height: 100vh;
 }
 /* A container for all controls, including the giant play button, seek bar, etc.
  * Sits inside .shaka-video-container, on top of (Z axis) .shaka-video, and
