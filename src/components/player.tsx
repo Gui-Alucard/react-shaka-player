@@ -2,6 +2,8 @@ import React, { useRef } from 'react';
 import * as Hooks from '../hooks';
 
 import { IPlayerProps } from '../types';
+import { ButtonFoward } from './foward';
+import { ButtonRewind } from './rewind';
 
 const ReactPlayer = (props: IPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -14,10 +16,10 @@ const ReactPlayer = (props: IPlayerProps) => {
   Hooks.useAds(ui, player, props);
 
   const {
-    autoPlay,
     className,
     config,
     onBuffering,
+    onClick,
     onEnded,
     onError,
     onLoad,
@@ -34,6 +36,7 @@ const ReactPlayer = (props: IPlayerProps) => {
     uiConfig,
     adsRequest,
     startTime,
+    label,
     ...newProps
   } = props;
 
@@ -41,18 +44,24 @@ const ReactPlayer = (props: IPlayerProps) => {
     maxWidth: "100%",
     width: "100%",
     maxHeight: "100vh",
-    overflow: "hidden"
+    overflow: "hidden",
+    cursor: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   };
 
   const overlayClassName = className === undefined ? "sbt-theme" : "sbt-theme " + props.className;
 
   return (
     <div style={style} ref={uiContainerRef} className={overlayClassName}>
+      <ButtonFoward player={player} ui={ui} props={props} />
+      <ButtonRewind player={player} ui={ui} props={props} />
       <video
         ref={videoRef}
         className={props.playerClassName}
         style={style}
-        autoPlay={autoPlay}
+        autoPlay
         {...newProps}
         muted
       />

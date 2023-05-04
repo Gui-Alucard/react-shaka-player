@@ -16,8 +16,7 @@ const vodConfig = {
       'time_and_duration',
       'spacer',
       'fullscreen',
-      'quality',
-      'picture_in_picture'
+      'quality'
     ],
     volumeBarColors: {
       base: '#ffffff4c',
@@ -27,7 +26,6 @@ const vodConfig = {
       base: '#ffffff4c',
       buffered: '#ffffff4c',
       played: '#e93035',
-      adBreaks: '#ffcc00',
     }
   },
 };
@@ -58,7 +56,7 @@ const streamingConfig = {
     clearBufferOnQualityChange: false,
     addBigPlayButton: false,
     customContextMenu: false,
-    controlPanelElements: ['mute', 'volume', 'spacer', 'fullscreen', 'quality'],
+    controlPanelElements: ['mute', 'volume', 'spacer', 'fullscreen', 'quality', 'picture_in_picture'],
     volumeBarColors: {
       base: '#ffffff4c',
       level: '#0060ad'
@@ -67,7 +65,6 @@ const streamingConfig = {
       base: '#ffffff4c',
       buffered: '#ffffff4c',
       played: '#e93035',
-      adBreaks: '#ffcc00',
     }
   },
 };

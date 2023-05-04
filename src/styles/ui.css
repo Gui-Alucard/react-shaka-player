@@ -1677,6 +1677,11 @@ the control buttons panel. */
   right: 0;
   top: 0;
   bottom: 0;
+
+  /* Keep infos inside of the cideo content */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .sbt-theme .shaka-client-side-ad-container[ad-active='true'] div {
   max-width: 100%;
@@ -1962,14 +1967,14 @@ the control buttons panel. */
  * OUT OF, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR USE IN OTHER BUSINESSES,
  * AUTHORS AND/OR COPYRIGHT HOLDERS SHALL NOT BE LIABLE FOR ANY CLAIM.
  */
-.sbt-theme.container_unmute {
+.sbt-container-unmute {
   left: 46px;
   top: 132px;
   z-index: 3;
   position: absolute;
 }
 
-.sbt-theme.container_unmute button {
+.sbt-container-unmute button {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1985,15 +1990,23 @@ the control buttons panel. */
   border-radius: 3px;
 }
 
-.sbt-theme.container_unmute button:hover,
-.sbt-theme.container_unmute button:active {
+.sbt-container-unmute button:hover,
+.sbt-container-unmute button:active {
   background-color: rgba(38, 39, 39, 1);
 }
 
-.sbt-theme.container_unmute p {
+.sbt-container-unmute p {
   font-size: 14px;
   line-height: 17px;
   margin-left: 6px;
   font-weight: bold;
   font-family: Urbanist;
+}
+
+.sbt-theme .sbt-container-foward {
+  border: 1px solid red;
+}
+
+.sbt-theme .sbt-container-rewind {
+  border: 1px solid green;
 }

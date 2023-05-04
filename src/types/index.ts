@@ -19,12 +19,12 @@ export type IClickEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | React.S
 export type IFocus = React.FocusEvent<HTMLDivElement, Element> | Event;
 
 export interface IPlayerProps {
-  autoPlay?: boolean | undefined;
   children?: any;
   className?: string;
   config?: ShakaExtern.PlayerConfiguration | any;
   onBuffering?(event: boolean): void | undefined;
   onEnded?(event?: Event): void | undefined;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   onClose?(event?: Event): void | undefined;
   onError?(event?: ErrorEvent): void | undefined;
   onLoad?(data: IPlayerRefs): void | undefined;
@@ -40,13 +40,8 @@ export interface IPlayerProps {
   playsInline?: boolean | undefined;
   src?: string;
   startTime?: number;
+  label?: string;
   adsRequest?: google.ima.AdsRequest | undefined;
   superConfig?: SuperConfig | undefined;
   uiConfig?: ShakaExtern.UIConfiguration | any;
-};
-
-export interface IUnmuteProps {
-  children?: any;
-  label?: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 };

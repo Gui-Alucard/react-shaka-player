@@ -14,7 +14,7 @@ const useStats = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps
 
       const _streamRequest = async () => {
         try {
-          adManager.requestClientSideAds(props.adsRequest);
+          await adManager.requestClientSideAds(props.adsRequest);
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }
