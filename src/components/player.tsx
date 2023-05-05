@@ -12,12 +12,6 @@ const ReactPlayer = (props: IPlayerProps) => {
   Hooks.useUIListener(ui, player, props);
   Hooks.useStats(player, props);
   Hooks.useAds(ui, player, props);
-  Hooks.useButton({
-    player,
-    props,
-    buttonFowardRef: props.buttonFowardRef,
-    buttonRewindRef: props.buttonRewindRef
-  });
 
   const {
     className,

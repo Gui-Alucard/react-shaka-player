@@ -7,17 +7,10 @@ export interface IMediaStatsTime {
 };
 
 export interface IPlayerRefs {
-  player?: ShakaPlayer;
-  ui?: ShakaUI.Overlay;
-  videoElement?: HTMLVideoElement;
+  player: ShakaPlayer;
+  ui: ShakaUI.Overlay;
+  videoElement: HTMLVideoElement;
 };
-
-export interface IUseButton {
-  player?: ShakaPlayer;
-  props?: IPlayerProps;
-  buttonFowardRef?: React.MutableRefObject<HTMLButtonElement | null>;
-  buttonRewindRef?: React.MutableRefObject<HTMLButtonElement | null>;
-}
 
 export type IStats = IMediaStatsTime & ShakaExtern.Stats;
 export type IMouseEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | Event;
@@ -47,8 +40,6 @@ export interface IPlayerProps {
   src?: string;
   startTime?: number;
   label?: string;
-  buttonFowardRef?: React.MutableRefObject<HTMLButtonElement | null>;
-  buttonRewindRef?: React.MutableRefObject<HTMLButtonElement | null>;
   adsRequest?: google.ima.AdsRequest | undefined;
   superConfig?: SuperConfig | undefined;
   uiConfig?: ShakaExtern.UIConfiguration | any;
