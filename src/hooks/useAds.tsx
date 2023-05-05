@@ -12,7 +12,7 @@ const useStats = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps
       const video = player.getMediaElement();
       const container = ui.getControls().getClientSideAdContainer();
 
-      adsManager.initClientSide(container, video);
+      player.getAdManager().initClientSide(container, video);
     };
   }, [player, ui]);
 
