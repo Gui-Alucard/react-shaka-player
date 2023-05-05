@@ -1,9 +1,13 @@
+// @ts-ignore
+import { Player as ShakaPlayer } from 'shaka-player/dist/shaka-player.ui';
 import * as Enzyme from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16';
 import { ReactPlayer as Player } from '../src/components/player';
 import { ButtonUnmute as Unmute } from '../src/components/unmute';
+import { ButtonFoward as Foward } from '../src/components/foward';
+import { ButtonRewind as Rewind } from '../src/components/rewind';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -56,6 +60,66 @@ describe("Unmute Button", () => {
   it("Should render the onclick function correctly", () => {
     const props = { onClick: () => true };
     const tree = Enzyme.shallow(<Unmute {...props} />);
+    expect(tree).toMatchSnapshot();
+  });
+});
+
+jest.mock('shaka-player/dist/shaka-player.ui');
+
+jest.mock('react', () => {
+  const originReact = jest.requireActual('react');
+  const mUseRef = jest.fn();
+  return {
+    ...originReact,
+    useRef: mUseRef,
+  };
+});
+
+describe("Foward And Rewind Button", () => {
+  const mockedReact = React as jest.Mocked<typeof React>;
+
+  let player: ShakaPlayer;
+  let myShakaPlayer = ShakaPlayer as jest.Mocked<typeof ShakaPlayer>;
+
+  const videoRef = { current: { currentTime: 0 } as HTMLMediaElement };
+
+  mockedReact.useRef.mockReturnValueOnce(videoRef);
+
+  player = new myShakaPlayer(videoRef.current);
+
+  it("Should renders Foward player prop string correctly", () => {
+    const props = { player: player };
+    const tree = Enzyme.shallow(<Foward {...props} />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("Should renders Foward label string correctly", () => {
+    const props = { props: { label: "foward" } };
+    const tree = Enzyme.shallow(<Foward {...props} />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("Should renders Foward onFoward prop correctly", () => {
+    const props = { props: { onFoward: () => jest.fn() } };
+    const tree = Enzyme.shallow(<Foward {...props} />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("Should renders Rewind label string correctly", () => {
+    const props = { props: { label: "rewind" } };
+    const tree = Enzyme.shallow(<Rewind {...props} />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("Should renders Rewind player prop string correctly", () => {
+    const props = { player: player };
+    const tree = Enzyme.shallow(<Rewind {...props} />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("Should renders Rewind onRewind prop correctly", () => {
+    const props = { props: { onRewind: () => jest.fn() } };
+    const tree = Enzyme.shallow(<Rewind {...props} />);
     expect(tree).toMatchSnapshot();
   });
 });

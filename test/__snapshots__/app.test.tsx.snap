@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Foward And Rewind Button Should renders Foward label string correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Foward And Rewind Button Should renders Foward onFoward prop correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Foward And Rewind Button Should renders Foward player prop string correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Foward And Rewind Button Should renders Rewind label string correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Foward And Rewind Button Should renders Rewind onRewind prop correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Foward And Rewind Button Should renders Rewind player prop string correctly 1`] = `ShallowWrapper {}`;
+
 exports[`Player Should render className container correctly 1`] = `ShallowWrapper {}`;
 
 exports[`Player Should render container className and playerClassName container correctly 1`] = `ShallowWrapper {}`;

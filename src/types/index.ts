@@ -25,6 +25,8 @@ export interface IPlayerProps {
   onBuffering?(event: boolean): void | undefined;
   onEnded?(event?: Event): void | undefined;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onFoward?(): React.MouseEventHandler<HTMLButtonElement> | undefined;
+  onRewind?(): React.MouseEventHandler<HTMLButtonElement> | undefined;
   onClose?(event?: Event): void | undefined;
   onError?(event?: ErrorEvent): void | undefined;
   onLoad?(data: IPlayerRefs): void | undefined;
