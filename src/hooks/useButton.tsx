@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { IUseButton } from "../types";
 
-const useButton = ({ player, props, buttonRef }: IUseButton) => {
+const useButton = ({ player, props, buttonFowardRef, buttonRewindRef }: IUseButton) => {
   const [videoCurrentTime, setVideoCurrentTime] = useState<number | null>(0);
 
   useEffect(() => {
@@ -26,11 +26,11 @@ const useButton = ({ player, props, buttonRef }: IUseButton) => {
 
         try {
           if (props.label === 'foward') {
-            console.log('[TRY_CATCH___FOWARD clicou', props.label, buttonRef.current)
-            buttonRef.current.addEventListener("click", (e) => _onFoward(e));
+            console.log('[TRY_CATCH___FOWARD clicou', props.label, buttonFowardRef.current)
+            buttonFowardRef.current.addEventListener("click", (e) => _onFoward(e));
           } else if (props.label === 'rewind') {
-            console.log('[TRY_CATCH___REWIND clicou', props.label, buttonRef.current)
-            buttonRef.current.addEventListener("click", (e) => _onRewind(e));
+            console.log('[TRY_CATCH___REWIND clicou', props.label, buttonRewindRef.current)
+            buttonRewindRef.current.addEventListener("click", (e) => _onRewind(e));
           }
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);

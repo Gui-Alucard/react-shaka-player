@@ -15,7 +15,8 @@ export interface IPlayerRefs {
 export interface IUseButton {
   player?: ShakaPlayer;
   props?: IPlayerProps;
-  buttonRef?: React.MutableRefObject<HTMLButtonElement | null>;
+  buttonFowardRef?: React.MutableRefObject<HTMLButtonElement | null>;
+  buttonRewindRef?: React.MutableRefObject<HTMLButtonElement | null>;
 }
 
 export type IStats = IMediaStatsTime & ShakaExtern.Stats;
@@ -46,6 +47,8 @@ export interface IPlayerProps {
   src?: string;
   startTime?: number;
   label?: string;
+  buttonFowardRef?: React.MutableRefObject<HTMLButtonElement | null>;
+  buttonRewindRef?: React.MutableRefObject<HTMLButtonElement | null>;
   adsRequest?: google.ima.AdsRequest | undefined;
   superConfig?: SuperConfig | undefined;
   uiConfig?: ShakaExtern.UIConfiguration | any;

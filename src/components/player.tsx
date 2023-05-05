@@ -1,22 +1,23 @@
 import React, { useRef } from 'react';
 import * as Hooks from '../hooks';
 
-import { ButtonFoward } from './foward';
-import { ButtonRewind } from './rewind';
-
 import { IPlayerProps } from '../types';
 
 const ReactPlayer = (props: IPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const uiContainerRef = useRef<HTMLDivElement | null>(null);
-  const buttonFowardRef = useRef<HTMLButtonElement | null>(null);
-  const buttonRewindRef = useRef<HTMLButtonElement | null>(null);
 
   const { player, ui } = Hooks.usePlayer(videoRef, uiContainerRef, props);
   Hooks.usePlayerListener(player, props);
   Hooks.useUIListener(ui, player, props);
   Hooks.useStats(player, props);
   Hooks.useAds(ui, player, props);
+  Hooks.useButton({
+    player,
+    props,
+    buttonFowardRef: props.buttonFowardRef,
+    buttonRewindRef: props.buttonRewindRef
+  });
 
   const {
     className,
@@ -58,8 +59,6 @@ const ReactPlayer = (props: IPlayerProps) => {
 
   return (
     <div style={style} ref={uiContainerRef} className={overlayClassName}>
-      {label && label === 'foward' && <ButtonFoward player={player} props={props} buttonRef={buttonFowardRef} />}
-      {label && label === 'rewind' && <ButtonRewind player={player} props={props} buttonRef={buttonRewindRef} />}
       <video
         ref={videoRef}
         className={props.playerClassName}
