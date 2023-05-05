@@ -7,9 +7,9 @@ export interface IMediaStatsTime {
 };
 
 export interface IPlayerRefs {
-  player: ShakaPlayer;
-  ui: ShakaUI.Overlay;
-  videoElement: HTMLVideoElement;
+  player?: ShakaPlayer;
+  ui?: ShakaUI.Overlay;
+  videoElement?: HTMLVideoElement;
 };
 
 export type IStats = IMediaStatsTime & ShakaExtern.Stats;
@@ -25,8 +25,6 @@ export interface IPlayerProps {
   onBuffering?(event: boolean): void | undefined;
   onEnded?(event?: Event): void | undefined;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  onFoward?(): React.MouseEventHandler<HTMLButtonElement> | undefined;
-  onRewind?(): React.MouseEventHandler<HTMLButtonElement> | undefined;
   onClose?(event?: Event): void | undefined;
   onError?(event?: ErrorEvent): void | undefined;
   onLoad?(data: IPlayerRefs): void | undefined;

@@ -87,38 +87,26 @@ describe("Foward And Rewind Button", () => {
 
   player = new myShakaPlayer(videoRef.current);
 
-  it("Should renders Foward player prop string correctly", () => {
+  it("Should renders Foward player prop correctly", () => {
     const props = { player: player };
     const tree = Enzyme.shallow(<Foward {...props} />);
     expect(tree).toMatchSnapshot();
   });
 
   it("Should renders Foward label string correctly", () => {
-    const props = { props: { label: "foward" } };
+    const props = { player: player, props: { label: "foward" } };
     const tree = Enzyme.shallow(<Foward {...props} />);
     expect(tree).toMatchSnapshot();
   });
 
-  it("Should renders Foward onFoward prop correctly", () => {
-    const props = { props: { onFoward: () => jest.fn() } };
-    const tree = Enzyme.shallow(<Foward {...props} />);
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("Should renders Rewind label string correctly", () => {
-    const props = { props: { label: "rewind" } };
-    const tree = Enzyme.shallow(<Rewind {...props} />);
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("Should renders Rewind player prop string correctly", () => {
+  it("Should renders Rewind player prop correctly", () => {
     const props = { player: player };
     const tree = Enzyme.shallow(<Rewind {...props} />);
     expect(tree).toMatchSnapshot();
   });
 
-  it("Should renders Rewind onRewind prop correctly", () => {
-    const props = { props: { onRewind: () => jest.fn() } };
+  it("Should renders Rewind label string correctly", () => {
+    const props = { player: player, props: { label: "rewind" } };
     const tree = Enzyme.shallow(<Rewind {...props} />);
     expect(tree).toMatchSnapshot();
   });

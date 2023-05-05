@@ -2003,3 +2003,19 @@ the control buttons panel. */
   font-weight: bold;
   font-family: Urbanist;
 }
+
+.sbt-container-foward {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.sbt-container-rewind {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

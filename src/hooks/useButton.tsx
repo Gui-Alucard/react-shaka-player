@@ -1,9 +1,8 @@
-import { Player as ShakaPlayer } from "shaka-player/dist/shaka-player.ui";
 import React, { useEffect, useState } from "react";
 
-import { IPlayerProps } from "../types";
+import { IPlayerProps, IPlayerRefs } from "../types";
 
-const useButton = (player: ShakaPlayer, props?: IPlayerProps, buttonRef?: React.MutableRefObject<HTMLButtonElement>) => {
+const useButton = ({ player }: IPlayerRefs, props?: IPlayerProps, buttonRef?: React.MutableRefObject<HTMLButtonElement>) => {
   const [videoCurrentTime, setVideoCurrentTime] = useState<number | null>(0);
 
   useEffect(() => {
@@ -12,21 +11,22 @@ const useButton = (player: ShakaPlayer, props?: IPlayerProps, buttonRef?: React.
       setVideoCurrentTime(Math.floor(video.currentTime));
 
       const _updadeSeekStartTime = async () => {
-        const _onFoward = async () => {
-          await player.updateStartTime(Math.floor(video.currentTime) + 10);
-          props.onFoward && props.onFoward()
+        console.log('[SHAKA___PLAYER', player)
+        const _onFoward = (event: Event) => {
+          player.updateStartTime(Math.floor(video.currentTime) + 10);
+          console.log('[SHAKA___FOWARD clicou', event)
         };
 
-        const _onRewind = async () => {
-          await player.updateStartTime(Math.floor(video.currentTime) - 10);
-          props.onRewind && props.onRewind();
+        const _onRewind = (event: Event) => {
+          player.updateStartTime(Math.floor(video.currentTime) - 10);
+          console.log('[SHAKA___REWIND clicou', event)
         };
 
         try {
           if (props.label === 'foward') {
-            buttonRef.current.addEventListener("click", _onFoward);
+            buttonRef.current.addEventListener("click", (e) => _onFoward(e));
           } else if (props.label === 'rewind') {
-            buttonRef.current.addEventListener("click", _onRewind);
+            buttonRef.current.addEventListener("click", (e) => _onRewind(e));
           }
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
