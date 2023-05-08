@@ -2,10 +2,8 @@
 
 exports[`Button Should render correctly 1`] = `
 <div
-  className="sbt-theme-container-undefined"
->
-  <button />
-</div>
+  className="sbt-theme-button-container"
+/>
 `;
 
 exports[`Button Should render the onclick function correctly 1`] = `ShallowWrapper {}`;
