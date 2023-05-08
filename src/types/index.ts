@@ -12,6 +12,12 @@ export interface IPlayerRefs {
   videoElement: HTMLVideoElement;
 };
 
+export interface IUseButton {
+  videoElement?: HTMLVideoElement;
+  props?: IPlayerProps;
+  buttonRef?: React.MutableRefObject<HTMLButtonElement | null>;
+}
+
 export type IStats = IMediaStatsTime & ShakaExtern.Stats;
 export type IMouseEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | Event;
 export type ITouchEvent = React.TouchEvent<HTMLDivElement> | Event;

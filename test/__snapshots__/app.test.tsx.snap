@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Foward And Rewind Button Should renders Button Foward correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Foward And Rewind Button Should renders Button OnClick correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Foward And Rewind Button Should renders Button Rewind correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Foward And Rewind Button Should renders Button correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Foward And Rewind Button Should renders Button ref correctly 1`] = `ShallowWrapper {}`;
+
 exports[`Player Should render className container correctly 1`] = `ShallowWrapper {}`;
 
 exports[`Player Should render container className and playerClassName container correctly 1`] = `ShallowWrapper {}`;
