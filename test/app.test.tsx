@@ -1,5 +1,3 @@
-// @ts-ignore
-import { Player as ShakaPlayer } from 'shaka-player/dist/shaka-player.ui';
 import * as Enzyme from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
@@ -63,55 +61,26 @@ describe("Unmute Button", () => {
   });
 });
 
-jest.mock('shaka-player/dist/shaka-player.ui');
-
-jest.mock('react', () => {
-  const originReact = jest.requireActual('react');
-  const mUseRef = jest.fn();
-  return {
-    ...originReact,
-    useRef: mUseRef,
-  };
-});
-
 describe("Foward And Rewind Button", () => {
-  const mockedReact = React as jest.Mocked<typeof React>;
-
-  let videoElement: HTMLVideoElement;
-  // let myShakaPlayer = ShakaPlayer as jest.Mocked<typeof ShakaPlayer>;
-
-  const buttonRef = { current: {} as HTMLButtonElement };
-
-  mockedReact.useRef.mockReturnValueOnce(buttonRef);
-
-  // player = new myShakaPlayer(videoRef.current);
-
   it("Should renders Button correctly", () => {
-    const props = { videoElement: videoElement };
-    const tree = Enzyme.shallow(<Button {...props} />);
+    const tree = Enzyme.shallow(<Button />);
     expect(tree).toMatchSnapshot();
   });
 
-  it("Should renders Button ref correctly", () => {
-    const props = { videoElement: videoElement };
-    const tree = Enzyme.shallow(<Button {...props} buttonRef={buttonRef} />);
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("Should renders Button OnClick correctly", () => {
-    const props = { props: { onClick: jest.fn() } };
+  it("Should Button OnClick be defined correctly", () => {
+    const props = { onClick: jest.fn() };
     const tree = Enzyme.shallow(<Button {...props} />);
     expect(tree).toMatchSnapshot();
   });
 
   it("Should renders Button Foward correctly", () => {
-    const props = { videoElement: videoElement, props: { label: "foward" } };
+    const props = { label: "foward" };
     const tree = Enzyme.shallow(<Button {...props} />);
     expect(tree).toMatchSnapshot();
   });
 
   it("Should renders Button Rewind correctly", () => {
-    const props = { videoElement: videoElement, props: { label: "rewind" } };
+    const props = { label: "rewind" };
     const tree = Enzyme.shallow(<Button {...props} />);
     expect(tree).toMatchSnapshot();
   });
