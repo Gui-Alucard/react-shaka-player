@@ -3,7 +3,6 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16';
 import { ReactPlayer as Player } from '../src/components/player';
-import { ButtonUnmute as Unmute } from '../src/components/unmute';
 import { Button as Button } from '../src/components/button';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -42,33 +41,14 @@ describe("Player", () => {
   });
 });
 
-describe("Unmute Button", () => {
+describe("Button", () => {
   it("Should render correctly", () => {
-    const tree = renderer.create(<Unmute />).toJSON();
+    const tree = renderer.create(<Button />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("Should renders label string correctly", () => {
-    const props = { label: "Ativar som" };
-    const tree = Enzyme.shallow(<Unmute {...props} />);
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("Should render the onclick function correctly", () => {
-    const props = { onClick: () => true };
-    const tree = Enzyme.shallow(<Unmute {...props} />);
-    expect(tree).toMatchSnapshot();
-  });
-});
-
-describe("Foward And Rewind Button", () => {
-  it("Should renders Button correctly", () => {
-    const tree = Enzyme.shallow(<Button />);
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("Should Button OnClick be defined correctly", () => {
-    const props = { onClick: jest.fn() };
+  it("Should renders Button Unmute correctly", () => {
+    const props = { label: "unmute" };
     const tree = Enzyme.shallow(<Button {...props} />);
     expect(tree).toMatchSnapshot();
   });
@@ -81,6 +61,12 @@ describe("Foward And Rewind Button", () => {
 
   it("Should renders Button Rewind correctly", () => {
     const props = { label: "rewind" };
+    const tree = Enzyme.shallow(<Button {...props} />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("Should render the onclick function correctly", () => {
+    const props = { onClick: () => true };
     const tree = Enzyme.shallow(<Button {...props} />);
     expect(tree).toMatchSnapshot();
   });

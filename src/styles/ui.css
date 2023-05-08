@@ -1968,14 +1968,14 @@ the control buttons panel. */
  * OUT OF, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR USE IN OTHER BUSINESSES,
  * AUTHORS AND/OR COPYRIGHT HOLDERS SHALL NOT BE LIABLE FOR ANY CLAIM.
  */
-.sbt-container-unmute {
+.sbt-theme-container-unmute {
   left: 46px;
   top: 132px;
   z-index: 3;
   position: absolute;
 }
 
-.sbt-container-unmute button {
+.sbt-theme-container-unmute button {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1991,12 +1991,12 @@ the control buttons panel. */
   border-radius: 3px;
 }
 
-.sbt-container-unmute button:hover,
-.sbt-container-unmute button:active {
+.sbt-theme-container-unmute button:hover,
+.sbt-theme-container-unmute button:active {
   background-color: rgba(38, 39, 39, 1);
 }
 
-.sbt-container-unmute p {
+.sbt-theme-container-unmute p {
   font-size: 14px;
   line-height: 17px;
   margin-left: 6px;
@@ -2028,18 +2028,20 @@ the control buttons panel. */
 .sbt-theme-container-foward {
   position: absolute;
   top: 100px;
-  /* z-index: 1; */
+  z-index: 3;
+}
 
-  /* remove the text */
-  font-size: 0%;
+.sbt-theme-container-foward button {
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
 
   margin: auto;
   /* Defines the size of the box */
-  height: 6rem;
-  width: 6rem;
+  height: 5rem;
+  width: 5rem;
 
   border: 1px solid red;
-  color: white;
   background-image: url("data:image/svg+xml, %3Csvg width='36' height='42' viewBox='0 0 36 42' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.25 30.5C12.8833 30.5 12.5833 30.3833 12.35 30.15C12.1167 29.9167 12 29.6167 12 29.25V19.9H10.5C10.1667 19.9 9.88333 19.7833 9.65 19.55C9.41667 19.3167 9.3 19.0167 9.3 18.65C9.3 18.2833 9.41667 17.9917 9.65 17.775C9.88333 17.5583 10.1833 17.45 10.55 17.45H13C13.4333 17.45 13.7917 17.5917 14.075 17.875C14.3583 18.1583 14.5 18.5167 14.5 18.95V29.25C14.5 29.6167 14.3833 29.9167 14.15 30.15C13.9167 30.3833 13.6167 30.5 13.25 30.5ZM19.35 30.5C18.7167 30.5 18.1917 30.2917 17.775 29.875C17.3583 29.4583 17.15 28.9333 17.15 28.3V19.65C17.15 19.0167 17.3583 18.4917 17.775 18.075C18.1917 17.6583 18.7167 17.45 19.35 17.45H23.5C24.1333 17.45 24.6583 17.6583 25.075 18.075C25.4917 18.4917 25.7 19.0167 25.7 19.65V28.3C25.7 28.9333 25.4917 29.4583 25.075 29.875C24.6583 30.2917 24.1333 30.5 23.5 30.5H19.35ZM19.65 28H23.2V19.9H19.65V28ZM18 42C15.5 42 13.1583 41.5333 10.975 40.6C8.79167 39.6667 6.88333 38.3833 5.25 36.75C3.61667 35.1167 2.33333 33.2083 1.4 31.025C0.466667 28.8417 0 26.5 0 24C0 21.5 0.466667 19.1583 1.4 16.975C2.33333 14.7917 3.61667 12.8833 5.25 11.25C6.88333 9.61667 8.79167 8.33333 10.975 7.4C13.1583 6.46667 15.5 6 18 6H19.05L16.15 3.1C15.8833 2.83333 15.75 2.5 15.75 2.1C15.75 1.7 15.9 1.35 16.2 1.05C16.4667 0.783335 16.8 0.650002 17.2 0.650002C17.6 0.650002 17.95 0.783335 18.25 1.05L23.5 6.35C23.6667 6.51667 23.7833 6.68334 23.85 6.85C23.9167 7.01667 23.95 7.2 23.95 7.4C23.95 7.6 23.9167 7.78333 23.85 7.95C23.7833 8.11667 23.6667 8.28333 23.5 8.45L18.2 13.75C17.9333 14.0167 17.6 14.15 17.2 14.15C16.8 14.15 16.4667 14 16.2 13.7C15.9 13.4333 15.75 13.1 15.75 12.7C15.75 12.3 15.9 11.95 16.2 11.65L18.85 9H18C13.8333 9 10.2917 10.4583 7.375 13.375C4.45833 16.2917 3 19.8333 3 24C3 28.1667 4.45833 31.7083 7.375 34.625C10.2917 37.5417 13.8333 39 18 39C21.9333 39 25.3167 37.7083 28.15 35.125C30.9833 32.5417 32.5833 29.3333 32.95 25.5C33.0167 25.0667 33.1833 24.7083 33.45 24.425C33.7167 24.1417 34.0667 24 34.5 24C34.9333 24 35.2917 24.15 35.575 24.45C35.8583 24.75 35.9833 25.1 35.95 25.5C35.5833 30.1667 33.6917 34.0833 30.275 37.25C26.8583 40.4167 22.7667 42 18 42Z' fill='white' /%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: contain;
@@ -2048,18 +2050,25 @@ the control buttons panel. */
   background-position-x: center;
 }
 
+.sbt-theme-container-foward p {
+  font-size: 0%;
+}
+
 .sbt-theme-container-rewind {
   position: absolute;
   top: 150px;
-  /* z-index: 1; */
+  z-index: 3;
+}
 
-  /* remove the text */
-  font-size: 0%;
+.sbt-theme-container-rewind button {
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
 
   margin: auto;
   /* Defines the size of the box */
-  height: 6rem;
-  width: 6rem;
+  height: 5rem;
+  width: 5rem;
 
   border: 1px solid greenyellow;
   color: white;
@@ -2069,4 +2078,8 @@ the control buttons panel. */
   background-origin: content-box;
   background-position-y: center;
   background-position-x: center;
+}
+
+.sbt-theme-container-rewind p {
+  font-size: 0%;
 }

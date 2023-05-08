@@ -1,12 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Foward And Rewind Button Should Button OnClick be defined correctly 1`] = `ShallowWrapper {}`;
+exports[`Button Should render correctly 1`] = `
+<div
+  className="sbt-theme-container-undefined"
+>
+  <button />
+</div>
+`;
 
-exports[`Foward And Rewind Button Should renders Button Foward correctly 1`] = `ShallowWrapper {}`;
+exports[`Button Should render the onclick function correctly 1`] = `ShallowWrapper {}`;
 
-exports[`Foward And Rewind Button Should renders Button Rewind correctly 1`] = `ShallowWrapper {}`;
+exports[`Button Should renders Button Foward correctly 1`] = `ShallowWrapper {}`;
 
-exports[`Foward And Rewind Button Should renders Button correctly 1`] = `ShallowWrapper {}`;
+exports[`Button Should renders Button Rewind correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Button Should renders Button Unmute correctly 1`] = `ShallowWrapper {}`;
 
 exports[`Player Should render className container correctly 1`] = `ShallowWrapper {}`;
 
@@ -50,30 +58,3 @@ exports[`Player Should render correctly 1`] = `
 exports[`Player Should render playerClassName container correctly 1`] = `ShallowWrapper {}`;
 
 exports[`Player Should renders source[manifest] string correctly 1`] = `ShallowWrapper {}`;
-
-exports[`Unmute Button Should render correctly 1`] = `
-<div
-  className="sbt-container-unmute"
->
-  <button>
-    <svg
-      fill="none"
-      height={18.87}
-      viewBox="0 0 36 35"
-      width={20}
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M24.1 34.8499C23.5667 35.0166 23.0833 34.9333 22.65 34.5999C22.2167 34.2666 22 33.8166 22 33.25C22 32.9833 22.075 32.7416 22.225 32.525C22.375 32.3083 22.5833 32.1666 22.85 32.1C25.8833 31.0333 28.3333 29.2166 30.2 26.65C32.0667 24.0833 33 21.1833 33 17.95C33 14.7166 32.0667 11.8083 30.2 9.22495C28.3333 6.64162 25.8833 4.83329 22.85 3.79995C22.5833 3.73329 22.375 3.58329 22.225 3.34995C22.075 3.11662 22 2.86662 22 2.59995C22 2.03329 22.225 1.59162 22.675 1.27495C23.125 0.958285 23.6 0.883285 24.1 1.04995C27.6667 2.31662 30.5417 4.49162 32.725 7.57495C34.9083 10.6583 36 14.1166 36 17.95C36 21.7833 34.9083 25.2416 32.725 28.325C30.5417 31.4083 27.6667 33.5833 24.1 34.8499ZM1.5 24C1.06667 24 0.708333 23.8583 0.425 23.575C0.141667 23.2916 0 22.9333 0 22.5V13.5C0 13.0666 0.141667 12.7083 0.425 12.425C0.708333 12.1416 1.06667 12 1.5 12H8L15.45 4.54995C15.9167 4.08329 16.4583 3.97495 17.075 4.22495C17.6917 4.47495 18 4.93329 18 5.59995V30.4C18 31.0666 17.6917 31.525 17.075 31.775C16.4583 32.025 15.9167 31.9166 15.45 31.45L8 24H1.5ZM21 26.4V9.54995C22.8 10.1166 24.25 11.1833 25.35 12.75C26.45 14.3166 27 16.0666 27 18C27 19.9666 26.45 21.7166 25.35 23.25C24.25 24.7833 22.8 25.8333 21 26.4Z"
-        fill="white"
-      />
-    </svg>
-     
-    <p />
-  </button>
-</div>
-`;
-
-exports[`Unmute Button Should render the onclick function correctly 1`] = `ShallowWrapper {}`;
-
-exports[`Unmute Button Should renders label string correctly 1`] = `ShallowWrapper {}`;
