@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 import { IPlayerProps } from "../types";
 
-const useStats = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) => {
+const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) => {
   useEffect(() => {
     if (player && props.adsRequest && ui) {
       const adManager = player.getAdManager();
@@ -15,7 +15,6 @@ const useStats = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps
       const _streamRequest = () => {
         try {
           adManager.requestClientSideAds(props.adsRequest);
-          adManager.addEventListener('play', (e) => console.log('[ ADS SHAKA____', e))
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }
@@ -122,4 +121,4 @@ const useStats = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps
   }, [player, props.adsRequest, ui]);
 };
 
-export default useStats;
+export default useAds;
