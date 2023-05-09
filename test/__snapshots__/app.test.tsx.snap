@@ -2,8 +2,16 @@
 
 exports[`Button Should render correctly 1`] = `
 <div
-  className="sbt-theme-button-container"
-/>
+  className="sbt-theme-button"
+>
+  <div
+    className="undefined-container"
+  >
+    <button>
+      <p />
+    </button>
+  </div>
+</div>
 `;
 
 exports[`Button Should render the onclick function correctly 1`] = `ShallowWrapper {}`;
@@ -13,6 +21,8 @@ exports[`Button Should renders Button Foward correctly 1`] = `ShallowWrapper {}`
 exports[`Button Should renders Button Rewind correctly 1`] = `ShallowWrapper {}`;
 
 exports[`Button Should renders Button Unmute correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Button Should renders Button placeholder correctly 1`] = `ShallowWrapper {}`;
 
 exports[`Player Should render className container correctly 1`] = `ShallowWrapper {}`;
 

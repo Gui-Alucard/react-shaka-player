@@ -65,6 +65,12 @@ describe("Button", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it("Should renders Button placeholder correctly", () => {
+    const props = { placeholder: "button's placeholder" };
+    const tree = Enzyme.shallow(<Button {...props} />);
+    expect(tree).toMatchSnapshot();
+  });
+
   it("Should render the onclick function correctly", () => {
     const props = { onClick: () => true };
     const tree = Enzyme.shallow(<Button {...props} />);

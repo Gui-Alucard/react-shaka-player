@@ -1,26 +1,22 @@
 import React from 'react';
 import { IPlayerProps } from '../types';
-import { Unmute, Rewind, Foward } from '../icons';
+import { Unmute } from '../icons/unmute';
 
 const Button = (props: IPlayerProps) => {
-  const { onClick, label } = props;
+  const { onClick, label, placeholder } = props;
 
   return (
-    <div className='sbt-theme-button-container' >
-      {label && label === 'unmute' && (
-        <button className='unmute' onClick={onClick}>
-          <Unmute width={20} height={18.87} style={{ marginRight: '5px' }} /> <p>Ativar som</p>
-        </button>
-      )}
-      {label && label === 'foward' && (
-        <button className='foward' onClick={onClick}>
-          <Foward width={36} height={42} /> <p>Avançar</p>
-        </button>
-      )}
-      {label && label === 'rewind' && (
-        <button className='rewind' onClick={onClick}>
-          <Rewind width={36} height={41} /> <p>Retroceder</p>
-        </button>
+    <div className='sbt-theme-button' >
+      {label && label === 'unmute' ? (
+        <div className={`${label}-container`}>
+          <button onClick={onClick}>
+            <Unmute width={20} height={18.87} style={{ marginRight: '5px' }} /> <p>{placeholder}</p>
+          </button>
+        </div>
+      ) : (
+        <div className={`${label}-container`}>
+          <button onClick={onClick}><p>{placeholder}</p></button>
+        </div>
       )}
     </div>
   )
