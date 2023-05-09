@@ -3,9 +3,13 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16';
 import { ReactPlayer as Player } from '../src/components/player';
-import { Button as Button } from '../src/components/button';
+import { UnmuteButton as Unmute } from '../src/components/unmute';
+import { FowardButton as Foward } from '../src/components/foward';
+import { RewindButton as Rewind } from '../src/components/rewind';
 
-Enzyme.configure({ adapter: new Adapter() });
+afterEach(() => {
+  Enzyme.configure({ adapter: new Adapter() });
+});
 
 describe("Player", () => {
   it("Should render correctly", () => {
@@ -41,39 +45,45 @@ describe("Player", () => {
   });
 });
 
-describe("Button", () => {
+describe("Buttons", () => {
   it("Should render correctly", () => {
-    const tree = renderer.create(<Button />).toJSON();
+    const tree = renderer.create(<><Unmute /><Foward /><Rewind /></>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("Should renders Button Unmute correctly", () => {
-    const props = { label: "unmute" };
-    const tree = Enzyme.shallow(<Button {...props} />);
+  it("Should renders Unmute label correctly", () => {
+    const props = { label: "Ativar som" };
+    const tree = Enzyme.shallow(<Unmute {...props} />);
     expect(tree).toMatchSnapshot();
   });
 
-  it("Should renders Button Foward correctly", () => {
-    const props = { label: "foward" };
-    const tree = Enzyme.shallow(<Button {...props} />);
+  it("Should renders Foward label correctly", () => {
+    const props = { label: "Avançar" };
+    const tree = Enzyme.shallow(<Foward {...props} />);
     expect(tree).toMatchSnapshot();
   });
 
-  it("Should renders Button Rewind correctly", () => {
-    const props = { label: "rewind" };
-    const tree = Enzyme.shallow(<Button {...props} />);
+  it("Should renders Rewind label correctly", () => {
+    const props = { label: "Retroceder" };
+    const tree = Enzyme.shallow(<Rewind {...props} />);
     expect(tree).toMatchSnapshot();
   });
 
-  it("Should renders Button placeholder correctly", () => {
-    const props = { placeholder: "button's placeholder" };
-    const tree = Enzyme.shallow(<Button {...props} />);
-    expect(tree).toMatchSnapshot();
-  });
-
-  it("Should render the onclick function correctly", () => {
+  it("Should render Unmute onclick function correctly", () => {
     const props = { onClick: () => true };
-    const tree = Enzyme.shallow(<Button {...props} />);
+    const tree = Enzyme.shallow(<Unmute {...props} />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("Should render Foward onclick function correctly", () => {
+    const props = { onClick: () => true };
+    const tree = Enzyme.shallow(<Foward {...props} />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it("Should render Rewind onclick function correctly", () => {
+    const props = { onClick: () => true };
+    const tree = Enzyme.shallow(<Rewind {...props} />);
     expect(tree).toMatchSnapshot();
   });
 });

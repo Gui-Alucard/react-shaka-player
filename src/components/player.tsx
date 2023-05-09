@@ -35,7 +35,6 @@ const ReactPlayer = (props: IPlayerProps) => {
     adsRequest,
     startTime,
     label,
-    placeholder,
     ...newProps
   } = props;
 
