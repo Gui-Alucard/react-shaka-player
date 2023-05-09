@@ -26,7 +26,7 @@ const usePlayer = (
   }, []);
 
   useEffect(() => {
-    if (player && ui && props.onLoad) {
+    if (player && props.onLoad) {
       props.onLoad({
         player: player,
         ui: ui,
