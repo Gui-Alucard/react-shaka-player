@@ -16,8 +16,8 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
         try {
           console.log('[______SHAKA ENTROU', ShakaAds.ClientSideAd)
           adManager.requestClientSideAds(props.adsRequest);
+          ShakaAds.ClientSideAd.prototype.play();
           console.log('[______SHAKA PASSOU', adManager)
-          console.log('[______SHAKA + StorageClass', ShakaAds.ClientSideAd.prototype.play())
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }

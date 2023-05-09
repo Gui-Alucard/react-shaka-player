@@ -72,6 +72,7 @@ const usePlayer = (
           }
           // @ts-ignore
           window.postMessage(JSON.stringify(stringParam))
+          player.getMediaElement().play()
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }
