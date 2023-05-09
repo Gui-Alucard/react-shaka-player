@@ -78,7 +78,6 @@ exports[`Player Should render correctly 1`] = `
   }
 >
   <video
-    muted={true}
     style={
       {
         "alignItems": "center",

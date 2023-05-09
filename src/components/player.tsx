@@ -58,7 +58,6 @@ const ReactPlayer = (props: IPlayerProps) => {
         className={props.playerClassName}
         style={style}
         {...newProps}
-        muted
       />
     </div>
   )
