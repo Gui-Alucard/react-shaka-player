@@ -10,11 +10,13 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       const video = player.getMediaElement();
       const container = ui.getControls().getClientSideAdContainer();
 
+      video.autoplay = true;
       adManager.initClientSide(container, video);
 
-      const _streamRequest = () => {
+      const _streamRequest = async () => {
         try {
-          adManager.requestClientSideAds(props.adsRequest);
+          await adManager.requestClientSideAds(props.adsRequest);
+          video.play();
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }

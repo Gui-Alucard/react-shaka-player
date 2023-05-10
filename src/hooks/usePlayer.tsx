@@ -51,13 +51,12 @@ const usePlayer = (
   }, [player, props.config]);
 
   useEffect(() => {
-    if (player && props.src && ShakaPlayer.isBrowserSupported()) {
+    if (player && props.src && props.adsRequest && ShakaPlayer.isBrowserSupported()) {
       const initLoad = async () => {
         try {
           await player.load(props.src, props.startTime ? props.startTime : 0);
           const stats_ = player.getStats();
-          const mediaCurrentTime =
-            (player.getMediaElement()) && Math.floor(player.getMediaElement().currentTime);
+          const mediaCurrentTime = player.getMediaElement() && Math.floor(player.getMediaElement().currentTime);
           const mediaEndTime = Math.floor(player.seekRange().end);
           const stringParam = {
             event: 'player_started',
@@ -72,17 +71,12 @@ const usePlayer = (
           }
           // @ts-ignore
           window.postMessage(JSON.stringify(stringParam));
-
-          // Responsible for AutoPlay, no need to pass the autoplay prop in the video tag!
-          player.getMediaElement().autoplay = true
           player.getMediaElement().play();
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }
       };
-      if (props.adsRequest && props.adsRequest !== undefined) {
-        initLoad();
-      }
+      initLoad();
     }
   }, [player, props.src, props.adsRequest]);
 
