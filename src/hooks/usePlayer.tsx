@@ -1,7 +1,8 @@
 import { Player as ShakaPlayer, polyfill as ShakaPolyfill } from 'shaka-player/dist/shaka-player.ui';
 import React, { useEffect, useState } from 'react';
 import * as Configs from '../configs';
-import UIHooks from './useUI';
+import UIHook from './useUI';
+import ADSHook from './useAds';
 
 import { IPlayerProps } from "../types/";
 import { SuperConfig } from "../types/enum";
@@ -12,7 +13,8 @@ const usePlayer = (
   props?: IPlayerProps
 ) => {
   const [player, setPlayer] = useState<ShakaPlayer | null>(null);
-  const ui = UIHooks(player, videoRef, uiContainerRef, props);
+  const ui = UIHook(player, videoRef, uiContainerRef, props);
+  ADSHook(ui, player, props);
 
   useEffect(() => {
     ShakaPolyfill.installAll();
@@ -74,6 +76,7 @@ const usePlayer = (
           window.postMessage(JSON.stringify(stringParam));
 
           // Responsible for AutoPlay, no need to pass the autoplay prop in the video tag!
+          player.getMediaElement().autoplay = true
           player.getMediaElement().play();
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
