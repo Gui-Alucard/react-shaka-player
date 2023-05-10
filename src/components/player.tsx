@@ -9,6 +9,7 @@ const ReactPlayer = (props: IPlayerProps) => {
 
   const { player, ui } = Hooks.usePlayer(videoRef, uiContainerRef, props);
   Hooks.usePlayerListener(player, props);
+  Hooks.useAds(ui, player, props);
   Hooks.useUIListener(ui, player, props);
   Hooks.useStats(player, props);
 

@@ -2,7 +2,6 @@ import { Player as ShakaPlayer, polyfill as ShakaPolyfill } from 'shaka-player/d
 import React, { useEffect, useState } from 'react';
 import * as Configs from '../configs';
 import UIHook from './useUI';
-import ADSHook from './useAds';
 
 import { IPlayerProps } from "../types/";
 import { SuperConfig } from "../types/enum";
@@ -14,7 +13,6 @@ const usePlayer = (
 ) => {
   const [player, setPlayer] = useState<ShakaPlayer | null>(null);
   const ui = UIHook(player, videoRef, uiContainerRef, props);
-  ADSHook(ui, player, props);
 
   useEffect(() => {
     ShakaPolyfill.installAll();
