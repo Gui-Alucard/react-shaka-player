@@ -80,7 +80,7 @@ const usePlayer = (
           props.onPlayerError && props.onPlayerError(error);
         }
       };
-      if (props.adsRequest) {
+      if (props.adsRequest && props.adsRequest !== undefined) {
         initLoad();
       }
     }
