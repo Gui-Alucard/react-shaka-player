@@ -24,7 +24,7 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       _streamRequest();
     }
 
-  }, [player, props.adsRequest]);
+  }, [player, props.adsRequest, ui]);
 
   useEffect(() => {
     if (player && props.adsRequest) {

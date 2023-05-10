@@ -80,9 +80,11 @@ const usePlayer = (
           props.onPlayerError && props.onPlayerError(error);
         }
       };
-      initLoad();
+      if (props.adsRequest) {
+        initLoad();
+      }
     }
-  }, [player, props.src]);
+  }, [player, props.src, props.adsRequest]);
 
   return { player, ui };
 };
