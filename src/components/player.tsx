@@ -58,6 +58,7 @@ const ReactPlayer = (props: IPlayerProps) => {
         className={props.playerClassName}
         style={style}
         {...newProps}
+        autoPlay={false}
       />
     </div>
   )

@@ -78,6 +78,7 @@ exports[`Player Should render correctly 1`] = `
   }
 >
   <video
+    autoPlay={false}
     style={
       {
         "alignItems": "center",

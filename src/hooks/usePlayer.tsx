@@ -51,7 +51,7 @@ const usePlayer = (
   }, [player, props.config]);
 
   useEffect(() => {
-    if (player && props.src && props.adsRequest && ShakaPlayer.isBrowserSupported()) {
+    if (player && props.src && ShakaPlayer.isBrowserSupported()) {
       const initLoad = async () => {
         try {
           await player.load(props.src, props.startTime ? props.startTime : 0);
@@ -71,15 +71,13 @@ const usePlayer = (
           }
           // @ts-ignore
           window.postMessage(JSON.stringify(stringParam));
-          // player.getMediaElement().autoplay = true;
-          // player.getMediaElement().play();
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }
       };
       initLoad();
     }
-  }, [player, props.src, props.adsRequest]);
+  }, [player, props.src]);
 
   return { player, ui };
 };
