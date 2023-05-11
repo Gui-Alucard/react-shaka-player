@@ -71,8 +71,8 @@ const usePlayer = (
           }
           // @ts-ignore
           window.postMessage(JSON.stringify(stringParam));
-          player.getMediaElement().autoplay = true;
-          player.getMediaElement().play();
+          // player.getMediaElement().autoplay = true;
+          // player.getMediaElement().play();
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }
