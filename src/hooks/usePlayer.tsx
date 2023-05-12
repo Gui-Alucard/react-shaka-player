@@ -68,11 +68,11 @@ const usePlayer = (
               liveIncrement: mediaCurrentTime,
               ...stats_
             }
-          }
+          };
+          player.getMediaElement().autoplay = false;
           // @ts-ignore
           window.postMessage(JSON.stringify(stringParam));
-
-          if (!props.ads) {
+          if (props.ads === undefined) {
             player.getMediaElement().autoplay = true;
             player.getMediaElement().play();
           };
@@ -82,7 +82,7 @@ const usePlayer = (
       };
       initLoad();
     }
-  }, [player, props.src]);
+  }, [player, props.src, props.ads]);
 
   return { player, ui };
 };
