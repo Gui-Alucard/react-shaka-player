@@ -18,7 +18,7 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
           adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
             video.autoplay = true;
             video.play();
-          })
+          });
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }
