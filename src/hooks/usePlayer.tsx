@@ -71,13 +71,18 @@ const usePlayer = (
           }
           // @ts-ignore
           window.postMessage(JSON.stringify(stringParam));
+
+          if (!props.ads) {
+            player.getMediaElement().autoplay = true;
+            player.getMediaElement().play();
+          };
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }
       };
       initLoad();
     }
-  }, [player, props.src, props.ads]);
+  }, [player, props.src]);
 
   return { player, ui };
 };

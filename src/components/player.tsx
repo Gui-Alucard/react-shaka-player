@@ -56,7 +56,7 @@ const ReactPlayer = (props: IPlayerProps) => {
         className={props.playerClassName}
         style={style}
         {...newProps}
-        autoPlay={!ads}
+        autoPlay={false}
       />
     </div>
   )
