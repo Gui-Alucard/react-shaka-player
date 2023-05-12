@@ -76,8 +76,12 @@ const usePlayer = (
         }
       };
       initLoad();
+      if (!props.ads) {
+        player.getMediaElement().autoplay = true;
+        player.getMediaElement().play();
+      };
     }
-  }, [player, props.src]);
+  }, [player, props.src, props.ads]);
 
   return { player, ui };
 };

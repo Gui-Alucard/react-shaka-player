@@ -5,7 +5,7 @@ import { IPlayerProps } from "../types";
 
 const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) => {
   useEffect(() => {
-    if (player && props.adsRequest && props.googleIMA && ui) {
+    if (player && props.ads && ui) {
       const adManager = player.getAdManager();
       const video = player.getMediaElement();
       const container = ui.getControls().getClientSideAdContainer();
@@ -14,22 +14,19 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
 
       const _streamRequest = async () => {
         try {
-          await adManager.requestClientSideAds(props.adsRequest);
-          adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, (e) => {
-            console.log('[ADS_LOADED + ENTROU', ShakaAds.AdManager.ADS_LOADED, e)
+          await adManager.requestClientSideAds(props.ads);
+          adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
             video.autoplay = true;
             video.play();
-            console.log('[ADS_LOADED + PASSOU', ShakaAds.AdManager.AD_LOADED, e)
           })
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }
       };
       _streamRequest();
-      console.log('[GOOGLE IMA]', props.googleIMA.AdEvent)
     }
 
-  }, [player, props.adsRequest, props.googleIMA, ui]);
+  }, [player, props.ads, ui]);
 };
 
 export default useAds;
