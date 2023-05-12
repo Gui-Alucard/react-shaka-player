@@ -33,6 +33,7 @@ const ReactPlayer = (props: IPlayerProps) => {
     superConfig,
     uiConfig,
     adsRequest,
+    googleIMA,
     startTime,
     label,
     ...newProps
