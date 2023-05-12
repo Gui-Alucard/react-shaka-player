@@ -69,20 +69,15 @@ const usePlayer = (
               ...stats_
             }
           };
-          player.getMediaElement().autoplay = false;
           // @ts-ignore
           window.postMessage(JSON.stringify(stringParam));
-          if (props.ads === undefined) {
-            player.getMediaElement().autoplay = true;
-            player.getMediaElement().play();
-          };
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }
       };
       initLoad();
     }
-  }, [player, props.src, props.ads]);
+  }, [player, props.src]);
 
   return { player, ui };
 };
