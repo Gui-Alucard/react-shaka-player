@@ -13,26 +13,18 @@ export interface IPlayerRefs {
 };
 
 export type IStats = IMediaStatsTime & ShakaExtern.Stats;
-export type IMouseEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | Event;
-export type ITouchEvent = React.TouchEvent<HTMLDivElement> | Event;
-export type IClickEvent = React.MouseEvent<HTMLDivElement, MouseEvent> | React.SyntheticEvent<HTMLVideoElement, Event> | Event;
-export type IFocus = React.FocusEvent<HTMLDivElement, Element> | Event;
 
 export interface IPlayerProps {
   children?: any;
   className?: string;
   config?: ShakaExtern.PlayerConfiguration | any;
   onBuffering?(event: boolean): void | undefined;
-  onEnded?(event?: Event): void | undefined;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  onError?(event?: ErrorEvent): void | undefined;
   onLoad?(data: IPlayerRefs): void | undefined;
-  onPause?(event?: IClickEvent): void | undefined;
-  onPlay?(event?: IClickEvent): void | undefined;
   onPlayerError?(event: ShakaExtern.Error): void | undefined;
   onStatsChange?(stats: IStats): void | undefined;
   onTimeUpdate?(event?: Event): void | undefined;
-  onSeeked?(event?: Event): void | undefined;
+  onUiInteraction?(event?: Event): void | undefined;
   playerClassName?: string;
   src?: string;
   startTime?: number;
