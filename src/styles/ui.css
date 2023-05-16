@@ -2020,8 +2020,8 @@ the control buttons panel. */
    * set. */
 }
 
-.sbt-theme .shaka-controls-container[shown='true'] ~ .foward-container,
-.sbt-theme .shaka-controls-container[shown='true'] ~ .rewind-container {
+.sbt-theme:has(.shaka-controls-container[shown='true']) .foward-container,
+.sbt-theme:has(.shaka-controls-container[shown='true']) .rewind-container {
   opacity: 1;
 }
 
