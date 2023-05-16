@@ -22,13 +22,13 @@ describe("Player", () => {
   });
 
   it("Should renders foward button correctly", () => {
-    const props = { onFoward: jest.fn() };
+    const props = { showButtons: true, onFoward: jest.fn() };
     const tree = Enzyme.shallow(<Player {...props} />);
     expect(tree).toMatchSnapshot();
   });
 
   it("Should renders rewind button correctly", () => {
-    const props = { onRewind: jest.fn() };
+    const props = { showButtons: true, onRewind: jest.fn() };
     const tree = Enzyme.shallow(<Player {...props} />);
     expect(tree).toMatchSnapshot();
   });
