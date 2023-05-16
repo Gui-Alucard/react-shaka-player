@@ -49,9 +49,6 @@ const ReactPlayer = (props: IPlayerProps) => {
 
   return (
     <div style={style} ref={uiContainerRef} className={overlayClassName}>
-      <div className='foward-container' >
-        <button type='button' onClick={onFoward} />
-      </div>
       <video
         ref={videoRef}
         className={props.playerClassName}
@@ -59,9 +56,16 @@ const ReactPlayer = (props: IPlayerProps) => {
         {...newProps}
         autoPlay={false}
       />
-      <div className='rewind-container'>
-        <button type='button' onClick={onRewind} />
-      </div>
+      {onFoward && (
+        <div className='foward-container' >
+          <button type='button' onClick={onFoward} />
+        </div>
+      )}
+      {onRewind && (
+        <div className='rewind-container'>
+          <button type='button' onClick={onRewind} />
+        </div>
+      )}
     </div>
   )
 };

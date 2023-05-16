@@ -88,7 +88,7 @@ function App() {
 // NextJs tem esse import de css no _app
 import React, { useState, useEffect, useCallback } from 'react';
 import '@sbt-lab/sbt-videos-web-player/dist/ui.css';
-import { ReactPlayer, UnmuteButton, FowardButton, RewindButton } from '@sbt-lab/sbt-videos-web-player';
+import { ReactPlayer, UnmuteButton } from '@sbt-lab/sbt-videos-web-player';
 
 function App() {
   const [mainPlayer, setMainPlayer] = useState(undefined);
@@ -150,10 +150,10 @@ function App() {
           onTimeUpdate={handleShakaControls}
           startTime={stopped_at ? stopped_at : 0}
           onLoad={(player) => setMainPlayer(player)}
+          onFoward={() => handleFowardRewind('foward')}
+          onRewind={() => handleFowardRewind('rewind')}
         />
         {!!playMuted && <UnmuteButton label="Ativar som" onClick={handleUnmute} />}
-        {!!showControls && !adsControls && <FowardButton label="foward" onClick={() => handleFowardRewind('foward')} />}
-        {!!showControls && !adsControls && <RewindButton label="rewind" onClick={() => handleFowardRewind('rewind')} />}
       </div>
     </div>
   );
