@@ -15,8 +15,8 @@ const FowardButton = (props: IPlayerProps) => {
   }
 
   return (
-    <div className='sbt-theme-foward-container' onMouseEnter={handleEnter} onMouseLeave={handleLeave} >
-      <button type='button' onClick={onClick}><p>{label && label}</p></button>
+    <div className='sbt-theme-foward-container' >
+      <button type='button' onClick={onClick} onMouseEnter={handleEnter} onMouseLeave={handleLeave} ><p>{label && label}</p></button>
     </div>
   )
 };

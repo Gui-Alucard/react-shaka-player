@@ -15,8 +15,8 @@ const RewindButton = (props: IPlayerProps) => {
   }
 
   return (
-    <div className='sbt-theme-rewind-container' onMouseEnter={handleEnter} onMouseLeave={handleLeave} >
-      <button type='button' onClick={onClick}><p>{label && label}</p></button>
+    <div className='sbt-theme-rewind-container'>
+      <button type='button' onClick={onClick} onMouseEnter={handleEnter} onMouseLeave={handleLeave}><p>{label && label}</p></button>
     </div>
   )
 };

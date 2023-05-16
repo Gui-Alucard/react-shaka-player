@@ -32,10 +32,10 @@ exports[`Buttons Should render correctly 1`] = `
   </div>,
   <div
     className="sbt-theme-foward-container"
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
   >
     <button
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       type="button"
     >
       <p />
@@ -43,10 +43,10 @@ exports[`Buttons Should render correctly 1`] = `
   </div>,
   <div
     className="sbt-theme-rewind-container"
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
   >
     <button
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
       type="button"
     >
       <p />
