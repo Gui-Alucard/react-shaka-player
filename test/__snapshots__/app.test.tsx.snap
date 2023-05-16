@@ -45,8 +45,8 @@ exports[`Buttons Should render correctly 1`] = `
     className="sbt-theme-rewind-container"
   >
     <button
-      onMouseEnter={[Function]}
       onMouseLeave={[Function]}
+      onMouseOver={[Function]}
       type="button"
     >
       <p />
