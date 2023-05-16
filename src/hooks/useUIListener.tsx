@@ -26,20 +26,6 @@ const useUILIstener = (
       mediaElement.addEventListener("error", _onUiInteraction);
     }
   }, [player, ui]);
-
-  useEffect(() => {
-    if (player && ui) {
-      const element = document.getElementsByClassName('shaka-controls-container');
-
-      const rewind = document.getElementsByClassName('rewind-container');
-      element?.item(0)?.addEventListener('mouseover', () => rewind?.item(0)?.classList.add('sbt-show-controls'));
-      element?.item(0)?.addEventListener('mouseleave', () => rewind?.item(0)?.classList.remove('sbt-show-controls'));
-
-      const foward = document.getElementsByClassName('foward-container');
-      element?.item(0)?.addEventListener('mouseover', () => foward?.item(0)?.classList.add('sbt-show-controls'));
-      element?.item(0)?.addEventListener('mouseleave', () => foward?.item(0)?.classList.remove('sbt-show-controls'));
-    }
-  }, [player, ui]);
 };
 
 export default useUILIstener;

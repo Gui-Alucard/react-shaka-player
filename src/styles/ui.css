@@ -161,9 +161,7 @@
 .sbt-theme .shrinkable {
   flex-shrink: 1;
 }
-.sbt-theme .show-when-controls-shown,
-.sbt-theme .rewind-container,
-.sbt-theme .foward-container {
+.sbt-theme .show-when-controls-shown {
   /* Transparent unless explicitly made opaque through container attributes. */
   opacity: 0;
   /* When we show/hide this, do it gradually using cubic-bezier timing. */
@@ -172,8 +170,7 @@
    * set. */
 }
 .sbt-theme .shaka-controls-container[shown='true'] .show-when-controls-shown,
-.sbt-theme .shaka-controls-container[casting='true'] .show-when-controls-shown,
-.sbt-show-controls {
+.sbt-theme .shaka-controls-container[casting='true'] .show-when-controls-shown {
   opacity: 1;
 }
 .sbt-theme .shaka-video-container:not([shaka-controls='true']) .hide-when-shaka-controls-disabled {
@@ -2015,6 +2012,17 @@ the control buttons panel. */
   color: #fff;
   cursor: pointer;
   z-index: 3;
+  /* Transparent unless explicitly made opaque through container attributes. */
+  opacity: 0;
+  /* When we show/hide this, do it gradually using cubic-bezier timing. */
+  transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 600ms;
+  /* Show controls when the container's "shown" or "casting" attributes are
+   * set. */
+}
+
+.sbt-theme .shaka-controls-container[shown='true'] ~ .foward-container,
+.sbt-theme .shaka-controls-container[shown='true'] ~ .rewind-container {
+  opacity: 1;
 }
 
 .sbt-theme .foward-container button {

@@ -56,12 +56,12 @@ const ReactPlayer = (props: IPlayerProps) => {
         {...newProps}
         autoPlay={false}
       />
-      {onFoward && (
+      {ui && onFoward && (
         <div className='foward-container' >
           <button type='button' onClick={onFoward} />
         </div>
       )}
-      {onRewind && (
+      {ui && onRewind && (
         <div className='rewind-container'>
           <button type='button' onClick={onRewind} />
         </div>

@@ -1,6 +1,6 @@
 {
   "name": "@sbt-lab/sbt-videos-web-player",
-  "version": "1.7.32",
+  "version": "1.7.33",
   "description": "A component library to customize media player for Brazilian Television System (SBT).",
   "main": "dist/cjs/index.js",
   "module": "dist/index.js",
@@ -31,6 +31,7 @@
     "g-silva-oliveira <g.silva.oliveira@accenture.com> <guilhermeanv7822@gmail.com>"
   ],
   "dependencies": {
+    "ima3.js": "link:https://imasdk.googleapis.com/js/sdkloader/ima3.js",
     "shaka-player": "^4.3.5"
   },
   "devDependencies": {
