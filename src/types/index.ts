@@ -18,6 +18,8 @@ export interface IPlayerProps {
   children?: any;
   className?: string;
   config?: ShakaExtern.PlayerConfiguration | any;
+  onFoward?: React.MouseEventHandler<HTMLButtonElement>;
+  onRewind?: React.MouseEventHandler<HTMLButtonElement>;
   onBuffering?(event: boolean): void | undefined;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   onLoad?(data: IPlayerRefs): void | undefined;

@@ -81,6 +81,13 @@ exports[`Player Should render correctly 1`] = `
     }
   }
 >
+  <div
+    className="foward-container"
+  >
+    <button
+      type="button"
+    />
+  </div>
   <video
     autoPlay={false}
     style={
@@ -96,6 +103,13 @@ exports[`Player Should render correctly 1`] = `
       }
     }
   />
+  <div
+    className="rewind-container"
+  >
+    <button
+      type="button"
+    />
+  </div>
 </div>
 `;
 
