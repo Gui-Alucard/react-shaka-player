@@ -52,7 +52,7 @@ const streamingConfig = {
     enableFullscreenOnRotation: true,
     forceLandscapeOnFullscreen: true,
     clearBufferOnQualityChange: false,
-    addBigPlayButton: true,
+    addBigPlayButton: false,
     customContextMenu: false,
     controlPanelElements: ['mute', 'volume', 'fullscreen', 'quality', 'picture_in_picture'],
     volumeBarColors: {
