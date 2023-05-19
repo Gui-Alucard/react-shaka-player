@@ -41,22 +41,20 @@ const streamingConfig = {
       lowLatencyMode: true,
       inaccurateManifestTolerance: 0,
       rebufferingGoal: 1,
-      smallGapLimit: 1,
-      jumpLargeGaps: true,
       durationBackoff: 0
     },
   },
   ui: {
     addSeekBar: false,
     doubleClickForFullscreen: true,
-    singleClickForPlayAndPause: false,
-    enableKeyboardPlaybackControls: false,
+    singleClickForPlayAndPause: true,
+    enableKeyboardPlaybackControls: true,
     enableFullscreenOnRotation: true,
     forceLandscapeOnFullscreen: true,
     clearBufferOnQualityChange: false,
-    addBigPlayButton: false,
+    addBigPlayButton: true,
     customContextMenu: false,
-    controlPanelElements: ['mute', 'volume', 'spacer', 'fullscreen', 'quality', 'picture_in_picture'],
+    controlPanelElements: ['mute', 'volume', 'fullscreen', 'quality', 'picture_in_picture'],
     volumeBarColors: {
       base: '#ffffff4c',
       level: '#0060ad'

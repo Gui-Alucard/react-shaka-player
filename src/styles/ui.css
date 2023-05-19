@@ -1179,9 +1179,8 @@ the control buttons panel. */
 }
 
 .sbt-theme .shaka-volume-bar-container {
-  width: 100px;
+  width: 120px;
   padding: 0;
-  margin-left: 2%;
   background: #0060ad;
 }
 
