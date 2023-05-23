@@ -12,7 +12,7 @@ const usePlayer = (
   props?: IPlayerProps
 ) => {
   const [player, setPlayer] = useState<ShakaPlayer | null>(null);
-  const ui = UIHook(player, videoRef, uiContainerRef, props);
+  const { ui, overlayClassName } = UIHook(player, videoRef, uiContainerRef, props);
 
   useEffect(() => {
     ShakaPolyfill.installAll();
@@ -79,7 +79,7 @@ const usePlayer = (
     }
   }, [player, props.src]);
 
-  return { player, ui };
+  return { player, ui, overlayClassName };
 };
 
 export default usePlayer;

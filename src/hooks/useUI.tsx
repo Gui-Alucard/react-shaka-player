@@ -12,6 +12,7 @@ const useUI = (
   props?: IPlayerProps
 ) => {
   const [ui, setUi] = useState<ShakaUI.Overlay | null>(null);
+  const [overlayClassName, setOverlayClassName] = useState<string>('sbt-theme');
 
   useEffect(() => {
     if (player) {
@@ -47,7 +48,26 @@ const useUI = (
     }
   }, [ui, props]);
 
-  return ui;
+  useEffect(() => {
+    if (ui && props.superConfig) {
+      switch (props.superConfig) {
+        case SuperConfig.STREAMING:
+          setOverlayClassName('sbt-theme streaming');
+          break;
+        case SuperConfig.VOD:
+          setOverlayClassName('sbt-theme vod');
+          break;
+        case SuperConfig.DEFAULT:
+          setOverlayClassName('sbt-theme deafult');
+          break;
+        default:
+          setOverlayClassName('sbt-theme');
+          break;
+      };
+    };
+  }, [ui, props]);
+
+  return { ui, overlayClassName };
 };
 
 export default useUI;

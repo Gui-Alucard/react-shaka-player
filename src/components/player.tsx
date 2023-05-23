@@ -7,10 +7,10 @@ const ReactPlayer = (props: IPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const uiContainerRef = useRef<HTMLDivElement | null>(null);
 
-  const { player, ui } = Hooks.usePlayer(videoRef, uiContainerRef, props);
+  const { player, ui, overlayClassName } = Hooks.usePlayer(videoRef, uiContainerRef, props);
   Hooks.usePlayerListener(player, props);
   Hooks.useAds(ui, player, props);
-  const { overlayClassName } = Hooks.useUIListener(ui, player, props);
+  Hooks.useUIListener(ui, player, props);
   Hooks.useStats(player, props);
 
   const {
