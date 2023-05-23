@@ -10,7 +10,7 @@ const ReactPlayer = (props: IPlayerProps) => {
   const { player, ui } = Hooks.usePlayer(videoRef, uiContainerRef, props);
   Hooks.usePlayerListener(player, props);
   Hooks.useAds(ui, player, props);
-  Hooks.useUIListener(ui, player, props);
+  const { overlayClassName } = Hooks.useUIListener(ui, player, props);
   Hooks.useStats(player, props);
 
   const {
@@ -44,8 +44,6 @@ const ReactPlayer = (props: IPlayerProps) => {
     alignItems: "center",
     justifyContent: "center",
   };
-
-  const overlayClassName = className === undefined ? "sbt-theme" : "sbt-theme " + props.className;
 
   return (
     <div style={style} ref={uiContainerRef} className={overlayClassName}>

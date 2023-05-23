@@ -37,6 +37,9 @@ const useUI = (
         case SuperConfig.VOD:
           ui.configure(Configs.vodConfig.ui);
           break;
+        case SuperConfig.DEFAULT:
+          ui.configure(Configs.defaultConfig.ui);
+          break;
         default:
           ui.configure({});
           break;
