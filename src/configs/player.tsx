@@ -62,6 +62,7 @@ const vodConfig = {
     singleClickForPlayAndPause: false,
     addBigPlayButton: false,
     customContextMenu: false,
+    keyboardSeekDistance: 10,
     controlPanelElements: [
       'play_pause',
       'mute',
@@ -100,10 +101,10 @@ const streamingConfig = {
   ui: {
     addSeekBar: false,
     doubleClickForFullscreen: true,
-    singleClickForPlayAndPause: true,
     enableKeyboardPlaybackControls: true,
     enableFullscreenOnRotation: true,
     forceLandscapeOnFullscreen: true,
+    singleClickForPlayAndPause: false,
     clearBufferOnQualityChange: false,
     addBigPlayButton: false,
     customContextMenu: false,

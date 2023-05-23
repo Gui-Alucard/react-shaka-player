@@ -31,6 +31,7 @@ export interface IPlayerProps {
   src?: string;
   startTime?: number;
   label?: string;
+  muted?: boolean;
   ads?: google.ima.AdsRequest | undefined;
   superConfig?: SuperConfig | undefined;
   uiConfig?: ShakaExtern.UIConfiguration | any;

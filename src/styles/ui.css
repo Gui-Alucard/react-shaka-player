@@ -2350,8 +2350,8 @@
 .sbt-theme-streaming:has(.shaka-fullscreen-button[aria-label='Full screen']) .shaka-overflow-button.shaka-resolution-button.shaka-tooltip-status,
 .sbt-theme-streaming:has(.shaka-fullscreen-button[aria-label='Tela cheia']) .shaka-range-container.shaka-volume-bar-container,
 .sbt-theme-streaming:has(.shaka-fullscreen-button[aria-label='Full screen']) .shaka-range-container.shaka-volume-bar-container {
-  display: none;
   opacity: 0;
+  display: none;
 }
 .sbt-theme-streaming:has(.shaka-fullscreen-button[aria-label='Tela cheia']) .shaka-mute-button,
 .sbt-theme-streaming:has(.shaka-fullscreen-button[aria-label='Full screen']) .shaka-mute-button {
@@ -3243,8 +3243,8 @@
 .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-range-container.shaka-volume-bar-container,
 .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-fullscreen-button,
 .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-pip-button {
-  display: none;
   opacity: 0;
+  display: none;
 }
 .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button {
   position: absolute;
@@ -3346,32 +3346,39 @@
 
 .sbt-theme-unmute-container {
   position: absolute;
-  left: 46px;
-  top: 132px;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
   z-index: 3;
   cursor: pointer;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 2.4rem;
+  margin-top: 8rem;
 }
 .sbt-theme-unmute-container button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(33, 34, 34, 0.8);
-  color: #fff;
+  color: #505050;
   transition: all 0.3s ease-in-out;
-  height: 40px;
-  padding-left: 14px;
-  padding-right: 14px;
+  width: 174px;
+  height: 54px;
   min-width: 68px;
-  width: normal;
-  border-radius: 3px;
+  padding: 8px 24px 8px 24px;
+  background: #ffffff;
+  box-shadow: 0px 1px 1px #00000052;
+  border-radius: 50px;
 }
 .sbt-theme-unmute-container button:hover,
 .sbt-theme-unmute-container button:active {
-  background-color: rgba(38, 39, 39, 1);
+  background: rgba(255, 255, 255, 0.8);
 }
 .sbt-theme-unmute-container p {
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 16px;
+  line-height: 24px;
   margin-left: 6px;
   font-weight: bold;
   font-family: Urbanist;

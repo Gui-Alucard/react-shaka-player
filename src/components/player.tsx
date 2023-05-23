@@ -31,6 +31,7 @@ const ReactPlayer = (props: IPlayerProps) => {
     ads,
     startTime,
     label,
+    muted,
     ...newProps
   } = props;
 
@@ -52,6 +53,7 @@ const ReactPlayer = (props: IPlayerProps) => {
         className={props.playerClassName}
         style={style}
         {...newProps}
+        muted={muted}
         autoPlay={false}
       />
       {ui && onFoward && (

@@ -16,7 +16,6 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
         try {
           await adManager.requestClientSideAds(props.ads);
           adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
-            video.volume = props.ads ? 0 : 1;
             video.play();
           });
         } catch (error) {
