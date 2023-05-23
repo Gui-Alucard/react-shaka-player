@@ -52,13 +52,13 @@ const useUI = (
     if (ui && props.superConfig) {
       switch (props.superConfig) {
         case SuperConfig.STREAMING:
-          setOverlayClassName('sbt-theme streaming');
+          setOverlayClassName('sbt-theme-streaming');
           break;
         case SuperConfig.VOD:
-          setOverlayClassName('sbt-theme vod');
+          setOverlayClassName('sbt-theme-vod');
           break;
         case SuperConfig.DEFAULT:
-          setOverlayClassName('sbt-theme deafult');
+          setOverlayClassName('sbt-theme-deafult');
           break;
         default:
           setOverlayClassName('sbt-theme');
