@@ -2035,41 +2035,7 @@
   -o-transform: translateX(-100%);
   transform: translateX(-100%);
 }
-.sbt-theme-vod-unmute-container {
-  position: absolute;
-  left: 46px;
-  top: 132px;
-  z-index: 3;
-  cursor: pointer;
-}
 
-.sbt-theme-vod-unmute-container button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(33, 34, 34, 0.8);
-  color: #fff;
-  transition: all 0.3s ease-in-out;
-  height: 40px;
-  padding-left: 14px;
-  padding-right: 14px;
-  min-width: 68px;
-  width: normal;
-  border-radius: 3px;
-}
-
-.sbt-theme-vod-unmute-container button:hover,
-.sbt-theme-vod-unmute-container button:active {
-  background-color: rgba(38, 39, 39, 1);
-}
-
-.sbt-theme-vod-unmute-container p {
-  font-size: 14px;
-  line-height: 17px;
-  margin-left: 6px;
-  font-weight: bold;
-  font-family: Urbanist;
-}
 .sbt-theme-vod .rewind-container,
 .sbt-theme-vod .foward-container {
   color: #fff;
@@ -3359,27 +3325,37 @@
   margin-top: 8rem;
 }
 .sbt-theme-unmute-container button {
+  background-image: url("data:image/svg+xml, %3Csvg width='33' height='34' viewBox='0 0 33 34' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30.5833 32.6666L26.2361 28.3193C25.7361 28.6527 25.2222 28.9606 24.6944 29.243C24.1666 29.5254 23.6203 29.7684 23.0555 29.9721C22.574 30.1388 22.1342 30.0693 21.736 29.7638C21.3379 29.4582 21.1388 29.0416 21.1388 28.5138C21.1388 28.2638 21.2106 28.0393 21.3541 27.8402C21.4976 27.6411 21.6897 27.5046 21.9305 27.4305C22.3379 27.2916 22.7384 27.1319 23.1319 26.9513C23.5254 26.7708 23.8935 26.5601 24.2361 26.3194L17.8055 19.861V25.986C17.8055 26.6064 17.5208 27.0346 16.9513 27.2708C16.3819 27.5069 15.8796 27.4073 15.4444 26.9722L9.47214 20.9999H4.19435C3.79621 20.9999 3.4652 20.868 3.20131 20.6041C2.93742 20.3402 2.80548 20.0092 2.80548 19.611V12.3888C2.80548 11.9907 2.93742 11.6596 3.20131 11.3958C3.4652 11.1319 3.79621 10.9999 4.19435 10.9999H8.9166L1.11102 3.19434C0.842517 2.92581 0.712892 2.5971 0.722142 2.20821C0.731392 1.81935 0.870281 1.49066 1.13881 1.22213C1.40734 0.953599 1.73141 0.819336 2.11102 0.819336C2.49066 0.819336 2.81473 0.953599 3.08323 1.22213L32.5833 30.6944C32.8518 30.9629 32.9861 31.2916 32.9861 31.6805C32.9861 32.0694 32.8518 32.3981 32.5833 32.6666C32.3148 32.9351 31.9814 33.0694 31.5833 33.0694C31.1851 33.0694 30.8518 32.9351 30.5833 32.6666ZM23.0555 1.94438C25.9814 3.02771 28.3379 4.84252 30.1249 7.38879C31.912 9.9351 32.8055 12.7916 32.8055 15.9583C32.8055 17.3934 32.6087 18.7916 32.2152 20.1527C31.8217 21.5138 31.2407 22.7962 30.4721 23.9999L28.4721 21.9999C29 21.0833 29.3912 20.1157 29.6458 19.0971C29.9004 18.0786 30.0277 17.0323 30.0277 15.9583C30.0277 13.3101 29.2893 10.9304 27.8124 8.81934C26.3356 6.70822 24.3749 5.25453 21.9305 4.45825C21.6805 4.38417 21.486 4.24528 21.3471 4.04159C21.2083 3.83786 21.1388 3.611 21.1388 3.361C21.1388 2.8425 21.3425 2.4351 21.7499 2.13879C22.1573 1.84252 22.5925 1.77771 23.0555 1.94438ZM24.8888 18.4166L21.1388 14.6666V9.24992C22.4444 9.86103 23.4652 10.7777 24.2013 11.9999C24.9374 13.2221 25.3055 14.5555 25.3055 15.9999C25.3055 16.4166 25.2708 16.8263 25.2013 17.2291C25.1319 17.6319 25.0277 18.0277 24.8888 18.4166ZM17.8055 11.3333L13.4721 6.99992L15.4444 5.02767C15.8796 4.5925 16.3819 4.49297 16.9513 4.72909C17.5208 4.9652 17.8055 5.39343 17.8055 6.01379V11.3333ZM15.0277 22.5833V17.111L11.6944 13.7777H5.58323V18.2222H10.6666L15.0277 22.5833Z' fill='%23505050' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-origin: content-box;
+  background-position-y: center;
+  background-position-x: inherit;
+
+  transition: all 0.3s ease-in-out;
+
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   color: #505050;
-  transition: all 0.3s ease-in-out;
   width: 174px;
-  height: 54px;
-  min-width: 68px;
-  padding: 8px 24px 8px 24px;
-  background: #ffffff;
+  height: 56px;
+  min-width: 74px;
+  padding: 8px 24px;
+  background-color: #ffffff;
   box-shadow: 0px 1px 1px #00000052;
   border-radius: 50px;
 }
 .sbt-theme-unmute-container button:hover,
 .sbt-theme-unmute-container button:active {
-  background: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 .sbt-theme-unmute-container p {
+  color: #505050;
   font-size: 16px;
   line-height: 24px;
-  margin-left: 6px;
+  margin-left: 12px;
+  margin-bottom: 2px;
   font-weight: bold;
   font-family: Urbanist;
 }
