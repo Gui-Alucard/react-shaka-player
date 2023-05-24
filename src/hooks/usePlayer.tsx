@@ -69,7 +69,7 @@ const usePlayer = (
               ...stats_
             }
           };
-          const window: Window & typeof globalThis = null;
+          // @ts-ignore
           window.postMessage(JSON.stringify(stringParam));
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
