@@ -71,6 +71,7 @@ const usePlayer = (
           };
           // @ts-ignore
           window.postMessage(JSON.stringify(stringParam));
+          sessionStorage.setItem('player_started', JSON.stringify(stringParam.data))
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }
