@@ -3208,6 +3208,7 @@
 }
 .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-range-container.shaka-volume-bar-container,
 .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-fullscreen-button,
+.sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button,
 .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-pip-button {
   opacity: 0;
   display: none;
@@ -3380,6 +3381,13 @@
     bottom: 6rem;
     left: 2.4rem;
   }
+}
+
+.sbt-theme-streaming:has(.shaka-mute-button[aria-label='Ativar som']) .sbt-theme-unmute-container,
+.sbt-theme-streaming:has(.shaka-mute-button[aria-label='Mute']) .sbt-theme-unmute-container,
+.sbt-theme-vod:has(.shaka-mute-button[aria-label='Ativar som']) .sbt-theme-unmute-container,
+.sbt-theme-vod:has(.shaka-mute-button[aria-label='Mute']) .sbt-theme-unmute-container {
+  display: none !important;
 }
 
 .shaka-ad-controls {
