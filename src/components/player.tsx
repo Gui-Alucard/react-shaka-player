@@ -29,7 +29,8 @@ const ReactPlayer = (props: IPlayerProps) => {
     playerClassName,
     superConfig,
     uiConfig,
-    ads,
+    adsRequest,
+    adsTagUrl,
     startTime,
     label,
     muted,
@@ -57,7 +58,7 @@ const ReactPlayer = (props: IPlayerProps) => {
         muted={muted}
         autoPlay={false}
       />
-      {ui && muted && onUnmute && (
+      {label && onUnmute && (
         <div className='sbt-theme-unmute-container' >
           <button type='button' onClick={onUnmute}>
             <p>{label && label}</p>

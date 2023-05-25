@@ -5,17 +5,32 @@ import { IPlayerProps } from "../types";
 
 const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) => {
   useEffect(() => {
-    if (player && props.ads && ui) {
+    if (player && props.adsTagUrl && props.adsRequest && ui) {
       const adManager = player.getAdManager();
       const video = player.getMediaElement();
       const container = ui.getControls().getClientSideAdContainer();
+
+      const ADS_REQUEST = props.adsRequest;
+      const TAG_URL = props.adsTagUrl;
+      ADS_REQUEST.setContinuousPlayback(true)
+      ADS_REQUEST.setAdWillAutoPlay(true)
+      ADS_REQUEST.setAdWillPlayMuted(true)
+      ADS_REQUEST.linearAdSlotHeight = 100
+      ADS_REQUEST.linearAdSlotWidth = 100
+      ADS_REQUEST.nonLinearAdSlotHeight = 100
+      ADS_REQUEST.nonLinearAdSlotWidth = 100
+      ADS_REQUEST.adTagUrl = TAG_URL;
 
       adManager.initClientSide(container, video);
 
       const _streamRequest = async () => {
         try {
-          await adManager.requestClientSideAds(props.ads);
+          // @ts-ignore
+          await adManager.requestClientSideAds(ADS_REQUEST);
           adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
+            video.play();
+          });
+          adManager.addEventListener(ShakaAds.AdManager.AD_CLICKED, () => {
             video.play();
           });
         } catch (error) {
@@ -25,7 +40,7 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       _streamRequest();
     }
 
-  }, [player, props.ads, ui]);
+  }, [player, props.adsTagUrl, props.adsRequest, ui]);
 };
 
 export default useAds;
