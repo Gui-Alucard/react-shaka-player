@@ -115,7 +115,7 @@ export interface IPlayerProps {
   playerClassName?: string;
   src?: string;
   startTime?: number;
-  label?: string | undefined;
+  label?: string;
   muted?: boolean;
   adsRequest?: IAdsRequest;
   adsTagUrl?: string;

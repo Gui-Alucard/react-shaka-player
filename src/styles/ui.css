@@ -3337,9 +3337,7 @@
   background-origin: content-box;
   background-position-y: center;
   background-position-x: inherit;
-
   transition: all 0.3s ease-in-out;
-
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -3365,7 +3363,6 @@
   font-weight: bold;
   font-family: Urbanist;
 }
-
 @media screen and (max-width: 1200px) {
   .sbt-theme-unmute-container button {
     width: 142px;
@@ -3374,7 +3371,6 @@
     padding: 8px 16px;
   }
 }
-
 @media screen and (max-width: 768px) {
   .sbt-theme-unmute-container {
     position: absolute;
@@ -3387,18 +3383,12 @@
     left: 2.4rem;
   }
 }
-
-.sbt-theme-unmute-hidden {
-  display: none !important;
-}
-
 .sbt-theme-streaming:has(.shaka-mute-button[aria-label='Ativar som']) .sbt-theme-unmute-container,
 .sbt-theme-streaming:has(.shaka-mute-button[aria-label='Mute']) .sbt-theme-unmute-container,
 .sbt-theme-vod:has(.shaka-mute-button[aria-label='Ativar som']) .sbt-theme-unmute-container,
 .sbt-theme-vod:has(.shaka-mute-button[aria-label='Mute']) .sbt-theme-unmute-container {
   display: none !important;
 }
-
-.shaka-ad-controls {
+.sbt-theme-unmute-hidden {
   display: none !important;
 }

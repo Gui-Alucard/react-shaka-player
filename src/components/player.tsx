@@ -49,11 +49,12 @@ const ReactPlayer = (props: IPlayerProps) => {
   };
 
   const handleUnmute = useCallback(() => {
-    if (label && label === 'ativar som') {
+    if (label === 'ativar som') {
       return 'sbt-theme-unmute-container'
+    } else {
+      return 'sbt-theme-unmute-hidden'
     }
-    return 'sbt-theme-unmute-hidden'
-  }, [label])
+  }, [label, muted])
 
   return (
     <div style={style} ref={uiContainerRef} className={overlayClassName}>
