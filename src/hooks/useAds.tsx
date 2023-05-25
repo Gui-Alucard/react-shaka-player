@@ -32,12 +32,18 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_CLOSED, () => {
             video.play();
+            adManager.release();
+            console.log('[SKAKA__AD_CLOSED _____ENTROU')
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_COMPLETE, () => {
             video.play();
+            adManager.release();
+            console.log('[SKAKA__AD_COMPLETE _____ENTROU')
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_SKIPPED, () => {
             video.play();
+            adManager.release();
+            console.log('[SKAKA__AD_SKIPPED _____ENTROU')
           });
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);

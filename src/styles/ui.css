@@ -3215,12 +3215,15 @@
 }
 .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-range-container.shaka-volume-bar-container,
 .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-fullscreen-button,
-.sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button,
 .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-pip-button {
   opacity: 0;
   display: none;
 }
-
+.sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button {
+  position: absolute;
+  right: 2.4rem;
+  bottom: 6rem;
+}
 .sbt-theme-streaming .shaka-spinner-svg {
   position: absolute;
   top: 0;
