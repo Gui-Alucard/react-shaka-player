@@ -9,9 +9,9 @@ const ReactPlayer = (props: IPlayerProps) => {
 
   const { player, ui, overlayClassName } = Hooks.usePlayer(videoRef, uiContainerRef, props);
   Hooks.usePlayerListener(player, props);
-  Hooks.useAds(ui, player, props);
   Hooks.useUIListener(ui, player, props);
   Hooks.useStats(player, props);
+  Hooks.useAds(ui, player, props);
 
   const {
     className,
@@ -57,7 +57,7 @@ const ReactPlayer = (props: IPlayerProps) => {
         {...newProps}
       />
       {label && onUnmute && (
-        <div className={(label === 'ativar som') ? 'sbt-theme-unmute-container' : 'sbt-theme-unmute-hidden'} >
+        <div className='sbt-theme-unmute-container'>
           <button type='button' onClick={onUnmute}>
             <p>{label && label}</p>
           </button>

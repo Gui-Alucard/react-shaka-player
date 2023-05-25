@@ -3220,6 +3220,11 @@
   opacity: 0;
   display: none;
 }
+.sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button {
+  position: absolute;
+  right: 2.4rem;
+  bottom: 6rem;
+}
 .sbt-theme-streaming .shaka-spinner-svg {
   position: absolute;
   top: 0;
@@ -3386,6 +3391,6 @@
   display: none !important;
 }
 
-.sbt-theme-unmute-hidden {
+/* .shaka-ad-controls {
   display: none !important;
-}
+} */
