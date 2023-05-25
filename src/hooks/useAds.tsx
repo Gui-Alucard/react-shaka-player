@@ -14,7 +14,7 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       const TAG_URL = props.adsTagUrl;
       ADS_REQUEST.setContinuousPlayback(true)
       ADS_REQUEST.setAdWillAutoPlay(true)
-      ADS_REQUEST.setAdWillPlayMuted(true)
+      ADS_REQUEST.setAdWillPlayMuted(props.muted)
       ADS_REQUEST.linearAdSlotHeight = 100
       ADS_REQUEST.linearAdSlotWidth = 100
       ADS_REQUEST.nonLinearAdSlotHeight = 100
@@ -27,10 +27,13 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
         try {
           // @ts-ignore
           await adManager.requestClientSideAds(ADS_REQUEST);
-          adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
+          adManager.addEventListener(ShakaAds.AdManager.AD_CLOSED, () => {
             video.play();
           });
-          adManager.addEventListener(ShakaAds.AdManager.AD_CLICKED, () => {
+          adManager.addEventListener(ShakaAds.AdManager.AD_COMPLETE, () => {
+            video.play();
+          });
+          adManager.addEventListener(ShakaAds.AdManager.AD_SKIPPED, () => {
             video.play();
           });
         } catch (error) {

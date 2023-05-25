@@ -682,7 +682,7 @@
 }
 .sbt-theme-deafult .shaka-overflow-menu.shaka-low-position,
 .sbt-theme-deafult .shaka-settings-menu.shaka-low-position {
-  bottom: 15px;
+  bottom: 7rem;
 }
 .sbt-theme-deafult .shaka-overflow-menu span {
   text-align: left;
@@ -2244,7 +2244,6 @@
   font-size: 4.4vmin;
 }
 .sbt-theme-streaming .shaka-video {
-  height: 100vh;
 }
 .sbt-theme-streaming .shaka-controls-container {
   position: absolute;
@@ -2921,7 +2920,7 @@
   flex-direction: column;
   position: absolute;
   z-index: 2;
-  right: 12px;
+  right: 13.2rem;
   bottom: 40px;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -3140,14 +3139,22 @@
 .sbt-theme-streaming .shaka-client-side-ad-container[ad-active='true'] div {
   max-width: 100%;
   width: 100% !important;
-  max-height: 100vh;
   overflow: hidden;
   cursor: none;
   display: contents;
 }
+.sbt-theme-streaming .shaka-client-side-ad-container[ad-active='true'] div div video {
+  position: absolute;
+  width: 100%;
+  height: fit-content;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
 .sbt-theme-streaming .shaka-video-container[shaka-controls='true'] .shaka-client-side-ad-container iframe,
 .sbt-theme-streaming .shaka-video-container[shaka-controls='true'] .shaka-server-side-ad-container iframe {
-  height: 92%;
+  height: 90%;
   z-index: 1;
 }
 .sbt-theme-streaming .shaka-server-side-ad-container {
@@ -3212,11 +3219,6 @@
 .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-pip-button {
   opacity: 0;
   display: none;
-}
-.sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button {
-  position: absolute;
-  right: 2.4rem;
-  bottom: 6rem;
 }
 
 .sbt-theme-streaming .shaka-spinner-svg {
@@ -3381,6 +3383,10 @@
     bottom: 6rem;
     left: 2.4rem;
   }
+}
+
+.sbt-theme-unmute-hidden {
+  display: none !important;
 }
 
 .sbt-theme-streaming:has(.shaka-mute-button[aria-label='Ativar som']) .sbt-theme-unmute-container,
