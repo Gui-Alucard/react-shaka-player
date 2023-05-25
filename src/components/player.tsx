@@ -61,9 +61,9 @@ const ReactPlayer = (props: IPlayerProps) => {
         ref={videoRef}
         className={props.playerClassName}
         style={style}
+        autoPlay={false}
         {...newProps}
         muted={muted}
-        autoPlay={false}
       />
       {label && onUnmute && (
         <div className={handleUnmute()} >
