@@ -104,9 +104,9 @@ const streamingConfig = {
     enableKeyboardPlaybackControls: true,
     enableFullscreenOnRotation: true,
     forceLandscapeOnFullscreen: true,
-    singleClickForPlayAndPause: false,
+    singleClickForPlayAndPause: true,
     clearBufferOnQualityChange: false,
-    addBigPlayButton: false,
+    addBigPlayButton: true,
     customContextMenu: false,
     controlPanelElements: ['mute', 'volume', 'fullscreen', 'quality', 'picture_in_picture'],
     volumeBarColors: {
