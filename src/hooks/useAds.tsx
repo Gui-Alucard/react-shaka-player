@@ -9,12 +9,13 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       const adManager = player.getAdManager();
       const video = player.getMediaElement();
       const container = ui.getControls().getClientSideAdContainer();
+      const getAd = ui.getControls().getAd()
 
       const ADS_REQUEST = props.adsRequest;
       const TAG_URL = props.adsTagUrl;
       ADS_REQUEST.setContinuousPlayback(true)
       ADS_REQUEST.setAdWillAutoPlay(true)
-      ADS_REQUEST.setAdWillPlayMuted(false)
+      ADS_REQUEST.setAdWillPlayMuted(true)
       ADS_REQUEST.linearAdSlotHeight = 100
       ADS_REQUEST.linearAdSlotWidth = 100
       ADS_REQUEST.nonLinearAdSlotHeight = 100
@@ -31,7 +32,7 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
             video.play();
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_VOLUME_CHANGED, () => {
-            console.log('[SHAKA__VOLUME', video, container);
+            console.log('[SHAKA__VOLUME', getAd, ui.getControls());
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_CLOSED, () => {
             video.play();

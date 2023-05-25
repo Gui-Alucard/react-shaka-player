@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useRef } from 'react';
 import * as Hooks from '../hooks';
 
 import { IPlayerProps } from '../types';
@@ -33,7 +33,6 @@ const ReactPlayer = (props: IPlayerProps) => {
     adsTagUrl,
     startTime,
     label,
-    muted,
     ...newProps
   } = props;
 
@@ -48,14 +47,6 @@ const ReactPlayer = (props: IPlayerProps) => {
     justifyContent: "center",
   };
 
-  const handleUnmute = useCallback(() => {
-    if (label === 'ativar som') {
-      return 'sbt-theme-unmute-container'
-    } else {
-      return 'sbt-theme-unmute-hidden'
-    }
-  }, [label, muted])
-
   return (
     <div style={style} ref={uiContainerRef} className={overlayClassName}>
       <video
@@ -64,10 +55,9 @@ const ReactPlayer = (props: IPlayerProps) => {
         style={style}
         autoPlay={false}
         {...newProps}
-        muted={muted}
       />
       {label && onUnmute && (
-        <div className={handleUnmute()} >
+        <div className={(label === 'ativar som') ? 'sbt-theme-unmute-container' : 'sbt-theme-unmute-hidden'} >
           <button type='button' onClick={onUnmute}>
             <p>{label && label}</p>
           </button>
