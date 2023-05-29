@@ -59,7 +59,7 @@ const usePlayer = (
           const mediaCurrentTime = player.getMediaElement() && Math.floor(player.getMediaElement().currentTime);
           const mediaEndTime = Math.floor(player.seekRange().end);
           const stringParam = {
-            event: 'player_started',
+            event: 'player_stats',
             data: {
               currentTime: mediaCurrentTime,
               stopped_at: mediaCurrentTime,
@@ -71,7 +71,7 @@ const usePlayer = (
           };
           // @ts-ignore
           window.postMessage(JSON.stringify(stringParam));
-          sessionStorage.setItem('player_started', JSON.stringify(stringParam.data))
+          sessionStorage.setItem('player_stats', JSON.stringify(stringParam.data))
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }
