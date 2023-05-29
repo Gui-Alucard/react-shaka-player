@@ -33,6 +33,7 @@ const ReactPlayer = (props: IPlayerProps) => {
     adsTagUrl,
     startTime,
     label,
+    muted,
     ...newProps
   } = props;
 
@@ -54,6 +55,7 @@ const ReactPlayer = (props: IPlayerProps) => {
         className={props.playerClassName}
         style={style}
         autoPlay={false}
+        muted={!!muted}
         {...newProps}
       />
       {label && onUnmute && (

@@ -22,6 +22,7 @@ exports[`Player Should render correctly 1`] = `
 >
   <video
     autoPlay={false}
+    muted={false}
     style={
       {
         "alignItems": "center",
@@ -45,5 +46,7 @@ exports[`Player Should renders foward button correctly 1`] = `ShallowWrapper {}`
 exports[`Player Should renders rewind button correctly 1`] = `ShallowWrapper {}`;
 
 exports[`Player Should renders source[manifest] string correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Player Should renders the player muted correctly 1`] = `ShallowWrapper {}`;
 
 exports[`Player Should renders unmute button correctly 1`] = `ShallowWrapper {}`;

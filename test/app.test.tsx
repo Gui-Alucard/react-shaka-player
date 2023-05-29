@@ -20,6 +20,12 @@ describe("Player", () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it("Should renders the player muted correctly", () => {
+    const props = { muted: true };
+    const tree = Enzyme.shallow(<Player {...props} />);
+    expect(tree).toMatchSnapshot();
+  });
+
   it("Should renders unmute button correctly", () => {
     const props = { label: 'ativar som', onUnmute: jest.fn() };
     const tree = Enzyme.shallow(<Player {...props} />);
