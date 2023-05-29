@@ -1442,8 +1442,8 @@
   -webkit-appearance: none;
   border: none;
   border-radius: 12px;
-  height: 12px;
-  width: 12px;
+  height: 20px;
+  width: 20px;
   background: #e93035;
 }
 .sbt-theme-vod .range-element {
@@ -1474,8 +1474,8 @@
   -webkit-appearance: none;
   border: none;
   border-radius: 12px;
-  height: 12px;
-  width: 12px;
+  height: 20px;
+  width: 20px;
   background: #e93035;
 }
 .sbt-theme-vod .range-element::-moz-range-track {
@@ -1490,8 +1490,8 @@
   -webkit-appearance: none;
   border: none;
   border-radius: 12px;
-  height: 12px;
-  width: 12px;
+  height: 20px;
+  width: 20px;
   background: #e93035;
 }
 .sbt-theme-vod .shaka-range-container {
@@ -1558,8 +1558,8 @@
   -webkit-appearance: none;
   border: none;
   border-radius: 12px;
-  height: 12px;
-  width: 12px;
+  height: 20px;
+  width: 20px;
   background: #e93035;
 }
 .sbt-theme-vod .shaka-range-element::-moz-range-track {
@@ -1573,18 +1573,18 @@
   -webkit-appearance: none;
   border: none;
   border-radius: 12px;
-  height: 12px;
-  width: 12px;
+  height: 20px;
+  width: 20px;
   background: #e93035;
 }
 .sbt-theme-vod .shaka-range-element[aria-label='Volume']::-webkit-slider-thumb {
-  width: 15px;
-  height: 15px;
+  width: 15px !important;
+  height: 15px !important;
   background-color: #0060ad;
 }
 .sbt-theme-vod .shaka-range-element[aria-label='Volume']::-moz-range-thumb {
-  height: 15px;
-  height: 15px;
+  height: 15px !important;
+  height: 15px !important;
   background-color: #0060ad;
 }
 
@@ -2061,22 +2061,22 @@
   transition: all 0.1s cubic-bezier(0.1, 0.1, 0.9, 0.9);
 
   margin: auto;
-  height: 5rem;
-  width: 5rem;
+  height: 4.2rem;
+  width: 4.2rem;
 
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
-  left: 16rem;
+  left: 24rem;
 }
 
 .sbt-theme-vod .rewind-container button:hover,
 .sbt-theme-vod .foward-container button:hover,
 .sbt-theme-vod .rewind-container button:active,
 .sbt-theme-vod .foward-container button:active {
-  height: 5.2rem;
-  width: 5.2rem;
+  height: 4.4rem;
+  width: 4.4rem;
 }
 
 .sbt-theme-vod .rewind-container p,
@@ -2095,27 +2095,27 @@
   transition: all 0.1s cubic-bezier(0.1, 0.1, 0.9, 0.9);
 
   margin: auto;
-  height: 5rem;
-  width: 5rem;
+  height: 4.2rem;
+  width: 4.2rem;
 
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 17rem;
+  right: 29rem;
   left: 0;
 }
 
 @media screen and (max-width: 660px) {
   .sbt-theme-vod .foward-container button {
-    left: 12rem !important;
-    height: 4rem !important;
-    width: 4rem !important;
+    left: 16rem !important;
+    height: 3rem !important;
+    width: 3rem !important;
   }
 
   .sbt-theme-vod .rewind-container button {
-    right: 13rem !important;
-    height: 4rem !important;
-    width: 4rem !important;
+    right: 18.2rem !important;
+    height: 3rem !important;
+    width: 3rem !important;
   }
 
   .sbt-theme-vod .foward-container button:hover,
