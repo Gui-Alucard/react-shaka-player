@@ -2068,7 +2068,7 @@
   top: 0;
   bottom: 0;
   right: 0;
-  left: 24rem;
+  left: 28rem;
 }
 
 .sbt-theme-vod .rewind-container button:hover,
@@ -2107,7 +2107,7 @@
 
 @media screen and (max-width: 660px) {
   .sbt-theme-vod .foward-container button {
-    left: 16rem !important;
+    left: 17rem !important;
     height: 3rem !important;
     width: 3rem !important;
   }
