@@ -2574,6 +2574,7 @@
 }
 .sbt-theme-streaming .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pausar'],
 .sbt-theme-streaming .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pause'] {
+  display: none;
   font-size: 0%;
   position: absolute;
   left: 0;
@@ -2592,7 +2593,12 @@
 }
 @media screen and (max-width: 660px) {
   .sbt-theme-streaming .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pausar'],
-  .sbt-theme-streaming .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pause'],
+  .sbt-theme-streaming .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pause'] {
+    display: none;
+    height: 4rem;
+    width: 4rem;
+  }
+
   .sbt-theme-streaming .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Reproduzir'],
   .sbt-theme-streaming .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Play'] {
     height: 4rem;
