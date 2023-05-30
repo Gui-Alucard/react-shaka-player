@@ -30,6 +30,10 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
           adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
             video.play();
           });
+          adManager.addEventListener(ShakaAds.AdManager.AD_DURATION_CHANGED, () => {
+            const stats = adManager.getStats();
+            console.log('[SHAKA ADS STATS___', stats);
+          });
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }
