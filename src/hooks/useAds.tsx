@@ -8,7 +8,7 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
     if (player && props.adsTagUrl && props.adsRequest && ui) {
       const adManager = player.getAdManager();
       const video = player.getMediaElement();
-      const container = ui.getControls().getControlsContainer();
+      const container = ui.getControls().getClientSideAdContainer();
 
       const ADS_REQUEST = props.adsRequest;
       const TAG_URL = props.adsTagUrl;

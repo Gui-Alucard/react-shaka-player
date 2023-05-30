@@ -34,7 +34,6 @@ const useUI = (
       switch (props.superConfig) {
         case SuperConfig.STREAMING:
           ui.configure(Configs.streamingConfig.ui);
-          ui.getControls().hideAdUI();
           break;
         case SuperConfig.VOD:
           ui.configure(Configs.vodConfig.ui);
