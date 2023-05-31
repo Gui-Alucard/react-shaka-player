@@ -25,7 +25,7 @@ const useStats = (player: ShakaPlayer, props?: IPlayerProps) => {
         };
 
         // @ts-ignore
-        window.postMessage(JSON.stringify({ event: 'change_current_time', data: data }));
+        window.postMessage(JSON.stringify({ event: 'shaka_change_current_time', data: data }));
         props.onStatsChange && props.onStatsChange(data);
       };
       const _timer = new ShakaUtil.Timer(() => {
