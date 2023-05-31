@@ -14,8 +14,19 @@ const useStats = (player: ShakaPlayer, props?: IPlayerProps) => {
         const mediaCurrentTime = player.getMediaElement() && Math.floor(player.getMediaElement().currentTime);
         const mediaEndTime = Math.floor(player.seekRange().end);
         const additionalStats = { mediaCurrentTime, mediaEndTime };
+        const data = {
+          ...stats_,
+          ...additionalStats,
+          currentTime: additionalStats.mediaCurrentTime,
+          stopped_at: additionalStats.mediaCurrentTime,
+          liveIncrement: additionalStats.mediaCurrentTime,
+          duration: additionalStats.mediaEndTime,
+          videoTotalTime: additionalStats.mediaEndTime
+        };
 
-        props.onStatsChange && props.onStatsChange({ ...stats_, ...additionalStats });
+        // @ts-ignore
+        window.postMessage(JSON.stringify({ event: 'change_current_time', data: data }));
+        props.onStatsChange && props.onStatsChange(data);
       };
       const _timer = new ShakaUtil.Timer(() => {
         _sendStats();
