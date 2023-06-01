@@ -10,9 +10,10 @@ const useUILIstener = (
 ) => {
   useEffect(() => {
     if (player && ui) {
+      const mediaElement = player.getMediaElement();
       const stats_ = player.getStats();
 
-      const mediaCurrentTime = player.getMediaElement() && Math.floor(player.getMediaElement().currentTime);
+      const mediaCurrentTime = mediaElement && Math.floor(mediaElement.currentTime);
       const mediaEndTime = Math.floor(player.seekRange().end);
       const additionalStats = { mediaCurrentTime, mediaEndTime };
       const data = {
@@ -24,7 +25,6 @@ const useUILIstener = (
         duration: additionalStats.mediaEndTime,
         videoTotalTime: additionalStats.mediaEndTime
       };
-      const mediaElement = player.getMediaElement();
       const _onTimeUpdate = (event: Event) => {
         props.onTimeUpdate && props.onTimeUpdate(event);
       };
@@ -66,12 +66,16 @@ const useUILIstener = (
         }
       };
 
-      mediaElement.addEventListener("timeupdate", _onTimeUpdate);
-      mediaElement.addEventListener("play", _onUiInteraction);
-      mediaElement.addEventListener("pause", _onUiInteraction);
-      mediaElement.addEventListener("seeked", _onUiInteraction);
-      mediaElement.addEventListener("ended", _onUiInteraction);
-      mediaElement.addEventListener("error", _onUiInteraction);
+      try {
+        mediaElement.addEventListener("play", _onUiInteraction);
+        mediaElement.addEventListener("pause", _onUiInteraction);
+        mediaElement.addEventListener("seeked", _onUiInteraction);
+        mediaElement.addEventListener("ended", _onUiInteraction);
+        mediaElement.addEventListener("error", _onUiInteraction);
+        mediaElement.addEventListener("timeupdate", _onTimeUpdate);
+      } catch (error) {
+        console.log('[Shaka_Error]', error)
+      }
     }
   }, [player, ui]);
 };
