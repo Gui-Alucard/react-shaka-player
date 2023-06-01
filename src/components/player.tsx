@@ -18,7 +18,6 @@ const ReactPlayer = (props: IPlayerProps) => {
     config,
     onFoward,
     onRewind,
-    onUnmute,
     onBuffering,
     onClick,
     onLoad,
@@ -32,7 +31,7 @@ const ReactPlayer = (props: IPlayerProps) => {
     adsRequest,
     adsTagUrl,
     startTime,
-    label,
+    unmute,
     muted,
     ...newProps
   } = props;
@@ -58,10 +57,10 @@ const ReactPlayer = (props: IPlayerProps) => {
         muted={!!muted}
         {...newProps}
       />
-      {label && onUnmute && (
+      {unmute?.p && unmute?.onUnmute && (
         <div className='sbt-theme-unmute-container'>
-          <button type='button' onClick={onUnmute}>
-            <p>{label && label}</p>
+          <button type='button' onClick={unmute?.onUnmute}>
+            <p>{unmute?.p && unmute?.p}</p>
           </button>
         </div>
       )}

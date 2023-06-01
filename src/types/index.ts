@@ -1,6 +1,11 @@
 import { Player as ShakaPlayer, ui as ShakaUI, extern as ShakaExtern } from 'shaka-player/dist/shaka-player.ui';
 import { SuperConfig } from './enum';
 
+interface IUnmute {
+  p?: string;
+  onUnmute?: React.MouseEventHandler<HTMLButtonElement>;
+};
+
 export interface IMediaStatsTime {
   mediaCurrentTime: number | undefined;
   mediaEndTime: number | undefined;
@@ -104,7 +109,6 @@ export interface IPlayerProps {
   config?: ShakaExtern.PlayerConfiguration | any;
   onFoward?: React.MouseEventHandler<HTMLButtonElement>;
   onRewind?: React.MouseEventHandler<HTMLButtonElement>;
-  onUnmute?: React.MouseEventHandler<HTMLButtonElement>;
   onBuffering?(event: boolean): void | undefined;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   onLoad?(data: IPlayerRefs): void | undefined;
@@ -115,10 +119,10 @@ export interface IPlayerProps {
   playerClassName?: string;
   src?: string;
   startTime?: number;
-  label?: string;
-  muted?: boolean;
   adsRequest?: IAdsRequest;
   adsTagUrl?: string;
   superConfig?: SuperConfig | undefined;
   uiConfig?: ShakaExtern.UIConfiguration | any;
+  unmute?: IUnmute;
+  muted?: boolean;
 };

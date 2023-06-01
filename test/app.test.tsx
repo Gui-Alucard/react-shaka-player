@@ -27,7 +27,7 @@ describe("Player", () => {
   });
 
   it("Should renders unmute button correctly", () => {
-    const props = { label: 'ativar som', onUnmute: jest.fn() };
+    const props = { unmute: { p: 'ativar som', onUnmute: jest.fn() } };
     const tree = Enzyme.shallow(<Player {...props} />);
     expect(tree).toMatchSnapshot();
   });
