@@ -3344,7 +3344,7 @@
   justify-content: flex-end;
   align-items: center;
   margin-right: 2.4rem;
-  margin-top: 8rem;
+  margin-top: 2vw;
   width: fit-content;
 }
 .sbt-theme-unmute-container button {
@@ -3396,8 +3396,8 @@
     z-index: 3;
     cursor: pointer;
     align-items: flex-end;
-    bottom: 6rem;
-    left: 2.4rem;
+    bottom: 8vw;
+    left: 2.4vw;
   }
 }
 .sbt-theme-streaming:has(.shaka-mute-button[aria-label='Ativar som']) .sbt-theme-unmute-container,
