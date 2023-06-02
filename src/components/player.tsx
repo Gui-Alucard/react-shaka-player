@@ -47,6 +47,8 @@ const ReactPlayer = (props: IPlayerProps) => {
     justifyContent: "center",
   };
 
+  const unmuteClassName = superConfig !== 'STREAMING' ? 'sbt-theme-unmute-container' : 'sbt-theme-streaming-unmute-container';
+
   return (
     <div style={style} ref={uiContainerRef} className={overlayClassName}>
       <video
@@ -58,7 +60,7 @@ const ReactPlayer = (props: IPlayerProps) => {
         {...newProps}
       />
       {unmute?.p && unmute?.onUnmute && (
-        <div className='sbt-theme-unmute-container'>
+        <div className={unmuteClassName}>
           <button type='button' onClick={unmute?.onUnmute}>
             <p>{unmute?.p && unmute?.p}</p>
           </button>
