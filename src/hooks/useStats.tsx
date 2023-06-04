@@ -13,7 +13,7 @@ const useStats = (player: ShakaPlayer, props?: IPlayerProps) => {
 
         const mediaCurrentTime = player.getMediaElement() && Math.floor(player.getMediaElement().currentTime);
         const mediaEndTime = Math.floor(player.seekRange().end);
-        const shakaVideoTotalTime = player.getBufferedInfo().total;
+        const shakaVideoTotalTime = player.getManifest().presentationTimeline;
         const additionalStats = { mediaCurrentTime, mediaEndTime };
         const data = {
           ...stats_,
