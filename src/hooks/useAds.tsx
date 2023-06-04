@@ -35,7 +35,7 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_PROGRESS, () => {
             // @ts-ignore
-            window.postMessage(JSON.stringify({ event: 'ad_current_time', data: mediaElement.currentTime }))
+            window.postMessage(JSON.stringify({ event: 'ad_current_time', data: adManager.getStats() }))
           });
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
