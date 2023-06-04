@@ -26,7 +26,7 @@ const useStats = (player: ShakaPlayer, props?: IPlayerProps) => {
 
         // @ts-ignore
         window.postMessage(JSON.stringify({ event: 'shaka_change_current_time', data: data }));
-        console.log('SHAKA_TOTAL_USE_STATS_', mediaEndTime);
+        console.log('SHAKA_TOTAL_USE_STATS_ & STATS & SEGMENTS', mediaEndTime, stats_.manifestTimeSeconds, stats_.maxSegmentDuration);
         props.onStatsChange && props.onStatsChange(data);
       };
       const _timer = new ShakaUtil.Timer(() => {
