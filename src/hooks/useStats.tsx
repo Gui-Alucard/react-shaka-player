@@ -13,6 +13,7 @@ const useStats = (player: ShakaPlayer, props?: IPlayerProps) => {
 
         const mediaCurrentTime = player.getMediaElement() && Math.floor(player.getMediaElement().currentTime);
         const mediaEndTime = Math.floor(player.seekRange().end);
+        const shakaVideoTotalTime = player.getBufferedInfo().total;
         const additionalStats = { mediaCurrentTime, mediaEndTime };
         const data = {
           ...stats_,
@@ -26,7 +27,7 @@ const useStats = (player: ShakaPlayer, props?: IPlayerProps) => {
 
         // @ts-ignore
         window.postMessage(JSON.stringify({ event: 'shaka_change_current_time', data: data }));
-        console.log('SHAKA_TOTAL_USE_STATS_ & STATS & SEGMENTS', mediaEndTime, stats_.manifestTimeSeconds, stats_.maxSegmentDuration);
+        console.log('SHAKA_TOTAL_USE_STATS_', mediaEndTime, shakaVideoTotalTime);
         props.onStatsChange && props.onStatsChange(data);
       };
       const _timer = new ShakaUtil.Timer(() => {
