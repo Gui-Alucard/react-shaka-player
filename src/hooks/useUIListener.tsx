@@ -15,6 +15,9 @@ const useUILIstener = (
 
       const mediaCurrentTime = mediaElement && Math.floor(mediaElement.currentTime);
       const mediaEndTime = Math.floor(player.seekRange().end);
+
+      console.log('SHAKA_TOTAL_USE_UI_LISTENER_', mediaEndTime);
+
       const additionalStats = { mediaCurrentTime, mediaEndTime };
       const data = {
         ...stats_,
@@ -38,6 +41,21 @@ const useUILIstener = (
             window.postMessage(JSON.stringify({ event: 'change_current_time', data }))
             // @ts-ignore
             window.postMessage(JSON.stringify({ event: 'update_watch_time_live', data }))
+            mediaElement.play()
+            break
+          case 'seeking':
+            // @ts-ignore  
+            window.postMessage(JSON.stringify({ event: 'update_watch_time', data }))
+            // @ts-ignore
+            window.postMessage(JSON.stringify({ event: 'change_current_time', data }))
+            // @ts-ignore
+            window.postMessage(JSON.stringify({ event: 'update_watch_time_live', data }))
+            mediaElement.play()
+            break
+          case 'volumechange':
+            // @ts-ignore  
+            window.postMessage(JSON.stringify({ event: 'shaka_volume_change', data }))
+            mediaElement.volume !== 0 ? mediaElement.muted = false : mediaElement.muted = true
             break
           case 'timeupdate':
             // @ts-ignore  
@@ -72,6 +90,8 @@ const useUILIstener = (
         mediaElement.addEventListener("seeked", _onUiInteraction);
         mediaElement.addEventListener("ended", _onUiInteraction);
         mediaElement.addEventListener("error", _onUiInteraction);
+        mediaElement.addEventListener("seeking", _onUiInteraction);
+        mediaElement.addEventListener("volumechange", _onUiInteraction);
         mediaElement.addEventListener("timeupdate", _onTimeUpdate);
       } catch (error) {
         console.log('[Shaka_Error]', error)

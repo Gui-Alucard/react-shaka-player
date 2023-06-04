@@ -71,7 +71,8 @@ const usePlayer = (
           };
           // @ts-ignore
           window.postMessage(JSON.stringify(stringParam));
-          sessionStorage.setItem('player_stats', JSON.stringify(stringParam.data))
+          sessionStorage.setItem('player_stats', JSON.stringify(stringParam.data));
+          console.log('SHAKA_TOTAL_USE_PLAYER_LOAD_', mediaEndTime);
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
         }

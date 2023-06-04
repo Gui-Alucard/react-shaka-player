@@ -1269,10 +1269,10 @@
 .sbt-theme-vod .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Play'] {
   font-size: 0%;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  left: 9rem;
+  right: 9rem;
+  top: 9rem;
+  bottom: 9rem;
   background-size: contain;
   background-repeat: no-repeat;
   background-origin: content-box;
@@ -1288,10 +1288,10 @@
 .sbt-theme-vod .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pause'] {
   font-size: 0%;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  left: 9rem;
+  right: 9rem;
+  top: 9rem;
+  bottom: 9rem;
   background-size: contain;
   background-repeat: no-repeat;
   background-origin: content-box;
@@ -1897,6 +1897,8 @@
   pointer-events: none;
 }
 .sbt-theme-vod .shaka-ad-controls {
+  display: none !important;
+
   display: flex;
   flex-direction: row;
   z-index: 1;
@@ -2041,7 +2043,7 @@
   color: #fff;
   cursor: pointer;
   z-index: 3;
-  opacity: 0;
+  opacity: 1;
   transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 600ms;
 }
 
@@ -2558,10 +2560,10 @@
 .sbt-theme-streaming .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Play'] {
   font-size: 0%;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  left: 9rem;
+  right: 9rem;
+  top: 9rem;
+  bottom: 9rem;
   background-size: contain;
   background-repeat: no-repeat;
   background-origin: content-box;
@@ -2577,10 +2579,10 @@
   display: none;
   font-size: 0%;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
+  left: 9rem;
+  right: 9rem;
+  top: 9rem;
+  bottom: 9rem;
   background-size: contain;
   background-repeat: no-repeat;
   background-origin: content-box;
@@ -3229,9 +3231,11 @@
   background: rgba(0 0 0 / 70%);
   margin: 0;
 }
+.sbt-theme-vod:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-range-container.shaka-volume-bar-container,
+.sbt-theme-vod:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button,
 .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-range-container.shaka-volume-bar-container,
-.sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-fullscreen-button,
 .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button,
+.sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-fullscreen-button,
 .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-pip-button {
   opacity: 0;
   display: none;
