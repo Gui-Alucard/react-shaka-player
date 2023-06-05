@@ -3442,13 +3442,13 @@
     margin-top: 0 !important;
   }
 }
-.sbt-theme-streaming:has(.shaka-mute-button[aria-label='Ativar som']) .sbt-theme-streaming-unmute-container,
+.sbt-theme-streaming:has(.shaka-mute-button[aria-label='Desativar som']) .sbt-theme-streaming-unmute-container,
 .sbt-theme-streaming:has(.shaka-mute-button[aria-label='Mute']) .sbt-theme-streaming-unmute-container,
-.sbt-theme-vod:has(.shaka-mute-button[aria-label='Ativar som']) .sbt-theme-streaming-unmute-container,
+.sbt-theme-vod:has(.shaka-mute-button[aria-label='Desativar som']) .sbt-theme-streaming-unmute-container,
 .sbt-theme-vod:has(.shaka-mute-button[aria-label='Mute']) .sbt-theme-streaming-unmute-container,
-.sbt-theme-streaming:has(.shaka-mute-button[aria-label='Ativar som']) .sbt-theme-unmute-container,
+.sbt-theme-streaming:has(.shaka-mute-button[aria-label='Desativar som']) .sbt-theme-unmute-container,
 .sbt-theme-streaming:has(.shaka-mute-button[aria-label='Mute']) .sbt-theme-unmute-container,
-.sbt-theme-vod:has(.shaka-mute-button[aria-label='Ativar som']) .sbt-theme-unmute-container,
+.sbt-theme-vod:has(.shaka-mute-button[aria-label='Desativar som']) .sbt-theme-unmute-container,
 .sbt-theme-vod:has(.shaka-mute-button[aria-label='Mute']) .sbt-theme-unmute-container {
   display: none !important;
 }

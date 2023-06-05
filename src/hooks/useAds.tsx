@@ -8,6 +8,7 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
     if (player && props.adsTagUrl && props.adsRequest && ui) {
       const adManager = player.getAdManager();
       const mediaElement = player.getMediaElement();
+      const stats = player.getStats()
       const container = ui.getControls().getClientSideAdContainer();
 
       const ADS_REQUEST = props.adsRequest;
@@ -31,11 +32,12 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
             mediaElement.play();
           });
           adManager.addEventListener(ShakaAds.AdManager.ALL_ADS_COMPLETED, () => {
+            adManager.release();
             mediaElement.play();
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_PROGRESS, () => {
             // @ts-ignore
-            window.postMessage(JSON.stringify({ event: 'ad_current_time', data: 'ANALIZAR' }))
+            window.postMessage(JSON.stringify({ event: 'ad_current_time', data: stats }))
           });
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);

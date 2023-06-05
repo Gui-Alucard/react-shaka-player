@@ -49,7 +49,7 @@ const useUILIstener = (
             break
           case 'volumechange':
             // @ts-ignore  
-            window.postMessage(JSON.stringify({ event: 'shaka_volume_change', data: 'Volume Alterado' }))
+            window.postMessage(JSON.stringify({ event: 'shaka_volume_change', data: null }))
             break
           case 'timeupdate':
             // @ts-ignore  
