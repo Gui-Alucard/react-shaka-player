@@ -1282,14 +1282,6 @@
   left: 27rem;
 }
 
-.sbt-theme-vod .rewind-container button:hover,
-.sbt-theme-vod .foward-container button:hover,
-.sbt-theme-vod .rewind-container button:active,
-.sbt-theme-vod .foward-container button:active {
-  height: 4.4rem;
-  width: 4.4rem;
-}
-
 .sbt-theme-vod .rewind-container p,
 .sbt-theme-vod .foward-container p {
   font-size: 0%;
@@ -1327,14 +1319,6 @@
     right: 18.2rem !important;
     height: 3rem !important;
     width: 3rem !important;
-  }
-
-  .sbt-theme-vod .foward-container button:hover,
-  .sbt-theme-vod .rewind-container button:hover,
-  .sbt-theme-vod .rewind-container button:active,
-  .sbt-theme-vod .foward-container button:active {
-    height: 4.2rem !important;
-    width: 4.2rem !important;
   }
 }
 .sbt-theme-streaming .unselectable {
