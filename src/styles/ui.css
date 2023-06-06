@@ -2635,3 +2635,10 @@
 .sbt-theme-vod:has(.shaka-mute-button[aria-label='Mute']) .sbt-theme-unmute-container {
   display: none !important;
 }
+
+:not(:root):fullscreen::backdrop {
+  position: fixed;
+  inset: 0px;
+  background: black;
+  display: none !important;
+}
