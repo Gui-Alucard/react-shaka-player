@@ -25,17 +25,11 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       adManager.initClientSide(container, mediaElement);
 
       const _streamRequest = async () => {
-        let tagVideo: any = {}
         try {
           // @ts-ignore
           await adManager.requestClientSideAds(ADS_REQUEST);
           adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
-            console.log('[shaka_ads_loaded', mediaElement)
-            tagVideo = mediaElement
-          });
-          adManager.addEventListener(ShakaAds.AdManager.ALL_ADS_COMPLETED, () => {
-            console.log('[shaka_ALL_ADS_COMPLETED', tagVideo)
-            tagVideo.play();
+            mediaElement.play();
           });
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
