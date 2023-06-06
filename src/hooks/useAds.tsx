@@ -31,6 +31,9 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
           adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
             mediaElement.play();
           });
+          adManager.addEventListener(ShakaAds.AdManager.ALL_ADS_COMPLETED, () => {
+            mediaElement.play();
+          });
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
           // @ts-ignore 
@@ -40,7 +43,7 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       _streamRequest();
     }
 
-  }, [player, props.adsTagUrl, props.adsRequest, ui]);
+  }, [props.adsTagUrl, props.adsRequest]);
 };
 
 export default useAds;
