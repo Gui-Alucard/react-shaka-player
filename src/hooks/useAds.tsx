@@ -13,7 +13,7 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
 
       const ADS_REQUEST = props.adsRequest;
       const TAG_URL = props.adsTagUrl;
-      ADS_REQUEST.setContinuousPlayback(true);
+      ADS_REQUEST.setContinuousPlayback(false);
       ADS_REQUEST.setAdWillAutoPlay(true);
       ADS_REQUEST.setAdWillPlayMuted(true);
       ADS_REQUEST.linearAdSlotHeight = 100;
@@ -32,7 +32,6 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
             mediaElement.play();
           });
           adManager.addEventListener(ShakaAds.AdManager.ALL_ADS_COMPLETED, () => {
-            adManager.release();
             mediaElement.play();
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_PROGRESS, () => {
