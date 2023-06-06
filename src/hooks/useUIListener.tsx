@@ -36,16 +36,6 @@ const useUILIstener = (
             window.postMessage(JSON.stringify({ event: 'update_watch_time', data }))
             // @ts-ignore
             window.postMessage(JSON.stringify({ event: 'change_current_time', data }))
-            // @ts-ignore
-            window.postMessage(JSON.stringify({ event: 'update_watch_time_live', data }))
-            break
-          case 'seeking':
-            // @ts-ignore  
-            window.postMessage(JSON.stringify({ event: 'update_watch_time', data }))
-            // @ts-ignore
-            window.postMessage(JSON.stringify({ event: 'change_current_time', data }))
-            // @ts-ignore
-            window.postMessage(JSON.stringify({ event: 'update_watch_time_live', data }))
             break
           case 'volumechange':
             // @ts-ignore  
@@ -56,8 +46,6 @@ const useUILIstener = (
             window.postMessage(JSON.stringify({ event: 'update_watch_time', data }))
             // @ts-ignore
             window.postMessage(JSON.stringify({ event: 'change_current_time', data }))
-            // @ts-ignore
-            window.postMessage(JSON.stringify({ event: 'update_watch_time_live', data }))
             break
           case 'play':
             // @ts-ignore  
@@ -88,7 +76,9 @@ const useUILIstener = (
         mediaElement.addEventListener("volumechange", _onUiInteraction);
         mediaElement.addEventListener("timeupdate", _onTimeUpdate);
       } catch (error) {
-        console.log('[Shaka_Error]', error)
+        console.log('shaka_error', { shaka_error: error });
+        // @ts-ignore 
+        window.postMessage(JSON.stringify({ event: 'error', data: { shaka_error: error } }))
       }
     }
   }, [player, ui]);

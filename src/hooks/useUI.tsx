@@ -38,9 +38,6 @@ const useUI = (
         case SuperConfig.VOD:
           ui.configure(Configs.vodConfig.ui);
           break;
-        case SuperConfig.DEFAULT:
-          ui.configure(Configs.defaultConfig.ui);
-          break;
         default:
           ui.configure({});
           break;
@@ -56,9 +53,6 @@ const useUI = (
           break;
         case SuperConfig.VOD:
           setOverlayClassName('sbt-theme-vod');
-          break;
-        case SuperConfig.DEFAULT:
-          setOverlayClassName('sbt-theme-deafult');
           break;
         default:
           setOverlayClassName('sbt-theme');

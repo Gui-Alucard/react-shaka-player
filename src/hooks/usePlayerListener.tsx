@@ -8,9 +8,11 @@ const usePlayerListener = (player: ShakaPlayer, props?: IPlayerProps) => {
   useEffect(() => {
     const _onPlayerErrorEvent = (error: ShakaExtern.Error | any) => {
       props.onPlayerError && props.onPlayerError(error);
+      // @ts-ignore 
+      window.postMessage(JSON.stringify({ event: 'error', data: { shaka_error: error } }));
     }
     const _onBufferingEvent = (bufferStatus: any) => {
-      const boolOfBuffering: boolean = bufferStatus.buffering
+      const boolOfBuffering: boolean = bufferStatus.buffering;
       props.onBuffering && props.onBuffering(boolOfBuffering);
     };
 
