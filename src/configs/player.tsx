@@ -2,10 +2,10 @@ const vodConfig = {
   ui: {
     addSeekBar: true,
     doubleClickForFullscreen: true,
-    enableKeyboardPlaybackControls: true,
     enableFullscreenOnRotation: true,
     clearBufferOnQualityChange: true,
     enableTooltips: true,
+    enableKeyboardPlaybackControls: false,
     forceLandscapeOnFullscreen: false,
     singleClickForPlayAndPause: false,
     addBigPlayButton: false,
