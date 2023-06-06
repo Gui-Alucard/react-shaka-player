@@ -33,6 +33,7 @@ const ReactPlayer = (props: IPlayerProps) => {
     startTime,
     unmute,
     muted,
+    autoplay,
     ...newProps
   } = props;
 
@@ -55,7 +56,7 @@ const ReactPlayer = (props: IPlayerProps) => {
         ref={videoRef}
         className={props.playerClassName}
         style={style}
-        autoPlay={false}
+        autoPlay={!!autoplay}
         muted={!!muted}
         {...newProps}
       />

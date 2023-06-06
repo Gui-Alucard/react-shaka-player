@@ -125,4 +125,5 @@ export interface IPlayerProps {
   uiConfig?: ShakaExtern.UIConfiguration | any;
   unmute?: IUnmute;
   muted?: boolean;
+  autoplay?: boolean;
 };
