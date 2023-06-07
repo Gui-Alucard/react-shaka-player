@@ -15,9 +15,12 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
 
       adManager.initClientSide(container, mediaElement);
 
+      const stats_ = adManager.getStats();
+      const playerStat_ = player.getStats()
+
       const _handleWindowMessages = (eventName: string) => {
         // @ts-ignore
-        window.postMessage(JSON.stringify({ event: eventName, data: { adManager: adManager.getStats(), player: player.getStats() } }));
+        window.postMessage(JSON.stringify({ event: eventName, data: { adManager: stats_, player: playerStat_ } }));
       };
 
       const _streamRequest = async () => {
