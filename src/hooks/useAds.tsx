@@ -1,4 +1,4 @@
-import { Player as ShakaPlayer, ui as ShakaUI } from "shaka-player/dist/shaka-player.ui";
+import { Player as ShakaPlayer, ui as ShakaUI, ads as ShakaAds } from "shaka-player/dist/shaka-player.ui";
 import { useEffect } from "react";
 
 import { IPlayerProps } from "../types";
@@ -28,8 +28,12 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
         try {
           // @ts-ignore
           await adManager.requestClientSideAds(ADS_REQUEST);
+          adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
+            mediaElement.play();
+          });
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
+          console.log('[shaka_error]', error);
           // @ts-ignore 
           window.postMessage(JSON.stringify({ event: 'error', data: { shaka_error: error } }));
         }
@@ -37,7 +41,7 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       _streamRequest();
     }
 
-  }, [props.adsTagUrl, props.adsRequest, ui]);
+  }, [props.adsTagUrl, ui]);
 };
 
 export default useAds;
