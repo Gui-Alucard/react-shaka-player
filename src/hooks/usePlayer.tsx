@@ -79,7 +79,7 @@ const usePlayer = (
       };
       initLoad();
     }
-  }, [player, props.src, props.adsTagUrl]);
+  }, [player, props.src]);
 
   return { player, ui, overlayClassName };
 };
