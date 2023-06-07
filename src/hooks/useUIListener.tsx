@@ -62,7 +62,7 @@ const useUILIstener = (
           case 'error':
             // @ts-ignore  
             window.postMessage(JSON.stringify({ event: 'error', data }))
-            console.log('[shaka_ui_interaction_error]', event);
+            console.log('[shaka_ui_listener_event_error]', event);
             break
         }
       };
@@ -77,7 +77,7 @@ const useUILIstener = (
         mediaElement.addEventListener("volumechange", _onUiInteraction);
         mediaElement.addEventListener("timeupdate", _onTimeUpdate);
       } catch (error) {
-        console.log('shaka_ui_listener_error', { shaka_error: error });
+        console.log('shaka_ui_listener_catch_error', { shaka_error: error });
         // @ts-ignore 
         window.postMessage(JSON.stringify({ event: 'error', data: { shaka_error: error } }))
       }
