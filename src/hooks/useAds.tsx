@@ -9,7 +9,6 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       const adManager = player.getAdManager();
       const mediaElement = player.getMediaElement();
       const container = ui.getControls().getClientSideAdContainer();
-      const stats = adManager.getStats();
 
       const ADS_REQUEST = props.adsRequest;
       const TAG_URL = props.adsTagUrl;
@@ -18,22 +17,22 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
 
       const _handleWindowMessages = (eventName: string) => {
         // @ts-ignore
-        window.postMessage(JSON.stringify({ event: eventName, data: { adManager: stats, player: player.getStats() } }));
+        window.postMessage(JSON.stringify({ event: eventName, data: { adManager: adManager.getStats(), player: player.getStats() } }));
       };
 
       const _streamRequest = async () => {
-        ADS_REQUEST.setContinuousPlayback(true);
-        ADS_REQUEST.setAdWillAutoPlay(true);
-        ADS_REQUEST.setAdWillPlayMuted(true);
-        ADS_REQUEST.linearAdSlotHeight = 100;
-        ADS_REQUEST.linearAdSlotWidth = 100;
-        ADS_REQUEST.nonLinearAdSlotHeight = 100;
-        ADS_REQUEST.nonLinearAdSlotWidth = 100;
-        ADS_REQUEST.adTagUrl = TAG_URL;
         try {
+          ADS_REQUEST.setContinuousPlayback(true);
+          ADS_REQUEST.setAdWillAutoPlay(true);
+          ADS_REQUEST.setAdWillPlayMuted(true);
+          ADS_REQUEST.linearAdSlotHeight = 100;
+          ADS_REQUEST.linearAdSlotWidth = 100;
+          ADS_REQUEST.nonLinearAdSlotHeight = 100;
+          ADS_REQUEST.nonLinearAdSlotWidth = 100;
+          ADS_REQUEST.adTagUrl = TAG_URL;
           // @ts-ignore
           await adManager.requestClientSideAds(ADS_REQUEST);
-          adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
+          adManager.addEventListener(ShakaAds.AdManager.IMA_AD_MANAGER_LOADED, () => {
             mediaElement.play();
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_STARTED, () => {
@@ -42,17 +41,12 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
           adManager.addEventListener(ShakaAds.AdManager.AD_PROGRESS, () => {
             _handleWindowMessages('AD_PROGRESS');
           });
-          adManager.addEventListener(ShakaAds.AdManager.AD_FIRST_QUARTILE, () => {
-            _handleWindowMessages('AD_FIRST_QUARTILE');
+          adManager.addEventListener(ShakaAds.AdManager.AD_CLOSED, () => {
+            _handleWindowMessages('AD_CLOSED');
           });
-          adManager.addEventListener(ShakaAds.AdManager.AD_MIDPOINT, () => {
-            _handleWindowMessages('AD_MIDPOINT');
-          });
-          adManager.addEventListener(ShakaAds.AdManager.AD_THIRD_QUARTILE, () => {
-            _handleWindowMessages('AD_THIRD_QUARTILE');
-          });
-          adManager.addEventListener(ShakaAds.AdManager.AD_COMPLETE, () => {
-            _handleWindowMessages('AD_COMPLETE');
+          adManager.addEventListener(ShakaAds.AdManager.ALL_ADS_COMPLETED, () => {
+            console.log('[ALL_ADS_COMPLETED]', mediaElement.src);
+            mediaElement.src = props.src
           });
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
@@ -62,7 +56,7 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       _streamRequest();
     }
 
-  }, [props.adsRequest, props.adsTagUrl, ui]);
+  }, [props.adsRequest, props.adsTagUrl]);
 };
 
 export default useAds;
