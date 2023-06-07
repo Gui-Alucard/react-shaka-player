@@ -48,8 +48,8 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
             _handleWindowMessages('AD_CLOSED');
           });
           adManager.addEventListener(ShakaAds.AdManager.ALL_ADS_COMPLETED, () => {
-            console.log('[ALL_ADS_COMPLETED]', mediaElement.src);
-            mediaElement.src = props.src
+            console.log('[ALL_ADS_COMPLETED]', mediaElement.src, props.src);
+            mediaElement.play()
           });
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
