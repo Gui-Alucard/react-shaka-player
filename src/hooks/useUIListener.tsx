@@ -62,6 +62,7 @@ const useUILIstener = (
           case 'error':
             // @ts-ignore  
             window.postMessage(JSON.stringify({ event: 'error', data }))
+            console.log('[shaka_ui_interaction_error]', event);
             break
         }
       };

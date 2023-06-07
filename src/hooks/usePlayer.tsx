@@ -74,8 +74,7 @@ const usePlayer = (
           sessionStorage.setItem('player_stats', JSON.stringify(stringParam.data));
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
-          // @ts-ignore 
-          window.postMessage(JSON.stringify({ event: 'error', data: { shaka_error: error } }));
+          console.log('[shaka_use_player_error]', error);
         }
       };
       initLoad();
