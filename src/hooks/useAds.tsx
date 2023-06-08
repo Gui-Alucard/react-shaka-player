@@ -15,12 +15,12 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
 
       adManager.initClientSide(container, mediaElement);
 
-      const stats_ = adManager.getStats();
-
       const _handleWindowMessages = (eventName: string) => {
-        const playerStat_ = player.getStats();
+        const mediaCurrentTime = mediaElement && Math.floor(mediaElement.currentTime);
+        const mediaEndTime = Math.floor(player.seekRange().end);
+        const additionalStats = { mediaCurrentTime, mediaEndTime };
         // @ts-ignore
-        window.postMessage(JSON.stringify({ event: eventName, data: { adManager: stats_, player: playerStat_ } }));
+        window.postMessage(JSON.stringify({ event: eventName, data: { adManager: additionalStats, player: player.getStats() } }));
       };
 
       const _streamRequest = async () => {
