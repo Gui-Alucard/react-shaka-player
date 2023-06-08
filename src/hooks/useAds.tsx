@@ -16,9 +16,9 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       adManager.initClientSide(container, mediaElement);
 
       const stats_ = adManager.getStats();
-      const playerStat_ = player.getStats()
 
       const _handleWindowMessages = (eventName: string) => {
+        const playerStat_ = player.getStats();
         // @ts-ignore
         window.postMessage(JSON.stringify({ event: eventName, data: { adManager: stats_, player: playerStat_ } }));
       };
@@ -43,9 +43,6 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_PROGRESS, () => {
             _handleWindowMessages('AD_PROGRESS');
-          });
-          adManager.addEventListener(ShakaAds.AdManager.AD_CLOSED, () => {
-            _handleWindowMessages('AD_CLOSED');
           });
           adManager.addEventListener(ShakaAds.AdManager.ALL_ADS_COMPLETED, () => {
             console.log('[ALL_ADS_COMPLETED]', mediaElement.src, props.src);
