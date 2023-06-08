@@ -16,9 +16,10 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       adManager.initClientSide(container, mediaElement);
 
       const _handleWindowMessages = (eventName: string) => {
+        const stats_ = adManager.getStats()
         const mediaCurrentTime = mediaElement && Math.floor(mediaElement.currentTime);
         const mediaEndTime = Math.floor(player.seekRange().end);
-        const additionalStats = { mediaCurrentTime, mediaEndTime };
+        const additionalStats = { mediaCurrentTime, mediaEndTime, ...stats_ };
         // @ts-ignore
         window.postMessage(JSON.stringify({ event: eventName, data: { adManager: additionalStats, player: player.getStats() } }));
       };
@@ -36,6 +37,9 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
           // @ts-ignore
           await adManager.requestClientSideAds(ADS_REQUEST);
           adManager.addEventListener(ShakaAds.AdManager.IMA_AD_MANAGER_LOADED, () => {
+            mediaElement.play();
+          });
+          adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
             mediaElement.play();
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_STARTED, () => {
@@ -56,7 +60,7 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       _streamRequest();
     }
 
-  }, [props.adsRequest, props.adsTagUrl]);
+  }, [player, props.adsRequest, props.adsTagUrl, ui]);
 };
 
 export default useAds;
