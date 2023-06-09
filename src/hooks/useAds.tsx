@@ -17,7 +17,6 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       adManager.initClientSide(container, mediaElement);
 
       const _streamRequest = async () => {
-        let adsPlayer = {} as shaka.extern.IAd
         try {
           ADS_REQUEST.setContinuousPlayback(true);
           ADS_REQUEST.setAdWillAutoPlay(true);
@@ -33,16 +32,15 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
             mediaElement.play();
           });
           adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
-            adsPlayer = controls.getAd();
             mediaElement.play();
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_STARTED, () => {
             // @ts-ignore
-            window.postMessage(JSON.stringify({ event: 'AD_STARTED', data: { adsPlayer, remaingTime: adsPlayer.getRemainingTime(), duration: adsPlayer.getDuration() } }));
+            window.postMessage(JSON.stringify({ event: 'AD_STARTED', data: { adsPlayer: controls.getAd(), remaingTime: controls.getAd().getRemainingTime(), duration: controls.getAd().getDuration() } }));
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_PROGRESS, () => {
             // @ts-ignore
-            window.postMessage(JSON.stringify({ event: 'AD_PROGRESS', data: { adsPlayer, remaingTime: adsPlayer.getRemainingTime(), duration: adsPlayer.getDuration() } }));
+            window.postMessage(JSON.stringify({ event: 'AD_PROGRESS', data: { adsPlayer: controls.getAd(), remaingTime: controls.getAd().getRemainingTime(), duration: controls.getAd().getDuration() } }));
           });
           adManager.addEventListener(ShakaAds.AdManager.ALL_ADS_COMPLETED, () => {
             mediaElement.play()
