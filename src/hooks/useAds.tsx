@@ -11,16 +11,15 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       const controls = ui.getControls();
       const container = controls.getClientSideAdContainer();
 
-      const adsPlayer = controls.getAd();
-      const remaingTime = adsPlayer.getRemainingTime();
-      const duration = adsPlayer.getDuration();
-
       const ADS_REQUEST = props.adsRequest;
       const TAG_URL = props.adsTagUrl;
 
       adManager.initClientSide(container, mediaElement);
 
       const _streamRequest = async () => {
+        const adsPlayer = controls.getAd();
+        const remaingTime = adsPlayer.getRemainingTime();
+        const duration = adsPlayer.getDuration();
         try {
           ADS_REQUEST.setContinuousPlayback(true);
           ADS_REQUEST.setAdWillAutoPlay(true);
