@@ -15,16 +15,9 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
 
       adManager.initClientSide(container, mediaElement);
 
-      const _handleWindowMessages = (eventName: string) => {
-        const stats_ = adManager.getStats()
-        const mediaCurrentTime = mediaElement && Math.floor(mediaElement.currentTime);
-        const mediaEndTime = Math.floor(player.seekRange().end);
-        const additionalStats = { mediaCurrentTime, mediaEndTime, ...stats_ };
-        // @ts-ignore
-        window.postMessage(JSON.stringify({ event: eventName, data: { adManager: additionalStats, player: player.getStats() } }));
-      };
-
       const _streamRequest = async () => {
+        let adsPlayer = {} as ShakaPlayer;
+        let adsMediaElement = {} as HTMLMediaElement;
         try {
           ADS_REQUEST.setContinuousPlayback(true);
           ADS_REQUEST.setAdWillAutoPlay(true);
@@ -41,15 +34,17 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
           });
           adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
             mediaElement.play();
+            adsMediaElement = adsPlayer.getMediaElement();
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_STARTED, () => {
-            _handleWindowMessages('AD_STARTED');
+            // @ts-ignore
+            window.postMessage(JSON.stringify({ event: 'AD_STARTED', data: { currentTime: adsMediaElement.currentTime, player: player.getStats() } }));
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_PROGRESS, () => {
-            _handleWindowMessages('AD_PROGRESS');
+            // @ts-ignore
+            window.postMessage(JSON.stringify({ event: 'AD_PROGRESS', data: { currentTime: adsMediaElement.currentTime, player: player.getStats() } }));
           });
           adManager.addEventListener(ShakaAds.AdManager.ALL_ADS_COMPLETED, () => {
-            console.log('[ALL_ADS_COMPLETED]', mediaElement.src, props.src);
             mediaElement.play()
           });
         } catch (error) {
