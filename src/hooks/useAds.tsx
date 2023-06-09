@@ -11,6 +11,10 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
       const controls = ui.getControls();
       const container = controls.getClientSideAdContainer();
 
+      const adsPlayer = controls.getAd();
+      const remaingTime = adsPlayer.getRemainingTime();
+      const duration = adsPlayer.getDuration();
+
       const ADS_REQUEST = props.adsRequest;
       const TAG_URL = props.adsTagUrl;
 
@@ -32,15 +36,17 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
             mediaElement.play();
           });
           adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
+            console.log('[ADS_LOADED]')
             mediaElement.play();
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_STARTED, () => {
             // @ts-ignore
-            window.postMessage(JSON.stringify({ event: 'AD_STARTED', data: { adsPlayer: controls.getAd(), remaingTime: controls.getAd().getRemainingTime(), duration: controls.getAd().getDuration() } }));
+            window.postMessage(JSON.stringify({ event: 'AD_STARTED', data: { adsPlayer, remaingTime, duration } }));
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_PROGRESS, () => {
+            console.log('[AD_PROGRESS]', controls.getAd())
             // @ts-ignore
-            window.postMessage(JSON.stringify({ event: 'AD_PROGRESS', data: { adsPlayer: controls.getAd(), remaingTime: controls.getAd().getRemainingTime(), duration: controls.getAd().getDuration() } }));
+            window.postMessage(JSON.stringify({ event: 'AD_PROGRESS', data: { adsPlayer, remaingTime, duration } }));
           });
           adManager.addEventListener(ShakaAds.AdManager.ALL_ADS_COMPLETED, () => {
             mediaElement.play()
