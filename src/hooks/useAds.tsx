@@ -31,17 +31,15 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
             mediaElement.play();
           });
           adManager.addEventListener(ShakaAds.AdManager.ADS_LOADED, () => {
-            console.log('[ADS_LOADED]')
             mediaElement.play();
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_STARTED, () => {
             // @ts-ignore
-            window.postMessage(JSON.stringify({ event: 'AD_STARTED', data: { container } }));
+            window.postMessage(JSON.stringify({ event: 'AD_STARTED', data: { duration: ui.getControls().getAd().getDuration() } }));
           });
           adManager.addEventListener(ShakaAds.AdManager.AD_PROGRESS, () => {
-            console.log('[AD_PROGRESS_CONSOLE]', ui.getControls().getAd().getRemainingTime())
             // @ts-ignore
-            window.postMessage(JSON.stringify({ event: 'AD_PROGRESS', data: { container } }));
+            window.postMessage(JSON.stringify({ event: 'AD_PROGRESS', data: { remainingTime: ui.getControls().getAd().getRemainingTime() } }));
           });
           adManager.addEventListener(ShakaAds.AdManager.ALL_ADS_COMPLETED, () => {
             mediaElement.play()
