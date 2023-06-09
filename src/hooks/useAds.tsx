@@ -42,6 +42,8 @@ const useAds = (ui: ShakaUI.Overlay, player: ShakaPlayer, props?: IPlayerProps) 
             window.postMessage(JSON.stringify({ event: 'AD_PROGRESS', data: { remainingTime: ui.getControls().getAd().getRemainingTime() } }));
           });
           adManager.addEventListener(ShakaAds.AdManager.ALL_ADS_COMPLETED, () => {
+            // @ts-ignore
+            window.postMessage(JSON.stringify({ event: 'ALL_ADS_COMPLETED', data: { allAdsCompleted: true } }));
             mediaElement.play()
           });
         } catch (error) {
