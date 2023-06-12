@@ -55,7 +55,7 @@ const streamingConfig = {
     clearBufferOnQualityChange: false,
     addBigPlayButton: false,
     customContextMenu: false,
-    controlPanelElements: ['mute', 'volume', 'fullscreen', 'quality', 'picture_in_picture'],
+    controlPanelElements: ['play_pause', 'mute', 'volume', 'fullscreen', 'quality', 'picture_in_picture'],
     volumeBarColors: {
       base: '#ffffff4c',
       level: '#0060ad'

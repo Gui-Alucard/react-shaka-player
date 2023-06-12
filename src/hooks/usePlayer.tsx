@@ -71,7 +71,23 @@ const usePlayer = (
           };
           // @ts-ignore
           window.postMessage(JSON.stringify(stringParam));
+          // @ts-ignore
+          window.postMessage(JSON.stringify({
+            event: 'player_live_stats',
+            data: {
+              currentTime: 0,
+              stopped_at: 0,
+              duration: mediaCurrentTime,
+              ...stats_
+            }
+          }));
           sessionStorage.setItem('player_stats', JSON.stringify(stringParam.data));
+          sessionStorage.setItem('player_live_stats', JSON.stringify({
+            currentTime: 0,
+            stopped_at: 0,
+            duration: mediaCurrentTime,
+            ...stats_
+          }));
         } catch (error) {
           props.onPlayerError && props.onPlayerError(error);
           console.log('[shaka_use_player_error]', error);

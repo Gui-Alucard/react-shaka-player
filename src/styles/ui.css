@@ -1746,7 +1746,7 @@
 }
 .sbt-theme-streaming .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pausar'],
 .sbt-theme-streaming .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pause'] {
-  display: none;
+  display: none !important;
   font-size: 0%;
   position: absolute;
   left: 9rem;
