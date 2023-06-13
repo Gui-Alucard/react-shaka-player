@@ -40,8 +40,8 @@ const streamingConfig = {
     },
     streaming: {
       lowLatencyMode: true,
-      inaccurateManifestTolerance: 0,
-      rebufferingGoal: 1,
+      inaccurateManifestTolerance: 3,
+      rebufferingGoal: 5,
       durationBackoff: 0
     },
   },
