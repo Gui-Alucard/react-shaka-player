@@ -29,34 +29,38 @@ const useUI = (
 
   useEffect(() => {
     if (ui && props.uiConfig) {
-      ui.configure(props.uiConfig);
+      return () => { ui.configure(props.uiConfig) };
     } else if (ui && props.superConfig) {
-      switch (props.superConfig) {
-        case SuperConfig.STREAMING:
-          ui.configure(Configs.streamingConfig.ui);
-          break;
-        case SuperConfig.VOD:
-          ui.configure(Configs.vodConfig.ui);
-          break;
-        default:
-          ui.configure({});
-          break;
+      return () => {
+        switch (props.superConfig) {
+          case SuperConfig.VOD:
+            ui.configure(Configs.vodConfig.ui);
+            break;
+          case SuperConfig.STREAMING:
+            ui.configure(Configs.streamingConfig.ui);
+            break;
+          default:
+            ui.configure({});
+            break;
+        }
       }
     }
   }, [ui, props]);
 
   useEffect(() => {
     if (ui && props.superConfig) {
-      switch (props.superConfig) {
-        case SuperConfig.STREAMING:
-          setOverlayClassName('sbt-theme-streaming');
-          break;
-        case SuperConfig.VOD:
-          setOverlayClassName('sbt-theme-vod');
-          break;
-        default:
-          setOverlayClassName('sbt-theme');
-          break;
+      return () => {
+        switch (props.superConfig) {
+          case SuperConfig.STREAMING:
+            setOverlayClassName('sbt-theme-streaming');
+            break;
+          case SuperConfig.VOD:
+            setOverlayClassName('sbt-theme-vod');
+            break;
+          default:
+            setOverlayClassName('sbt-theme');
+            break;
+        }
       };
     };
   }, [ui, props]);

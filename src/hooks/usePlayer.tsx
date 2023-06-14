@@ -37,15 +37,17 @@ const usePlayer = (
 
   useEffect(() => {
     if (player && props.config) {
-      player.configure(props.config);
+      return () => { player.configure(props.config) };
     } else if (player && props.superConfig) {
-      switch (props.superConfig) {
-        case SuperConfig.STREAMING:
-          player.configure(Configs.streamingConfig.player);
-          break;
-        default:
-          player.configure({});
-          break;
+      return () => {
+        switch (props.superConfig) {
+          case SuperConfig.STREAMING:
+            player.configure(Configs.streamingConfig.player);
+            break;
+          default:
+            player.configure({});
+            break;
+        }
       }
     }
   }, [player, props.config]);
