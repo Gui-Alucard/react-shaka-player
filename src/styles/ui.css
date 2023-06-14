@@ -694,6 +694,7 @@
   padding: 0;
   width: 100%;
   height: 100%;
+  display: none !important;
 }
 .sbt-theme-vod .shaka-video-container * {
   font-family: Roboto, sans-serif;

@@ -14,6 +14,7 @@ const ReactPlayer = (props: IPlayerProps) => {
   Hooks.useAds(ui, player, props);
 
   const {
+    children,
     className,
     config,
     onFoward,
@@ -52,6 +53,7 @@ const ReactPlayer = (props: IPlayerProps) => {
 
   return (
     <div style={style} ref={uiContainerRef} className={overlayClassName}>
+      {children}
       <video
         ref={videoRef}
         className={props.playerClassName}
