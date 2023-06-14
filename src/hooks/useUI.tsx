@@ -29,41 +29,37 @@ const useUI = (
 
   useEffect(() => {
     if (ui && props.uiConfig) {
-      return () => { ui.configure(props.uiConfig) };
+      ui.configure(props.uiConfig);
     } else if (ui && props.superConfig) {
-      return () => {
-        switch (props.superConfig) {
-          case SuperConfig.VOD:
-            ui.configure(Configs.vodConfig.ui);
-            break;
-          case SuperConfig.STREAMING:
-            ui.configure(Configs.streamingConfig.ui);
-            break;
-          default:
-            ui.configure({});
-            break;
-        }
-      }
-    }
-  }, [ui, props]);
+      switch (props.superConfig) {
+        case SuperConfig.VOD:
+          ui.configure(Configs.vodConfig.ui);
+          break;
+        case SuperConfig.STREAMING:
+          ui.configure(Configs.streamingConfig.ui);
+          break;
+        default:
+          ui.configure({});
+          break;
+      };
+    };
+  }, [ui, props.uiConfig, props.superConfig]);
 
   useEffect(() => {
     if (ui && props.superConfig) {
-      return () => {
-        switch (props.superConfig) {
-          case SuperConfig.STREAMING:
-            setOverlayClassName('sbt-theme-streaming');
-            break;
-          case SuperConfig.VOD:
-            setOverlayClassName('sbt-theme-vod');
-            break;
-          default:
-            setOverlayClassName('sbt-theme');
-            break;
-        }
+      switch (props.superConfig) {
+        case SuperConfig.VOD:
+          setOverlayClassName('sbt-theme-vod');
+          break;
+        case SuperConfig.STREAMING:
+          setOverlayClassName('sbt-theme-streaming');
+          break;
+        default:
+          setOverlayClassName('sbt-theme');
+          break;
       };
     };
-  }, [ui, props]);
+  }, [ui, props.superConfig]);
 
   return { ui, overlayClassName };
 };
