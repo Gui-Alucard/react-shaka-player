@@ -2397,6 +2397,7 @@
 @media screen and (max-width: 1200px) {
   .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Ativar som'],
   .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Unmute'] {
+    opacity: 1 !important;
     width: 142px !important;
     height: 40px;
     min-width: 71px;
@@ -2407,14 +2408,15 @@
 @media screen and (max-width: 768px) {
   .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Ativar som'],
   .sbt-theme-streaming:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Unmute'] {
+    opacity: 1 !important;
     position: absolute;
-    display: flex;
+    display: flex !important;
     flex-direction: row;
     z-index: 3;
     cursor: pointer;
     align-items: flex-end;
     bottom: 8vw;
-    left: 2.4vw;
+    left: 4vw;
     top: inherit !important;
     margin-right: 0 !important;
     margin-top: 0 !important;
