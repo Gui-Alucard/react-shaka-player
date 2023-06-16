@@ -106,6 +106,41 @@ export interface IAdsRequest {
 export interface IPlayerProps {
   children?: any;
   className?: string;
+  /**
+ * Notifies the SDK whether the player intends to
+ * continuously play the content videos one after
+ * another similar to TV broadcast.
+ * 
+ * Changing this setting will have no impact on the ad playback,
+ * but will send the appropriate signal in this ad request
+ * to allow buyers to bid on the type of ad inventory.
+ * 
+ * @param abr [shaka.extern.AbrConfiguration](https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.AbrConfiguration)
+ * @param abrFactory [shaka.extern.AbrManager.Factory](https://shaka-player-demo.appspot.com/docs/api/shaka.extern.AbrManager.html#.Factory)
+ * @param autoShowText [shaka.config.AutoShowText](https://shaka-player-demo.appspot.com/docs/api/shaka.config.AutoShowText.html)
+ * @param cmcd [shaka.extern.CmcdConfiguration](https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.CmcdConfiguration)
+ * @param drm [shaka.extern.DrmConfiguration](https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.DrmConfiguration)
+ * @param lcevc [shaka.extern.LcevcConfiguration](https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.LcevcConfiguration)
+ * @param manifest [shaka.extern.ManifestConfiguration](https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.ManifestConfiguration)
+ * @param mediaSource [shaka.extern.MediaSourceConfiguration](https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.MediaSourceConfiguration)
+ * @param offline [shaka.extern.OfflineConfiguration](https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.OfflineConfiguration)
+ * @param playRangeEnd number
+ * @param playRangeStart number
+ * @param preferForcedSubs boolean
+ * @param preferredAudioChannelCount number
+ * @param preferredAudioCodecs string[]
+ * @param preferredAudioLanguage string
+ * @param preferredDecodingAttributes string[]
+ * @param preferredTextLanguage string
+ * @param preferredTextRole string
+ * @param preferredVariantRole string
+ * @param preferredVideoCodecs string[]
+ * @param restrictions [shaka.extern.Restrictions](https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.Restrictions)
+ * @param streaming [shaka.extern.StreamingConfiguration](https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.StreamingConfiguration)
+ * @param textDisplayFactory [shaka.extern.TextDisplayer.Factory](https://shaka-player-demo.appspot.com/docs/api/shaka.extern.TextDisplayer.html#.Factory)
+ * 
+ * Reference - [Shaka Player](https://shaka-player-demo.appspot.com/docs/api/tutorial-config.html)
+*/
   config?: ShakaExtern.PlayerConfiguration | any;
   onFoward?: React.MouseEventHandler<HTMLButtonElement>;
   onRewind?: React.MouseEventHandler<HTMLButtonElement>;
@@ -119,9 +154,56 @@ export interface IPlayerProps {
   playerClassName?: string;
   src?: string;
   startTime?: number;
+  /**
+ * Shaka Player provides an API for serving ads to make monetization easier for apps.
+ * Our current API is tailored for our integration with the
+ * [Interactive Media Ads](https://developers.google.com/interactive-media-ads?hl=pt-br) SDKs, but we plan to extend our support to other
+ * ad providers in v3.1+.
+ * 
+ * Please note that the current API is likely to undergo significant changes as our support extends.
+ * 
+ * Reference - [Shaka Player](https://shaka-player-demo.appspot.com/docs/api/tutorial-ad_monetization.html)
+  */
   adsRequest?: IAdsRequest;
   adsTagUrl?: string;
   superConfig?: SuperConfig | undefined;
+  /**
+ * Once the UI is created, you can pass in configuration options that change
+ * the look and functioning of the UI bar
+ * For example, if you wanted to not have a seek bar, you could add the
+ * following line to the init() function from the UI basic usage tutorial,
+ * after creating the UI overlay:
+ * 
+ * ui.configure(uiConfig);
+ *  
+ * @param addBigPlayButton boolean
+ * @param addSeekBar boolean
+ * @param castAndroidReceiverCompatible boolean
+ * @param castReceiverAppId string
+ * @param clearBufferOnQualityChange boolean
+ * @param contextMenuElements string[]
+ * @param controlPanelElements string[]
+ * @param customContextMenu boolean
+ * @param doubleClickForFullscreen boolean
+ * @param enableFullscreenOnRotation boolean
+ * @param enableKeyboardPlaybackControls boolean
+ * @param enableTooltips boolean
+ * @param fadeDelay number
+ * @param fastForwardRates number[]
+ * @param forceLandscapeOnFullscreen boolean
+ * @param keyboardSeekDistance number
+ * @param overflowMenuButtons string[]
+ * @param playbackRates number[]
+ * @param rewindRates number[]
+ * @param seekBarColors [shaka.extern.UISeekBarColors](https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.UISeekBarColors)
+ * @param showUnbufferedStart boolean
+ * @param singleClickForPlayAndPause boolean
+ * @param statisticsList string[]
+ * @param trackLabelFormat [shaka.ui.Overlay.TrackLabelFormat](https://shaka-player-demo.appspot.com/docs/api/shaka.ui.Overlay.html#.TrackLabelFormat)
+ * @param volumeBarColors [shaka.extern.UIVolumeBarColors](https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.UIVolumeBarColors)
+ *
+ * Reference - [Shaka Player](https://shaka-player-demo.appspot.com/docs/api/tutorial-ui-customization.html)
+ */
   uiConfig?: ShakaExtern.UIConfiguration | any;
   unmute?: IUnmute;
   muted?: boolean;

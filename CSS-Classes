@@ -1,4 +1,3 @@
-/* fallback from: https://fonts.googleapis.com/css?family=Material+Icons+Outlined */
 @font-face {
   font-family: 'Material Icons Outlined';
   font-style: normal;
@@ -38,475 +37,466 @@
 
 .material-icons-round {
   font-family: 'Material Icons Outlined';
-  font-weight: 400;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  color: #eee;
 }
 
 .material-icons-outlined {
   font-family: 'Material Icons Outlined';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  font-feature-settings: 'liga';
-  -webkit-font-feature-settings: 'liga';
-  -webkit-font-smoothing: antialiased;
-  color: #eee;
 }
-
-.sbt-theme .unselectable {}
-
-.sbt-theme .hidden {}
-
-.sbt-theme .shaka-hidden {}
-
-.sbt-theme .fill-container {}
-
-.sbt-theme .bottom-align-children {}
-
-.sbt-theme .bottom-panels-elements-margin {}
-
-.sbt-theme .overlay-parent {}
-
-.sbt-theme .overlay-child {}
-
-.sbt-theme .absolute-position {}
-
-.sbt-theme .unshrinkable {}
-
-.sbt-theme .shrinkable {}
-
-.sbt-theme .show-when-controls-shown {}
-
+.sbt-theme .shaka-hidden {
+}
 .sbt-theme .shaka-controls-container[shown='true'] .show-when-controls-shown,
-.sbt-theme .shaka-controls-container[casting='true'] .show-when-controls-shown {}
-
-.sbt-theme .shaka-video-container:not([shaka-controls='true']) .hide-when-shaka-controls-disabled {}
-
-.sbt-theme .shaka-video-container {}
-
-.sbt-theme .shaka-video-container .material-icons-round {}
-
-.sbt-theme .shaka-video-container * {}
-
-.sbt-theme .fullscreen-container {}
-
-.sbt-theme .fullscreen-container .shaka-text-container {}
-
-.sbt-theme .shaka-video-container:fullscreen {}
-
-.sbt-theme .shaka-video-container:fullscreen .shaka-text-container {}
-
-.sbt-theme .shaka-video-container:-webkit-full-screen {}
-
-.sbt-theme .shaka-video-container:-webkit-full-screen .shaka-text-container {}
-
-.sbt-theme .shaka-video-container:-moz-full-screen {}
-
-.sbt-theme .shaka-video-container:-moz-full-screen .shaka-text-container {}
-
-.sbt-theme .shaka-video-container:-ms-fullscreen {}
-
-.sbt-theme .shaka-video-container:-ms-fullscreen .shaka-text-container {}
-
-.sbt-theme .shaka-video {}
-
-.sbt-theme .shaka-controls-container {}
-
-.sbt-theme .shaka-video-container:not([shaka-controls='true']) .shaka-controls-container {}
-
-.sbt-theme .shaka-controls-container * {}
-
-.sbt-theme .shaka-controls-container[casting='true'] {}
-
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-fullscreen-button {}
-
+.sbt-theme .shaka-controls-container[casting='true'] .show-when-controls-shown {
+}
+.sbt-theme .shaka-video-container:not([shaka-controls='true']) .hide-when-shaka-controls-disabled {
+}
+.sbt-theme.shaka-video-container video {
+}
+.sbt-theme .shaka-video-container .material-icons-round {
+}
+.sbt-theme .shaka-video-container * {
+}
+.sbt-theme .shaka-video-container:fullscreen,
+.sbt-theme .shaka-video-container:-webkit-full-screen,
+.sbt-theme .shaka-video-container:-moz-full-screen,
+.sbt-theme .shaka-video-container:-ms-fullscreen,
+.sbt-theme .fullscreen-container {
+}
+.sbt-theme .shaka-video-container:fullscreen .shaka-text-container,
+.sbt-theme .shaka-video-container:-webkit-full-screen .shaka-text-container,
+.sbt-theme .shaka-video-container:-moz-full-screen .shaka-text-container,
+.sbt-theme .shaka-video-container:-ms-fullscreen .shaka-text-container,
+.sbt-theme .fullscreen-container .shaka-text-container {
+}
+.sbt-theme .shaka-video {
+}
+.sbt-theme .shaka-controls-container {
+}
+.sbt-theme .shaka-video-container:not([shaka-controls='true']) .shaka-controls-container {
+}
+.sbt-theme .shaka-controls-container * {
+}
+.sbt-theme .shaka-controls-container[casting='true'] {
+}
+.sbt-theme .shaka-controls-container[casting='true'] .shaka-fullscreen-button {
+}
 .sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Tela cheia'],
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Full screen'] {}
-
+.sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Full screen'] {
+}
 .sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Sair do modo tela cheia'],
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Exit full screen'] {}
-
+.sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Exit full screen'] {
+}
 @media screen and (max-width: 660px) {
   .sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Tela cheia'],
   .sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Full screen'],
   .sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Sair do modo tela cheia'],
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Exit full screen'] {}
+  .sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Exit full screen'] {
+  }
+}
+.sbt-theme:has(.shaka-fullscreen-button[aria-label='Tela cheia']) .shaka-overflow-button.shaka-resolution-button.shaka-tooltip-status,
+.sbt-theme:has(.shaka-fullscreen-button[aria-label='Full screen']) .shaka-overflow-button.shaka-resolution-button.shaka-tooltip-status,
+.sbt-theme:has(.shaka-fullscreen-button[aria-label='Tela cheia']) .shaka-range-container.shaka-volume-bar-container,
+.sbt-theme:has(.shaka-fullscreen-button[aria-label='Full screen']) .shaka-range-container.shaka-volume-bar-container {
 }
 
-.sbt-theme .shaka-canvas-container {}
-
-.sbt-theme .shaka-bottom-controls {}
-
-.sbt-theme .shaka-controls-button-panel {}
-
+.sbt-theme .shaka-canvas-container {
+}
+.sbt-theme .shaka-bottom-controls {
+}
+.sbt-theme .shaka-controls-button-panel {
+}
 .sbt-theme .shaka-controls-container[shown='true'] .shaka-controls-button-panel,
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-controls-button-panel {}
-
-.sbt-theme .shaka-controls-button-panel > * {}
-
-.sbt-theme .shaka-controls-button-panel .shaka-overflow-menu-only {}
-
-.sbt-theme .shaka-play-button-container {}
-
-.sbt-theme .shaka-statistics-container {}
-
-.sbt-theme .shaka-controls-container[shown='true'] .shaka-statistics-container,
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-statistics-container {}
-
-.sbt-theme .shaka-statistics-container div {}
-
-.sbt-theme .shaka-statistics-container span {}
-
-.sbt-theme .shaka-context-menu {}
-
-.sbt-theme .shaka-context-menu button {}
-
-.sbt-theme .shaka-context-menu button:hover {}
-
-.sbt-theme .shaka-context-menu label {}
-
-.sbt-theme .shaka-context-menu .shaka-current-selection-span {}
-
-.sbt-theme .shaka-scrim-container {}
-
-.sbt-theme .shaka-controls-container[shown='true'] .shaka-scrim-container,
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-scrim-container {}
-
-.sbt-theme .shaka-text-container {}
-
-.sbt-theme .shaka-text-container span.shaka-text-wrapper {}
-
-.sbt-theme .shaka-controls-container[shown='true'] ~ .shaka-text-container {}
-
-.sbt-theme .shaka-spinner-container {}
-
-.sbt-theme .shaka-video-container:not([shaka-controls='true']) .shaka-spinner-container {}
-
-.sbt-theme .shaka-spinner {}
-
-.sbt-theme .disabled-button {}
-
-.sbt-theme .shaka-play-button {}
-
-.sbt-theme .shaka-controls-container[shown='true'] .shaka-play-button,
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-play-button {}
-
-.sbt-theme .shaka-play-button[icon='play'] {}
-
-.sbt-theme .shaka-play-button[icon='pause'] {}
-
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Reproduzir'],
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Play'] {}
-
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pausar'],
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pause'] {}
-
-@media screen and (max-width: 660px) {
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pausar'],
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pause'],
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Reproduzir'],
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Play'] {}
+.sbt-theme .shaka-controls-container[casting='true'] .shaka-controls-button-panel {
 }
+.sbt-theme .shaka-controls-button-panel > * {
+}
+.sbt-theme .shaka-controls-button-panel .shaka-overflow-menu-only {
+}
+.sbt-theme .shaka-play-button-container {
+}
+.sbt-theme .shaka-statistics-container {
+}
+.sbt-theme .shaka-controls-container[shown='true'] .shaka-statistics-container,
+.sbt-theme .shaka-controls-container[casting='true'] .shaka-statistics-container {
+}
+.sbt-theme .shaka-statistics-container div {
+}
+.sbt-theme .shaka-statistics-container span {
+}
+.sbt-theme .shaka-context-menu {
+}
+.sbt-theme .shaka-context-menu button {
+}
+.sbt-theme .shaka-context-menu button:hover {
+}
+.sbt-theme .shaka-context-menu label {
+}
+.sbt-theme .shaka-context-menu .shaka-current-selection-span {
+}
+.sbt-theme .shaka-scrim-container {
+}
+.sbt-theme .shaka-controls-container[shown='true'] .shaka-scrim-container,
+.sbt-theme .shaka-controls-container[casting='true'] .shaka-scrim-container {
+}
+.sbt-theme .shaka-text-container {
+}
+.sbt-theme .shaka-text-container span.shaka-text-wrapper {
+}
+.sbt-theme .shaka-controls-container[shown='true'] ~ .shaka-text-container {
+}
+.sbt-theme .shaka-spinner-container {
+}
+.sbt-theme .shaka-video-container:not([shaka-controls='true']) .shaka-spinner-container {
+}
+.sbt-theme .shaka-spinner {
+}
+.sbt-theme .shaka-play-button {
+}
+.sbt-theme .shaka-controls-container[shown='true'] .shaka-play-button,
+.sbt-theme .shaka-controls-container[casting='true'] .shaka-play-button {
+}
+.sbt-theme .shaka-play-button[icon='play'] {
+}
+.sbt-theme .shaka-play-button[icon='pause'] {
+}
+.sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Reproduzir'],
+.sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Play'] {
+}
+.sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pausar'],
+.sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pause'] {
+}
+@media screen and (max-width: 768px) {
+  .sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pausar'],
+  .sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pause'] {
+  }
 
+  .sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Reproduzir'],
+  .sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Play'] {
+  }
+}
 .sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Desativar som'],
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Mute'] {}
-
+.sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Mute'] {
+}
 .sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Ativar som'],
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Unmute'] {}
-
+.sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Unmute'] {
+}
 @media screen and (max-width: 660px) {
   .sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Desativar som'],
   .sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Mute'],
   .sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Ativar som'],
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Unmute'] {}
+  .sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Unmute'] {
+  }
 }
-
-.sbt-theme i.material-icons-round {}
-
+.sbt-theme i.material-icons-round {
+}
 .sbt-theme .shaka-tooltip.shaka-pip-button[aria-label='Entrar no modo picture-in-picture'],
-.sbt-theme .shaka-tooltip.shaka-pip-button[aria-label='Enter Picture-in-Picture'] {}
-
+.sbt-theme .shaka-tooltip.shaka-pip-button[aria-label='Enter Picture-in-Picture'] {
+}
 .sbt-theme .shaka-tooltip.shaka-pip-button[aria-label='Sair de picture-in-picture'],
-.sbt-theme .shaka-tooltip.shaka-pip-button[aria-label='Exit Picture-in-Picture'] {}
-
-.sbt-theme .shaka-current-time {}
-
-.sbt-theme .shaka-current-time[disabled] {}
-
-@media screen and (max-width: 660px) {
-  .sbt-theme .shaka-current-time[disabled] {}
+.sbt-theme .shaka-tooltip.shaka-pip-button[aria-label='Exit Picture-in-Picture'] {
 }
-
-.sbt-theme .shaka-controls-container {}
-
+.sbt-theme .shaka-current-time {
+}
+.sbt-theme .shaka-current-time[disabled] {
+}
+@media screen and (max-width: 660px) {
+  .sbt-theme .shaka-current-time[disabled] {
+  }
+}
+.sbt-theme .shaka-controls-container {
+}
 .sbt-theme .shaka-controls-container button:focus,
-.sbt-theme .shaka-controls-container input:focus {}
-
+.sbt-theme .shaka-controls-container input:focus {
+}
 .sbt-theme .shaka-controls-container button:-moz-focus-inner,
-.sbt-theme .shaka-controls-container input:-moz-focus-outer {}
-
+.sbt-theme .shaka-controls-container input:-moz-focus-outer {
+}
 .sbt-theme .shaka-controls-container:not(.shaka-keyboard-navigation) button:focus,
-.sbt-theme .shaka-controls-container:not(.shaka-keyboard-navigation) input:focus {}
-
-.sbt-theme .range-container {}
-
-.sbt-theme .track {}
-
-.sbt-theme .thumb {}
-
-.sbt-theme .range-element {}
-
-.sbt-theme .range-element::-webkit-slider-runnable-track {}
-
-.sbt-theme .range-element::-webkit-slider-thumb {}
-
-.sbt-theme .range-element::-moz-range-track {}
-
-.sbt-theme .range-element::-moz-range-thumb {}
-
-.sbt-theme .shaka-range-container {}
-
-.sbt-theme .shaka-range-container::after {}
-
-@media screen and (max-width: 420px) {
-  .sbt-theme .shaka-range-container {}
+.sbt-theme .shaka-controls-container:not(.shaka-keyboard-navigation) input:focus {
 }
-
-.sbt-theme .shaka-volume-bar-container {}
-
-@media screen and (max-width: 420px) {
-  .sbt-theme .shaka-volume-bar-container {}
+.sbt-theme .shaka-range-container {
 }
-
-.sbt-theme .shaka-range-element {}
-
-.sbt-theme .shaka-range-element::-webkit-slider-runnable-track {}
-
-.sbt-theme .shaka-range-element::-webkit-slider-thumb {}
-
-.sbt-theme .shaka-range-element::-moz-range-track {}
-
-.sbt-theme .shaka-range-element::-moz-range-thumb {}
-
-.sbt-theme .shaka-range-element[aria-label='Volume']::-webkit-slider-thumb {}
-
-.sbt-theme .shaka-range-element[aria-label='Volume']::-moz-range-thumb {}
-
-.sbt-theme .shaka-seek-bar-container {}
-
-.sbt-theme .shaka-seek-bar-container::after {}
-
+.sbt-theme .shaka-range-container::after {
+}
+@media screen and (max-width: 420px) {
+  .sbt-theme .shaka-range-container {
+  }
+}
+.sbt-theme .shaka-volume-bar-container {
+}
+@media screen and (max-width: 420px) {
+  .sbt-theme .shaka-volume-bar-container {
+  }
+}
+.sbt-theme .shaka-range-element {
+}
+.sbt-theme .shaka-range-element::-moz-range-track {
+}
+.sbt-theme .shaka-range-element::-moz-range-thumb {
+}
+.sbt-theme .shaka-range-element::-webkit-slider-runnable-track {
+}
+.sbt-theme .shaka-range-element::-webkit-slider-thumb {
+}
+.sbt-theme .shaka-range-element[aria-label='Volume']::-webkit-slider-thumb {
+}
+.sbt-theme .shaka-range-element[aria-label='Volume']::-moz-range-thumb {
+}
+.sbt-theme .shaka-seek-bar-container {
+}
+.sbt-theme .shaka-seek-bar-container::after {
+}
 @media screen and (max-width: 660px) {
-  .sbt-theme .shaka-seek-bar-container {}
+  .sbt-theme .shaka-seek-bar-container {
+  }
 }
-
 .sbt-theme .shaka-controls-container[shown='true'] .shaka-seek-bar-container,
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-seek-bar-container {}
-
-.sbt-theme .shaka-ad-markers {}
-
-.sbt-theme .shaka-video-container * {}
-
-.sbt-theme .shaka-video-container .material-icons-round {}
-
+.sbt-theme .shaka-controls-container[casting='true'] .shaka-seek-bar-container {
+}
+.sbt-theme .shaka-ad-markers {
+}
+.sbt-theme .shaka-video-container * {
+}
+.sbt-theme .shaka-video-container .material-icons-round {
+}
 .sbt-theme .shaka-overflow-menu,
-.sbt-theme .shaka-settings-menu {}
-
+.sbt-theme .shaka-settings-menu {
+}
 .sbt-theme .shaka-controls-container[shown='true'] .shaka-overflow-menu,
 .sbt-theme .shaka-controls-container[shown='true'] .shaka-settings-menu,
 .sbt-theme .shaka-controls-container[casting='true'] .shaka-overflow-menu,
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-settings-menu {}
-
+.sbt-theme .shaka-controls-container[casting='true'] .shaka-settings-menu {
+}
 .sbt-theme .shaka-overflow-menu button,
-.sbt-theme .shaka-settings-menu button {}
-
+.sbt-theme .shaka-settings-menu button {
+}
 .sbt-theme .shaka-overflow-menu button span,
-.sbt-theme .shaka-settings-menu button span {}
-
+.sbt-theme .shaka-settings-menu button span {
+}
 .sbt-theme .shaka-overflow-menu button:hover,
-.sbt-theme .shaka-settings-menu button:hover {}
-
+.sbt-theme .shaka-settings-menu button:hover {
+}
 .sbt-theme .shaka-overflow-menu button:hover i,
-.sbt-theme .shaka-settings-menu button:hover i {}
-
+.sbt-theme .shaka-settings-menu button:hover i {
+}
 .sbt-theme .shaka-overflow-menu button label,
-.sbt-theme .shaka-settings-menu button label {}
-
+.sbt-theme .shaka-settings-menu button label {
+}
 .sbt-theme .shaka-keyboard-navigation .shaka-overflow-menu button:focus,
-.sbt-theme .shaka-keyboard-navigation .shaka-settings-menu button:focus {}
-
+.sbt-theme .shaka-keyboard-navigation .shaka-settings-menu button:focus {
+}
 .sbt-theme .shaka-overflow-menu button:focus,
-.sbt-theme .shaka-settings-menu button:focus {}
-
+.sbt-theme .shaka-settings-menu button:focus {
+}
 .sbt-theme .shaka-overflow-menu i,
-.sbt-theme .shaka-settings-menu i {}
-
+.sbt-theme .shaka-settings-menu i {
+}
 .sbt-theme .shaka-overflow-menu.shaka-low-position,
-.sbt-theme .shaka-settings-menu.shaka-low-position {}
-
-.sbt-theme .shaka-overflow-menu span {}
-
-.sbt-theme .shaka-overflow-button-label {}
-
-.sbt-theme i.material-icons-round {}
-
+.sbt-theme .shaka-settings-menu.shaka-low-position {
+}
+.sbt-theme .shaka-overflow-menu span {
+}
+.sbt-theme .shaka-overflow-button-label {
+}
+.sbt-theme i.material-icons-round {
+}
 .sbt-theme .shaka-tooltip-status.shaka-overflow-button.shaka-resolution-button[aria-label='Resolução'],
-.sbt-theme .shaka-tooltip-status.shaka-overflow-button.shaka-resolution-button[aria-label='Resolution'] {}
-
-.sbt-theme .shaka-settings-menu button[aria-selected='true'] {}
-
-.sbt-theme .shaka-settings-menu button[aria-selected='true'] span {}
-
-.sbt-theme .shaka-settings-menu button[aria-selected='true'] i {}
-
-.sbt-theme .shaka-current-selection-span {}
-
-.sbt-theme .shaka-settings-menu span {}
-
-.sbt-theme .shaka-back-to-overflow-button {}
-
-.sbt-theme .shaka-back-to-overflow-button span {}
-
-.sbt-theme .shaka-back-to-overflow-button i {}
-
-.sbt-theme .shaka-overflow-menu button i {}
-
-.sbt-theme .shaka-overflow-menu button .shaka-overflow-button-label {}
-
-.sbt-theme .shaka-overflow-menu button .shaka-overflow-button-label span {}
-
-.sbt-theme .shaka-overflow-menu span + span {}
-
-.sbt-theme .shaka-overflow-menu span + span:after {}
-
-.sbt-theme .shaka-back-to-overflow-button .material-icons-round {}
-
-.sbt-theme .shaka-overflow-menu-button {}
-
-.sbt-theme .shaka-auto-span {}
-
-.sbt-theme .shaka-spacer {}
-
-.sbt-theme .ad-text-shadow {}
-
-.sbt-theme .shaka-controls-container[ad-active='true'] {}
-
-.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-bottom-controls {}
-
+.sbt-theme .shaka-tooltip-status.shaka-overflow-button.shaka-resolution-button[aria-label='Resolution'] {
+}
+.sbt-theme .shaka-settings-menu button[aria-selected='true'] {
+}
+.sbt-theme .shaka-settings-menu button[aria-selected='true'] span {
+}
+.sbt-theme .shaka-settings-menu button[aria-selected='true'] i {
+}
+.sbt-theme .shaka-current-selection-span {
+}
+.sbt-theme .shaka-settings-menu span {
+}
+.sbt-theme .shaka-back-to-overflow-button {
+}
+.sbt-theme .shaka-back-to-overflow-button span {
+}
+.sbt-theme .shaka-back-to-overflow-button i {
+}
+.sbt-theme .shaka-overflow-menu button i {
+}
+.sbt-theme .shaka-overflow-menu button .shaka-overflow-button-label {
+}
+.sbt-theme .shaka-overflow-menu button .shaka-overflow-button-label span {
+}
+.sbt-theme .shaka-overflow-menu span + span {
+}
+.sbt-theme .shaka-overflow-menu span + span:after {
+}
+.sbt-theme .shaka-back-to-overflow-button .material-icons-round {
+}
+.sbt-theme .shaka-overflow-menu-button {
+}
+.sbt-theme .shaka-auto-span {
+}
+.sbt-theme .shaka-spacer {
+}
+.sbt-theme .shaka-controls-container[ad-active='true'] {
+}
+.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-bottom-controls {
+}
+.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-range-container.shaka-volume-bar-container,
 .sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-current-time,
 .sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-pip-button,
 .sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-overflow-button.shaka-resolution-button,
-.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-fullscreen-button {}
-
+.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-fullscreen-button {
+}
 .sbt-theme .shaka-client-side-ad-container,
-.sbt-theme .shaka-server-side-ad-container {}
-
-.sbt-theme .shaka-client-side-ad-container[ad-active='true'] div {}
-
+.sbt-theme .shaka-server-side-ad-container {
+}
+.sbt-theme .shaka-client-side-ad-container[ad-active='true'] div {
+}
+.sbt-theme .shaka-client-side-ad-container[ad-active='true'] div div video {
+}
 .sbt-theme .shaka-video-container[shaka-controls='true'] .shaka-client-side-ad-container iframe,
-.sbt-theme .shaka-video-container[shaka-controls='true'] .shaka-server-side-ad-container iframe {}
-
-.sbt-theme .shaka-server-side-ad-container {}
-
-.sbt-theme .shaka-server-side-ad-container:not([ad-active='true']) {}
-
-.sbt-theme .shaka-ad-controls {}
-
-.sbt-theme .shaka-video-container:not([shaka-controls='true']) .shaka-ad-controls {}
-
+.sbt-theme .shaka-video-container[shaka-controls='true'] .shaka-server-side-ad-container iframe {
+}
+.sbt-theme .shaka-server-side-ad-container {
+}
+.sbt-theme .shaka-server-side-ad-container:not([ad-active='true']) {
+}
+.sbt-theme .shaka-ad-controls {
+}
+.sbt-theme .shaka-video-container:not([shaka-controls='true']) .shaka-ad-controls {
+}
 .sbt-theme .shaka-ad-controls button,
-.sbt-theme .shaka-ad-controls div {}
-
-.sbt-theme .shaka-ad-controls div:not(.shaka-skip-ad-counter) {}
-
+.sbt-theme .shaka-ad-controls div {
+}
+.sbt-theme .shaka-ad-controls div:not(.shaka-skip-ad-counter) {
+}
 .sbt-theme .shaka-ad-counter,
-.sbt-theme .shaka-ad-position {}
-
-.sbt-theme .shaka-ad-controls .shaka-ad-position:not(.shaka-hidden) + .shaka-ad-counter {}
-
-.sbt-theme .shaka-skip-ad-container {}
-
-.sbt-theme .shaka-skip-ad-button {}
-
-.sbt-theme .shaka-skip-ad-button:disabled {}
-
-.sbt-theme .shaka-skip-ad-counter {}
-
-.sbt-theme .shaka-spinner-svg {}
-
-.sbt-theme .shaka-spinner-path {}
-
-@keyframes rotate {}
-
-@keyframes dash {}
-
-.sbt-theme .shaka-tooltips-on {}
-
-.sbt-theme .shaka-tooltips-on > [class*='shaka-tooltip'] {}
-
+.sbt-theme .shaka-ad-position {
+}
+.sbt-theme .shaka-ad-controls .shaka-ad-position:not(.shaka-hidden) + .shaka-ad-counter {
+}
+.sbt-theme .shaka-client-side-ad-container[ad-active='true'] div div video {
+}
+.sbt-theme .shaka-client-side-ad-container[ad-active='true'] div iframe {
+}
+.sbt-theme .shaka-skip-ad-container {
+}
+.sbt-theme .shaka-skip-ad-button {
+}
+.sbt-theme .shaka-skip-ad-button:disabled {
+}
+.sbt-theme .shaka-skip-ad-counter {
+}
+.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-range-container.shaka-volume-bar-container,
+.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button,
+.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-fullscreen-button,
+.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-pip-button {
+}
+.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button {
+}
+.sbt-theme .shaka-spinner-svg {
+}
+.sbt-theme .shaka-spinner-path {
+}
+@keyframes rotate {
+  100% {
+  }
+}
+@keyframes dash {
+  0% {
+  }
+  50% {
+  }
+  100% {
+  }
+}
+.sbt-theme .shaka-tooltips-on {
+}
+.sbt-theme .shaka-tooltips-on > [class*='shaka-tooltip'] {
+}
 .sbt-theme .shaka-tooltips-on > [class*='shaka-tooltip']:hover:after,
 .sbt-theme .shaka-tooltips-on > [class*='shaka-tooltip']:focus-visible:after,
-.sbt-theme .shaka-tooltips-on > [class*='shaka-tooltip']:active:after {}
-
+.sbt-theme .shaka-tooltips-on > [class*='shaka-tooltip']:active:after {
+}
 .sbt-theme .shaka-tooltips-on > .shaka-tooltip-status:hover:after,
 .sbt-theme .shaka-tooltips-on > .shaka-tooltip-status:focus-visible:after,
-.sbt-theme .shaka-tooltips-on > .shaka-tooltip-status:active:after {}
-
+.sbt-theme .shaka-tooltips-on > .shaka-tooltip-status:active:after {
+}
 .sbt-theme .shaka-tooltips-on button:first-child:hover:after,
 .sbt-theme .shaka-tooltips-on button:first-child:focus-visible:after,
-.sbt-theme .shaka-tooltips-on button:first-child:active:after {}
-
+.sbt-theme .shaka-tooltips-on button:first-child:active:after {
+}
 .sbt-theme .shaka-tooltips-on button:last-child:hover:after,
 .sbt-theme .shaka-tooltips-on button:last-child:focus-visible:after,
-.sbt-theme .shaka-tooltips-on button:last-child:active:after {}
+.sbt-theme .shaka-tooltips-on button:last-child:active:after {
+}
 
-.sbt-theme-unmute-container {}
+.sbt-theme .rewind-container,
+.sbt-theme .foward-container {
+}
 
-.sbt-theme-unmute-container button {}
+.sbt-theme:has(.shaka-controls-container[shown='true']) .foward-container,
+.sbt-theme:has(.shaka-controls-container[shown='true']) .rewind-container {
+}
 
-.sbt-theme-unmute-container button:hover,
-.sbt-theme-unmute-container button:active {}
+.sbt-theme .foward-container button {
+}
 
-.sbt-theme-unmute-container p {}
+.sbt-theme .rewind-container p,
+.sbt-theme .foward-container p {
+}
 
-.sbt-theme-rewind-container,
-.sbt-theme-foward-container {}
-
-.sbt-theme-foward-container button {}
-
-.sbt-theme-rewind-container button:hover,
-.sbt-theme-foward-container button:hover,
-.sbt-theme-rewind-container button:active,
-.sbt-theme-foward-container button:active {}
-
-.sbt-theme-rewind-container p,
-.sbt-theme-foward-container p {}
-
-.sbt-theme-rewind-container button {}
+.sbt-theme .rewind-container button {
+}
 
 @media screen and (max-width: 660px) {
-  .sbt-theme-foward-container button {}
-  
-  .sbt-theme-rewind-container button {}
-  
-  .sbt-theme-foward-container button:hover,
-  .sbt-theme-rewind-container button:hover,
-  .sbt-theme-rewind-container button:active,
-  .sbt-theme-foward-container button:active {}
+  .sbt-theme .foward-container button {
+  }
+
+  .sbt-theme .rewind-container button {
+  }
+}
+
+.sbt-theme-unmute-container {
+}
+.sbt-theme-unmute-container button {
+}
+.sbt-theme-unmute-container button:hover,
+.sbt-theme-unmute-container button:active {
+}
+.sbt-theme-unmute-container p {
+}
+@media screen and (max-width: 1200px) {
+  .sbt-theme-unmute-container button {
+  }
+}
+@media screen and (max-width: 768px) {
+  .sbt-theme-unmute-container {
+  }
+}
+
+.sbt-theme:has(.shaka-mute-button[aria-label='Desativar som']) .sbt-theme-unmute-container,
+.sbt-theme:has(.shaka-mute-button[aria-label='Mute']) .sbt-theme-unmute-container {
+}
+
+.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .sbt-theme-unmute-container {
+}
+
+.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Ativar som'],
+.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Unmute'] {
+}
+
+.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Ativar som']::after,
+.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Unmute']::after {
+}
+
+@media screen and (max-width: 1200px) {
+  .sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Ativar som'],
+  .sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Unmute'] {
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Ativar som'],
+  .sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Unmute'] {
+  }
 }

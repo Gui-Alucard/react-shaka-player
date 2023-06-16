@@ -61,23 +61,25 @@ import { ReactPlayer } from '@sbt-lab/sbt-videos-web-player';
 function App() {
   const [mainPlayer, setMainPlayer] = useState(undefined);
   const [adsRequest, setAdsRequest] = useState(undefined);
+  const [adBlock, setAdBlock] = useState(false);
 
   useEffect(() => {
-    if (mainPlayer) {
+    if (window.google) {
       const ADS_CLASS = new google.ima.AdsRequest();
       // Acesse o link para mais infos sobre o IMA SDK
       // https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/reference/js/google.ima.AdsRequest?hl=pt-br
-      ADS_CLASS.setContinuousPlayback(true);
-      ADS_CLASS.setAdWillAutoPlay(true);
-      ADS_CLASS.setAdWillPlayMuted(false);
-      ADS_CLASS.forceNonLinearFullSlot = true;
-      // Aqui é passado a Tag Url do ad. Normalmente VAST para Streaming e VMAP para VoD
-      ADS_CLASS.adTagUrl = VAST;
       setAdsRequest(ADS_CLASS);
+      setAdBlock(false);
+      return;
     }
-  }, [mainPlayer]);
+    return setAdBlock(true);
+  }, []);
 
-  return <ReactPlayer ads={adsRequest} superConfig="STREAMING" onLoad={(player) => setMainPlayer(player)} src={'https://yourvideo.mpd'} />;
+  return !adsRequest || adBlock ? (
+    <Loader />
+  ) : (
+    <ReactPlayer adsRequest={adsRequest} adsTagUrl={'https://vid.ads.com/vmap'} superConfig="STREAMING" onLoad={(player) => setMainPlayer(player)} src={'https://yourvideo.mpd'} />
+  );
 }
 ```
 
@@ -93,24 +95,35 @@ import { ReactPlayer, UnmuteButton } from '@sbt-lab/sbt-videos-web-player';
 function App() {
   const [mainPlayer, setMainPlayer] = useState(undefined);
   const [adsRequest, setAdsRequest] = useState(undefined);
+  const [adBlock, setAdBlock] = useState(false);
+  const [isLoading, setIsLoading] = useState(true)
   const [showControls, setShowControls] = useState(true);
   const [adsControls, setAdsControls] = useState(false);
-  const [playMuted, setPlayMuted] = useState(false);
+  const [muted, setMuted] = useState(false);
 
   useEffect(() => {
-    if (mainPlayer) {
+    if (window.google) {
       const ADS_CLASS = new google.ima.AdsRequest();
-      // https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/reference/js/google.ima.AdsRequest?hl=pt-br
       // Acesse o link para mais infos sobre o IMA SDK
-      ADS_CLASS.setContinuousPlayback(true);
-      ADS_CLASS.setAdWillAutoPlay(true);
-      ADS_CLASS.setAdWillPlayMuted(false);
-      ADS_CLASS.forceNonLinearFullSlot = true;
-      // Aqui é passado a Tag Url do ad. Normalmente VAST para Streaming e VMAP para VoD
-      ADS_CLASS.adTagUrl = VMAP;
+      // https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/reference/js/google.ima.AdsRequest?hl=pt-br
       setAdsRequest(ADS_CLASS);
+      setAdBlock(false);
+      return;
     }
-  }, [mainPlayer]);
+    return setAdBlock(true);
+  }, []);
+
+    useEffect(() => {
+    let time
+    if (!adsRequest) {
+      setIsLoading(true)
+      time = setInterval(() => {
+        setIsLoading(false)
+      }, 4000)
+      return () => clearInterval(time)
+    }
+    return setIsLoading(false)
+  }, [adsRequest])
 
   const handleShakaControls = () => {
     const element = document.getElementsByClassName('shaka-controls-container');
@@ -121,42 +134,55 @@ function App() {
   };
 
   const handleUnmute = useCallback(() => {
+    setMuted(false);
     if (mainPlayer.videoElement) {
       mainPlayer.videoElement.muted = false;
-      setPlayMuted(false);
     }
   }, [mainPlayer]);
 
-  const handleFowardRewind = useCallback(
-    (label) => {
-      if (mainPlayer.videoElement && label === 'foward') {
-        mainPlayer.videoElement.currentTime = Math.floor(mainPlayer.videoElement.currentTime) + 10;
-        setCurrentTime(mainPlayer.videoElement.currentTime + 10);
-      } else if (mainPlayer.videoElement && label === 'rewind') {
-        mainPlayer.videoElement.currentTime = Math.floor(mainPlayer.videoElement.currentTime) - 10;
-        setCurrentTime(mainPlayer.videoElement.currentTime - 10);
-      }
-    },
-    [mainPlayer]
-  );
+  const handleFowardRewind = (label) => {
+    if (mainPlayer.videoElement && label === 'foward') {
+      mainPlayer.videoElement.currentTime = Math.floor(mainPlayer.videoElement.currentTime) + 10;
+    } else if (mainPlayer.videoElement && label === 'rewind') {
+      mainPlayer.videoElement.currentTime = Math.floor(mainPlayer.videoElement.currentTime) - 10;
+    }
+  };
 
-  return (
+  return isLoading ? (
+    <PageLoader />
+  ) : (
     <div className="App">
       <div className="App-main">
-        <ReactPlayer
-          ads={adsRequest}
-          superConfig="VOD"
-          src={'https://yourvideo.mpd'}
-          onTimeUpdate={handleShakaControls}
-          startTime={stopped_at ? stopped_at : 0}
-          onLoad={(player) => setMainPlayer(player)}
-          onFoward={() => handleFowardRewind('foward')}
-          onRewind={() => handleFowardRewind('rewind')}
-        />
-        {!!playMuted && <UnmuteButton label="Ativar som" onClick={handleUnmute} />}
+        {!adsRequest || adBlock ? (
+          <CardContainer>
+            <CardTitleError>ops!</CardTitleError>
+            <CardDescriptionError>Desative seu bloqueador de anúncios para assistir aos canais.</CardDescriptionError>
+            <ButtonReload onClick={() => window.location.reload()}>
+              <Icon mt={6} color="neutral.n400" variant="reload" width={24} height={24} />
+              <span>tentar novamente</span>
+            </ButtonReload>
+          </CardContainer>
+        ) : (
+          <ReactPlayer
+            adsRequest={adsRequest}
+            adsTagUrl={'https://vid.ads.com/vast'}
+            superConfig="VOD"
+            src={'https://yourvideo.mpd'}
+            onTimeUpdate={handleShakaControls}
+            startTime={stopped_at ? stopped_at : 0}
+            onLoad={(player) => setMainPlayer(player)}
+            onFoward={!adsControls && showControls ? () => handleFowardRewind('foward') : null}
+            onRewind={!adsControls && showControls ? () => handleFowardRewind('rewind') : null}
+            unmute={muted ? { p: 'ativar som', onUnmute: () => handleUnmute() } : null}
+            autoPlay={true}
+            muted={true}
+          >
+            <ChildrenToIncludeIntoFullscreen>
+          </ReactPlayer>
+        )}
       </div>
     </div>
-  );
+  )
 }
 ```
 
@@ -179,23 +205,30 @@ function App() {
 
 Essas são as props principais do componente:
 
-| Props           | Optional | Description                                                                                                                                                                                                                                        | Type                            |
-| --------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| src             | Não      | MPD ou HLS para reprodução.                                                                                                                                                                                                                        | string                          |
-| ads             | Não      | Responsável por receber AdsRequest do `Google IMA SDK`. Referência: [Google IMA SDK][].                                                                                                                                                            | {google.ima.AdsRequest} => func |
-| className       | Sim      | string do nome de classe de sobreposição da interface do usuário.                                                                                                                                                                                  | string                          |
-| startTime       | Sim      | Define onde o conteúdo deve começar a ser reproduzido.                                                                                                                                                                                             | number                          |
-| label           | Sim      | Define o espaço reservado para botões personalizados.                                                                                                                                                                                              | boolean                         |
-| superConfig     | Sim      | As configurações especiais para Streaming ou VOD. Iremos adicionar mais `superConfig` em breve.                                                                                                                                                    | string ("STREAMING" / "VOD")    |
-| config          | Sim      | Altera as configurações do Shaka Player. Referência: [shaka.extern.PlayerConfiguration][]. Esta configuração substituirá `superConfig`.                                                                                                            | object: superConfig.player      |
-| uiConfig        | Sim      | Altera as definições de configuração dos elementos da interface do usuário. Referência: [shaka.extern.UIConfiguration][]. Esta configuração substituirá `superConfig`.                                                                             | object: superConfig.ui          |
-| onLoad          | Sim      | Captura `Shaka.Player`, `Shaka.ui.Overlay` e `HTMLVideoElement` para o uso manual ou melhoria da configuração. Ver: [PlayerRefs][].                                                                                                                | object: PlayerRefs => func      |
-| onClick         | Sim      | Captura clique em `Events` para os botões Ativar som, Avançar e Retroceder. Referência: [OnClick Events][].                                                                                                                                        | Event => func                   |
-| onBuffering     | Sim      | Captura o status `onBuffering` durante a reprodução.                                                                                                                                                                                               | bool => func                    |
-| onPlayerError   | Sim      | Captura `error` durante a reprodução. Referência: [Shaka.Player.ErrorEvent][].                                                                                                                                                                     | {Shaka.extern.Error} => func    |
-| onStatsChanged  | Sim      | Captura `stats` durante a reprodução do vídeo, incluindo currentTime (posição de busca atual) e currentEndTime (duração do vídeo se VOD) (em segundos) do elemento do reprodutor de mídia [`IStats`]. Referência: [IStats & Shaka.extern.Stats][]. | {Shaka.extern.Stats} => func    |
-| onTimeUpdate    | Sim      | Captura `time` durante a reprodução do vídeo. Normalmente usado para controlar o fade dos controles shaka. Referência: [MDN Events][].                                                                                                             | event => func                   |
-| onUiInteraction | Sim      | Captura `UI Interactions Events` quando reproduzindo, pausado, fechando, procurando (seek), terminando o vídeo. Referência: [MDN Events][].                                                                                                        | event => func                   |
+| Props           | Optional | Description                                                                                                                                                                                                                                        | Type                               |
+| --------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| src             | Não      | MPD ou HLS para reprodução.                                                                                                                                                                                                                        | string                             |
+| adsRequest      | Sim      | Responsável por receber AdsRequest do `Google IMA SDK`. Referência: [Google IMA SDK][].                                                                                                                                                            | {google.ima.AdsRequest} => func    |
+| adsTagUrl       | Sim      | Responsável por receber o assetUri com o conteúdo do Advertisement a ser reproduzido pelo adsRequest.                                                                                                                                              | string                             |
+| className       | Sim      | string do nome de classe de sobreposição da interface do usuário.                                                                                                                                                                                  | string                             |
+| children        | Sim      | Qualquer item ou componente - comumente usado para controles externos aparecerem durante o fullscreen.                                                                                                                                             | any                                |
+| startTime       | Sim      | Define onde o conteúdo deve começar a ser reproduzido.                                                                                                                                                                                             | number                             |
+| label           | Sim      | Define o espaço reservado para botões personalizados.                                                                                                                                                                                              | boolean                            |
+| autoplay        | Sim      | Define se o conteúdo iniciará automaticamente.                                                                                                                                                                                                     | boolean                            |
+| muted           | Sim      | Define se o conteúdo iniciará com ou sem audio.                                                                                                                                                                                                    | boolean                            |
+| superConfig     | Sim      | As configurações especiais para Streaming ou VOD. Iremos adicionar mais `superConfig` em breve.                                                                                                                                                    | string ("STREAMING" / "VOD")       |
+| config          | Sim      | Altera as configurações do Shaka Player. Referência: [shaka.extern.PlayerConfiguration][]. Esta configuração substituirá `superConfig`.                                                                                                            | object: superConfig.player         |
+| uiConfig        | Sim      | Altera as definições de configuração dos elementos da interface do usuário. Referência: [shaka.extern.UIConfiguration][]. Esta configuração substituirá `superConfig`.                                                                             | object: superConfig.ui             |
+| onLoad          | Sim      | Captura `Shaka.Player`, `Shaka.ui.Overlay` e `HTMLVideoElement` para o uso manual ou melhoria da configuração. Ver: [PlayerRefs][].                                                                                                                | object: PlayerRefs => func         |
+| onClick         | Sim      | Captura clique em `Events` para os botões Ativar som, Avançar e Retroceder. Referência: [OnClick Events][].                                                                                                                                        | Event => func                      |
+| onBuffering     | Sim      | Captura o status `onBuffering` durante a reprodução.                                                                                                                                                                                               | bool => func                       |
+| onPlayerError   | Sim      | Captura `error` durante a reprodução. Referência: [Shaka.Player.ErrorEvent][].                                                                                                                                                                     | {Shaka.extern.Error} => func       |
+| onStatsChanged  | Sim      | Captura `stats` durante a reprodução do vídeo, incluindo currentTime (posição de busca atual) e currentEndTime (duração do vídeo se VOD) (em segundos) do elemento do reprodutor de mídia [`IStats`]. Referência: [IStats & Shaka.extern.Stats][]. | {Shaka.extern.Stats} => func       |
+| onTimeUpdate    | Sim      | Captura `time` durante a reprodução do vídeo. Normalmente usado para controlar o fade dos controles shaka. Referência: [MDN Events][].                                                                                                             | event => func                      |
+| onUiInteraction | Sim      | Captura `UI Interactions Events` quando reproduzindo, pausado, fechando, procurando (seek), terminando o vídeo. Referência: [MDN Events][].                                                                                                        | event => func                      |
+| onFoward        | Sim      | Método responsável por mostrar o botão de avançar 10 segundo o conteúdo.                                                                                                                                                                           | event => func                      |
+| onRewind        | Sim      | Método responsável por mostrar o botão de retroceder 10 segundo o conteúdo.                                                                                                                                                                        | event => func                      |
+| unmute          | Sim      | Método responsável por mostrar o botão de desmutar o conteúdo.                                                                                                                                                                                     | object: {p: string onUnmute: func} |
 
 [shaka.extern.playerconfiguration]: https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.PlayerConfiguration
 [shaka.extern.uiconfiguration]: https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.UIConfiguration
@@ -232,7 +265,7 @@ _Por gentileza, garanta que as mudanças sejam acompanhadas de **testes** apropr
 
 ## Styling
 
-Se for necessária a mudança direta de uma estilização, ou o não uso das props `superConfig` ou `uiConfig`, pode-se conferir todas as classes modificáveis de forma resumida no arquivo
+Se for necessária a mudança direta de uma estilização, ou o não uso das props `superConfig`, pode-se conferir todas as classes modificáveis de forma resumida no arquivo
 [CSS-Classes](https://github.com/sbt-lab/sbt-videos-web-player/blob/main/CSS-Classes). Basta copiar o conteúdo e colar no .css do projeto a ser usado.
 
 **Observação:** _Pretendemos comentar cada classe para fácil identificação de suas responsabilidades!_
