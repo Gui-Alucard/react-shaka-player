@@ -1,6 +1,6 @@
 {
   "name": "@sbt-lab/sbt-videos-web-player",
-  "version": "1.7.122",
+  "version": "1.7.123",
   "description": "A component library to customize media player for Brazilian Television System (SBT).",
   "main": "dist/cjs/index.js",
   "module": "dist/index.js",

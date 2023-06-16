@@ -1569,14 +1569,14 @@
     display: none;
     height: 4rem;
     width: 4rem;
-    top: 7rem !important;
+    top: 5rem !important;
   }
 
   .sbt-theme-streaming .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Reproduzir'],
   .sbt-theme-streaming .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Play'] {
     height: 4rem;
     width: 4rem;
-    top: 7rem !important;
+    top: 5rem !important;
   }
 }
 .sbt-theme-streaming .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Desativar som'],
