@@ -77,7 +77,7 @@ const useUILIstener = (
         mediaElement.addEventListener("volumechange", _onUiInteraction);
         mediaElement.addEventListener("timeupdate", _onTimeUpdate);
       } catch (error) {
-        console.log('shaka_ui_listener_catch_error', { shaka_error: error });
+        console.log('[shaka_ui_listener_catch_error]', { shaka_error: error });
         // @ts-ignore 
         window.postMessage(JSON.stringify({ event: 'error', data: { shaka_error: error } }))
       }
