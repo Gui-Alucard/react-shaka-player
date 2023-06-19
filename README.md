@@ -1,5 +1,5 @@
 <h2 align="center">
-  <a href="https://github.com/Gui-Alucard/react-shaka-player" title="GitHub Page for a Video-Component Package with Shaka Player">
+  <a href="https://github.com/Gui-Alucard/react-shaka-player" title="GitHub Page for a Video Component Package with Shaka Player">
     <img
       src="https://github.com/Gui-Alucard/react-shaka-player/blob/main/public/assets/pack-man-128.png?raw=true"
       style="display: block; margin-left: auto; margin-right: auto; width: 80px"
