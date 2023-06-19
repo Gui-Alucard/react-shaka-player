@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Player Should render className container correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Player Should render container className and playerClassName container correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Player Should render correctly 1`] = `
+<div
+  className="default-theme"
+  style={
+    {
+      "alignItems": "center",
+      "cursor": "none",
+      "display": "flex",
+      "justifyContent": "center",
+      "maxHeight": "100vh",
+      "maxWidth": "100%",
+      "overflow": "hidden",
+      "width": "100%",
+    }
+  }
+>
+  <video
+    autoPlay={false}
+    muted={false}
+    style={
+      {
+        "alignItems": "center",
+        "cursor": "none",
+        "display": "flex",
+        "justifyContent": "center",
+        "maxHeight": "100vh",
+        "maxWidth": "100%",
+        "overflow": "hidden",
+        "width": "100%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Player Should render playerClassName container correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Player Should renders foward button correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Player Should renders rewind button correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Player Should renders source[manifest] string correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Player Should renders the player muted correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Player Should renders unmute button correctly 1`] = `ShallowWrapper {}`;
