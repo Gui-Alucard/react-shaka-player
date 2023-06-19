@@ -1,18 +1,18 @@
 <h2 align="center">
   <a href="https://github.com/Gui-Alucard/react-shaka-player" title="GitHub Page for a Video-Component Package with Shaka Player">
     <img
-      src="public/assets/pack-man-128.png"
+      src="https://github.com/Gui-Alucard/react-shaka-player/blob/main/public/assets/pack-man-128.png?raw=true"
       style="display: block; margin-left: auto; margin-right: auto; width: 80px"
     />
   </a>
   <b><span style="color: #9B5DE5">Rea</span><span style="color:#F15BB5">ct-</span><span style="color:#FEE440">Sha</span><span style="color:#00BBF9">ka-</span><span style="color:#00F5D4">Play</span><span>er</span></b>
 </h2>
 
-`React-Shaka-Player` é uma biblioteca pública em TypeScript para mídias adaptativas. Ela reproduz formatos de mídias adaptativas (como [DASH][] e [HLS][]) no browser, sem usar plugins ou Flash. Ao
+`React-Shaka-Player` é um framework público em TypeScript para mídias adaptativas. Ele reproduz formatos de mídias adaptativas (como [DASH][] e [HLS][]) no browser, sem usar plugins ou Flash. Ao
 invés, o `React-Shaka-Player` usa a biblioteca JavaScript de código-aberto [Shaka Player][].
 
 Nosso principal objetivo é facilitar, na medida do possível, a transmissão de bitrate videos e audios adaptativos usando as melhores propriedades e métodos que a biblioteca [Shaka Player][] oferece.
-Nos esforçamos para manter a biblioteca leve, simples e livre de outras dependencias. Tudo o que você precisa para construir seu código já está na fonte.
+Nos esforçamos para manter o framework leve, simples e livre de outras dependencias. Tudo o que você precisa para construir seu código já está na fonte.
 
 ![npm](https://img.shields.io/npm/v/shaka-player?label=shaka-player)
 
@@ -280,7 +280,7 @@ Se for necessária a mudança direta de uma estilização, ou o não uso das pro
 
 ## Licença
 
-[Licença](https://github.com/Gui-Alucard/react-shaka-player/blob/ef38c40458e7f84856236c2384b3ec1431e47f00/LICENSE)
+[Licença](https://github.com/Gui-Alucard/react-shaka-player/blob/main/LICENSE)
 
 [Licença Shaka-Player](https://github.com/shaka-project/shaka-player/blob/main/LICENSE)
 
