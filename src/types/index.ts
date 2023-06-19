@@ -103,6 +103,32 @@ export interface IAdsRequest {
   setContinuousPlayback?(continuousPlayback: boolean): void;
 }
 
+export interface IPostMessages {
+  bufferingTime: number;
+  completionPercent: number;
+  corruptedFrames: number;
+  decodedFrames: number;
+  drmTimeSeconds: number;
+  droppedFrames: number;
+  estimatedBandwidth: number;
+  gapsJumped: number;
+  height: number;
+  licenseTime: number;
+  liveLatency: number;
+  loadLatency: number;
+  manifestTimeSeconds: number;
+  maxSegmentDuration: number;
+  pauseTime: number;
+  playTime: number;
+  stallsDetected: number;
+  stateHistory: shaka.extern.StateChange[];
+  streamBandwidth: number;
+  switchHistory: shaka.extern.TrackChoice[];
+  width: number;
+  mediaCurrentTime: number;
+  mediaEndTime: number;
+}
+
 export interface IPlayerProps {
   children?: any;
   className?: string;
@@ -151,6 +177,7 @@ export interface IPlayerProps {
   onStatsChange?(stats: IStats): void | undefined;
   onTimeUpdate?(event?: Event): void | undefined;
   onUiInteraction?(event?: Event): void | undefined;
+  withPostMessage?: boolean;
   playerClassName?: string;
   src?: string;
   startTime?: number;

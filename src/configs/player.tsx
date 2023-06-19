@@ -16,6 +16,7 @@ const vodConfig = {
       'volume',
       'time_and_duration',
       'spacer',
+      'picture_in_picture',
       'fullscreen',
       'quality'
     ],
@@ -25,7 +26,7 @@ const vodConfig = {
     },
     seekBarColors: {
       base: '#ffffff4c',
-      buffered: '#ffffff4c',
+      buffered: '#ffffff8f',
       played: '#e93035',
     }
   },

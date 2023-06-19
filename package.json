@@ -1,7 +1,7 @@
 {
-  "name": "@sbt-lab/sbt-videos-web-player",
-  "version": "1.7.125",
-  "description": "A component library to customize media player for Brazilian Television System (SBT).",
+  "name": "react-shaka-player",
+  "version": "1.0.0",
+  "description": "A component library to customize media with Google Shaka Player",
   "main": "dist/cjs/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,16 +17,16 @@
     "test": "jest"
   },
   "publishConfig": {
-    "access": "restricted",
+    "access": "public",
     "registry": "https://npm.pkg.github.com/",
-    "name": "@sbt-lab/sbt-videos-web-player"
+    "name": "react-shaka-player"
   },
   "author": "g-silva-oliveira <g.silva.oliveira@accenture.com> <guilhermeanv7822@gmail.com>",
   "license": "SEE LICENSE IN <LICENSE>",
   "private": false,
-  "repository": "https://github.com/sbt-lab/sbt-videos-web-player",
-  "homepage": "https://www.sbt.com.br/",
-  "bugs": "https://github.com/sbt-lab/sbt-videos-web-player/issues",
+  "repository": "https://github.com/Gui-Alucard/react-shaka-player",
+  "homepage": "https://github.com/Gui-Alucard/",
+  "bugs": "https://github.com/Gui-Alucard/react-shaka-player/issues",
   "contributors": [
     "g-silva-oliveira <g.silva.oliveira@accenture.com> <guilhermeanv7822@gmail.com>"
   ],
@@ -85,13 +85,18 @@
     "verbose": true
   },
   "keywords": [
-    "sbt",
-    "player",
     "video",
+    "react",
+    "player",
     "shaka",
-    "web",
-    "streaming",
+    "google",
+    "vast",
+    "vmap",
+    "adsmanager",
+    "advertisement",
     "vod",
-    "live"
+    "live",
+    "streaming",
+    "web"
   ]
 }

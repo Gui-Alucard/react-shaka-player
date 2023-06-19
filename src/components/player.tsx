@@ -3,7 +3,7 @@ import * as Hooks from '../hooks';
 
 import { IPlayerProps } from '../types';
 
-const ReactPlayer = (props: IPlayerProps) => {
+const ReactShakaPlayer = (props: IPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const uiContainerRef = useRef<HTMLDivElement | null>(null);
 
@@ -35,6 +35,7 @@ const ReactPlayer = (props: IPlayerProps) => {
     unmute,
     muted,
     autoplay,
+    withPostMessage,
     ...newProps
   } = props;
 
@@ -49,7 +50,7 @@ const ReactPlayer = (props: IPlayerProps) => {
     justifyContent: "center",
   };
 
-  const unmuteClassName = superConfig !== 'STREAMING' ? 'sbt-theme-unmute-container' : 'sbt-theme-streaming-unmute-container';
+  const unmuteClassName = superConfig !== 'STREAMING' ? 'default-theme-unmute-container' : 'default-theme-streaming-unmute-container';
 
   return (
     <div style={style} ref={uiContainerRef} className={overlayClassName}>
@@ -83,4 +84,4 @@ const ReactPlayer = (props: IPlayerProps) => {
   )
 };
 
-export { ReactPlayer };
+export { ReactShakaPlayer };

@@ -61,11 +61,8 @@ const usePlayer = (
           const stringParam = {
             event: 'player_stats',
             data: {
-              currentTime: mediaCurrentTime,
-              stopped_at: mediaCurrentTime,
-              duration: mediaEndTime,
-              videoTotalTime: mediaEndTime,
-              liveIncrement: mediaCurrentTime,
+              mediaCurrentTime,
+              mediaEndTime,
               ...stats_
             }
           };

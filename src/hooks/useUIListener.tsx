@@ -1,7 +1,7 @@
 import { Player as ShakaPlayer, ui as ShakaUI } from "shaka-player/dist/shaka-player.ui";
 import { useEffect } from "react";
 
-import { IPlayerProps } from "../types";
+import { IPlayerProps, IPostMessages } from "../types";
 
 const useUILIstener = (
   ui: ShakaUI.Overlay,
@@ -9,6 +9,40 @@ const useUILIstener = (
   props?: IPlayerProps
 ) => {
   useEffect(() => {
+    const handleSwitchPostMessages = (event: Event, data: IPostMessages) => {
+      switch (event.type) {
+        case 'seeked':
+          // @ts-ignore  
+          window.postMessage(JSON.stringify({ event: 'update_watch_time', data }))
+          break
+        case 'volumechange':
+          // @ts-ignore  
+          window.postMessage(JSON.stringify({ event: 'shaka_volume_change', data: null }))
+          break
+        case 'timeupdate':
+          // @ts-ignore
+          window.postMessage(JSON.stringify({ event: 'change_current_time', data }))
+          break
+        case 'play':
+          // @ts-ignore  
+          window.postMessage(JSON.stringify({ event: 'play', data }))
+          break
+        case 'pause':
+          // @ts-ignore  
+          window.postMessage(JSON.stringify({ event: 'pause', data }))
+          break
+        case 'ended':
+          // @ts-ignore  
+          window.postMessage(JSON.stringify({ event: 'exit', data }))
+          break
+        case 'error':
+          // @ts-ignore  
+          window.postMessage(JSON.stringify({ event: 'error', data }))
+          console.log('[shaka_ui_listener_event_error]', event);
+          break
+      }
+    }
+
     if (player && ui) {
       const mediaElement = player.getMediaElement();
       const stats_ = player.getStats();
@@ -18,53 +52,14 @@ const useUILIstener = (
       const additionalStats = { mediaCurrentTime, mediaEndTime };
       const data = {
         ...stats_,
-        ...additionalStats,
-        currentTime: additionalStats.mediaCurrentTime,
-        stopped_at: additionalStats.mediaCurrentTime,
-        liveIncrement: additionalStats.mediaCurrentTime,
-        duration: additionalStats.mediaEndTime,
-        videoTotalTime: additionalStats.mediaEndTime
+        ...additionalStats
       };
       const _onTimeUpdate = (event: Event) => {
         props.onTimeUpdate && props.onTimeUpdate(event);
       };
       const _onUiInteraction = (event: Event) => {
         props.onUiInteraction && props.onUiInteraction(event);
-        switch (event.type) {
-          case 'seeked':
-            // @ts-ignore  
-            window.postMessage(JSON.stringify({ event: 'update_watch_time', data }))
-            // @ts-ignore
-            window.postMessage(JSON.stringify({ event: 'change_current_time', data }))
-            break
-          case 'volumechange':
-            // @ts-ignore  
-            window.postMessage(JSON.stringify({ event: 'shaka_volume_change', data: null }))
-            break
-          case 'timeupdate':
-            // @ts-ignore  
-            window.postMessage(JSON.stringify({ event: 'update_watch_time', data }))
-            // @ts-ignore
-            window.postMessage(JSON.stringify({ event: 'change_current_time', data }))
-            break
-          case 'play':
-            // @ts-ignore  
-            window.postMessage(JSON.stringify({ event: 'play_video', data }))
-            break
-          case 'pause':
-            // @ts-ignore  
-            window.postMessage(JSON.stringify({ event: 'pause_video', data }))
-            break
-          case 'ended':
-            // @ts-ignore  
-            window.postMessage(JSON.stringify({ event: 'exit', data }))
-            break
-          case 'error':
-            // @ts-ignore  
-            window.postMessage(JSON.stringify({ event: 'error', data }))
-            console.log('[shaka_ui_listener_event_error]', event);
-            break
-        }
+        props.withPostMessage && handleSwitchPostMessages(event, data)
       };
 
       try {

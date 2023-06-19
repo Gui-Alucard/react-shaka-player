@@ -1,15 +1,15 @@
 <h2 align="center">
-  <a href="https://www.sbt.com.br/" title="SBT Sistema Brasileiro de Televisão">
+  <a href="https://github.com/Gui-Alucard/react-shaka-player" title="GitHub Page for a Video-Component Package with Shaka Player">
     <img
-      src="https://www.sbt.com.br/assets/images/logo-sbt.webp"
+      src="public/assets/pack-man-128.png"
       style="display: block; margin-left: auto; margin-right: auto; width: 80px"
     />
   </a>
-  <b>Sbt Videos Web Player</b>
+  <b><span style="color: #9B5DE5">Rea</span><span style="color:#F15BB5">ct-</span><span style="color:#FEE440">Sha</span><span style="color:#00BBF9">ka-</span><span style="color:#00F5D4">Play</span><span>er</span></b>
 </h2>
 
-`Sbt Videos Web Player` é uma biblioteca privada em TypeScript para mídias adaptativas. Ela reproduz formatos de mídias adaptativas (como [DASH][] e [HLS][]) no browser, sem usar plugins ou Flash. Ao
-invés, o `Sbt Videos Web Player` usa a biblioteca JavaScript de código-aberto [Shaka Player][].
+`React-Shaka-Player` é uma biblioteca pública em TypeScript para mídias adaptativas. Ela reproduz formatos de mídias adaptativas (como [DASH][] e [HLS][]) no browser, sem usar plugins ou Flash. Ao
+invés, o `React-Shaka-Player` usa a biblioteca JavaScript de código-aberto [Shaka Player][].
 
 Nosso principal objetivo é facilitar, na medida do possível, a transmissão de bitrate videos e audios adaptativos usando as melhores propriedades e métodos que a biblioteca [Shaka Player][] oferece.
 Nos esforçamos para manter a biblioteca leve, simples e livre de outras dependencias. Tudo o que você precisa para construir seu código já está na fonte.
@@ -28,25 +28,25 @@ Para a instalação ser permitida, crie um arquivo `.npmrc` na raiz do projeto.
 
 ```properties
 //npm.pkg.github.com/:_authToken=SEU_TOKEN_PESSOAL
-@sbt-lab:registry=https://npm.pkg.github.com
+@react-shaka-player:registry=https://npm.pkg.github.com
 ```
 
-Em seguida, use o gerenciador de pacotes [npm](https://www.npmjs.com/) / [yarn](https://yarnpkg.com/) ou via package.json para instalar o `sbt-videos-web-player`.
+Em seguida, use o gerenciador de pacotes [npm](https://www.npmjs.com/) / [yarn](https://yarnpkg.com/) ou via package.json para instalar o `react-shaka-player`.
 
 🖥️ Instalação a partir de linha de comando:
 
 ```bash
-yarn add @sbt-lab/sbt-videos-web-player@x.x.x
+yarn add react-shaka-player
 
 ou
 
-npm install @sbt-lab/sbt-videos-web-player@x.x.x
+npm install react-shaka-player
 ```
 
 📝 Instalação via package.json
 
 ```json
-"@sbt-lab/sbt-videos-web-player": "x.x.x"
+"react-shaka-player": "x.x.x"
 ```
 
 ## Modo de uso básico
@@ -55,8 +55,8 @@ npm install @sbt-lab/sbt-videos-web-player@x.x.x
 // import do css. Agora temos a estilização customizada do ui.css
 // NextJs tem esse import de css no _app
 import React, { useState, useEffect } from 'react';
-import '@sbt-lab/sbt-videos-web-player/dist/ui.css';
-import { ReactPlayer } from '@sbt-lab/sbt-videos-web-player';
+import 'react-shaka-player/dist/ui.css';
+import { ReactShakaPlayer } from 'react-shaka-player';
 
 function App() {
   const [mainPlayer, setMainPlayer] = useState(undefined);
@@ -78,7 +78,7 @@ function App() {
   return !adsRequest || adBlock ? (
     <Loader />
   ) : (
-    <ReactPlayer adsRequest={adsRequest} adsTagUrl={'https://vid.ads.com/vmap'} superConfig="STREAMING" onLoad={(player) => setMainPlayer(player)} src={'https://yourvideo.mpd'} />
+    <ReactShakaPlayer adsRequest={adsRequest} adsTagUrl={'https://vid.ads.com/vmap'} superConfig="STREAMING" onLoad={(player) => setMainPlayer(player)} src={'https://yourvideo.mpd'} />
   );
 }
 ```
@@ -89,8 +89,8 @@ function App() {
 // import do css. Agora temos a estilização customizada do ui.css
 // NextJs tem esse import de css no _app
 import React, { useState, useEffect, useCallback } from 'react';
-import '@sbt-lab/sbt-videos-web-player/dist/ui.css';
-import { ReactPlayer, UnmuteButton } from '@sbt-lab/sbt-videos-web-player';
+import 'react-shaka-player/dist/ui.css';
+import { ReactShakaPlayer } from 'react-shaka-player';
 
 function App() {
   const [mainPlayer, setMainPlayer] = useState(undefined);
@@ -156,14 +156,14 @@ function App() {
         {!adsRequest || adBlock ? (
           <CardContainer>
             <CardTitleError>ops!</CardTitleError>
-            <CardDescriptionError>Desative seu bloqueador de anúncios para assistir aos canais.</CardDescriptionError>
+            <CardDescriptionError>Desative seu bloqueador de anúncios para assistir o conteúdo.</CardDescriptionError>
             <ButtonReload onClick={() => window.location.reload()}>
               <Icon mt={6} color="neutral.n400" variant="reload" width={24} height={24} />
               <span>tentar novamente</span>
             </ButtonReload>
           </CardContainer>
         ) : (
-          <ReactPlayer
+          <ReactShakaPlayer
             adsRequest={adsRequest}
             adsTagUrl={'https://vid.ads.com/vast'}
             superConfig="VOD"
@@ -185,10 +185,6 @@ function App() {
   )
 }
 ```
-
-### Modo de uso complexo - visite [@sbt-lab/sbt-videos-frontend][]
-
-[@sbt-lab/sbt-videos-frontend]: https://github.com/sbt-lab/sbt-videos-frontend
 
 ---
 
@@ -229,6 +225,7 @@ Essas são as props principais do componente:
 | onFoward        | Sim      | Método responsável por mostrar o botão de avançar 10 segundo o conteúdo.                                                                                                                                                                           | event => func                      |
 | onRewind        | Sim      | Método responsável por mostrar o botão de retroceder 10 segundo o conteúdo.                                                                                                                                                                        | event => func                      |
 | unmute          | Sim      | Método responsável por mostrar o botão de desmutar o conteúdo.                                                                                                                                                                                     | object: {p: string onUnmute: func} |
+| withPostMessage | Sim      | Define se a UIListener enviará eventos via postMessage ou não.                                                                                                                                                                                     | boolean                            |
 
 [shaka.extern.playerconfiguration]: https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.PlayerConfiguration
 [shaka.extern.uiconfiguration]: https://shaka-player-demo.appspot.com/docs/api/shaka.extern.html#.UIConfiguration
@@ -251,7 +248,7 @@ Essas são as props principais do componente:
 - [Shaka Tutorials](https://shaka-player-demo.appspot.com/docs/api/tutorial-welcome.html)
 - [Shaka CSS - ClassNames](https://github.com/shaka-project/shaka-player/tree/main/ui/less)
 - [Google IMA SDK](https://developers.google.com/interactive-media-ads/docs/sdks/html5/)
-- Problemas e Bugs [Issues](https://github.com/sbt-lab/sbt-videos-web-player/issues)
+- Problemas e Bugs [Issues](https://github.com/Gui-Alucard/react-shaka-player/issues)
 
 ---
 
@@ -265,13 +262,26 @@ _Por gentileza, garanta que as mudanças sejam acompanhadas de **testes** apropr
 
 ## Styling
 
-Se for necessária a mudança direta de uma estilização, ou o não uso das props `superConfig`, pode-se conferir todas as classes modificáveis de forma resumida no arquivo
-[CSS-Classes](https://github.com/sbt-lab/sbt-videos-web-player/blob/main/CSS-Classes). Basta copiar o conteúdo e colar no .css do projeto a ser usado.
+Se for necessária a mudança direta de uma estilização, ou o não uso das props `superConfig`, pode-se conferir todas as classes\*\* que usamos de forma resumida no arquivo
+[CSS-Classes](https://github.com/Gui-Alucard/react-shaka-player/blob/main/CSS-Classes). Basta copiar o conteúdo e colar no .css do projeto a ser usado.
+
+<span style="color: #999">\*\*_podem haver mais_</span>
 
 **Observação:** _Pretendemos comentar cada classe para fácil identificação de suas responsabilidades!_
 
 ---
 
+## Doações
+
+- Guilherme Silva Oliveira
+- PIX: 10411373625
+
+---
+
 ## Licença
 
-[Licença SBT](https://github.com/sbt-lab/sbt-videos-web-player/blob/ef38c40458e7f84856236c2384b3ec1431e47f00/LICENSE)
+[Licença](https://github.com/Gui-Alucard/react-shaka-player/blob/ef38c40458e7f84856236c2384b3ec1431e47f00/LICENSE)
+
+[Licença Shaka-Player](https://github.com/shaka-project/shaka-player/blob/main/LICENSE)
+
+[Licença REACT](https://github.com/facebook/react/blob/main/LICENSE)

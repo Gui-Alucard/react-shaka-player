@@ -42,360 +42,360 @@
 .material-icons-outlined {
   font-family: 'Material Icons Outlined';
 }
-.sbt-theme .shaka-hidden {
+.default-theme .shaka-hidden {
 }
-.sbt-theme .shaka-controls-container[shown='true'] .show-when-controls-shown,
-.sbt-theme .shaka-controls-container[casting='true'] .show-when-controls-shown {
+.default-theme .shaka-controls-container[shown='true'] .show-when-controls-shown,
+.default-theme .shaka-controls-container[casting='true'] .show-when-controls-shown {
 }
-.sbt-theme .shaka-video-container:not([shaka-controls='true']) .hide-when-shaka-controls-disabled {
+.default-theme .shaka-video-container:not([shaka-controls='true']) .hide-when-shaka-controls-disabled {
 }
-.sbt-theme.shaka-video-container video {
+.default-theme.shaka-video-container video {
 }
-.sbt-theme .shaka-video-container .material-icons-round {
+.default-theme .shaka-video-container .material-icons-round {
 }
-.sbt-theme .shaka-video-container * {
+.default-theme .shaka-video-container * {
 }
-.sbt-theme .shaka-video-container:fullscreen,
-.sbt-theme .shaka-video-container:-webkit-full-screen,
-.sbt-theme .shaka-video-container:-moz-full-screen,
-.sbt-theme .shaka-video-container:-ms-fullscreen,
-.sbt-theme .fullscreen-container {
+.default-theme .shaka-video-container:fullscreen,
+.default-theme .shaka-video-container:-webkit-full-screen,
+.default-theme .shaka-video-container:-moz-full-screen,
+.default-theme .shaka-video-container:-ms-fullscreen,
+.default-theme .fullscreen-container {
 }
-.sbt-theme .shaka-video-container:fullscreen .shaka-text-container,
-.sbt-theme .shaka-video-container:-webkit-full-screen .shaka-text-container,
-.sbt-theme .shaka-video-container:-moz-full-screen .shaka-text-container,
-.sbt-theme .shaka-video-container:-ms-fullscreen .shaka-text-container,
-.sbt-theme .fullscreen-container .shaka-text-container {
+.default-theme .shaka-video-container:fullscreen .shaka-text-container,
+.default-theme .shaka-video-container:-webkit-full-screen .shaka-text-container,
+.default-theme .shaka-video-container:-moz-full-screen .shaka-text-container,
+.default-theme .shaka-video-container:-ms-fullscreen .shaka-text-container,
+.default-theme .fullscreen-container .shaka-text-container {
 }
-.sbt-theme .shaka-video {
+.default-theme .shaka-video {
 }
-.sbt-theme .shaka-controls-container {
+.default-theme .shaka-controls-container {
 }
-.sbt-theme .shaka-video-container:not([shaka-controls='true']) .shaka-controls-container {
+.default-theme .shaka-video-container:not([shaka-controls='true']) .shaka-controls-container {
 }
-.sbt-theme .shaka-controls-container * {
+.default-theme .shaka-controls-container * {
 }
-.sbt-theme .shaka-controls-container[casting='true'] {
+.default-theme .shaka-controls-container[casting='true'] {
 }
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-fullscreen-button {
+.default-theme .shaka-controls-container[casting='true'] .shaka-fullscreen-button {
 }
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Tela cheia'],
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Full screen'] {
+.default-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Tela cheia'],
+.default-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Full screen'] {
 }
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Sair do modo tela cheia'],
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Exit full screen'] {
+.default-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Sair do modo tela cheia'],
+.default-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Exit full screen'] {
 }
 @media screen and (max-width: 660px) {
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Tela cheia'],
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Full screen'],
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Sair do modo tela cheia'],
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Exit full screen'] {
+  .default-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Tela cheia'],
+  .default-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Full screen'],
+  .default-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Sair do modo tela cheia'],
+  .default-theme .material-icons-round.shaka-tooltip.shaka-fullscreen-button[aria-label='Exit full screen'] {
   }
 }
-.sbt-theme:has(.shaka-fullscreen-button[aria-label='Tela cheia']) .shaka-overflow-button.shaka-resolution-button.shaka-tooltip-status,
-.sbt-theme:has(.shaka-fullscreen-button[aria-label='Full screen']) .shaka-overflow-button.shaka-resolution-button.shaka-tooltip-status,
-.sbt-theme:has(.shaka-fullscreen-button[aria-label='Tela cheia']) .shaka-range-container.shaka-volume-bar-container,
-.sbt-theme:has(.shaka-fullscreen-button[aria-label='Full screen']) .shaka-range-container.shaka-volume-bar-container {
+.default-theme:has(.shaka-fullscreen-button[aria-label='Tela cheia']) .shaka-overflow-button.shaka-resolution-button.shaka-tooltip-status,
+.default-theme:has(.shaka-fullscreen-button[aria-label='Full screen']) .shaka-overflow-button.shaka-resolution-button.shaka-tooltip-status,
+.default-theme:has(.shaka-fullscreen-button[aria-label='Tela cheia']) .shaka-range-container.shaka-volume-bar-container,
+.default-theme:has(.shaka-fullscreen-button[aria-label='Full screen']) .shaka-range-container.shaka-volume-bar-container {
 }
 
-.sbt-theme .shaka-canvas-container {
+.default-theme .shaka-canvas-container {
 }
-.sbt-theme .shaka-bottom-controls {
+.default-theme .shaka-bottom-controls {
 }
-.sbt-theme .shaka-controls-button-panel {
+.default-theme .shaka-controls-button-panel {
 }
-.sbt-theme .shaka-controls-container[shown='true'] .shaka-controls-button-panel,
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-controls-button-panel {
+.default-theme .shaka-controls-container[shown='true'] .shaka-controls-button-panel,
+.default-theme .shaka-controls-container[casting='true'] .shaka-controls-button-panel {
 }
-.sbt-theme .shaka-controls-button-panel > * {
+.default-theme .shaka-controls-button-panel > * {
 }
-.sbt-theme .shaka-controls-button-panel .shaka-overflow-menu-only {
+.default-theme .shaka-controls-button-panel .shaka-overflow-menu-only {
 }
-.sbt-theme .shaka-play-button-container {
+.default-theme .shaka-play-button-container {
 }
-.sbt-theme .shaka-statistics-container {
+.default-theme .shaka-statistics-container {
 }
-.sbt-theme .shaka-controls-container[shown='true'] .shaka-statistics-container,
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-statistics-container {
+.default-theme .shaka-controls-container[shown='true'] .shaka-statistics-container,
+.default-theme .shaka-controls-container[casting='true'] .shaka-statistics-container {
 }
-.sbt-theme .shaka-statistics-container div {
+.default-theme .shaka-statistics-container div {
 }
-.sbt-theme .shaka-statistics-container span {
+.default-theme .shaka-statistics-container span {
 }
-.sbt-theme .shaka-context-menu {
+.default-theme .shaka-context-menu {
 }
-.sbt-theme .shaka-context-menu button {
+.default-theme .shaka-context-menu button {
 }
-.sbt-theme .shaka-context-menu button:hover {
+.default-theme .shaka-context-menu button:hover {
 }
-.sbt-theme .shaka-context-menu label {
+.default-theme .shaka-context-menu label {
 }
-.sbt-theme .shaka-context-menu .shaka-current-selection-span {
+.default-theme .shaka-context-menu .shaka-current-selection-span {
 }
-.sbt-theme .shaka-scrim-container {
+.default-theme .shaka-scrim-container {
 }
-.sbt-theme .shaka-controls-container[shown='true'] .shaka-scrim-container,
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-scrim-container {
+.default-theme .shaka-controls-container[shown='true'] .shaka-scrim-container,
+.default-theme .shaka-controls-container[casting='true'] .shaka-scrim-container {
 }
-.sbt-theme .shaka-text-container {
+.default-theme .shaka-text-container {
 }
-.sbt-theme .shaka-text-container span.shaka-text-wrapper {
+.default-theme .shaka-text-container span.shaka-text-wrapper {
 }
-.sbt-theme .shaka-controls-container[shown='true'] ~ .shaka-text-container {
+.default-theme .shaka-controls-container[shown='true'] ~ .shaka-text-container {
 }
-.sbt-theme .shaka-spinner-container {
+.default-theme .shaka-spinner-container {
 }
-.sbt-theme .shaka-video-container:not([shaka-controls='true']) .shaka-spinner-container {
+.default-theme .shaka-video-container:not([shaka-controls='true']) .shaka-spinner-container {
 }
-.sbt-theme .shaka-spinner {
+.default-theme .shaka-spinner {
 }
-.sbt-theme .shaka-play-button {
+.default-theme .shaka-play-button {
 }
-.sbt-theme .shaka-controls-container[shown='true'] .shaka-play-button,
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-play-button {
+.default-theme .shaka-controls-container[shown='true'] .shaka-play-button,
+.default-theme .shaka-controls-container[casting='true'] .shaka-play-button {
 }
-.sbt-theme .shaka-play-button[icon='play'] {
+.default-theme .shaka-play-button[icon='play'] {
 }
-.sbt-theme .shaka-play-button[icon='pause'] {
+.default-theme .shaka-play-button[icon='pause'] {
 }
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Reproduzir'],
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Play'] {
+.default-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Reproduzir'],
+.default-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Play'] {
 }
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pausar'],
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pause'] {
+.default-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pausar'],
+.default-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pause'] {
 }
 @media screen and (max-width: 768px) {
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pausar'],
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pause'] {
+  .default-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pausar'],
+  .default-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Pause'] {
   }
 
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Reproduzir'],
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Play'] {
+  .default-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Reproduzir'],
+  .default-theme .material-icons-round.shaka-tooltip.shaka-small-play-button[aria-label='Play'] {
   }
 }
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Desativar som'],
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Mute'] {
+.default-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Desativar som'],
+.default-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Mute'] {
 }
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Ativar som'],
-.sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Unmute'] {
+.default-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Ativar som'],
+.default-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Unmute'] {
 }
 @media screen and (max-width: 660px) {
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Desativar som'],
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Mute'],
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Ativar som'],
-  .sbt-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Unmute'] {
+  .default-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Desativar som'],
+  .default-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Mute'],
+  .default-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Ativar som'],
+  .default-theme .material-icons-round.shaka-tooltip.shaka-mute-button[aria-label='Unmute'] {
   }
 }
-.sbt-theme i.material-icons-round {
+.default-theme i.material-icons-round {
 }
-.sbt-theme .shaka-tooltip.shaka-pip-button[aria-label='Entrar no modo picture-in-picture'],
-.sbt-theme .shaka-tooltip.shaka-pip-button[aria-label='Enter Picture-in-Picture'] {
+.default-theme .shaka-tooltip.shaka-pip-button[aria-label='Entrar no modo picture-in-picture'],
+.default-theme .shaka-tooltip.shaka-pip-button[aria-label='Enter Picture-in-Picture'] {
 }
-.sbt-theme .shaka-tooltip.shaka-pip-button[aria-label='Sair de picture-in-picture'],
-.sbt-theme .shaka-tooltip.shaka-pip-button[aria-label='Exit Picture-in-Picture'] {
+.default-theme .shaka-tooltip.shaka-pip-button[aria-label='Sair de picture-in-picture'],
+.default-theme .shaka-tooltip.shaka-pip-button[aria-label='Exit Picture-in-Picture'] {
 }
-.sbt-theme .shaka-current-time {
+.default-theme .shaka-current-time {
 }
-.sbt-theme .shaka-current-time[disabled] {
+.default-theme .shaka-current-time[disabled] {
 }
 @media screen and (max-width: 660px) {
-  .sbt-theme .shaka-current-time[disabled] {
+  .default-theme .shaka-current-time[disabled] {
   }
 }
-.sbt-theme .shaka-controls-container {
+.default-theme .shaka-controls-container {
 }
-.sbt-theme .shaka-controls-container button:focus,
-.sbt-theme .shaka-controls-container input:focus {
+.default-theme .shaka-controls-container button:focus,
+.default-theme .shaka-controls-container input:focus {
 }
-.sbt-theme .shaka-controls-container button:-moz-focus-inner,
-.sbt-theme .shaka-controls-container input:-moz-focus-outer {
+.default-theme .shaka-controls-container button:-moz-focus-inner,
+.default-theme .shaka-controls-container input:-moz-focus-outer {
 }
-.sbt-theme .shaka-controls-container:not(.shaka-keyboard-navigation) button:focus,
-.sbt-theme .shaka-controls-container:not(.shaka-keyboard-navigation) input:focus {
+.default-theme .shaka-controls-container:not(.shaka-keyboard-navigation) button:focus,
+.default-theme .shaka-controls-container:not(.shaka-keyboard-navigation) input:focus {
 }
-.sbt-theme .shaka-range-container {
+.default-theme .shaka-range-container {
 }
-.sbt-theme .shaka-range-container::after {
+.default-theme .shaka-range-container::after {
 }
 @media screen and (max-width: 420px) {
-  .sbt-theme .shaka-range-container {
+  .default-theme .shaka-range-container {
   }
 }
-.sbt-theme .shaka-volume-bar-container {
+.default-theme .shaka-volume-bar-container {
 }
 @media screen and (max-width: 420px) {
-  .sbt-theme .shaka-volume-bar-container {
+  .default-theme .shaka-volume-bar-container {
   }
 }
-.sbt-theme .shaka-range-element {
+.default-theme .shaka-range-element {
 }
-.sbt-theme .shaka-range-element::-moz-range-track {
+.default-theme .shaka-range-element::-moz-range-track {
 }
-.sbt-theme .shaka-range-element::-moz-range-thumb {
+.default-theme .shaka-range-element::-moz-range-thumb {
 }
-.sbt-theme .shaka-range-element::-webkit-slider-runnable-track {
+.default-theme .shaka-range-element::-webkit-slider-runnable-track {
 }
-.sbt-theme .shaka-range-element::-webkit-slider-thumb {
+.default-theme .shaka-range-element::-webkit-slider-thumb {
 }
-.sbt-theme .shaka-range-element[aria-label='Volume']::-webkit-slider-thumb {
+.default-theme .shaka-range-element[aria-label='Volume']::-webkit-slider-thumb {
 }
-.sbt-theme .shaka-range-element[aria-label='Volume']::-moz-range-thumb {
+.default-theme .shaka-range-element[aria-label='Volume']::-moz-range-thumb {
 }
-.sbt-theme .shaka-seek-bar-container {
+.default-theme .shaka-seek-bar-container {
 }
-.sbt-theme .shaka-seek-bar-container::after {
+.default-theme .shaka-seek-bar-container::after {
 }
 @media screen and (max-width: 660px) {
-  .sbt-theme .shaka-seek-bar-container {
+  .default-theme .shaka-seek-bar-container {
   }
 }
-.sbt-theme .shaka-controls-container[shown='true'] .shaka-seek-bar-container,
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-seek-bar-container {
+.default-theme .shaka-controls-container[shown='true'] .shaka-seek-bar-container,
+.default-theme .shaka-controls-container[casting='true'] .shaka-seek-bar-container {
 }
-.sbt-theme .shaka-ad-markers {
+.default-theme .shaka-ad-markers {
 }
-.sbt-theme .shaka-video-container * {
+.default-theme .shaka-video-container * {
 }
-.sbt-theme .shaka-video-container .material-icons-round {
+.default-theme .shaka-video-container .material-icons-round {
 }
-.sbt-theme .shaka-overflow-menu,
-.sbt-theme .shaka-settings-menu {
+.default-theme .shaka-overflow-menu,
+.default-theme .shaka-settings-menu {
 }
-.sbt-theme .shaka-controls-container[shown='true'] .shaka-overflow-menu,
-.sbt-theme .shaka-controls-container[shown='true'] .shaka-settings-menu,
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-overflow-menu,
-.sbt-theme .shaka-controls-container[casting='true'] .shaka-settings-menu {
+.default-theme .shaka-controls-container[shown='true'] .shaka-overflow-menu,
+.default-theme .shaka-controls-container[shown='true'] .shaka-settings-menu,
+.default-theme .shaka-controls-container[casting='true'] .shaka-overflow-menu,
+.default-theme .shaka-controls-container[casting='true'] .shaka-settings-menu {
 }
-.sbt-theme .shaka-overflow-menu button,
-.sbt-theme .shaka-settings-menu button {
+.default-theme .shaka-overflow-menu button,
+.default-theme .shaka-settings-menu button {
 }
-.sbt-theme .shaka-overflow-menu button span,
-.sbt-theme .shaka-settings-menu button span {
+.default-theme .shaka-overflow-menu button span,
+.default-theme .shaka-settings-menu button span {
 }
-.sbt-theme .shaka-overflow-menu button:hover,
-.sbt-theme .shaka-settings-menu button:hover {
+.default-theme .shaka-overflow-menu button:hover,
+.default-theme .shaka-settings-menu button:hover {
 }
-.sbt-theme .shaka-overflow-menu button:hover i,
-.sbt-theme .shaka-settings-menu button:hover i {
+.default-theme .shaka-overflow-menu button:hover i,
+.default-theme .shaka-settings-menu button:hover i {
 }
-.sbt-theme .shaka-overflow-menu button label,
-.sbt-theme .shaka-settings-menu button label {
+.default-theme .shaka-overflow-menu button label,
+.default-theme .shaka-settings-menu button label {
 }
-.sbt-theme .shaka-keyboard-navigation .shaka-overflow-menu button:focus,
-.sbt-theme .shaka-keyboard-navigation .shaka-settings-menu button:focus {
+.default-theme .shaka-keyboard-navigation .shaka-overflow-menu button:focus,
+.default-theme .shaka-keyboard-navigation .shaka-settings-menu button:focus {
 }
-.sbt-theme .shaka-overflow-menu button:focus,
-.sbt-theme .shaka-settings-menu button:focus {
+.default-theme .shaka-overflow-menu button:focus,
+.default-theme .shaka-settings-menu button:focus {
 }
-.sbt-theme .shaka-overflow-menu i,
-.sbt-theme .shaka-settings-menu i {
+.default-theme .shaka-overflow-menu i,
+.default-theme .shaka-settings-menu i {
 }
-.sbt-theme .shaka-overflow-menu.shaka-low-position,
-.sbt-theme .shaka-settings-menu.shaka-low-position {
+.default-theme .shaka-overflow-menu.shaka-low-position,
+.default-theme .shaka-settings-menu.shaka-low-position {
 }
-.sbt-theme .shaka-overflow-menu span {
+.default-theme .shaka-overflow-menu span {
 }
-.sbt-theme .shaka-overflow-button-label {
+.default-theme .shaka-overflow-button-label {
 }
-.sbt-theme i.material-icons-round {
+.default-theme i.material-icons-round {
 }
-.sbt-theme .shaka-tooltip-status.shaka-overflow-button.shaka-resolution-button[aria-label='Resolução'],
-.sbt-theme .shaka-tooltip-status.shaka-overflow-button.shaka-resolution-button[aria-label='Resolution'] {
+.default-theme .shaka-tooltip-status.shaka-overflow-button.shaka-resolution-button[aria-label='Resolução'],
+.default-theme .shaka-tooltip-status.shaka-overflow-button.shaka-resolution-button[aria-label='Resolution'] {
 }
-.sbt-theme .shaka-settings-menu button[aria-selected='true'] {
+.default-theme .shaka-settings-menu button[aria-selected='true'] {
 }
-.sbt-theme .shaka-settings-menu button[aria-selected='true'] span {
+.default-theme .shaka-settings-menu button[aria-selected='true'] span {
 }
-.sbt-theme .shaka-settings-menu button[aria-selected='true'] i {
+.default-theme .shaka-settings-menu button[aria-selected='true'] i {
 }
-.sbt-theme .shaka-current-selection-span {
+.default-theme .shaka-current-selection-span {
 }
-.sbt-theme .shaka-settings-menu span {
+.default-theme .shaka-settings-menu span {
 }
-.sbt-theme .shaka-back-to-overflow-button {
+.default-theme .shaka-back-to-overflow-button {
 }
-.sbt-theme .shaka-back-to-overflow-button span {
+.default-theme .shaka-back-to-overflow-button span {
 }
-.sbt-theme .shaka-back-to-overflow-button i {
+.default-theme .shaka-back-to-overflow-button i {
 }
-.sbt-theme .shaka-overflow-menu button i {
+.default-theme .shaka-overflow-menu button i {
 }
-.sbt-theme .shaka-overflow-menu button .shaka-overflow-button-label {
+.default-theme .shaka-overflow-menu button .shaka-overflow-button-label {
 }
-.sbt-theme .shaka-overflow-menu button .shaka-overflow-button-label span {
+.default-theme .shaka-overflow-menu button .shaka-overflow-button-label span {
 }
-.sbt-theme .shaka-overflow-menu span + span {
+.default-theme .shaka-overflow-menu span + span {
 }
-.sbt-theme .shaka-overflow-menu span + span:after {
+.default-theme .shaka-overflow-menu span + span:after {
 }
-.sbt-theme .shaka-back-to-overflow-button .material-icons-round {
+.default-theme .shaka-back-to-overflow-button .material-icons-round {
 }
-.sbt-theme .shaka-overflow-menu-button {
+.default-theme .shaka-overflow-menu-button {
 }
-.sbt-theme .shaka-auto-span {
+.default-theme .shaka-auto-span {
 }
-.sbt-theme .shaka-spacer {
+.default-theme .shaka-spacer {
 }
-.sbt-theme .shaka-controls-container[ad-active='true'] {
+.default-theme .shaka-controls-container[ad-active='true'] {
 }
-.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-bottom-controls {
+.default-theme .shaka-controls-container[ad-active='true'] .shaka-bottom-controls {
 }
-.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-range-container.shaka-volume-bar-container,
-.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-current-time,
-.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-pip-button,
-.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-overflow-button.shaka-resolution-button,
-.sbt-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-fullscreen-button {
+.default-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-range-container.shaka-volume-bar-container,
+.default-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-current-time,
+.default-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-pip-button,
+.default-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-overflow-button.shaka-resolution-button,
+.default-theme .shaka-controls-container[ad-active='true'] .shaka-controls-button-panel.shaka-show-controls-on-mouse-over .shaka-fullscreen-button {
 }
-.sbt-theme .shaka-client-side-ad-container,
-.sbt-theme .shaka-server-side-ad-container {
+.default-theme .shaka-client-side-ad-container,
+.default-theme .shaka-server-side-ad-container {
 }
-.sbt-theme .shaka-client-side-ad-container[ad-active='true'] div {
+.default-theme .shaka-client-side-ad-container[ad-active='true'] div {
 }
-.sbt-theme .shaka-client-side-ad-container[ad-active='true'] div div video {
+.default-theme .shaka-client-side-ad-container[ad-active='true'] div div video {
 }
-.sbt-theme .shaka-video-container[shaka-controls='true'] .shaka-client-side-ad-container iframe,
-.sbt-theme .shaka-video-container[shaka-controls='true'] .shaka-server-side-ad-container iframe {
+.default-theme .shaka-video-container[shaka-controls='true'] .shaka-client-side-ad-container iframe,
+.default-theme .shaka-video-container[shaka-controls='true'] .shaka-server-side-ad-container iframe {
 }
-.sbt-theme .shaka-server-side-ad-container {
+.default-theme .shaka-server-side-ad-container {
 }
-.sbt-theme .shaka-server-side-ad-container:not([ad-active='true']) {
+.default-theme .shaka-server-side-ad-container:not([ad-active='true']) {
 }
-.sbt-theme .shaka-ad-controls {
+.default-theme .shaka-ad-controls {
 }
-.sbt-theme .shaka-video-container:not([shaka-controls='true']) .shaka-ad-controls {
+.default-theme .shaka-video-container:not([shaka-controls='true']) .shaka-ad-controls {
 }
-.sbt-theme .shaka-ad-controls button,
-.sbt-theme .shaka-ad-controls div {
+.default-theme .shaka-ad-controls button,
+.default-theme .shaka-ad-controls div {
 }
-.sbt-theme .shaka-ad-controls div:not(.shaka-skip-ad-counter) {
+.default-theme .shaka-ad-controls div:not(.shaka-skip-ad-counter) {
 }
-.sbt-theme .shaka-ad-counter,
-.sbt-theme .shaka-ad-position {
+.default-theme .shaka-ad-counter,
+.default-theme .shaka-ad-position {
 }
-.sbt-theme .shaka-ad-controls .shaka-ad-position:not(.shaka-hidden) + .shaka-ad-counter {
+.default-theme .shaka-ad-controls .shaka-ad-position:not(.shaka-hidden) + .shaka-ad-counter {
 }
-.sbt-theme .shaka-client-side-ad-container[ad-active='true'] div div video {
+.default-theme .shaka-client-side-ad-container[ad-active='true'] div div video {
 }
-.sbt-theme .shaka-client-side-ad-container[ad-active='true'] div iframe {
+.default-theme .shaka-client-side-ad-container[ad-active='true'] div iframe {
 }
-.sbt-theme .shaka-skip-ad-container {
+.default-theme .shaka-skip-ad-container {
 }
-.sbt-theme .shaka-skip-ad-button {
+.default-theme .shaka-skip-ad-button {
 }
-.sbt-theme .shaka-skip-ad-button:disabled {
+.default-theme .shaka-skip-ad-button:disabled {
 }
-.sbt-theme .shaka-skip-ad-counter {
+.default-theme .shaka-skip-ad-counter {
 }
-.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-range-container.shaka-volume-bar-container,
-.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button,
-.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-fullscreen-button,
-.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-pip-button {
+.default-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-range-container.shaka-volume-bar-container,
+.default-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button,
+.default-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-fullscreen-button,
+.default-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-pip-button {
 }
-.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button {
+.default-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button {
 }
-.sbt-theme .shaka-spinner-svg {
+.default-theme .shaka-spinner-svg {
 }
-.sbt-theme .shaka-spinner-path {
+.default-theme .shaka-spinner-path {
 }
 @keyframes rotate {
   100% {
@@ -409,94 +409,94 @@
   100% {
   }
 }
-.sbt-theme .shaka-tooltips-on {
+.default-theme .shaka-tooltips-on {
 }
-.sbt-theme .shaka-tooltips-on > [class*='shaka-tooltip'] {
+.default-theme .shaka-tooltips-on > [class*='shaka-tooltip'] {
 }
-.sbt-theme .shaka-tooltips-on > [class*='shaka-tooltip']:hover:after,
-.sbt-theme .shaka-tooltips-on > [class*='shaka-tooltip']:focus-visible:after,
-.sbt-theme .shaka-tooltips-on > [class*='shaka-tooltip']:active:after {
+.default-theme .shaka-tooltips-on > [class*='shaka-tooltip']:hover:after,
+.default-theme .shaka-tooltips-on > [class*='shaka-tooltip']:focus-visible:after,
+.default-theme .shaka-tooltips-on > [class*='shaka-tooltip']:active:after {
 }
-.sbt-theme .shaka-tooltips-on > .shaka-tooltip-status:hover:after,
-.sbt-theme .shaka-tooltips-on > .shaka-tooltip-status:focus-visible:after,
-.sbt-theme .shaka-tooltips-on > .shaka-tooltip-status:active:after {
+.default-theme .shaka-tooltips-on > .shaka-tooltip-status:hover:after,
+.default-theme .shaka-tooltips-on > .shaka-tooltip-status:focus-visible:after,
+.default-theme .shaka-tooltips-on > .shaka-tooltip-status:active:after {
 }
-.sbt-theme .shaka-tooltips-on button:first-child:hover:after,
-.sbt-theme .shaka-tooltips-on button:first-child:focus-visible:after,
-.sbt-theme .shaka-tooltips-on button:first-child:active:after {
+.default-theme .shaka-tooltips-on button:first-child:hover:after,
+.default-theme .shaka-tooltips-on button:first-child:focus-visible:after,
+.default-theme .shaka-tooltips-on button:first-child:active:after {
 }
-.sbt-theme .shaka-tooltips-on button:last-child:hover:after,
-.sbt-theme .shaka-tooltips-on button:last-child:focus-visible:after,
-.sbt-theme .shaka-tooltips-on button:last-child:active:after {
-}
-
-.sbt-theme .rewind-container,
-.sbt-theme .foward-container {
+.default-theme .shaka-tooltips-on button:last-child:hover:after,
+.default-theme .shaka-tooltips-on button:last-child:focus-visible:after,
+.default-theme .shaka-tooltips-on button:last-child:active:after {
 }
 
-.sbt-theme:has(.shaka-controls-container[shown='true']) .foward-container,
-.sbt-theme:has(.shaka-controls-container[shown='true']) .rewind-container {
+.default-theme .rewind-container,
+.default-theme .foward-container {
 }
 
-.sbt-theme .foward-container button {
+.default-theme:has(.shaka-controls-container[shown='true']) .foward-container,
+.default-theme:has(.shaka-controls-container[shown='true']) .rewind-container {
 }
 
-.sbt-theme .rewind-container p,
-.sbt-theme .foward-container p {
+.default-theme .foward-container button {
 }
 
-.sbt-theme .rewind-container button {
+.default-theme .rewind-container p,
+.default-theme .foward-container p {
+}
+
+.default-theme .rewind-container button {
 }
 
 @media screen and (max-width: 660px) {
-  .sbt-theme .foward-container button {
+  .default-theme .foward-container button {
   }
 
-  .sbt-theme .rewind-container button {
+  .default-theme .rewind-container button {
   }
 }
 
-.sbt-theme-unmute-container {
+.default-theme-unmute-container {
 }
-.sbt-theme-unmute-container button {
+.default-theme-unmute-container button {
 }
-.sbt-theme-unmute-container button:hover,
-.sbt-theme-unmute-container button:active {
+.default-theme-unmute-container button:hover,
+.default-theme-unmute-container button:active {
 }
-.sbt-theme-unmute-container p {
+.default-theme-unmute-container p {
 }
 @media screen and (max-width: 1200px) {
-  .sbt-theme-unmute-container button {
+  .default-theme-unmute-container button {
   }
 }
 @media screen and (max-width: 768px) {
-  .sbt-theme-unmute-container {
+  .default-theme-unmute-container {
   }
 }
 
-.sbt-theme:has(.shaka-mute-button[aria-label='Desativar som']) .sbt-theme-unmute-container,
-.sbt-theme:has(.shaka-mute-button[aria-label='Mute']) .sbt-theme-unmute-container {
+.default-theme:has(.shaka-mute-button[aria-label='Desativar som']) .default-theme-unmute-container,
+.default-theme:has(.shaka-mute-button[aria-label='Mute']) .default-theme-unmute-container {
 }
 
-.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .sbt-theme-unmute-container {
+.default-theme:has(.shaka-client-side-ad-container[ad-active='true']) .default-theme-unmute-container {
 }
 
-.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Ativar som'],
-.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Unmute'] {
+.default-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Ativar som'],
+.default-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Unmute'] {
 }
 
-.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Ativar som']::after,
-.sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Unmute']::after {
+.default-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Ativar som']::after,
+.default-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Unmute']::after {
 }
 
 @media screen and (max-width: 1200px) {
-  .sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Ativar som'],
-  .sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Unmute'] {
+  .default-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Ativar som'],
+  .default-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Unmute'] {
   }
 }
 
 @media screen and (max-width: 768px) {
-  .sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Ativar som'],
-  .sbt-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Unmute'] {
+  .default-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Ativar som'],
+  .default-theme:has(.shaka-client-side-ad-container[ad-active='true']) .shaka-mute-button[aria-label='Unmute'] {
   }
 }

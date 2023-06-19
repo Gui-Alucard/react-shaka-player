@@ -2,7 +2,7 @@ import * as Enzyme from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16';
-import { ReactPlayer as Player } from '../src/components/player';
+import { ReactShakaPlayer as Player } from '../src/components/player';
 
 afterEach(() => {
   Enzyme.configure({ adapter: new Adapter() });
@@ -45,7 +45,7 @@ describe("Player", () => {
   });
 
   it("Should render className container correctly", () => {
-    const props = { className: "sbt-theme" };
+    const props = { className: "default-theme" };
     const tree = Enzyme.shallow(<Player {...props} />);
     expect(tree).toMatchSnapshot();
   });
@@ -58,7 +58,7 @@ describe("Player", () => {
 
   it("Should render container className and playerClassName container correctly", () => {
     const props = {
-      className: "sbt-theme",
+      className: "default-theme",
       playerClassName: "player-class-name",
     };
     const tree = Enzyme.shallow(<Player {...props} />);

@@ -1,4 +1,4 @@
-name: Publish @sbt-lab/sbt-videos-web-player to NPM
+name: Publish react-shaka-player to NPM
 
 on:
   push:
@@ -40,9 +40,9 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-          scope: '@sbt-lab'
+
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.MARTE_GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.REACT_SHAKA_TOKEN }}
